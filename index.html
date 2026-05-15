@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="description" content="タイ語検定5級 過去問頻出ベース学習アプリ" />
+  <title>タイ語5級 学習アプリ</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ========== HEADER ========== -->
+  <header id="app-header" role="banner">
+    <div class="header-inner">
+      <div class="header-brand">
+        <span class="header-flag" aria-hidden="true">🇹🇭</span>
+        <div>
+          <h1 class="header-title">タイ語検定 5級</h1>
+          <p class="header-sub">過去問頻出ベース 学習アプリ</p>
+        </div>
+      </div>
+      <div class="header-stats" aria-label="本日の学習状況">
+        <div class="stat-chip">
+          <span class="stat-value" id="header-streak">0</span>
+          <span class="stat-label">連続日</span>
+        </div>
+        <div class="stat-chip">
+          <span class="stat-value" id="header-today">0</span>
+          <span class="stat-label">今日</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========== TAB NAVIGATION ========== -->
+  <nav id="tab-nav" role="tablist" aria-label="メインナビゲーション">
+    <button
+      class="tab-btn active"
+      role="tab"
+      aria-selected="true"
+      aria-controls="section-dashboard"
+      data-tab="dashboard"
+      id="tab-dashboard"
+    >
+      <span class="tab-icon" aria-hidden="true">🏠</span>
+      <span class="tab-label">ホーム</span>
+    </button>
+    <button
+      class="tab-btn"
+      role="tab"
+      aria-selected="false"
+      aria-controls="section-flashcard"
+      data-tab="flashcard"
+      id="tab-flashcard"
+    >
+      <span class="tab-icon" aria-hidden="true">📇</span>
+      <span class="tab-label">単語</span>
+    </button>
+    <button
+      class="tab-btn"
+      role="tab"
+      aria-selected="false"
+      aria-controls="section-quiz"
+      data-tab="quiz"
+      id="tab-quiz"
+    >
+      <span class="tab-icon" aria-hidden="true">✏️</span>
+      <span class="tab-label">問題</span>
+    </button>
+    <button
+      class="tab-btn"
+      role="tab"
+      aria-selected="false"
+      aria-controls="section-grammar"
+      data-tab="grammar"
+      id="tab-grammar"
+    >
+      <span class="tab-icon" aria-hidden="true">📖</span>
+      <span class="tab-label">文法</span>
+    </button>
+    <button
+      class="tab-btn"
+      role="tab"
+      aria-selected="false"
+      aria-controls="section-review"
+      data-tab="review"
+      id="tab-review"
+    >
+      <span class="tab-icon" aria-hidden="true">🔖</span>
+      <span class="tab-label">復習</span>
+    </button>
+  </nav>
+
+  <!-- ========== MAIN CONTENT ========== -->
+  <main id="app-main" role="main">
+
+    <!-- ── DASHBOARD ── -->
+    <section
+      id="section-dashboard"
+      class="tab-section active"
+      role="tabpanel"
+      aria-labelledby="tab-dashboard"
+    >
+      <!-- 進捗サマリー -->
+      <div class="section-block" aria-label="学習進捗">
+        <h2 class="section-title">学習進捗</h2>
+        <div class="progress-grid">
+          <div class="progress-card" id="prog-vocab">
+            <div class="progress-card-label">単語</div>
+            <div class="progress-ring-wrap">
+              <svg class="progress-ring" viewBox="0 0 56 56" aria-hidden="true">
+                <circle class="ring-bg" cx="28" cy="28" r="22" />
+                <circle class="ring-fill" cx="28" cy="28" r="22" id="ring-vocab" />
+              </svg>
+              <span class="progress-pct" id="pct-vocab">0%</span>
+            </div>
+            <div class="progress-card-sub" id="sub-vocab">0 / 0 語</div>
+          </div>
+          <div class="progress-card" id="prog-quiz">
+            <div class="progress-card-label">問題</div>
+            <div class="progress-ring-wrap">
+              <svg class="progress-ring" viewBox="0 0 56 56" aria-hidden="true">
+                <circle class="ring-bg" cx="28" cy="28" r="22" />
+                <circle class="ring-fill" cx="28" cy="28" r="22" id="ring-quiz" />
+              </svg>
+              <span class="progress-pct" id="pct-quiz">0%</span>
+            </div>
+            <div class="progress-card-sub" id="sub-quiz">0 / 0 問</div>
+          </div>
+          <div class="progress-card" id="prog-grammar">
+            <div class="progress-card-label">文法</div>
+            <div class="progress-ring-wrap">
+              <svg class="progress-ring" viewBox="0 0 56 56" aria-hidden="true">
+                <circle class="ring-bg" cx="28" cy="28" r="22" />
+                <circle class="ring-fill" cx="28" cy="28" r="22" id="ring-grammar" />
+              </svg>
+              <span class="progress-pct" id="pct-grammar">0%</span>
+            </div>
+            <div class="progress-card-sub" id="sub-grammar">0 / 0 項目</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 今日のおすすめ -->
+      <div class="section-block" aria-label="今日のおすすめ学習">
+        <h2 class="section-title">今日のおすすめ</h2>
+        <ul class="recommend-list" id="recommend-list">
+          <li class="recommend-item skeleton" aria-hidden="true">
+            <span class="rec-icon">📇</span>
+            <div class="rec-body">
+              <div class="rec-title">単語フラッシュカード</div>
+              <div class="rec-desc">頻出TOP20から開始</div>
+            </div>
+            <span class="rec-arrow">›</span>
+          </li>
+          <li class="recommend-item skeleton" aria-hidden="true">
+            <span class="rec-icon">✏️</span>
+            <div class="rec-body">
+              <div class="rec-title">4択問題 – 助動詞</div>
+              <div class="rec-desc">12問・推定5分</div>
+            </div>
+            <span class="rec-arrow">›</span>
+          </li>
+          <li class="recommend-item skeleton" aria-hidden="true">
+            <span class="rec-icon">🔖</span>
+            <div class="rec-body">
+              <div class="rec-title">苦手復習</div>
+              <div class="rec-desc">前置詞 3問あり</div>
+            </div>
+            <span class="rec-arrow">›</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- 頻出テーマ -->
+      <div class="section-block" aria-label="頻出テーマ別出題数">
+        <h2 class="section-title">頻出テーマ</h2>
+        <ol class="theme-list" id="theme-list">
+          <li class="theme-row" data-theme="movement">
+            <span class="theme-rank">1</span>
+            <span class="theme-name">移動・行動</span>
+            <div class="theme-bar-wrap" role="progressbar" aria-valuenow="38" aria-valuemax="38" aria-label="38問">
+              <div class="theme-bar" style="width:100%" data-count="38"></div>
+            </div>
+            <span class="theme-count">38問</span>
+          </li>
+          <li class="theme-row" data-theme="time">
+            <span class="theme-rank">2</span>
+            <span class="theme-name">時間表現</span>
+            <div class="theme-bar-wrap" role="progressbar" aria-valuenow="32" aria-valuemax="38" aria-label="32問">
+              <div class="theme-bar" style="width:84%" data-count="32"></div>
+            </div>
+            <span class="theme-count">32問</span>
+          </li>
+          <li class="theme-row" data-theme="action">
+            <span class="theme-rank">3</span>
+            <span class="theme-name">日常動作</span>
+            <div class="theme-bar-wrap" role="progressbar" aria-valuenow="28" aria-valuemax="38" aria-label="28問">
+              <div class="theme-bar" style="width:74%" data-count="28"></div>
+            </div>
+            <span class="theme-count">28問</span>
+          </li>
+          <li class="theme-row" data-theme="place">
+            <span class="theme-rank">4</span>
+            <span class="theme-name">場所・位置</span>
+            <div class="theme-bar-wrap" role="progressbar" aria-valuenow="26" aria-valuemax="38" aria-label="26問">
+              <div class="theme-bar" style="width:68%" data-count="26"></div>
+            </div>
+            <span class="theme-count">26問</span>
+          </li>
+          <li class="theme-row" data-theme="emotion">
+            <span class="theme-rank">5</span>
+            <span class="theme-name">感情・状態</span>
+            <div class="theme-bar-wrap" role="progressbar" aria-valuenow="22" aria-valuemax="38" aria-label="22問">
+              <div class="theme-bar" style="width:58%" data-count="22"></div>
+            </div>
+            <span class="theme-count">22問</span>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ── FLASHCARD (単語一問一答) ── -->
+    <section
+      id="section-flashcard"
+      class="tab-section"
+      role="tabpanel"
+      aria-labelledby="tab-flashcard"
+      hidden
+    >
+      <!-- フィルター -->
+      <div class="section-block filter-block" aria-label="絞り込み">
+        <div class="filter-row">
+          <label class="filter-label" for="fc-filter-pos">品詞</label>
+          <select id="fc-filter-pos" class="filter-select">
+            <option value="all">すべて</option>
+            <option value="verb">動詞</option>
+            <option value="aux">助動詞</option>
+            <option value="prep">前置詞</option>
+            <option value="conj">接続詞</option>
+            <option value="adj">形容詞</option>
+            <option value="q">疑問詞</option>
+            <option value="cl">類別詞</option>
+          </select>
+          <label class="filter-label" for="fc-filter-rank">重要度</label>
+          <select id="fc-filter-rank" class="filter-select">
+            <option value="all">すべて</option>
+            <option value="3">★★★</option>
+            <option value="2">★★以上</option>
+          </select>
+        </div>
+        <div class="filter-row">
+          <span class="filter-info" id="fc-count-info">0 語</span>
+          <button class="btn-text" id="fc-shuffle-btn" type="button">シャッフル</button>
+        </div>
+      </div>
+
+      <!-- カード本体 -->
+      <div class="card-stage" aria-live="polite" aria-atomic="true">
+        <div class="flashcard" id="flashcard" role="button" tabindex="0" aria-pressed="false" aria-label="カードをタップして答えを表示">
+          <div class="flashcard-inner" id="flashcard-inner">
+            <!-- 表面 -->
+            <div class="flashcard-face flashcard-front">
+              <div class="fc-pos-badge" id="fc-pos-badge">動詞</div>
+              <div class="fc-thai" id="fc-thai" lang="th">–</div>
+              <div class="fc-reading" id="fc-reading">–</div>
+              <div class="fc-hint">タップして意味を確認</div>
+            </div>
+            <!-- 裏面 -->
+            <div class="flashcard-face flashcard-back">
+              <div class="fc-meaning" id="fc-meaning">–</div>
+              <div class="fc-example" id="fc-example"></div>
+              <div class="fc-freq" id="fc-freq"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ナビゲーション -->
+        <div class="card-nav">
+          <button class="card-nav-btn" id="fc-prev-btn" type="button" aria-label="前のカード">‹</button>
+          <span class="card-progress" id="fc-progress">1 / 1</span>
+          <button class="card-nav-btn" id="fc-next-btn" type="button" aria-label="次のカード">›</button>
+        </div>
+
+        <!-- 習得ボタン -->
+        <div class="fc-action-row">
+          <button class="fc-action-btn fc-action-again" id="fc-again-btn" type="button">
+            もう一度
+          </button>
+          <button class="fc-action-btn fc-action-ok" id="fc-ok-btn" type="button">
+            覚えた ✓
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── QUIZ (4択問題) ── -->
+    <section
+      id="section-quiz"
+      class="tab-section"
+      role="tabpanel"
+      aria-labelledby="tab-quiz"
+      hidden
+    >
+      <!-- 設定 -->
+      <div class="section-block filter-block" aria-label="問題設定">
+        <div class="filter-row">
+          <label class="filter-label" for="quiz-filter-theme">テーマ</label>
+          <select id="quiz-filter-theme" class="filter-select">
+            <option value="all">すべて</option>
+            <option value="movement">移動・行動</option>
+            <option value="time">時間表現</option>
+            <option value="action">日常動作</option>
+            <option value="place">場所・位置</option>
+            <option value="emotion">感情・状態</option>
+            <option value="shopping">買い物</option>
+            <option value="food">食事</option>
+            <option value="grammar-aux">助動詞</option>
+            <option value="grammar-prep">前置詞</option>
+          </select>
+          <button class="btn-primary" id="quiz-start-btn" type="button">開始</button>
+        </div>
+        <div class="quiz-meta" id="quiz-meta" aria-live="polite">
+          問題 <span id="quiz-current">0</span> / <span id="quiz-total">0</span>
+          &nbsp;|&nbsp; 正解率 <span id="quiz-accuracy">–</span>
+        </div>
+      </div>
+
+      <!-- 問題エリア -->
+      <div class="quiz-stage" id="quiz-stage">
+        <!-- 問題文 -->
+        <div class="quiz-question-block" id="quiz-question-block">
+          <p class="quiz-question-jp" id="quiz-question-jp">問題文（日本語）がここに入ります</p>
+          <p class="quiz-question-thai" id="quiz-question-thai" lang="th">
+            タイ語の問題文 ( &nbsp;&nbsp;&nbsp;&nbsp; ) がここに
+          </p>
+        </div>
+
+        <!-- 選択肢 -->
+        <ol class="quiz-choices" id="quiz-choices" aria-label="選択肢" role="listbox">
+          <li>
+            <button class="choice-btn" data-index="0" role="option" type="button">
+              <span class="choice-num">1</span>
+              <span class="choice-text" id="choice-0">–</span>
+            </button>
+          </li>
+          <li>
+            <button class="choice-btn" data-index="1" role="option" type="button">
+              <span class="choice-num">2</span>
+              <span class="choice-text" id="choice-1">–</span>
+            </button>
+          </li>
+          <li>
+            <button class="choice-btn" data-index="2" role="option" type="button">
+              <span class="choice-num">3</span>
+              <span class="choice-text" id="choice-2">–</span>
+            </button>
+          </li>
+          <li>
+            <button class="choice-btn" data-index="3" role="option" type="button">
+              <span class="choice-num">4</span>
+              <span class="choice-text" id="choice-3">–</span>
+            </button>
+          </li>
+        </ol>
+
+        <!-- 解説エリア（回答後に表示） -->
+        <div class="quiz-explanation" id="quiz-explanation" hidden aria-live="polite">
+          <div class="explanation-result" id="explanation-result"></div>
+          <div class="explanation-text" id="explanation-text"></div>
+          <div class="explanation-sentence" id="explanation-sentence" lang="th"></div>
+          <button class="btn-primary" id="quiz-next-btn" type="button">次の問題 ›</button>
+        </div>
+
+        <!-- 結果画面 -->
+        <div class="quiz-result" id="quiz-result" hidden aria-live="polite">
+          <div class="result-emoji" id="result-emoji">🎉</div>
+          <div class="result-score" id="result-score">– / –</div>
+          <div class="result-msg" id="result-msg"></div>
+          <div class="result-breakdown" id="result-breakdown"></div>
+          <button class="btn-primary" id="quiz-retry-btn" type="button">もう一度</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── GRAMMAR (文法一覧) ── -->
+    <section
+      id="section-grammar"
+      class="tab-section"
+      role="tabpanel"
+      aria-labelledby="tab-grammar"
+      hidden
+    >
+      <!-- カテゴリタブ（内部タブ） -->
+      <div class="inner-tab-nav" role="tablist" aria-label="文法カテゴリ" id="grammar-cat-nav">
+        <button class="inner-tab-btn active" data-cat="all" role="tab" aria-selected="true" type="button">すべて</button>
+        <button class="inner-tab-btn" data-cat="question" role="tab" aria-selected="false" type="button">疑問文</button>
+        <button class="inner-tab-btn" data-cat="negative" role="tab" aria-selected="false" type="button">否定文</button>
+        <button class="inner-tab-btn" data-cat="aux" role="tab" aria-selected="false" type="button">助動詞</button>
+        <button class="inner-tab-btn" data-cat="compare" role="tab" aria-selected="false" type="button">比較</button>
+        <button class="inner-tab-btn" data-cat="prep" role="tab" aria-selected="false" type="button">前置詞</button>
+        <button class="inner-tab-btn" data-cat="time" role="tab" aria-selected="false" type="button">時間</button>
+        <button class="inner-tab-btn" data-cat="cl" role="tab" aria-selected="false" type="button">類別詞</button>
+      </div>
+
+      <!-- 文法カードリスト -->
+      <ul class="grammar-list" id="grammar-list" aria-label="文法パターン一覧">
+
+        <!-- カードはapp.jsで動的生成。以下は静的プレースホルダー -->
+        <li class="grammar-card" data-cat="aux" data-rank="3">
+          <div class="grammar-card-header">
+            <span class="grammar-badge badge-aux">助動詞</span>
+            <span class="grammar-rank">★★★</span>
+            <span class="grammar-freq">12回</span>
+          </div>
+          <div class="grammar-title">進行形</div>
+          <div class="grammar-formula">
+            <code>kamlaŋ + V + yùu</code>
+          </div>
+          <div class="grammar-desc">〜しているところ。yùu は省略可。</div>
+          <div class="grammar-example" lang="th">kamlaŋ kin khâaw yùu（食べています）</div>
+          <div class="grammar-warn">⚠ yàak（したい）と yàak pen（になりたい）の区別に注意</div>
+        </li>
+
+        <li class="grammar-card" data-cat="aux" data-rank="3">
+          <div class="grammar-card-header">
+            <span class="grammar-badge badge-aux">助動詞</span>
+            <span class="grammar-rank">★★★</span>
+            <span class="grammar-freq">10回</span>
+          </div>
+          <div class="grammar-title">未来・意志</div>
+          <div class="grammar-formula">
+            <code>cà + V</code>
+          </div>
+          <div class="grammar-desc">〜するつもり・〜するだろう。動詞の直前に置く。</div>
+          <div class="grammar-example" lang="th">phǒm cà pai thîiaw（遊びに行くつもりだ）</div>
+        </li>
+
+        <li class="grammar-card" data-cat="negative" data-rank="3">
+          <div class="grammar-card-header">
+            <span class="grammar-badge badge-neg">否定文</span>
+            <span class="grammar-rank">★★★</span>
+            <span class="grammar-freq">14回</span>
+          </div>
+          <div class="grammar-title">基本否定</div>
+          <div class="grammar-formula">
+            <code>mâi + V / Adj</code>
+          </div>
+          <div class="grammar-desc">〜しない・〜でない。動詞・形容詞の前に置く最基本の否定。</div>
+          <div class="grammar-example" lang="th">phǒm mâi wâaŋ（暇じゃない）</div>
+          <div class="grammar-warn">⚠ 名詞の否定は mâi châi を使う（mâi pen ではない）</div>
+        </li>
+
+        <li class="grammar-card" data-cat="prep" data-rank="3">
+          <div class="grammar-card-header">
+            <span class="grammar-badge badge-prep">前置詞</span>
+            <span class="grammar-rank">★★★</span>
+            <span class="grammar-freq">8回</span>
+          </div>
+          <div class="grammar-title">手段（乗り物 vs 道具）</div>
+          <div class="grammar-formula">
+            <code>dooy + 乗り物</code>&nbsp;<code>dûay + 道具</code>
+          </div>
+          <div class="grammar-desc">dooy は交通手段、dûay は道具・器具に使う。</div>
+          <div class="grammar-example" lang="th">klàp bâan dooy rótyon（車で帰る）</div>
+          <div class="grammar-warn">⚠ 最多混同ミス。乗り物 → dooy、道具 → dûay</div>
+        </li>
+
+        <li class="grammar-card" data-cat="compare" data-rank="3">
+          <div class="grammar-card-header">
+            <span class="grammar-badge badge-cmp">比較</span>
+            <span class="grammar-rank">★★★</span>
+            <span class="grammar-freq">5回</span>
+          </div>
+          <div class="grammar-title">〜より…だ</div>
+          <div class="grammar-formula">
+            <code>N₁ + Adj + kwàa + N₂</code>
+          </div>
+          <div class="grammar-desc">比較対象の前に kwàa を置く。日本語と語順が逆。</div>
+          <div class="grammar-example" lang="th">phîi sǎaw sǔuŋ kwàa dichán（姉は私より背が高い）</div>
+        </li>
+
+        <li class="grammar-card" data-cat="time" data-rank="3">
+          <div class="grammar-card-header">
+            <span class="grammar-badge badge-time">時間</span>
+            <span class="grammar-rank">★★★</span>
+            <span class="grammar-freq">9回</span>
+          </div>
+          <div class="grammar-title">〜から…まで（時間範囲）</div>
+          <div class="grammar-formula">
+            <code>tâŋ tɛ̀ɛ + 開始 + thʉ̌ŋ + 終了</code>
+          </div>
+          <div class="grammar-desc">時間的起点はtâŋ tɛ̀ɛ、場所的起点はcàak。同じ「から」でも使い分けが必要。</div>
+          <div class="grammar-example" lang="th">tâŋ tɛ̀ɛ pɛ̀ɛt mooŋ thʉ̌ŋ thîiaŋ（8時から正午まで）</div>
+        </li>
+
+      </ul>
+    </section>
+
+    <!-- ── REVIEW (苦手復習) ── -->
+    <section
+      id="section-review"
+      class="tab-section"
+      role="tabpanel"
+      aria-labelledby="tab-review"
+      hidden
+    >
+      <!-- 苦手サマリー -->
+      <div class="section-block" aria-label="苦手傾向">
+        <h2 class="section-title">苦手傾向</h2>
+        <ul class="weak-summary" id="weak-summary" aria-label="カテゴリ別苦手数">
+          <li class="weak-cat-row">
+            <span class="weak-cat-name">前置詞</span>
+            <div class="weak-cat-bar-wrap">
+              <div class="weak-cat-bar" style="width:0%" id="weak-bar-prep"></div>
+            </div>
+            <span class="weak-cat-count" id="weak-count-prep">0問</span>
+          </li>
+          <li class="weak-cat-row">
+            <span class="weak-cat-name">助動詞</span>
+            <div class="weak-cat-bar-wrap">
+              <div class="weak-cat-bar" style="width:0%" id="weak-bar-aux"></div>
+            </div>
+            <span class="weak-cat-count" id="weak-count-aux">0問</span>
+          </li>
+          <li class="weak-cat-row">
+            <span class="weak-cat-name">時間表現</span>
+            <div class="weak-cat-bar-wrap">
+              <div class="weak-cat-bar" style="width:0%" id="weak-bar-time"></div>
+            </div>
+            <span class="weak-cat-count" id="weak-count-time">0問</span>
+          </li>
+          <li class="weak-cat-row">
+            <span class="weak-cat-name">類別詞</span>
+            <div class="weak-cat-bar-wrap">
+              <div class="weak-cat-bar" style="width:0%" id="weak-bar-cl"></div>
+            </div>
+            <span class="weak-cat-count" id="weak-count-cl">0問</span>
+          </li>
+          <li class="weak-cat-row">
+            <span class="weak-cat-name">単語</span>
+            <div class="weak-cat-bar-wrap">
+              <div class="weak-cat-bar" style="width:0%" id="weak-bar-vocab"></div>
+            </div>
+            <span class="weak-cat-count" id="weak-count-vocab">0語</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- 復習リスト -->
+      <div class="section-block">
+        <div class="review-list-header">
+          <h2 class="section-title">復習リスト</h2>
+          <button class="btn-text" id="review-clear-btn" type="button">すべてクリア</button>
+        </div>
+
+        <!-- 空状態 -->
+        <div class="review-empty" id="review-empty" aria-live="polite">
+          <div class="review-empty-icon" aria-hidden="true">🎉</div>
+          <p class="review-empty-msg">苦手項目はありません</p>
+          <p class="review-empty-sub">問題を解いて記録を積みましょう</p>
+        </div>
+
+        <!-- リスト本体 -->
+        <ul class="review-items" id="review-items" aria-label="苦手問題リスト">
+          <!-- app.jsで動的生成 -->
+        </ul>
+
+        <!-- 苦手問題だけ解くボタン -->
+        <div class="review-action" id="review-action" hidden>
+          <button class="btn-primary btn-full" id="review-start-btn" type="button">
+            苦手問題を解く
+          </button>
+        </div>
+      </div>
+
+      <!-- 進捗リセット -->
+      <div class="section-block danger-block">
+        <h2 class="section-title">データ管理</h2>
+        <p class="danger-desc">学習記録をリセットします。この操作は元に戻せません。</p>
+        <button class="btn-danger" id="reset-all-btn" type="button">全記録をリセット</button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer id="app-footer" role="contentinfo">
+    <p class="footer-text">
+      タイ語検定5級 学習アプリ &nbsp;|&nbsp; データは過去問分析に基づく
+    </p>
+    <p class="footer-version" id="footer-version">v1.0.0</p>
+  </footer>
+
+  <!-- ========== TOAST NOTIFICATION ========== -->
+  <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true" hidden></div>
+
+  <!-- ========== SCRIPTS ========== -->
+  <script src="app.js" defer></script>
+
+</body>
+</html>

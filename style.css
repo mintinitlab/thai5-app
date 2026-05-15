@@ -1,0 +1,389 @@
+/* ============================================================
+   タイ語検定5級 学習アプリ — style.css
+   Phase 1: 変数 / リセット / レイアウト / ヘッダー / フッター / タブ
+   ============================================================ */
+
+
+/* ============================================================
+   1. CSS 変数
+   ============================================================ */
+:root {
+  /* --- 背景・サーフェス --- */
+  --bg:         #F5F4F0;
+  --surface:    #FFFFFF;
+  --surface-2:  #EEECE6;
+
+  /* --- ボーダー --- */
+  --border:     #E0DDD6;
+
+  /* --- テキスト --- */
+  --text-1:     #1A1A18;   /* 本文 */
+  --text-2:     #6A6760;   /* 補足 */
+  --text-3:     #9C9990;   /* 薄め */
+
+  /* --- アクセント（タイ国旗: 赤・青） --- */
+  --red:        #C0392B;   /* プライマリ（アクティブ・強調） */
+  --red-bg:     #FAEDEB;
+  --blue:       #2C5F8A;   /* セカンダリ */
+  --blue-bg:    #E8F0F8;
+  --green:      #1E7A52;   /* 正解・習得 */
+  --green-bg:   #E6F4EE;
+  --amber:      #C97A10;   /* 警告・苦手 */
+  --amber-bg:   #FDF3E3;
+
+  /* --- タイポグラフィ --- */
+  --font-body:  -apple-system, BlinkMacSystemFont, "Hiragino Sans",
+                "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+  --font-thai:  "Noto Sans Thai", "Leelawadee UI", sans-serif;
+  --font-mono:  "SF Mono", "Fira Code", monospace;
+
+  /* --- フォントサイズ --- */
+  --fs-xs:   11px;
+  --fs-sm:   13px;
+  --fs-base: 15px;
+  --fs-md:   17px;
+  --fs-lg:   20px;
+  --fs-xl:   28px;
+  --fs-2xl:  40px;
+
+  /* --- スペーシング（4px基準） --- */
+  --sp-1:  4px;
+  --sp-2:  8px;
+  --sp-3:  12px;
+  --sp-4:  16px;
+  --sp-5:  20px;
+  --sp-6:  24px;
+  --sp-8:  32px;
+
+  /* --- 角丸 --- */
+  --r-sm:   6px;
+  --r-md:   10px;
+  --r-lg:   14px;
+  --r-full: 9999px;
+
+  /* --- 影 --- */
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+  --shadow-md: 0 2px 8px rgba(0,0,0,0.10);
+
+  /* --- レイアウト固定値 --- */
+  --max-w:      640px;
+  --header-h:   56px;
+  --tabnav-h:   52px;
+  --footer-h:   44px;
+}
+
+
+/* ============================================================
+   2. リセット
+   ============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  /* iOS Safari でピンチズームしてもフォントが拡大しない */
+  -webkit-text-size-adjust: 100%;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  /* iOS タップ時の青いハイライトを除去 */
+  -webkit-tap-highlight-color: transparent;
+}
+
+input, select, button {
+  /* iOS のデフォルトスタイルを上書き */
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+select {
+  font-family: inherit;
+}
+
+/* キーボード操作用フォーカスリング */
+:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+  border-radius: var(--r-sm);
+}
+
+/* hidden 属性を確実に適用 */
+[hidden] {
+  display: none !important;
+}
+
+/* スクリーンリーダー専用テキスト */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+
+/* ============================================================
+   3. body・ベーススタイル
+   ============================================================ */
+body {
+  font-family: var(--font-body);
+  font-size: var(--fs-base);
+  line-height: 1.6;
+  color: var(--text-1);
+  background: var(--bg);
+  /* dvh: iOS Safari のアドレスバーを考慮した高さ */
+  min-height: 100dvh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* タイ語テキスト全般に専用フォントを適用 */
+[lang="th"] {
+  font-family: var(--font-thai);
+}
+
+
+/* ============================================================
+   4. 全体レイアウト
+   ============================================================ */
+
+/* メインコンテンツ: ヘッダー + タブナビ分を除いた領域 */
+#app-main {
+  max-width: var(--max-w);
+  margin-inline: auto;
+  padding: var(--sp-4);
+  /* フッター + iOS ホームインジケーターの余白 */
+  padding-bottom: calc(var(--footer-h) + var(--sp-8)
+                  + env(safe-area-inset-bottom, 0px));
+}
+
+/* セクションブロック（共通カード） */
+.section-block {
+  background: var(--surface);
+  border: 0.5px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: var(--sp-5);
+  margin-bottom: var(--sp-4);
+}
+
+.section-title {
+  font-size: var(--fs-md);
+  font-weight: 600;
+  margin-bottom: var(--sp-4);
+}
+
+/* タブセクションの表示制御 */
+.tab-section[hidden] {
+  display: none;
+}
+
+
+/* ============================================================
+   5. ヘッダー
+   ============================================================ */
+#app-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: var(--header-h);
+  background: var(--surface);
+  border-bottom: 0.5px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  /* iOS ノッチ（セーフエリア）対応 */
+  padding-top: env(safe-area-inset-top);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  max-width: var(--max-w);
+  margin-inline: auto;
+  padding-inline: var(--sp-4);
+}
+
+/* 左: ブランド */
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+}
+
+.header-flag {
+  font-size: 22px;
+  line-height: 1;
+}
+
+.header-title {
+  font-size: var(--fs-md);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.header-sub {
+  font-size: var(--fs-xs);
+  color: var(--text-3);
+  line-height: 1.2;
+}
+
+/* 右: 学習統計チップ */
+.header-stats {
+  display: flex;
+  gap: var(--sp-2);
+}
+
+.stat-chip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--surface-2);
+  border: 0.5px solid var(--border);
+  border-radius: var(--r-md);
+  padding: var(--sp-1) var(--sp-3);
+  min-width: 42px;
+}
+
+.stat-value {
+  font-size: var(--fs-md);
+  font-weight: 700;
+  color: var(--red);
+  line-height: 1.2;
+}
+
+.stat-label {
+  font-size: var(--fs-xs);
+  color: var(--text-3);
+  line-height: 1;
+}
+
+
+/* ============================================================
+   6. タブナビゲーション
+   ============================================================ */
+#tab-nav {
+  position: sticky;
+  /* ヘッダーの直下に貼りつく */
+  top: var(--header-h);
+  z-index: 90;
+  display: flex;
+  height: var(--tabnav-h);
+  background: var(--surface);
+  border-bottom: 0.5px solid var(--border);
+  /* タブが多い場合に横スクロール */
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+#tab-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.tab-btn {
+  flex: 1;
+  min-width: 56px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  padding: var(--sp-2) var(--sp-1);
+  color: var(--text-3);
+  position: relative;
+  /* タブ切替時の色変化のみ */
+  transition: color 0.15s ease;
+}
+
+/* アクティブタブ */
+.tab-btn.active {
+  color: var(--red);
+}
+
+/* アクティブの下線バー */
+.tab-btn.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 20%;
+  right: 20%;
+  height: 2px;
+  background: var(--red);
+  border-radius: var(--r-full);
+}
+
+.tab-icon {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.tab-label {
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  line-height: 1;
+}
+
+
+/* ============================================================
+   7. フッター
+   ============================================================ */
+#app-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 80;
+  height: var(--footer-h);
+  background: var(--surface);
+  border-top: 0.5px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: var(--sp-4);
+  /* iOS ホームインジケーター分の余白 */
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.footer-text {
+  font-size: var(--fs-xs);
+  color: var(--text-3);
+}
+
+.footer-version {
+  font-size: var(--fs-xs);
+  color: var(--text-3);
+}
+
+
+/* ============================================================
+   8. レスポンシブ（Mac / 広い画面）
+   ============================================================ */
+@media (min-width: 640px) {
+  :root {
+    --header-h:  64px;
+    --tabnav-h:  56px;
+    --fs-base:   16px;
+  }
+
+  /* 広い画面ではタブラベルを少し大きく */
+  .tab-label {
+    font-size: var(--fs-sm);
+  }
+
+  .tab-icon {
+    font-size: 16px;
+  }
+}

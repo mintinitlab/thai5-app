@@ -1,0 +1,202 @@
+[
+  {
+    "id": 1,
+    "thai": "ไป",
+    "reading": "pai",
+    "meaning": "行く",
+    "pos": "verb",
+    "importance": 3,
+    "frequency": 18,
+    "example": "ผมไปโรงเรียนทุกวัน"
+  },
+  {
+    "id": 2,
+    "thai": "อยู่",
+    "reading": "yùu",
+    "meaning": "いる・ある（場所）",
+    "pos": "verb",
+    "importance": 3,
+    "frequency": 17,
+    "example": "เขาอยู่ที่บ้าน"
+  },
+  {
+    "id": 3,
+    "thai": "มี",
+    "reading": "mii",
+    "meaning": "ある・いる（所有）",
+    "pos": "verb",
+    "importance": 3,
+    "frequency": 16,
+    "example": "ฉันมีหนังสือสามเล่ม"
+  },
+  {
+    "id": 4,
+    "thai": "ได้",
+    "reading": "dâi",
+    "meaning": "できる・〜した",
+    "pos": "aux",
+    "importance": 3,
+    "frequency": 16,
+    "example": "คุณพูดภาษาไทยได้ไหม"
+  },
+  {
+    "id": 5,
+    "thai": "กับ",
+    "reading": "kàp",
+    "meaning": "〜と（一緒に）",
+    "pos": "prep",
+    "importance": 3,
+    "frequency": 15,
+    "example": "ฉันไปกับเพื่อน"
+  },
+  {
+    "id": 6,
+    "thai": "ด้วย",
+    "reading": "dûay",
+    "meaning": "〜で（道具）・〜も",
+    "pos": "prep",
+    "importance": 3,
+    "frequency": 15,
+    "example": "เขียนด้วยปากกา"
+  },
+  {
+    "id": 7,
+    "thai": "ไม่",
+    "reading": "mâi",
+    "meaning": "〜ない（否定）",
+    "pos": "neg",
+    "importance": 3,
+    "frequency": 14,
+    "example": "ผมไม่ว่าง"
+  },
+  {
+    "id": 8,
+    "thai": "จาก",
+    "reading": "càak",
+    "meaning": "〜から（場所の起点）",
+    "pos": "prep",
+    "importance": 3,
+    "frequency": 13,
+    "example": "บ้านอยู่ไกลจากที่นี่"
+  },
+  {
+    "id": 9,
+    "thai": "กิน",
+    "reading": "kin",
+    "meaning": "食べる",
+    "pos": "verb",
+    "importance": 3,
+    "frequency": 13,
+    "example": "เมื่อวานผมไปกินข้าวกับคุณสมศรี"
+  },
+  {
+    "id": 10,
+    "thai": "กำลัง",
+    "reading": "kamlaŋ",
+    "meaning": "〜しているところ（進行形）",
+    "pos": "aux",
+    "importance": 3,
+    "frequency": 12,
+    "example": "ดิฉันกำลังกินข้าวอยู่"
+  },
+  {
+    "id": 11,
+    "thai": "เที่ยว",
+    "reading": "thîiaw",
+    "meaning": "旅行する・遊ぶ",
+    "pos": "verb",
+    "importance": 3,
+    "frequency": 11,
+    "example": "ไปเที่ยวทะเลด้วยกันไหม"
+  },
+  {
+    "id": 12,
+    "thai": "และ",
+    "reading": "lɛ́",
+    "meaning": "そして・〜と（and）",
+    "pos": "conj",
+    "importance": 3,
+    "frequency": 11,
+    "example": "ผมกินขนมปัง ผักและผลไม้"
+  },
+  {
+    "id": 13,
+    "thai": "อยาก",
+    "reading": "yàak",
+    "meaning": "〜したい",
+    "pos": "aux",
+    "importance": 3,
+    "frequency": 10,
+    "example": "อยากลองทำต้มยำกุ้ง"
+  },
+  {
+    "id": 14,
+    "thai": "จะ",
+    "reading": "cà",
+    "meaning": "〜するつもり（未来・意志）",
+    "pos": "aux",
+    "importance": 3,
+    "frequency": 10,
+    "example": "พรุ่งนี้คุณจะไปออกกำลังกายไหม"
+  },
+  {
+    "id": 15,
+    "thai": "ก็",
+    "reading": "kɔ̂ɔ",
+    "meaning": "〜も・それから・従って",
+    "pos": "conj",
+    "importance": 3,
+    "frequency": 10,
+    "example": "น้องชอบกินมะม่วง ฉันก็ชอบกินมะม่วง"
+  },
+  {
+    "id": 16,
+    "thai": "ต้อง",
+    "reading": "tɔ̂ŋ",
+    "meaning": "〜しなければならない",
+    "pos": "aux",
+    "importance": 3,
+    "frequency": 9,
+    "example": "ตอนนี้เขาต้องไปโรงพยาบาล"
+  },
+  {
+    "id": 17,
+    "thai": "เคย",
+    "reading": "khəəy",
+    "meaning": "〜したことがある（経験）",
+    "pos": "aux",
+    "importance": 3,
+    "frequency": 9,
+    "example": "คุณเคยไปเชียงใหม่ไหม"
+  },
+  {
+    "id": 18,
+    "thai": "ตั้งแต่",
+    "reading": "tâŋ tɛ̀ɛ",
+    "meaning": "〜から（時間の起点）",
+    "pos": "prep",
+    "importance": 3,
+    "frequency": 9,
+    "example": "ดิฉันทำงานตั้งแต่แปดโมงถึงเที่ยง"
+  },
+  {
+    "id": 19,
+    "thai": "ให้",
+    "reading": "hâi",
+    "meaning": "〜させる・〜してあげる",
+    "pos": "aux",
+    "importance": 3,
+    "frequency": 9,
+    "example": "อาจารย์สอนภาษาจีนให้ผม"
+  },
+  {
+    "id": 20,
+    "thai": "ถ้า",
+    "reading": "thâa",
+    "meaning": "もし〜ならば（条件）",
+    "pos": "conj",
+    "importance": 3,
+    "frequency": 8,
+    "example": "ถ้ามีเวลาดิฉันจะไปหาคุณ"
+  }
+]
