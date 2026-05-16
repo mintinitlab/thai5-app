@@ -1,0 +1,41 @@
+[
+  {
+    "question_jp":      "私は今、ご飯を食べています。",
+    "question_thai":    "ดิฉัน ( ___ ) กินข้าวอยู่",
+    "question_reading": "dichán ( ___ ) kin khâaw yùu",
+    "choices": [
+      { "id": "A", "text": "จะ（cà）",          "meaning": "〜するつもり" },
+      { "id": "B", "text": "กำลัง（kamlaŋ）",   "meaning": "〜しているところ" },
+      { "id": "C", "text": "เคย（khəəy）",      "meaning": "〜したことがある" },
+      { "id": "D", "text": "อยาก（yàak）",      "meaning": "〜したい" }
+    ],
+    "answer":      "B",
+    "explanation": "進行形は kamlaŋ + V（+ yùu）。「今まさに〜しているところ」を表します。cà（未来）や yàak（願望）と混同しないように注意。"
+  },
+  {
+    "question_jp":      "このグラスは私のものではありません。",
+    "question_thai":    "แก้วใบนี้ ( ___ ) ของดิฉัน",
+    "question_reading": "kɛ̂ɛw bai níi ( ___ ) khɔ̌ɔŋ dichán",
+    "choices": [
+      { "id": "A", "text": "ไม่（mâi）",           "meaning": "〜ない（動詞の否定）" },
+      { "id": "B", "text": "ไม่ได้（mâi dâi）",    "meaning": "〜していない" },
+      { "id": "C", "text": "ไม่ใช่（mâi châi）",   "meaning": "〜ではない（名詞の否定）" },
+      { "id": "D", "text": "ไม่เคย（mâi khəəy）",  "meaning": "〜したことがない" }
+    ],
+    "answer":      "C",
+    "explanation": "名詞・所有物を否定するときは mâi châi を使います。動詞の否定は mâi。「日本人ではない」も mâi châi khon yîipùn が正解です。"
+  },
+  {
+    "question_jp":      "姉は私より背が高い。",
+    "question_thai":    "พี่สาวสูง ( ___ ) ดิฉัน",
+    "question_reading": "phîi sǎaw sǔuŋ ( ___ ) dichán",
+    "choices": [
+      { "id": "A", "text": "มาก（mâak）",        "meaning": "とても" },
+      { "id": "B", "text": "กว่า（kwàa）",       "meaning": "〜より（比較）" },
+      { "id": "C", "text": "เท่า（thâo）",       "meaning": "〜と同じくらい" },
+      { "id": "D", "text": "ที่สุด（thîisùt）",  "meaning": "最も〜" }
+    ],
+    "answer":      "B",
+    "explanation": "「AはBより〜」は A + 形容詞 + kwàa + B の語順。日本語と逆なので注意。kwàa の位置が最大のポイントです。"
+  }
+]

@@ -387,3 +387,306 @@ body {
     font-size: 16px;
   }
 }
+/* ============================================================
+   フラッシュカード: 表裏反転アニメーション
+   ============================================================ */
+
+/* カードを包む枠: 3D 空間を作る */
+.card-stage {
+  perspective: 1000px; /* 数値が大きいほど遠近感が弱くなる */
+}
+
+/* カード本体: クリックで flip クラスが付く */
+.flashcard {
+  cursor: pointer;
+  width: 100%;
+  min-height: 220px;
+  position: relative;
+  margin-bottom: var(--sp-4);
+}
+
+/* 内側の回転する部品 */
+.flashcard-inner {
+  width: 100%;
+  height: 100%;
+  min-height: 220px;
+  position: relative;
+  transform-style: preserve-3d;   /* 子要素も3D空間に置く */
+  transition: transform 0.45s ease; /* 反転アニメーションの速さ */
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-md);
+}
+
+/* flip クラスが付いたら裏返す */
+.flashcard.flip .flashcard-inner {
+  transform: rotateY(180deg);
+}
+
+/* 表・裏 共通スタイル */
+.flashcard-face {
+  position: absolute;
+  inset: 0; /* top/right/bottom/left すべて0 */
+  backface-visibility: hidden; /* 裏返ったとき自分を隠す */
+  border-radius: var(--r-lg);
+  border: 0.5px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-3);
+  padding: var(--sp-6);
+  text-align: center;
+}
+
+/* 表面: 白背景 */
+.flashcard-front {
+  background: var(--surface);
+}
+
+/* 裏面: 薄い青背景 + 最初から裏返した状態にしておく */
+.flashcard-back {
+  background: var(--blue-bg);
+  transform: rotateY(180deg); /* 最初から裏向き */
+}
+
+/* タイ語テキスト（大きく表示） */
+.fc-thai {
+  font-size: var(--fs-2xl);
+  font-weight: 700;
+  color: var(--text-1);
+  font-family: var(--font-thai);
+  line-height: 1.3;
+}
+
+/* 読み方（ローマ字） */
+.fc-reading {
+  font-size: var(--fs-md);
+  color: var(--text-2);
+  font-family: var(--font-mono);
+}
+
+/* 意味（裏面） */
+.fc-meaning {
+  font-size: var(--fs-xl);
+  font-weight: 600;
+  color: var(--blue);
+}
+
+/* 「タップして確認」ヒント */
+.fc-hint {
+  font-size: var(--fs-xs);
+  color: var(--text-3);
+  margin-top: var(--sp-2);
+}
+
+/* 品詞バッジ */
+.fc-pos-badge {
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  padding: var(--sp-1) var(--sp-3);
+  background: var(--red-bg);
+  color: var(--red);
+  border-radius: var(--r-full);
+}
+
+
+/* 出現頻度 */
+.fc-freq {
+  font-size: var(--fs-xs);
+  color: var(--text-3);
+}
+
+/* ナビゲーション（前へ・次へ・進捗） */
+.card-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-4);
+  margin-bottom: var(--sp-4);
+}
+
+.card-nav-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--r-full);
+  border: 0.5px solid var(--border);
+  background: var(--surface);
+  font-size: 22px;
+  color: var(--text-1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-sm);
+  transition: background 0.15s;
+}
+
+.card-nav-btn:active {
+  background: var(--surface-2);
+}
+
+.card-progress {
+  font-size: var(--fs-sm);
+  color: var(--text-2);
+  min-width: 60px;
+  text-align: center;
+}
+
+/* 習得ボタン行 */
+.fc-action-row {
+  display: flex;
+  gap: var(--sp-3);
+}
+
+.fc-action-btn {
+  flex: 1;
+  padding: var(--sp-3) var(--sp-4);
+  border-radius: var(--r-md);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  border: 0.5px solid var(--border);
+  transition: background 0.15s;
+}
+
+.fc-action-again {
+  background: var(--surface-2);
+  color: var(--text-2);
+}
+
+.fc-action-ok {
+  background: var(--green-bg);
+  color: var(--green);
+  border-color: var(--green);
+}
+/* ----------------------------------------------------------
+   フラッシュカード裏面：例文ブロック
+   ---------------------------------------------------------- */
+
+/* 例文タイ語 */
+.fc-example {
+  font-size: var(--fs-base);
+  font-family: var(--font-thai);
+  color: var(--text-1);
+  line-height: 1.7;
+  text-align: center;
+}
+
+/* 例文の発音記号（ローマ字） */
+.fc-example-reading {
+  font-size: var(--fs-sm);
+  font-family: var(--font-mono);
+  color: var(--blue);
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* 例文の日本語訳 */
+.fc-example-meaning {
+  font-size: var(--fs-sm);
+  color: var(--text-2);
+  line-height: 1.6;
+  text-align: center;
+}
+/* ==========================================================
+   モバイル向け文字サイズ調整
+   ========================================================== */
+
+/* ----------------------------------------------------------
+   フラッシュカード
+   ---------------------------------------------------------- */
+
+/* タイ語（表面・大きく表示） */
+.fc-thai {
+  font-size: 52px;             /* 変更前: var(--fs-2xl)=40px */
+}
+
+/* 読み方ローマ字（表面） */
+.fc-reading {
+  font-size: var(--fs-md);     /* 変更前: var(--fs-sm)=13px → 17px */
+  letter-spacing: 0.02em;      /* 少し字間を空けて読みやすく */
+}
+
+/* 意味（裏面） */
+.fc-meaning {
+  font-size: 26px;             /* 変更前: var(--fs-xl)=28px → 微調整 */
+}
+
+/* ----------------------------------------------------------
+   クイズ
+   ---------------------------------------------------------- */
+
+/* 日本語問題文 */
+.quiz-question-jp {
+  font-size: var(--fs-md);     /* 変更前: var(--fs-base)=15px → 17px */
+  font-weight: 500;
+  line-height: 1.7;
+  margin-bottom: var(--sp-2);
+}
+
+/* タイ語問題文（穴埋め部分） */
+.quiz-question-thai {
+  font-size: var(--fs-base);   /* 変更前: var(--fs-sm)=13px → 15px */
+  font-family: var(--font-thai);
+  color: var(--text-2);
+  line-height: 1.8;
+}
+
+/* 選択肢ボタン全体 */
+.choice-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: var(--sp-3) var(--sp-4);
+  background: var(--surface);
+  border: 0.5px solid var(--border);
+  border-radius: var(--r-md);
+  text-align: left;
+  margin-bottom: var(--sp-2);
+  min-height: 52px;            /* タップしやすい高さを確保 */
+  transition: background 0.15s, border-color 0.15s;
+}
+
+/* 選択肢の番号（1〜4） */
+.choice-num {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text-3);
+  min-width: 20px;
+  flex-shrink: 0;
+}
+
+/* 選択肢のテキスト */
+.choice-text {
+  font-size: var(--fs-base);   /* 変更前: var(--fs-sm)=13px → 15px */
+  font-family: var(--font-thai);
+  color: var(--text-1);
+  line-height: 1.5;
+}
+
+/* 「次の問題」ボタン */
+#quiz-next-btn {
+  width: 100%;
+  margin-top: var(--sp-4);
+  padding: var(--sp-4);
+  font-size: var(--fs-base);   /* 変更前: 小さかった → 15px */
+  font-weight: 600;
+  background: var(--blue);
+  color: #fff;
+  border: none;
+  border-radius: var(--r-md);
+  letter-spacing: 0.03em;
+}
+
+/* 解説エリアの結果テキスト（✅ 正解！/ ❌ 不正解） */
+.explanation-result {
+  font-size: var(--fs-lg);     /* 20px：目立つように大きく */
+  font-weight: 700;
+  margin-bottom: var(--sp-2);
+}
+
+/* 解説テキスト本文 */
+.explanation-text {
+  font-size: var(--fs-sm);     /* 13px */
+  color: var(--text-2);
+  line-height: 1.8;
+}
