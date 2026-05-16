@@ -31,7 +31,7 @@ const $$ = (selector) => Array.from(document.querySelectorAll(selector));
    ============================================================ */
 
 let FLASHCARD_DATA = []; // flashcards.json の内容が入る
-let QUIZ_DATA      = []; // quiz.json の内容が入る
+let QUIZ_DATA      = []; // questions_vocab_all.json の内容が入る
 
 
 /* ============================================================
@@ -203,47 +203,62 @@ let quizAnswered = false;
 function renderQuiz() {
   const q = QUIZ_DATA[quizIndex];
 
-  // データがなければ何もしない（安全対策）
+  // データがなければ何もしない（null安全）
   if (!q) return;
 
-  // 問題文を差し替え
-  $('#quiz-question-jp').textContent   = q.question_jp;
-  $('#quiz-question-thai').textContent = q.question_reading;
+  // ── 問題文 ──────────────────────────────────────
+  const jpEl   = $('#quiz-question-jp');
+  const thaiEl = $('#quiz-question-thai');
+  const readingEl = $('#quiz-question-reading');
+  if (jpEl)   jpEl.textContent   = q.question_jp      ?? '';
+  if (thaiEl) thaiEl.textContent = q.question_thai  ?? '';
+  if (readingEl) readingEl.textContent = q.question_reading  ?? '';
 
-  // 選択肢4つを差し替え
+  // ── 選択肢4つ ────────────────────────────────────
+  // 新JSON: choice.thai / choice.reading / choice.meaning
+  const choiceBtns = $$('.choice-btn');
+
   q.choices.forEach((choice, i) => {
 
-    // テキスト表示（text のみ、meaning は表示しない）
+    // ① テキストスパン（#choice-0 〜 #choice-3）
     const choiceText = $(`#choice-${i}`);
-    if (choiceText) choiceText.textContent = choice.text;
+    if (choiceText) {
+      // タイ文字 + ローマ字を「　」で繋いで表示
+      // 例: "กิน　kin"
+      const thai    = choice.thai    ?? '';
+      const reading = choice.reading ?? '';
+      choiceText.textContent = thai ? `${thai}　${reading}` : reading;
+    }
 
-    // ボタンに選択肢IDを持たせる・色をリセット
-    const btn = $$('.choice-btn')[i];
+    // ② ボタン本体：IDをセット・スタイル完全リセット
+    const btn = choiceBtns[i];
     if (btn) {
-      btn.dataset.choiceId  = choice.id;
+      btn.dataset.choiceId  = choice.id ?? String.fromCharCode(65 + i);
       btn.disabled          = false;
       btn.style.background  = '';
       btn.style.borderColor = '';
       btn.style.color       = '';
+      btn.classList.remove('correct', 'wrong');
     }
   });
 
-  // 解説エリアを非表示に戻す
-  const explanation = $('#quiz-explanation');
-  if (explanation) explanation.hidden = true;
+  // ── 解説エリアを非表示に戻す ─────────────────────
+  const explanationEl = $('#quiz-explanation');
+  if (explanationEl) explanationEl.hidden = true;
 
-  // 解答済みフラグをリセット
+  // ── 結果画面を非表示に戻す ───────────────────────
+  const resultEl = $('#quiz-result');
+  if (resultEl) resultEl.hidden = true;
+
+  // ── 解答済みフラグをリセット ─────────────────────
   quizAnswered = false;
 
-  // 問題番号を更新
-  $('#quiz-current').textContent = quizIndex + 1;
-  $('#quiz-total').textContent   = QUIZ_DATA.length;
+  // ── 問題番号を更新 ───────────────────────────────
+  const curEl   = $('#quiz-current');
+  const totalEl = $('#quiz-total');
+  if (curEl)   curEl.textContent   = quizIndex + 1;
+  if (totalEl) totalEl.textContent = QUIZ_DATA.length;
 }
-
-/**
- * 選択肢クリック時の正誤判定
- * @param {string} selectedId - 選んだ選択肢のID（'A'〜'D'）
- */
 function judgeAnswer(selectedId) {
   // 解答済みなら無視（連打防止）
   if (quizAnswered) return;
@@ -252,6 +267,15 @@ function judgeAnswer(selectedId) {
   const q         = QUIZ_DATA[quizIndex];
   const isCorrect = (selectedId === q.answer);
 
+  // 解答後：全選択肢に意味を表示
+q.choices.forEach((choice, i) => {
+  const choiceText = $(`#choice-${i}`);
+
+  if (choiceText) {
+    choiceText.textContent =
+      `${choice.thai ?? ''}　${choice.reading ?? ''}　${choice.meaning ?? ''}`;
+  }
+});
   // 選択肢ボタンに色を付ける
   $$('.choice-btn').forEach((btn) => {
     const id = btn.dataset.choiceId;
@@ -272,20 +296,24 @@ function judgeAnswer(selectedId) {
     btn.disabled = true;
   });
 
-  // 解説エリアを表示
-  const explanation = $('#quiz-explanation');
-  if (explanation) {
-    explanation.hidden = false;
+// 解説エリアを表示
+const explanation = $('#quiz-explanation');
 
-    const resultEl = $('#explanation-result');
-    if (resultEl) {
-      resultEl.textContent = isCorrect ? '✅ 正解！' : '❌ 不正解';
-      resultEl.style.color = isCorrect ? 'var(--green)' : 'var(--red)';
-    }
+if (explanation) {
+  explanation.hidden = false;
 
-    const textEl = $('#explanation-text');
-    if (textEl) textEl.textContent = q.explanation;
+  const resultEl = $('#explanation-result');
+  if (resultEl) {
+    resultEl.textContent = isCorrect ? '✅ 正解！' : '❌ 不正解';
+    resultEl.style.color = isCorrect ? 'var(--green)' : 'var(--red)';
   }
+
+  // 解説文
+  const textEl = $('#explanation-text');
+  if (textEl) {
+    textEl.textContent = q.explanation ?? '';
+  } 
+}
 }
 
 /**
@@ -295,6 +323,8 @@ function goNextQuiz() {
   quizIndex = (quizIndex + 1) % QUIZ_DATA.length;
   renderQuiz();
 }
+
+
 
 /**
  * クイズ機能の初期化
@@ -343,20 +373,25 @@ async function loadDataAndInit() {
     // ① 2つのJSONを同時に fetch（並行処理）
     const [flashRes, quizRes] = await Promise.all([
       fetch('/data/flashcards.json'),
-      fetch('/data/quiz.json'),
+      fetch('/data/questions_vocab_all.json'),
     ]);
 
     // ② レスポンスが正常か確認
     // fetch はネットワークエラー以外で例外を投げないので自分でチェックする
     if (!flashRes.ok) throw new Error(`flashcards.json の読み込み失敗: ${flashRes.status}`);
-    if (!quizRes.ok)  throw new Error(`quiz.json の読み込み失敗: ${quizRes.status}`);
+    if (!quizRes.ok)  throw new Error(`questions_vocab_all.json の読み込み失敗: ${quizRes.status}`);
 
     // ③ JSONをJSオブジェクトに変換して変数へ格納
     FLASHCARD_DATA = await flashRes.json();
     QUIZ_DATA      = await quizRes.json();
+    console.log(QUIZ_DATA);
+    console.log(Array.isArray(QUIZ_DATA));
+
+    // 
+console.log('現在読み込んでいるクイズデータ:', QUIZ_DATA);
 
     console.log(`✅ flashcards.json: ${FLASHCARD_DATA.length}件 読み込み完了`);
-    console.log(`✅ quiz.json: ${QUIZ_DATA.length}件 読み込み完了`);
+    console.log(`✅ questions_vocab_all.json: ${QUIZ_DATA.length}件 読み込み完了`);
 
     // ④ データがそろったので各機能を初期化
     initFlashcard();
