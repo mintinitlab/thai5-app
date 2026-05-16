@@ -7,8 +7,8 @@
     "grammarId": null,
     "vocabId": 1,
     "question_jp": "昨日、私はソムシーさんと食事に行きました。",
-    "question_thai": "เมื่อวานผม ( ___ ) ข้าวกับคุณสมศรี",
-    "question_reading": "mʉ̂awaan phǒm ( ___ ) khâaw kàp khun sǒmsǐi",
+    "question_thai": "เมื่อวานผมไป ( ___ ) ข้าวกับคุณสมศรี",
+    "question_reading": "mʉ̂awaan phǒm pai ( ___ ) khâaw kàp khun sǒmsǐi",
     "choices": [
       {
         "id": "A",

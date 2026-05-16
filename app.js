@@ -32,7 +32,8 @@ const $$ = (selector) => Array.from(document.querySelectorAll(selector));
 
 let FLASHCARD_DATA = []; // flashcards.json の内容が入る
 let QUIZ_DATA      = []; // questions_vocab_all.json の内容が入る
-
+let correctCount = 0;
+let answeredCount = 0;
 
 /* ============================================================
    タブ切り替え
@@ -258,6 +259,16 @@ function renderQuiz() {
   const totalEl = $('#quiz-total');
   if (curEl)   curEl.textContent   = quizIndex + 1;
   if (totalEl) totalEl.textContent = QUIZ_DATA.length;
+const rateEl = $('#quiz-accuracy');
+
+if (rateEl) {
+  const rate =
+    answeredCount === 0
+      ? 0
+      : Math.round((correctCount / answeredCount) * 100);
+
+  rateEl.textContent = `${rate}%`;
+}
 }
 function judgeAnswer(selectedId) {
   // 解答済みなら無視（連打防止）
@@ -266,6 +277,12 @@ function judgeAnswer(selectedId) {
 
   const q         = QUIZ_DATA[quizIndex];
   const isCorrect = (selectedId === q.answer);
+
+  answeredCount++;
+
+if (isCorrect) {
+  correctCount++;
+}
 
   // 解答後：全選択肢に意味を表示
 q.choices.forEach((choice, i) => {
@@ -313,18 +330,57 @@ if (explanation) {
   if (textEl) {
     textEl.textContent = q.explanation ?? '';
   } 
-}
+}console.log(correctCount, answeredCount);
 }
 
 /**
  * 「次の問題」ボタンの処理
  */
 function goNextQuiz() {
-  quizIndex = (quizIndex + 1) % QUIZ_DATA.length;
+
+  // 最後の問題なら結果表示
+  if (quizIndex >= QUIZ_DATA.length - 1) {
+    showQuizResult();
+    return;
+  }
+
+  // 次の問題へ
+  quizIndex++;
+
+  console.log('現在の問題index:', quizIndex);
+
+  renderQuiz();
+}/**
+ * クイズを最初からやり直す
+ */
+function restartQuiz() {
+  // インデックスを最初へ
+  quizIndex = 0;
+
+  // スコア初期化
+  correctCount = 0;
+  answeredCount = 0;
+
+  // 解答状態リセット
+  quizAnswered = false;
+
+  // 結果画面を隠す
+  const result = $('#quiz-result');
+  if (result) {
+    result.hidden = true;
+  }
+
+  // 問題画面を再表示
+  const quizCard = $('#quiz-card');
+  if (quizCard) {
+    quizCard.hidden = false;
+  }
+// ← これ追加
+  console.log('restart quizIndex:', quizIndex);
+
+  // 最初の問題を描画
   renderQuiz();
 }
-
-
 
 /**
  * クイズ機能の初期化
@@ -344,7 +400,14 @@ function initQuiz() {
   nextBtn.addEventListener('click', () => {
     goNextQuiz();
   });
+// もう一度ボタン
+  const retryBtn = $('#quiz-retry-btn');
 
+  if (retryBtn) {
+    retryBtn.addEventListener('click', () => {
+      restartQuiz();
+    });
+  }
   // 初期描画
   renderQuiz();
 }
@@ -384,6 +447,9 @@ async function loadDataAndInit() {
     // ③ JSONをJSオブジェクトに変換して変数へ格納
     FLASHCARD_DATA = await flashRes.json();
     QUIZ_DATA      = await quizRes.json();
+    // 動作確認用
+    QUIZ_DATA = QUIZ_DATA.slice(0, 3);
+
     console.log(QUIZ_DATA);
     console.log(Array.isArray(QUIZ_DATA));
 
@@ -424,3 +490,46 @@ document.addEventListener('DOMContentLoaded', () => {
 
   console.log('✅ app.js 初期化完了');
 });
+/**
+ * クイズ結果を表示
+ */
+function showQuizResult() {
+
+  const rate = Math.round((correctCount / answeredCount) * 100);
+
+  // クイズ画面を隠す
+  const quizCard = $('#quiz-card');
+  if (quizCard) {
+    quizCard.hidden = true;
+  }
+
+  // 結果画面を表示
+  const result = $('#quiz-result');
+
+  if (result) {
+    result.hidden = false;
+  }
+
+  // スコア表示
+  const scoreEl = $('#result-score');
+
+  if (scoreEl) {
+    scoreEl.innerHTML =
+  `${correctCount} / ${answeredCount}問 正解<br>正答率 ${rate}%`;
+  }
+
+  // メッセージ表示
+  const msgEl = $('#result-msg');
+
+  if (msgEl) {
+    if (rate === 100) {
+      msgEl.textContent = '全問正解です';
+    } else if (rate >= 80) {
+      msgEl.textContent = 'かなり理解できています';
+    } else if (rate >= 60) {
+      msgEl.textContent = 'あと少しです';
+    } else {
+      msgEl.textContent = 'もう一度復習してみましょう';
+    }
+  }
+}

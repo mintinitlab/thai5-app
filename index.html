@@ -329,12 +329,13 @@
         </div>
         <div class="quiz-meta" id="quiz-meta" aria-live="polite">
           問題 <span id="quiz-current">0</span> / <span id="quiz-total">0</span>
-          &nbsp;|&nbsp; 正解率 <span id="quiz-accuracy">–</span>
         </div>
       </div>
 
       <!-- 問題エリア -->
       <div class="quiz-stage" id="quiz-stage">
+       <div id="quiz-card">
+
         <!-- 問題文 -->
         <div class="quiz-question-block" id="quiz-question-block">
           <p class="quiz-question-jp" id="quiz-question-jp">問題文（日本語）がここに入ります</p>
@@ -381,7 +382,7 @@
           <div class="explanation-sentence" id="explanation-sentence" lang="th"></div>
           <button class="btn-primary" id="quiz-next-btn" type="button">次の問題 ›</button>
         </div>
-
+       </div>
         <!-- 結果画面 -->
         <div class="quiz-result" id="quiz-result" hidden aria-live="polite">
           <div class="result-emoji" id="result-emoji">🎉</div>
