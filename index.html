@@ -258,6 +258,13 @@
             <option value="2">★★★ のみ</option>
             <option value="1">★★ 以上</option>
           </select>
+          <label class="filter-label" for="fc-question-limit">出題数</label>
+          <select id="fc-question-limit" class="filter-select">
+              <option value="10">10問</option>
+              <option value="20" selected>20問</option>
+              <option value="50">50問</option>
+              <option value="all">全件</option>
+            </select>
         </div>
 
         <div class="filter-row filter-row--actions">
@@ -308,6 +315,7 @@
               <div class="fc-thai" id="fc-thai" lang="th">–</div>
               <div class="fc-reading" id="fc-reading">–</div>
               <div class="fc-hint">タップして意味を確認</div>
+              <button id="fc-pronounce-btn" type="button" onclick="event.stopPropagation()" style="margin-top:6px;background:var(--blue-bg);color:var(--blue);border:0.5px solid var(--blue);border-radius:var(--r-full);padding:4px 14px;font-size:var(--fs-xs);cursor:pointer;">🔊 発音</button>
             </div>
 
             <!-- 裏面 -->
@@ -317,6 +325,7 @@
               <div class="fc-example-reading" id="fc-example-reading"></div>
               <div class="fc-example-meaning" id="fc-example-meaning"></div>
               <div class="fc-freq" id="fc-freq"></div>
+              <button id="fc-example-pronounce-btn" type="button" onclick="event.stopPropagation()" style="margin-top:6px;background:var(--blue-bg);color:var(--blue);border:0.5px solid var(--blue);border-radius:var(--r-full);padding:4px 14px;font-size:var(--fs-xs);cursor:pointer;"> 🔊 発音</button>
             </div>
 
           </div>

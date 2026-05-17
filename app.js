@@ -32,6 +32,12 @@ function loadState()  {
   try { return JSON.parse(localStorage.getItem(LS_KEY) || '{}'); }
   catch { return {}; }
 }
+function playPronunciation(word) {
+  const utterance = new SpeechSynthesisUtterance(word);
+  utterance.lang = 'th-TH';
+  speechSynthesis.cancel();
+  speechSynthesis.speak(utterance);
+}
 function saveState()  {
   try { localStorage.setItem(LS_KEY, JSON.stringify(FC_STATE)); }
   catch { console.warn('LocalStorage 書き込み失敗'); }
@@ -96,6 +102,15 @@ function renderFC() {
     posEl.dataset.pos  = c.pos ?? '';
   }
 
+  // 発音ボタンのテキスト更新のみ（ボタン自体はHTMLに固定）
+  const pronounceBtn = $('#fc-pronounce-btn');
+  if (pronounceBtn) {
+    pronounceBtn.onclick = (e) => {
+      e.stopPropagation();
+      playPronunciation(c.thai ?? '');
+    };
+  }
+
   const impEl = $('#fc-importance');
   if (impEl) {
     impEl.textContent          = IMP_LABEL[c.importance] ?? '';
@@ -132,6 +147,14 @@ function renderFC() {
   if (exMEl) {
     exMEl.textContent = c.example_meaning ? `（${c.example_meaning}）` : '';
     exMEl.hidden = !c.example_meaning;
+  }
+
+  const examplePronounceBtn = $('#fc-example-pronounce-btn');
+  if (examplePronounceBtn) {
+    examplePronounceBtn.onclick = (e) => {
+      e.stopPropagation();
+      playPronunciation(c.example ?? '');
+    };
   }
 
   /* 進捗 */
@@ -230,6 +253,14 @@ function initFlashcard() {
     if (!confirm('学習状態をすべてリセットしますか？')) return;
     FC_STATE = {}; saveState(); fcIndex = 0; buildActive(); renderFC();
   });
+
+  const limitSelect = $('#fc-question-limit');
+  if (limitSelect) {
+    limitSelect.addEventListener('change', () => {
+      state.settings.questionLimit = limitSelect.value;
+      rebuild();
+    });
+  }
 
   buildActive();
   renderFC();

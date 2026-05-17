@@ -414,8 +414,8 @@ body {
 .flashcard {
   position: relative;
   width: 100%;
-  max-width: 420px;
-  min-height: 220px;
+  max-width: 480px;
+  min-height: 260px;
   cursor: pointer;
   /* Safari: transform 系プロパティを一切使わない */
   border-radius: var(--r-lg);
@@ -1083,4 +1083,13 @@ body {
   border-color: var(--border);
   opacity: 0.7;
   cursor: default;
+}
+
+/* ---------- 「発音」ボタン ---------- */
+.fc-pronounce-btn {
+  margin-top: 8px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 20px;
 }
