@@ -222,7 +222,8 @@
       </div>
     </section>
 
-    <!-- ── FLASHCARD (単語一問一答) ── -->
+        <!-- ── FLASHCARD (単語一問一答) ── -->
+    <!-- 差し替え範囲: 元の section#section-flashcard ブロック全体 -->
     <section
       id="section-flashcard"
       class="tab-section"
@@ -230,8 +231,9 @@
       aria-labelledby="tab-flashcard"
       hidden
     >
-      <!-- フィルター -->
+      <!-- フィルターブロック -->
       <div class="section-block filter-block" aria-label="絞り込み">
+
         <div class="filter-row">
           <label class="filter-label" for="fc-filter-pos">品詞</label>
           <select id="fc-filter-pos" class="filter-select">
@@ -241,24 +243,51 @@
             <option value="prep">前置詞</option>
             <option value="conj">接続詞</option>
             <option value="adj">形容詞</option>
+            <option value="adv">副詞</option>
+            <option value="neg">否定</option>
             <option value="q">疑問詞</option>
             <option value="cl">類別詞</option>
-          </select>
-          <label class="filter-label" for="fc-filter-rank">重要度</label>
-          <select id="fc-filter-rank" class="filter-select">
-            <option value="all">すべて</option>
-            <option value="3">★★★</option>
-            <option value="2">★★以上</option>
+            <option value="n">名詞</option>
           </select>
         </div>
+
         <div class="filter-row">
-          <span class="filter-info" id="fc-count-info">0 語</span>
-          <button class="btn-text" id="fc-shuffle-btn" type="button">シャッフル</button>
+          <label class="filter-label" for="fc-filter-importance">重要度</label>
+          <select id="fc-filter-importance" class="filter-select">
+            <option value="all">すべて</option>
+            <option value="2">★★★ のみ</option>
+            <option value="1">★★ 以上</option>
+          </select>
+        </div>
+
+        <div class="filter-row filter-row--actions">
+          <label class="filter-toggle" for="fc-show-known">
+            <input type="checkbox" id="fc-show-known" class="filter-toggle__input" />
+            <span class="filter-toggle__track"></span>
+            <span class="filter-toggle__label">習得済みも表示</span>
+          </label>
+          <div class="filter-actions">
+            <button class="btn-text" id="fc-shuffle-btn" type="button">シャッフル</button>
+            <button class="btn-text btn-text--danger" id="fc-reset-btn" type="button">状態リセット</button>
+          </div>
+        </div>
+
+        <div class="filter-info-row">
+          <span class="filter-info" id="fc-count-info" aria-live="polite">読み込み中…</span>
         </div>
       </div>
 
-      <!-- カード本体 -->
+      <!-- カードステージ -->
       <div class="card-stage" aria-live="polite" aria-atomic="true">
+
+        <!-- 空状態 -->
+        <div class="fc-empty" id="fc-empty" hidden role="status">
+          <div class="fc-empty__icon" aria-hidden="true">📭</div>
+          <p class="fc-empty__title">対象カードがありません</p>
+          <p class="fc-empty__sub">フィルターを変更するか「習得済みも表示」をオンにしてください</p>
+        </div>
+
+        <!-- カード -->
         <div
           class="flashcard"
           id="flashcard"
@@ -267,36 +296,40 @@
           aria-pressed="false"
           aria-label="カードをタップして答えを表示"
         >
-          <!-- 表面 ─────────────────────────────────────
-               デフォルト表示。opacity:1 / pointer-events:auto
-               .flip クラスが付くと opacity:0 / pointer-events:none -->
-          <div class="flashcard-front">
-            <div class="fc-pos-badge" id="fc-pos-badge">動詞</div>
-            <div class="fc-thai" id="fc-thai" lang="th">–</div>
-            <div class="fc-reading" id="fc-reading">–</div>
-            <div class="fc-hint">タップして意味を確認</div>
-          </div>
+          <div class="flashcard-inner" id="flashcard-inner">
 
-          <!-- 裏面 ─────────────────────────────────────
-               デフォルト非表示。opacity:0 / pointer-events:none
-               .flip クラスが付くと opacity:1 / pointer-events:auto -->
-          <div class="flashcard-back">
-            <div class="fc-meaning" id="fc-meaning">–</div>
-            <div class="fc-example" id="fc-example" lang="th"></div>
-            <div class="fc-example-reading" id="fc-example-reading"></div>
-            <div class="fc-example-meaning" id="fc-example-meaning"></div>
-            <div class="fc-freq" id="fc-freq"></div>
+            <!-- 表面 -->
+            <div class="flashcard-face flashcard-front">
+              <div class="fc-badge-row">
+                <span class="fc-pos-badge" id="fc-pos-badge" data-pos=""></span>
+                <span class="fc-importance" id="fc-importance" data-importance="2"></span>
+                <span class="fc-status-badge" id="fc-status-badge" data-status="new" hidden></span>
+              </div>
+              <div class="fc-thai" id="fc-thai" lang="th">–</div>
+              <div class="fc-reading" id="fc-reading">–</div>
+              <div class="fc-hint">タップして意味を確認</div>
+            </div>
+
+            <!-- 裏面 -->
+            <div class="flashcard-face flashcard-back">
+              <div class="fc-meaning" id="fc-meaning">–</div>
+              <div class="fc-example" id="fc-example" lang="th"></div>
+              <div class="fc-example-reading" id="fc-example-reading"></div>
+              <div class="fc-example-meaning" id="fc-example-meaning"></div>
+              <div class="fc-freq" id="fc-freq"></div>
+            </div>
+
           </div>
         </div>
 
         <!-- ナビゲーション -->
         <div class="card-nav">
           <button class="card-nav-btn" id="fc-prev-btn" type="button" aria-label="前のカード">‹</button>
-          <span class="card-progress" id="fc-progress">1 / 1</span>
+          <span class="card-progress" id="fc-progress" aria-live="polite">1 / 1</span>
           <button class="card-nav-btn" id="fc-next-btn" type="button" aria-label="次のカード">›</button>
         </div>
 
-        <!-- 習得ボタン -->
+        <!-- アクションボタン -->
         <div class="fc-action-row">
           <button class="fc-action-btn fc-action-again" id="fc-again-btn" type="button">
             もう一度
@@ -305,6 +338,7 @@
             覚えた ✓
           </button>
         </div>
+
       </div>
     </section>
 

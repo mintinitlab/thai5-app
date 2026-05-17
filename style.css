@@ -38,10 +38,10 @@
   --font-mono:  "SF Mono", "Fira Code", monospace;
 
   /* --- フォントサイズ --- */
-  --fs-xs:   11px;
-  --fs-sm:   13px;
+  --fs-xs:   13px;
+  --fs-sm:   15px;
   --fs-base: 15px;
-  --fs-md:   17px;
+  --fs-md:   20px;
   --fs-lg:   20px;
   --fs-xl:   28px;
   --fs-2xl:  40px;
@@ -440,14 +440,13 @@ body {
   gap: var(--sp-3);
   padding: var(--sp-6) var(--sp-5);
   border-radius: var(--r-lg);
-  /* transition: opacity のみ。transform は絶対に使わない */
   transition: opacity 0.18s ease;
-  /* pointer-events でクリック可否を制御 */
 }
 
 /* ── 表面（デフォルト表示） ── */
 .flashcard-front {
   opacity: 1;
+  visibility: visible;
   pointer-events: auto;
   background: var(--surface);
   z-index: 2;
@@ -456,6 +455,7 @@ body {
 /* ── 裏面（デフォルト非表示） ── */
 .flashcard-back {
   opacity: 0;
+  visibility: hidden;
   pointer-events: none;
   background: linear-gradient(135deg, #f0f8ff 0%, var(--surface) 100%);
   z-index: 1;
@@ -464,21 +464,24 @@ body {
 /* ── フリップ状態（.flip クラスが付いたとき） ── */
 .flashcard.flip .flashcard-front {
   opacity: 0;
+  visibility: hidden;
   pointer-events: none;
 }
 .flashcard.flip .flashcard-back {
   opacity: 1;
+  visibility: visible;
   pointer-events: auto;
   z-index: 2;
 }
 
-/* ── 次/前ページ切替中（.changing クラスで瞬間非表示） ── */
-/* Safari では transition が完了するまで古い状態が残るため
-   .changing 中は opacity:0 にして描画を完全に隠す */
-.flashcard.changing .flashcard-front,
-.flashcard.changing .flashcard-back {
+/* ── カード切替中（.updating クラス）── */
+/* flip・transitionを完全に止め、両面を即時非表示にする */
+.flashcard.updating .flashcard-front,
+.flashcard.updating .flashcard-back {
   opacity: 0 !important;
+  visibility: hidden !important;
   transition: none !important;
+  pointer-events: none !important;
 }
 
 /* ── カード内テキスト要素 ── */
@@ -900,3 +903,184 @@ body {
   border-radius: var(--r-sm); font-size: var(--fs-xs); color: var(--text-1);
 }
 .filter-info    { font-size: var(--fs-xs); color: var(--text-3); }
+
+
+/* ============================================================
+   style.css — 追加分（既存ファイルの末尾に追記）
+   ============================================================ */
+
+/* ---------- フィルターブロック追加スタイル ---------- */
+
+.filter-row--actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+}
+
+.filter-actions {
+  display: flex;
+  gap: var(--sp-3);
+  align-items: center;
+}
+
+.filter-info-row {
+  padding-top: var(--sp-1);
+  border-top: 0.5px solid var(--border);
+}
+
+/* 危険系テキストボタン */
+.btn-text--danger {
+  color: var(--red);
+}
+
+/* ---------- トグルスイッチ ---------- */
+
+.filter-toggle {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  cursor: pointer;
+  user-select: none;
+}
+
+.filter-toggle__input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.filter-toggle__track {
+  display: inline-block;
+  width: 36px;
+  height: 20px;
+  background: var(--border);
+  border-radius: var(--r-full);
+  position: relative;
+  flex-shrink: 0;
+  transition: background 0.2s ease;
+}
+
+.filter-toggle__track::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  background: #fff;
+  border-radius: 50%;
+  transition: transform 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.filter-toggle__input:checked + .filter-toggle__track {
+  background: var(--green);
+}
+
+.filter-toggle__input:checked + .filter-toggle__track::after {
+  transform: translateX(16px);
+}
+
+.filter-toggle__label {
+  font-size: var(--fs-sm);
+  color: var(--text-2);
+}
+
+/* ---------- カードバッジ行 ---------- */
+
+.fc-badge-row {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: var(--sp-2);
+}
+
+/* 品詞バッジ: data-pos でカラーを切り替え */
+.fc-pos-badge[data-pos="verb"]  { background: #E6F1FB; color: #0C447C; }
+.fc-pos-badge[data-pos="aux"]   { background: #EEEDFE; color: #3C3489; }
+.fc-pos-badge[data-pos="prep"]  { background: #E1F5EE; color: #085041; }
+.fc-pos-badge[data-pos="conj"]  { background: #FAEEDA; color: #633806; }
+.fc-pos-badge[data-pos="adj"]   { background: #EAF3DE; color: #27500A; }
+.fc-pos-badge[data-pos="adv"]   { background: #FAEEDA; color: #633806; }
+.fc-pos-badge[data-pos="neg"]   { background: #FAECE7; color: #712B13; }
+.fc-pos-badge[data-pos="q"]     { background: #FAECE7; color: #712B13; }
+.fc-pos-badge[data-pos="cl"]    { background: #FBEAF0; color: #72243E; }
+.fc-pos-badge[data-pos="n"]     { background: #F1EFE8; color: #444441; }
+
+/* 重要度バッジ */
+.fc-importance {
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: var(--r-full);
+  background: var(--amber-bg);
+  color: var(--amber);
+  letter-spacing: 0.05em;
+}
+
+.fc-importance[data-importance="3"] { background: #FAEEDA; color: #633806; }
+.fc-importance[data-importance="2"] { background: #F1EFE8; color: #555450; }
+.fc-importance[data-importance="1"] { background: var(--surface-2); color: var(--text-3); }
+
+/* 状態バッジ */
+.fc-status-badge {
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: var(--r-full);
+}
+
+.fc-status-badge[data-status="again"] {
+  background: var(--red-bg);
+  color: var(--red);
+}
+
+.fc-status-badge[data-status="known"] {
+  background: var(--green-bg);
+  color: var(--green);
+}
+
+/* ---------- 空状態 ---------- */
+
+.fc-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-3);
+  padding: var(--sp-8) var(--sp-4);
+  text-align: center;
+}
+
+.fc-empty__icon {
+  font-size: 40px;
+  line-height: 1;
+}
+
+.fc-empty__title {
+  font-size: var(--fs-md);
+  font-weight: 600;
+  color: var(--text-1);
+  line-height: 1.4;
+}
+
+.fc-empty__sub {
+  font-size: var(--fs-sm);
+  color: var(--text-3);
+  line-height: 1.6;
+}
+
+/* ---------- 「覚えた」ボタン 習得済み状態 ---------- */
+
+.fc-action-ok.fc-action-ok--done {
+  background: var(--surface-2);
+  color: var(--text-3);
+  border-color: var(--border);
+  opacity: 0.7;
+  cursor: default;
+}
