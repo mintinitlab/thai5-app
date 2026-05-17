@@ -259,26 +259,33 @@
 
       <!-- カード本体 -->
       <div class="card-stage" aria-live="polite" aria-atomic="true">
-        <div class="flashcard" id="flashcard" role="button" tabindex="0" aria-pressed="false" aria-label="カードをタップして答えを表示">
-          <div class="flashcard-inner" id="flashcard-inner">
-            <!-- 表面 -->
-            <div class="flashcard-face flashcard-front">
-              <div class="fc-pos-badge" id="fc-pos-badge">動詞</div>
-              <div class="fc-thai" id="fc-thai" lang="th">–</div>
-              <div class="fc-reading" id="fc-reading">–</div>
-              <div class="fc-hint">タップして意味を確認</div>
-            </div>
-            <!-- 裏面 -->
-            <div class="flashcard-face flashcard-back">
-              <div class="fc-meaning" id="fc-meaning">–</div>
-              <!-- 例文タイ語 -->
-<div class="fc-example" id="fc-example" lang="th"></div>
-<!-- 例文の発音記号（追加） -->
-<div class="fc-example-reading" id="fc-example-reading"></div>
-<!-- 例文の日本語訳（追加） -->
-<div class="fc-example-meaning" id="fc-example-meaning"></div>
-              <div class="fc-freq" id="fc-freq"></div>
-            </div>
+        <div
+          class="flashcard"
+          id="flashcard"
+          role="button"
+          tabindex="0"
+          aria-pressed="false"
+          aria-label="カードをタップして答えを表示"
+        >
+          <!-- 表面 ─────────────────────────────────────
+               デフォルト表示。opacity:1 / pointer-events:auto
+               .flip クラスが付くと opacity:0 / pointer-events:none -->
+          <div class="flashcard-front">
+            <div class="fc-pos-badge" id="fc-pos-badge">動詞</div>
+            <div class="fc-thai" id="fc-thai" lang="th">–</div>
+            <div class="fc-reading" id="fc-reading">–</div>
+            <div class="fc-hint">タップして意味を確認</div>
+          </div>
+
+          <!-- 裏面 ─────────────────────────────────────
+               デフォルト非表示。opacity:0 / pointer-events:none
+               .flip クラスが付くと opacity:1 / pointer-events:auto -->
+          <div class="flashcard-back">
+            <div class="fc-meaning" id="fc-meaning">–</div>
+            <div class="fc-example" id="fc-example" lang="th"></div>
+            <div class="fc-example-reading" id="fc-example-reading"></div>
+            <div class="fc-example-meaning" id="fc-example-meaning"></div>
+            <div class="fc-freq" id="fc-freq"></div>
           </div>
         </div>
 

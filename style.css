@@ -387,154 +387,213 @@ body {
     font-size: 16px;
   }
 }
+
+
 /* ============================================================
-   フラッシュカード: 表裏反転アニメーション
+   9. フラッシュカード（Safari 対応・opacity 切替方式）
+   ============================================================
+   ❌ 旧方式: transform-style:preserve-3d + rotateY
+      → Safari は GPU composite のタイミングが非同期で
+        classList.remove('flip') 後も裏面が一瞬残る
+
+   ✅ 新方式: 表面/裏面を独立DOM + opacity 切替
+      → JS でクラスを変えるだけで即座に反映される
+      → transition は opacity のみ（transform なし）
    ============================================================ */
 
-/* カードを包む枠: 3D 空間を作る */
+/* カードのステージ（中央揃え） */
 .card-stage {
-  perspective: 1000px; /* 数値が大きいほど遠近感が弱くなる */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-4);
+  padding: var(--sp-2) 0;
 }
 
-/* カード本体: クリックで flip クラスが付く */
+/* カード外枠（クリック対象） */
 .flashcard {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  min-height: 220px;
   cursor: pointer;
-  width: 100%;
-  min-height: 220px;
-  position: relative;
-  margin-bottom: var(--sp-4);
-}
-
-/* 内側の回転する部品 */
-.flashcard-inner {
-  width: 100%;
-  height: 100%;
-  min-height: 220px;
-  position: relative;
-  transform-style: preserve-3d;   /* 子要素も3D空間に置く */
-  transition: transform 0.45s ease; /* 反転アニメーションの速さ */
+  /* Safari: transform 系プロパティを一切使わない */
   border-radius: var(--r-lg);
   box-shadow: var(--shadow-md);
-}
-
-/* flip クラスが付いたら裏返す */
-.flashcard.flip .flashcard-inner {
-  transform: rotateY(180deg);
-}
-
-/* 表・裏 共通スタイル */
-.flashcard-face {
-  position: absolute;
-  inset: 0; /* top/right/bottom/left すべて0 */
-  backface-visibility: hidden; /* 裏返ったとき自分を隠す */
-  border-radius: var(--r-lg);
+  background: var(--surface);
   border: 0.5px solid var(--border);
+  /* タップ時のフラッシュを抑制 */
+  -webkit-tap-highlight-color: transparent;
+  /* アクセシビリティ: フォーカスリング */
+  outline-offset: 3px;
+}
+
+/* ── 表面・裏面 共通 ── */
+.flashcard-front,
+.flashcard-back {
+  position: absolute;
+  inset: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: var(--sp-3);
-  padding: var(--sp-6);
-  text-align: center;
+  padding: var(--sp-6) var(--sp-5);
+  border-radius: var(--r-lg);
+  /* transition: opacity のみ。transform は絶対に使わない */
+  transition: opacity 0.18s ease;
+  /* pointer-events でクリック可否を制御 */
 }
 
-/* 表面: 白背景 */
+/* ── 表面（デフォルト表示） ── */
 .flashcard-front {
+  opacity: 1;
+  pointer-events: auto;
   background: var(--surface);
+  z-index: 2;
 }
 
-/* 裏面: 薄い青背景 + 最初から裏返した状態にしておく */
+/* ── 裏面（デフォルト非表示） ── */
 .flashcard-back {
-  background: var(--blue-bg);
-  transform: rotateY(180deg); /* 最初から裏向き */
+  opacity: 0;
+  pointer-events: none;
+  background: linear-gradient(135deg, #f0f8ff 0%, var(--surface) 100%);
+  z-index: 1;
 }
 
-/* タイ語テキスト（大きく表示） */
+/* ── フリップ状態（.flip クラスが付いたとき） ── */
+.flashcard.flip .flashcard-front {
+  opacity: 0;
+  pointer-events: none;
+}
+.flashcard.flip .flashcard-back {
+  opacity: 1;
+  pointer-events: auto;
+  z-index: 2;
+}
+
+/* ── 次/前ページ切替中（.changing クラスで瞬間非表示） ── */
+/* Safari では transition が完了するまで古い状態が残るため
+   .changing 中は opacity:0 にして描画を完全に隠す */
+.flashcard.changing .flashcard-front,
+.flashcard.changing .flashcard-back {
+  opacity: 0 !important;
+  transition: none !important;
+}
+
+/* ── カード内テキスト要素 ── */
+.fc-pos-badge {
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--blue);
+  background: var(--blue-bg);
+  padding: 2px 10px;
+  border-radius: var(--r-full);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
 .fc-thai {
   font-size: var(--fs-2xl);
   font-weight: 700;
   color: var(--text-1);
   font-family: var(--font-thai);
+  letter-spacing: 0.01em;
+  text-align: center;
   line-height: 1.3;
 }
 
-/* 読み方（ローマ字） */
 .fc-reading {
   font-size: var(--fs-md);
   color: var(--text-2);
   font-family: var(--font-mono);
+  text-align: center;
 }
 
-/* 意味（裏面） */
-.fc-meaning {
-  font-size: var(--fs-xl);
-  font-weight: 600;
-  color: var(--blue);
-}
-
-/* 「タップして確認」ヒント */
 .fc-hint {
   font-size: var(--fs-xs);
   color: var(--text-3);
   margin-top: var(--sp-2);
 }
 
-/* 品詞バッジ */
-.fc-pos-badge {
-  font-size: var(--fs-xs);
-  font-weight: 500;
-  padding: var(--sp-1) var(--sp-3);
-  background: var(--red-bg);
+.fc-meaning {
+  font-size: var(--fs-xl);
+  font-weight: 700;
   color: var(--red);
-  border-radius: var(--r-full);
+  text-align: center;
 }
 
+.fc-example {
+  font-size: var(--fs-sm);
+  color: var(--text-1);
+  font-family: var(--font-thai);
+  text-align: center;
+  line-height: 1.7;
+  border-top: 0.5px solid var(--border);
+  padding-top: var(--sp-3);
+  width: 100%;
+}
 
-/* 出現頻度 */
+.fc-example-reading {
+  font-size: var(--fs-xs);
+  color: var(--text-2);
+  font-family: var(--font-mono);
+  text-align: center;
+}
+
+.fc-example-meaning {
+  font-size: var(--fs-xs);
+  color: var(--text-3);
+  text-align: center;
+}
+
 .fc-freq {
   font-size: var(--fs-xs);
   color: var(--text-3);
+  background: var(--surface-2);
+  padding: 2px 8px;
+  border-radius: var(--r-full);
 }
 
-/* ナビゲーション（前へ・次へ・進捗） */
+/* ── ナビゲーション ── */
 .card-nav {
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: var(--sp-4);
-  margin-bottom: var(--sp-4);
 }
 
 .card-nav-btn {
   width: 44px;
   height: 44px;
-  border-radius: var(--r-full);
-  border: 0.5px solid var(--border);
+  border-radius: 50%;
   background: var(--surface);
+  border: 0.5px solid var(--border);
   font-size: 22px;
-  color: var(--text-1);
+  color: var(--text-2);
   display: flex;
   align-items: center;
   justify-content: center;
   box-shadow: var(--shadow-sm);
-  transition: background 0.15s;
+  transition: background 0.12s ease, color 0.12s ease;
 }
-
 .card-nav-btn:active {
   background: var(--surface-2);
+  color: var(--text-1);
 }
 
 .card-progress {
   font-size: var(--fs-sm);
-  color: var(--text-2);
+  color: var(--text-3);
   min-width: 60px;
   text-align: center;
 }
 
-/* 習得ボタン行 */
+/* ── 習得ボタン ── */
 .fc-action-row {
   display: flex;
   gap: var(--sp-3);
+  width: 100%;
+  max-width: 420px;
 }
 
 .fc-action-btn {
@@ -542,95 +601,70 @@ body {
   padding: var(--sp-3) var(--sp-4);
   border-radius: var(--r-md);
   font-size: var(--fs-sm);
-  font-weight: 500;
-  border: 0.5px solid var(--border);
-  transition: background 0.15s;
+  font-weight: 600;
+  border: 1.5px solid transparent;
+  transition: opacity 0.12s ease;
 }
+.fc-action-btn:active { opacity: 0.7; }
 
 .fc-action-again {
-  background: var(--surface-2);
-  color: var(--text-2);
+  background: var(--amber-bg);
+  color: var(--amber);
+  border-color: var(--amber);
 }
-
 .fc-action-ok {
   background: var(--green-bg);
   color: var(--green);
   border-color: var(--green);
 }
-/* ----------------------------------------------------------
-   フラッシュカード裏面：例文ブロック
-   ---------------------------------------------------------- */
 
-/* 例文タイ語 */
-.fc-example {
-  font-size: var(--fs-base);
-  font-family: var(--font-thai);
-  color: var(--text-1);
-  line-height: 1.7;
-  text-align: center;
+
+/* ============================================================
+   10. クイズ
+   ============================================================ */
+
+.quiz-stage {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
 }
 
-/* 例文の発音記号（ローマ字） */
-.fc-example-reading {
+.quiz-question-block {
+  background: var(--surface);
+  border: 0.5px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: var(--sp-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.quiz-question-jp {
+  font-size: var(--fs-md);
+  font-weight: 500;
+  color: var(--text-1);
+  line-height: 1.5;
+}
+
+.quiz-question-thai {
+  font-size: var(--fs-md);
+  font-family: var(--font-thai);
+  color: var(--text-2);
+  line-height: 1.7;
+}
+
+.quiz-question-reading {
   font-size: var(--fs-sm);
   font-family: var(--font-mono);
-  color: var(--blue);
-  line-height: 1.6;
-  text-align: center;
+  color: var(--text-3);
 }
 
-/* 例文の日本語訳 */
-.fc-example-meaning {
-  font-size: var(--fs-sm);
-  color: var(--text-2);
-  line-height: 1.6;
-  text-align: center;
-}
-/* ==========================================================
-   モバイル向け文字サイズ調整
-   ========================================================== */
-
-/* ----------------------------------------------------------
-   フラッシュカード
-   ---------------------------------------------------------- */
-
-/* タイ語（表面・大きく表示） */
-.fc-thai {
-  font-size: 52px;             /* 変更前: var(--fs-2xl)=40px */
+.quiz-choices {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
 }
 
-/* 読み方ローマ字（表面） */
-.fc-reading {
-  font-size: var(--fs-md);     /* 変更前: var(--fs-sm)=13px → 17px */
-  letter-spacing: 0.02em;      /* 少し字間を空けて読みやすく */
-}
-
-/* 意味（裏面） */
-.fc-meaning {
-  font-size: 26px;             /* 変更前: var(--fs-xl)=28px → 微調整 */
-}
-
-/* ----------------------------------------------------------
-   クイズ
-   ---------------------------------------------------------- */
-
-/* 日本語問題文 */
-.quiz-question-jp {
-  font-size: var(--fs-md);     /* 変更前: var(--fs-base)=15px → 17px */
-  font-weight: 500;
-  line-height: 1.7;
-  margin-bottom: var(--sp-2);
-}
-
-/* タイ語問題文（穴埋め部分） */
-.quiz-question-thai {
-  font-size: var(--fs-base);   /* 変更前: var(--fs-sm)=13px → 15px */
-  font-family: var(--font-thai);
-  color: var(--text-2);
-  line-height: 1.8;
-}
-
-/* 選択肢ボタン全体 */
 .choice-btn {
   width: 100%;
   display: flex;
@@ -638,55 +672,231 @@ body {
   gap: var(--sp-3);
   padding: var(--sp-3) var(--sp-4);
   background: var(--surface);
-  border: 0.5px solid var(--border);
+  border: 1.5px solid var(--border);
   border-radius: var(--r-md);
+  font-size: var(--fs-sm);
+  color: var(--text-1);
   text-align: left;
-  margin-bottom: var(--sp-2);
-  min-height: 52px;            /* タップしやすい高さを確保 */
-  transition: background 0.15s, border-color 0.15s;
+  transition: background 0.12s ease, border-color 0.12s ease;
+  cursor: pointer;
+}
+.choice-btn:active:not(:disabled) {
+  background: var(--surface-2);
+}
+.choice-btn:disabled {
+  cursor: default;
+  opacity: 0.85;
 }
 
-/* 選択肢の番号（1〜4） */
 .choice-num {
-  font-size: var(--fs-sm);
-  font-weight: 600;
-  color: var(--text-3);
-  min-width: 20px;
+  display: inline-flex;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--surface-2);
+  align-items: center;
+  justify-content: center;
+  font-size: var(--fs-xs);
+  font-weight: 700;
   flex-shrink: 0;
 }
 
-/* 選択肢のテキスト */
 .choice-text {
-  font-size: var(--fs-base);   /* 変更前: var(--fs-sm)=13px → 15px */
-  font-family: var(--font-thai);
-  color: var(--text-1);
+  flex: 1;
   line-height: 1.5;
 }
 
-/* 「次の問題」ボタン */
-#quiz-next-btn {
-  width: 100%;
-  margin-top: var(--sp-4);
-  padding: var(--sp-4);
-  font-size: var(--fs-base);   /* 変更前: 小さかった → 15px */
-  font-weight: 600;
-  background: var(--blue);
-  color: #fff;
-  border: none;
-  border-radius: var(--r-md);
-  letter-spacing: 0.03em;
+.quiz-explanation {
+  background: var(--surface);
+  border: 0.5px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: var(--sp-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
 }
 
-/* 解説エリアの結果テキスト（✅ 正解！/ ❌ 不正解） */
 .explanation-result {
-  font-size: var(--fs-lg);     /* 20px：目立つように大きく */
+  font-size: var(--fs-md);
   font-weight: 700;
-  margin-bottom: var(--sp-2);
 }
 
-/* 解説テキスト本文 */
 .explanation-text {
-  font-size: var(--fs-sm);     /* 13px */
+  font-size: var(--fs-sm);
   color: var(--text-2);
-  line-height: 1.8;
+  line-height: 1.7;
 }
+
+.quiz-result {
+  background: var(--surface);
+  border: 0.5px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: var(--sp-8) var(--sp-5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-4);
+  text-align: center;
+}
+
+.result-emoji { font-size: 48px; line-height: 1; }
+.result-score { font-size: var(--fs-xl); font-weight: 700; color: var(--text-1); line-height: 1.4; }
+.result-msg   { font-size: var(--fs-base); color: var(--text-2); }
+
+.quiz-meta {
+  font-size: var(--fs-sm);
+  color: var(--text-3);
+  margin-top: var(--sp-2);
+}
+
+/* ── 共通ボタン ── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--sp-3) var(--sp-5);
+  background: var(--red);
+  color: #fff;
+  border-radius: var(--r-md);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.12s ease;
+}
+.btn-primary:active { opacity: 0.8; }
+.btn-primary.btn-full { width: 100%; }
+
+.btn-text {
+  font-size: var(--fs-sm);
+  color: var(--text-3);
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.btn-danger {
+  padding: var(--sp-3) var(--sp-5);
+  background: var(--red-bg);
+  color: var(--red);
+  border: 1.5px solid var(--red);
+  border-radius: var(--r-md);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+
+/* ============================================================
+   11. ダッシュボード
+   ============================================================ */
+
+.progress-grid {
+  display: flex;
+  gap: var(--sp-3);
+}
+.progress-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: var(--sp-3);
+  background: var(--surface-2);
+  border-radius: var(--r-md);
+}
+.progress-card-label { font-size: var(--fs-xs); font-weight: 600; color: var(--text-3); }
+.progress-ring-wrap  { position: relative; width: 56px; height: 56px; }
+.progress-ring       { width: 56px; height: 56px; transform: rotate(-90deg); }
+.ring-bg   { fill: none; stroke: var(--border); stroke-width: 4; }
+.ring-fill { fill: none; stroke: var(--red); stroke-width: 4; stroke-linecap: round;
+             stroke-dasharray: 138; stroke-dashoffset: 138; transition: stroke-dashoffset 0.5s ease; }
+.progress-pct {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  font-size: var(--fs-xs); font-weight: 700; color: var(--red);
+}
+.progress-card-sub { font-size: var(--fs-xs); color: var(--text-3); }
+
+.recommend-list   { display: flex; flex-direction: column; gap: var(--sp-2); }
+.recommend-item   { display: flex; align-items: center; gap: var(--sp-3); padding: var(--sp-3); background: var(--surface-2); border-radius: var(--r-md); cursor: pointer; }
+.rec-icon         { font-size: 22px; }
+.rec-body         { flex: 1; }
+.rec-title        { font-size: var(--fs-sm); font-weight: 600; }
+.rec-desc         { font-size: var(--fs-xs); color: var(--text-3); }
+.rec-arrow        { font-size: 18px; color: var(--text-3); }
+
+.theme-list  { display: flex; flex-direction: column; gap: var(--sp-2); }
+.theme-row   { display: flex; align-items: center; gap: var(--sp-2); font-size: var(--fs-sm); }
+.theme-rank  { width: 18px; font-size: var(--fs-xs); font-weight: 700; color: var(--text-3); text-align: right; }
+.theme-name  { width: 80px; font-size: var(--fs-xs); color: var(--text-2); }
+.theme-bar-wrap { flex: 1; height: 8px; background: var(--surface-2); border-radius: var(--r-full); overflow: hidden; }
+.theme-bar   { height: 100%; background: var(--red); border-radius: var(--r-full); opacity: 0.7; }
+.theme-count { font-size: var(--fs-xs); color: var(--text-3); min-width: 32px; text-align: right; }
+
+
+/* ============================================================
+   12. 文法カード
+   ============================================================ */
+
+.inner-tab-nav {
+  display: flex; gap: var(--sp-1); flex-wrap: wrap;
+  margin-bottom: var(--sp-3); padding-bottom: var(--sp-3);
+  border-bottom: 0.5px solid var(--border);
+}
+.inner-tab-btn {
+  padding: 4px 10px; border-radius: var(--r-full);
+  border: 0.5px solid var(--border); background: transparent;
+  font-size: var(--fs-xs); cursor: pointer; color: var(--text-3);
+}
+.inner-tab-btn.active {
+  background: var(--surface-2); color: var(--text-1);
+  font-weight: 600; border-color: var(--text-3);
+}
+
+.grammar-list    { display: flex; flex-direction: column; gap: var(--sp-3); }
+.grammar-card    { background: var(--surface-2); border-radius: var(--r-md); padding: var(--sp-4); border: 0.5px solid var(--border); }
+.grammar-card-header { display: flex; align-items: center; gap: var(--sp-2); margin-bottom: var(--sp-2); flex-wrap: wrap; }
+.grammar-badge   { font-size: var(--fs-xs); font-weight: 600; padding: 2px 8px; border-radius: var(--r-full); background: var(--blue-bg); color: var(--blue); }
+.badge-neg  { background: var(--red-bg);   color: var(--red); }
+.badge-prep { background: var(--green-bg); color: var(--green); }
+.badge-cmp  { background: var(--amber-bg); color: var(--amber); }
+.badge-time { background: #EDE9FE; color: #5B21B6; }
+.grammar-rank  { font-size: var(--fs-xs); color: var(--amber); }
+.grammar-freq  { font-size: var(--fs-xs); color: var(--text-3); margin-left: auto; }
+.grammar-title   { font-size: var(--fs-base); font-weight: 700; margin-bottom: var(--sp-1); }
+.grammar-formula { margin-bottom: var(--sp-2); }
+.grammar-formula code { font-family: var(--font-mono); font-size: var(--fs-xs); background: var(--surface); padding: 2px 6px; border-radius: 4px; }
+.grammar-desc    { font-size: var(--fs-sm); color: var(--text-2); margin-bottom: var(--sp-2); line-height: 1.6; }
+.grammar-example { font-size: var(--fs-sm); color: var(--text-1); font-family: var(--font-mono); background: var(--surface); padding: var(--sp-2) var(--sp-3); border-radius: var(--r-sm); }
+.grammar-warn    { font-size: var(--fs-xs); color: var(--amber); margin-top: var(--sp-2); background: var(--amber-bg); padding: var(--sp-1) var(--sp-2); border-radius: var(--r-sm); }
+
+
+/* ============================================================
+   13. 復習タブ
+   ============================================================ */
+
+.weak-summary   { display: flex; flex-direction: column; gap: var(--sp-2); }
+.weak-cat-row   { display: flex; align-items: center; gap: var(--sp-2); }
+.weak-cat-name  { width: 72px; font-size: var(--fs-xs); color: var(--text-2); }
+.weak-cat-bar-wrap { flex: 1; height: 6px; background: var(--surface-2); border-radius: var(--r-full); overflow: hidden; }
+.weak-cat-bar   { height: 100%; background: var(--amber); border-radius: var(--r-full); transition: width 0.4s ease; }
+.weak-cat-count { font-size: var(--fs-xs); color: var(--text-3); min-width: 32px; text-align: right; }
+
+.review-list-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--sp-4); }
+.review-list-header .section-title { margin-bottom: 0; }
+.review-empty   { text-align: center; padding: var(--sp-8) 0; }
+.review-empty-icon { font-size: 40px; margin-bottom: var(--sp-3); }
+.review-empty-msg  { font-size: var(--fs-md); font-weight: 600; margin-bottom: var(--sp-2); }
+.review-empty-sub  { font-size: var(--fs-sm); color: var(--text-3); }
+
+.danger-block   { border-color: var(--red); }
+.danger-desc    { font-size: var(--fs-sm); color: var(--text-2); margin-bottom: var(--sp-4); }
+
+.filter-block   {}
+.filter-row     { display: flex; align-items: center; gap: var(--sp-2); flex-wrap: wrap; margin-bottom: var(--sp-2); }
+.filter-label   { font-size: var(--fs-xs); color: var(--text-3); white-space: nowrap; }
+.filter-select  {
+  flex: 1; min-width: 100px; padding: var(--sp-2) var(--sp-3);
+  background: var(--surface-2); border: 0.5px solid var(--border);
+  border-radius: var(--r-sm); font-size: var(--fs-xs); color: var(--text-1);
+}
+.filter-info    { font-size: var(--fs-xs); color: var(--text-3); }

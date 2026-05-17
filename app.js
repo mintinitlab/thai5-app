@@ -91,6 +91,14 @@ function initTabs() {
 
 /* ============================================================
    フラッシュカード機能
+   ============================================================
+   Safari 対応ポイント:
+   ・3D flip (transform-style: preserve-3d + rotateY) を完全廃止
+   ・表面/裏面は opacity + pointer-events のみで切り替え
+   ・次/前カード切替時は .changing クラスで瞬間 opacity:0 にし
+     DOM 書き換え後に .changing を外す（transition:none で即時非表示）
+   ・setTimeout(0) + requestAnimationFrame の2段構えで
+     Safari の非同期 composite を確実に回避する
    ============================================================ */
 
 // 現在表示中のカードのインデックス（0始まり）
@@ -98,21 +106,25 @@ let fcIndex = 0;
 
 /**
  * カードの内容を現在の fcIndex に合わせて描画する
+ * ※ flip 状態の制御はここでは行わない（呼び出し元が責任を持つ）
  */
 function renderFlashcard() {
   const card = FLASHCARD_DATA[fcIndex];
-
-  // データがなければ何もしない（安全対策）
   if (!card) return;
 
   // --- 表面 ---
-  $('#fc-thai').textContent      = card.thai    ?? '–';
-  $('#fc-reading').textContent   = card.reading ?? '–';
-  $('#fc-pos-badge').textContent = card.pos     ?? '';
+  const thaiEl   = $('#fc-thai');
+  const readEl   = $('#fc-reading');
+  const posEl    = $('#fc-pos-badge');
+  if (thaiEl) thaiEl.textContent   = card.thai    ?? '–';
+  if (readEl) readEl.textContent   = card.reading ?? '–';
+  if (posEl)  posEl.textContent    = card.pos     ?? '';
 
   // --- 裏面：意味・頻度 ---
-  $('#fc-meaning').textContent = card.meaning ?? '–';
-  $('#fc-freq').textContent    = card.freq    ?? '';
+  const meaningEl = $('#fc-meaning');
+  const freqEl    = $('#fc-freq');
+  if (meaningEl) meaningEl.textContent = card.meaning ?? '–';
+  if (freqEl)    freqEl.textContent    = card.freq    ?? '';
 
   // --- 裏面：例文タイ語 ---
   const exEl = $('#fc-example');
@@ -138,11 +150,53 @@ function renderFlashcard() {
   }
 
   // --- 進捗表示（例: 1 / 3） ---
-  $('#fc-progress').textContent = `${fcIndex + 1} / ${FLASHCARD_DATA.length}`;
+  const progressEl = $('#fc-progress');
+  if (progressEl) {
+    progressEl.textContent = `${fcIndex + 1} / ${FLASHCARD_DATA.length}`;
+  }
+}
 
-  // --- カードを表面に戻す ---
+/**
+ * カードを表面にリセットしてから次のカードに切り替える
+ *
+ * Safari の問題:
+ *   classList.remove('flip') → renderFlashcard() の順で書いても
+ *   GPU composite が非同期なため裏面が一瞬残る。
+ *
+ * 解決手順:
+ *   1. .changing を付ける（transition:none + opacity:0 で即時非表示）
+ *   2. .flip を外す（表面状態に戻す。非表示中なので視覚的影響なし）
+ *   3. DOM を書き換える（renderFlashcard）
+ *   4. setTimeout(0) で macrotask キューの末尾へ
+ *   5. requestAnimationFrame で次の描画フレームを待つ
+ *   6. .changing を外す（opacity が戻り、表面が見える）
+ *
+ * @param {number} newIndex - 切り替え先のインデックス
+ */
+function navigateFlashcard(newIndex) {
   const flashcard = $('#flashcard');
-  if (flashcard) flashcard.classList.remove('flip');
+  if (!flashcard) return;
+
+  // ① 瞬間非表示（transition:none で即座に opacity:0）
+  flashcard.classList.add('changing');
+
+  // ② flip を確実に解除（非表示中なので Safari でも安全）
+  flashcard.classList.remove('flip');
+  flashcard.setAttribute('aria-pressed', 'false');
+
+  // ③ インデックス更新 & DOM 書き換え
+  fcIndex = newIndex;
+  renderFlashcard();
+
+  // ④-⑥ Safari の composite 完了を待って再表示
+  //   setTimeout(0) → macrotask 境界を越えてから
+  //   rAF           → 次の paint フレームを待つ
+  //   この2段構えで Safari の非同期 GPU composite を確実に回避
+  setTimeout(() => {
+    requestAnimationFrame(() => {
+      flashcard.classList.remove('changing');
+    });
+  }, 0);
 }
 
 /**
@@ -153,17 +207,19 @@ function initFlashcard() {
   const prevBtn   = $('#fc-prev-btn');
   const nextBtn   = $('#fc-next-btn');
 
-  // 必要な要素がなければ何もしない
   if (!flashcard || !prevBtn || !nextBtn) return;
 
-  // カードをタップ → 表裏を反転
+  // カードをタップ → 表裏を反転（opacity 切替）
   flashcard.addEventListener('click', () => {
+    // .changing 中（切替アニメーション中）はタップ無効
+    if (flashcard.classList.contains('changing')) return;
+
     flashcard.classList.toggle('flip');
     const isFlipped = flashcard.classList.contains('flip');
     flashcard.setAttribute('aria-pressed', String(isFlipped));
   });
 
-  // キーボード（Space / Enter）でも反転できるようにする
+  // キーボード（Space / Enter）でも反転
   flashcard.addEventListener('keydown', (e) => {
     if (e.key === ' ' || e.key === 'Enter') {
       e.preventDefault();
@@ -171,19 +227,19 @@ function initFlashcard() {
     }
   });
 
-  // 次へボタン：最後なら最初に戻る
+  // 次へ：最後なら最初に戻る
   nextBtn.addEventListener('click', () => {
-    fcIndex = (fcIndex + 1) % FLASHCARD_DATA.length;
-    renderFlashcard();
+    const newIndex = (fcIndex + 1) % FLASHCARD_DATA.length;
+    navigateFlashcard(newIndex);
   });
 
-  // 前へボタン：最初なら最後へ
+  // 前へ：最初なら最後へ
   prevBtn.addEventListener('click', () => {
-    fcIndex = (fcIndex - 1 + FLASHCARD_DATA.length) % FLASHCARD_DATA.length;
-    renderFlashcard();
+    const newIndex = (fcIndex - 1 + FLASHCARD_DATA.length) % FLASHCARD_DATA.length;
+    navigateFlashcard(newIndex);
   });
 
-  // 初期描画
+  // 初期描画（最初は changing なし・表面表示）
   renderFlashcard();
 }
 
