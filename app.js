@@ -331,7 +331,7 @@ function initFlashcard() {
     setStatus(c.id, 'known');
     buildActive();
     if (fcIndex >= fc_active.length) fcIndex = Math.max(0, fc_active.length - 1);
-    renderFC();
+    moveFC('next');
   });
 
   $('#fc-again-btn')?.addEventListener('click', () => {
@@ -339,7 +339,7 @@ function initFlashcard() {
     if (!c) return;
     setStatus(c.id, 'again');
     buildActive();
-    renderFC();
+    moveFC('next');
   });
 
   $('#fc-filter-pos')?.addEventListener('change', (e) => {
