@@ -1,13 +1,13 @@
 /* ============================================================
-   タイ語検定5級 学習アプリ — app.js v2.1.0
-   v2.1.0: 学習進捗機能を追加
+   タイ語検定5級 学習アプリ — app.js v2.2.0
+   v2.2.0: フラッシュカードにキーボード操作を追加
    ============================================================ */
 
 const $ = (s) => document.querySelector(s);
 const $$ = (s) => Array.from(document.querySelectorAll(s));
 
 const LS_KEY          = 'thai5_fc_state';
-const LS_PROGRESS_KEY = 'thai5_progress';   // ★ v2.1.0 追加
+const LS_PROGRESS_KEY = 'thai5_progress';
 
 const POS_LABEL = {
   verb: '動詞', aux: '助動詞', prep: '前置詞', conj: '接続詞',
@@ -40,8 +40,7 @@ function saveState()  {
 }
 function getStatus(id) { return FC_STATE[id] ?? 'new'; }
 
-/* ★ v2.1.0 ─── 進捗データ管理 ─────────────────────────────── */
-
+/* ---------- 進捗データ管理 ---------- */
 function getDefaultProgress() {
   return { totalAnswered: 0, totalCorrect: 0, todayCards: [], todayDate: '' };
 }
@@ -60,46 +59,34 @@ function saveProgress(p) {
 }
 
 function getTodayStr() {
-  return new Date().toISOString().slice(0, 10); // "2026-05-18"
+  return new Date().toISOString().slice(0, 10);
 }
 
-/**
- * カードへの回答を記録する
- * @param {number|string} cardId
- * @param {boolean} isCorrect - true: 覚えた / false: もう一度
- */
 function recordCardAnswer(cardId, isCorrect) {
   const p = loadProgress();
   const today = getTodayStr();
-
-  // 日付が変わっていたら today カウントをリセット
   if (p.todayDate !== today) {
     p.todayCards = [];
     p.todayDate  = today;
   }
-
-  // 同じカードを今日2回以上押しても1枚としてカウント
   const sid = String(cardId);
   if (!p.todayCards.includes(sid)) {
     p.todayCards.push(sid);
   }
-
   p.totalAnswered++;
   if (isCorrect) p.totalCorrect++;
-
   saveProgress(p);
-  updateDashboard(); // ホーム画面を即時更新
+  updateDashboard();
 }
 
-/* ★ v2.1.0 ─── ダッシュボード更新 ──────────────────────────── */
-
+/* ---------- ダッシュボード更新 ---------- */
 function updateDashboard() {
   if (!VOCAB_DATA.length) return;
 
   const total   = VOCAB_DATA.length;
   const known   = VOCAB_DATA.filter(c => getStatus(c.id) === 'known').length;
   const again   = VOCAB_DATA.filter(c => getStatus(c.id) === 'again').length;
-  const studied = known + again; // 一度でも触れたカード数
+  const studied = known + again;
 
   const p = loadProgress();
   const today = getTodayStr();
@@ -108,31 +95,23 @@ function updateDashboard() {
     ? Math.round(p.totalCorrect / p.totalAnswered * 100)
     : 0;
 
-  const CIRC = 2 * Math.PI * 22; // r=22 → ≈ 138.2
+  const CIRC = 2 * Math.PI * 22;
 
-  // --- 単語リング ---
   const vocabPct = total > 0 ? Math.round(known / total * 100) : 0;
   _updateRing('ring-vocab', 'pct-vocab', 'sub-vocab',
-    vocabPct, CIRC,
-    known + ' / ' + total + ' 語');
+    vocabPct, CIRC, known + ' / ' + total + ' 語');
 
-  // --- 問題リング（正答率で代用）---
   _updateRing('ring-quiz', 'pct-quiz', 'sub-quiz',
-    rate, CIRC,
-    p.totalCorrect + ' / ' + p.totalAnswered + ' 回答');
+    rate, CIRC, p.totalCorrect + ' / ' + p.totalAnswered + ' 回答');
 
-  // --- 文法リング（学習済み比率で代用。文法機能実装後に差し替え）---
   const studiedPct = total > 0 ? Math.round(studied / total * 100) : 0;
   _updateRing('ring-grammar', 'pct-grammar', 'sub-grammar',
-    studiedPct, CIRC,
-    studied + ' / ' + total + ' 学習済');
+    studiedPct, CIRC, studied + ' / ' + total + ' 学習済');
 
-  // --- ヘッダー: 今日学習したカード数 ---
   const todayEl = $('#header-today');
   if (todayEl) todayEl.textContent = todayCount;
 }
 
-/** 進捗リング要素を更新するヘルパー */
 function _updateRing(ringId, pctId, subId, pct, circ, subText) {
   const ringEl = document.getElementById(ringId);
   const pctEl  = document.getElementById(pctId);
@@ -142,8 +121,6 @@ function _updateRing(ringId, pctId, subId, pct, circ, subText) {
   if (subEl)  subEl.textContent = subText;
 }
 
-/* ★ v2.1.0 ここまで ───────────────────────────────────────── */
-
 function playPronunciation(word) {
   const utterance = new SpeechSynthesisUtterance(word);
   utterance.lang = 'th-TH';
@@ -151,11 +128,10 @@ function playPronunciation(word) {
   speechSynthesis.speak(utterance);
 }
 
-/* ---------- setStatus: 進捗記録を追加（★ v2.1.0 修正） ---------- */
+/* ---------- setStatus ---------- */
 function setStatus(id, s) {
   FC_STATE[id] = s;
   saveState();
-  // 「覚えた」= 正解、「もう一度」= 不正解として進捗に記録
   if (s === 'known' || s === 'again') {
     recordCardAnswer(id, s === 'known');
   }
@@ -211,7 +187,6 @@ function renderFC() {
   const c  = fc_active[fcIndex];
   const st = getStatus(c.id);
 
-  /* 表面 */
   const posEl = $('#fc-pos-badge');
   if (posEl) {
     posEl.textContent  = POS_LABEL[c.pos] ?? c.pos ?? '';
@@ -245,7 +220,6 @@ function renderFC() {
   const readEl = $('#fc-reading');
   if (readEl) readEl.textContent = c.reading ?? '–';
 
-  /* 裏面 */
   const meanEl = $('#fc-meaning');
   if (meanEl) meanEl.textContent = c.meaning ?? '–';
 
@@ -272,17 +246,14 @@ function renderFC() {
     };
   }
 
-  /* 進捗 */
   const prog = $('#fc-progress');
   if (prog) prog.textContent = `${fcIndex + 1} / ${fc_active.length}`;
 
-  /* 表面に戻す */
   if (cardEl) {
     cardEl.classList.remove('flip');
     cardEl.setAttribute('aria-pressed', 'false');
   }
 
-  /* ボタンラベル */
   const okBtn = $('#fc-ok-btn');
   if (okBtn) okBtn.textContent = st === 'known' ? '習得済 ✓' : '覚えた ✓';
 }
@@ -367,7 +338,6 @@ function initFlashcard() {
   $('#fc-reset-btn')?.addEventListener('click', () => {
     if (!confirm('学習状態をすべてリセットしますか？')) return;
     FC_STATE = {}; saveState(); fcIndex = 0; buildActive(); renderFC();
-    // ★ v2.1.0: カード状態リセット時は進捗もリセット
     saveProgress(getDefaultProgress());
     updateDashboard();
   });
@@ -380,6 +350,54 @@ function initFlashcard() {
       renderFC();
     });
   }
+
+  /* ============================================================
+     ★ v2.2.0 追加: キーボード操作
+     ─────────────────────────────────────────────────────────
+     方針: 既存ボタンの .click() を呼び出すだけ。
+           ロジックはすべてボタンのイベントハンドラ側に委譲する。
+
+     ArrowRight → 「覚えた」ボタン (#fc-ok-btn) と同じ動作
+     ArrowLeft  → 「もう一度」ボタン (#fc-again-btn) と同じ動作
+     Space      → カードのフリップ（カード要素の click と同じ）
+     ============================================================ */
+  document.addEventListener('keydown', (e) => {
+    // 長押し対策
+    if (e.repeat) return;
+
+    // 入力要素にフォーカスがあるときは何もしない
+    const active = document.activeElement;
+    if (
+      active &&
+      (active.tagName === 'INPUT' ||
+       active.tagName === 'TEXTAREA' ||
+       active.tagName === 'SELECT' ||
+       active.isContentEditable)
+    ) return;
+
+    // 単語タブが表示されているときだけ有効にする
+    const fcSection = $('#section-flashcard');
+    if (!fcSection || fcSection.hidden) return;
+
+    switch (e.key) {
+      case 'ArrowRight':
+        // 「覚えた」ボタンと完全に同じ動作
+        $('#fc-ok-btn')?.click();
+        break;
+
+      case 'ArrowLeft':
+        // 「もう一度」ボタンと完全に同じ動作
+        $('#fc-again-btn')?.click();
+        break;
+
+      case ' ':
+        // スクロールを防ぐ
+        e.preventDefault();
+        // カード要素の click（フリップ）と同じ動作
+        $('#flashcard')?.click();
+        break;
+    }
+  });
 
   buildActive();
   renderFC();
@@ -527,7 +545,7 @@ async function loadDataAndInit() {
 
     initFlashcard();
     initQuiz();
-    updateDashboard(); // ★ v2.1.0: 初期表示時にダッシュボードを更新
+    updateDashboard();
   } catch (err) {
     console.error(err);
     alert('データ読み込みに失敗しました。ページを再読み込みしてください。');
