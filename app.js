@@ -1,11 +1,13 @@
 /* ============================================================
-   タイ語検定5級 学習アプリ — app.js v2.0.0
+   タイ語検定5級 学習アプリ — app.js v2.1.0
+   v2.1.0: 学習進捗機能を追加
    ============================================================ */
 
 const $ = (s) => document.querySelector(s);
 const $$ = (s) => Array.from(document.querySelectorAll(s));
 
-const LS_KEY = 'thai5_fc_state';
+const LS_KEY          = 'thai5_fc_state';
+const LS_PROGRESS_KEY = 'thai5_progress';   // ★ v2.1.0 追加
 
 const POS_LABEL = {
   verb: '動詞', aux: '助動詞', prep: '前置詞', conj: '接続詞',
@@ -26,25 +28,138 @@ let fcIndex   = 0;
 let fc_filterPos = 'all';
 let fc_filterImp = 'all';
 let fc_showKnown = false;
-let fc_questionLimit = 20;
 
-/* ---------- LocalStorage ---------- */
+/* ---------- LocalStorage: カード状態 ---------- */
 function loadState()  {
   try { return JSON.parse(localStorage.getItem(LS_KEY) || '{}'); }
   catch { return {}; }
-}
-function playPronunciation(word) {
-  const utterance = new SpeechSynthesisUtterance(word);
-  utterance.lang = 'th-TH';
-  speechSynthesis.cancel();
-  speechSynthesis.speak(utterance);
 }
 function saveState()  {
   try { localStorage.setItem(LS_KEY, JSON.stringify(FC_STATE)); }
   catch { console.warn('LocalStorage 書き込み失敗'); }
 }
 function getStatus(id) { return FC_STATE[id] ?? 'new'; }
-function setStatus(id, s) { FC_STATE[id] = s; saveState(); }
+
+/* ★ v2.1.0 ─── 進捗データ管理 ─────────────────────────────── */
+
+function getDefaultProgress() {
+  return { totalAnswered: 0, totalCorrect: 0, todayCards: [], todayDate: '' };
+}
+
+function loadProgress() {
+  try {
+    return JSON.parse(localStorage.getItem(LS_PROGRESS_KEY) || 'null') || getDefaultProgress();
+  } catch {
+    return getDefaultProgress();
+  }
+}
+
+function saveProgress(p) {
+  try { localStorage.setItem(LS_PROGRESS_KEY, JSON.stringify(p)); }
+  catch { console.warn('progress 書き込み失敗'); }
+}
+
+function getTodayStr() {
+  return new Date().toISOString().slice(0, 10); // "2026-05-18"
+}
+
+/**
+ * カードへの回答を記録する
+ * @param {number|string} cardId
+ * @param {boolean} isCorrect - true: 覚えた / false: もう一度
+ */
+function recordCardAnswer(cardId, isCorrect) {
+  const p = loadProgress();
+  const today = getTodayStr();
+
+  // 日付が変わっていたら today カウントをリセット
+  if (p.todayDate !== today) {
+    p.todayCards = [];
+    p.todayDate  = today;
+  }
+
+  // 同じカードを今日2回以上押しても1枚としてカウント
+  const sid = String(cardId);
+  if (!p.todayCards.includes(sid)) {
+    p.todayCards.push(sid);
+  }
+
+  p.totalAnswered++;
+  if (isCorrect) p.totalCorrect++;
+
+  saveProgress(p);
+  updateDashboard(); // ホーム画面を即時更新
+}
+
+/* ★ v2.1.0 ─── ダッシュボード更新 ──────────────────────────── */
+
+function updateDashboard() {
+  if (!VOCAB_DATA.length) return;
+
+  const total   = VOCAB_DATA.length;
+  const known   = VOCAB_DATA.filter(c => getStatus(c.id) === 'known').length;
+  const again   = VOCAB_DATA.filter(c => getStatus(c.id) === 'again').length;
+  const studied = known + again; // 一度でも触れたカード数
+
+  const p = loadProgress();
+  const today = getTodayStr();
+  const todayCount = (p.todayDate === today) ? p.todayCards.length : 0;
+  const rate = p.totalAnswered > 0
+    ? Math.round(p.totalCorrect / p.totalAnswered * 100)
+    : 0;
+
+  const CIRC = 2 * Math.PI * 22; // r=22 → ≈ 138.2
+
+  // --- 単語リング ---
+  const vocabPct = total > 0 ? Math.round(known / total * 100) : 0;
+  _updateRing('ring-vocab', 'pct-vocab', 'sub-vocab',
+    vocabPct, CIRC,
+    known + ' / ' + total + ' 語');
+
+  // --- 問題リング（正答率で代用）---
+  _updateRing('ring-quiz', 'pct-quiz', 'sub-quiz',
+    rate, CIRC,
+    p.totalCorrect + ' / ' + p.totalAnswered + ' 回答');
+
+  // --- 文法リング（学習済み比率で代用。文法機能実装後に差し替え）---
+  const studiedPct = total > 0 ? Math.round(studied / total * 100) : 0;
+  _updateRing('ring-grammar', 'pct-grammar', 'sub-grammar',
+    studiedPct, CIRC,
+    studied + ' / ' + total + ' 学習済');
+
+  // --- ヘッダー: 今日学習したカード数 ---
+  const todayEl = $('#header-today');
+  if (todayEl) todayEl.textContent = todayCount;
+}
+
+/** 進捗リング要素を更新するヘルパー */
+function _updateRing(ringId, pctId, subId, pct, circ, subText) {
+  const ringEl = document.getElementById(ringId);
+  const pctEl  = document.getElementById(pctId);
+  const subEl  = document.getElementById(subId);
+  if (ringEl) ringEl.style.strokeDashoffset = circ * (1 - pct / 100);
+  if (pctEl)  pctEl.textContent = pct + '%';
+  if (subEl)  subEl.textContent = subText;
+}
+
+/* ★ v2.1.0 ここまで ───────────────────────────────────────── */
+
+function playPronunciation(word) {
+  const utterance = new SpeechSynthesisUtterance(word);
+  utterance.lang = 'th-TH';
+  speechSynthesis.cancel();
+  speechSynthesis.speak(utterance);
+}
+
+/* ---------- setStatus: 進捗記録を追加（★ v2.1.0 修正） ---------- */
+function setStatus(id, s) {
+  FC_STATE[id] = s;
+  saveState();
+  // 「覚えた」= 正解、「もう一度」= 不正解として進捗に記録
+  if (s === 'known' || s === 'again') {
+    recordCardAnswer(id, s === 'known');
+  }
+}
 
 /* ---------- 出題リスト構築 ---------- */
 function buildActive() {
@@ -61,10 +176,6 @@ function buildActive() {
   fc_active = fc_showKnown
     ? [...again, ...newCards, ...known]
     : [...again, ...newCards];
-
-  if (fc_questionLimit !== 'all') {
-    fc_active = fc_active.slice(0, parseInt(fc_questionLimit));
-  }
 
   if (fcIndex >= fc_active.length) fcIndex = 0;
 
@@ -107,7 +218,6 @@ function renderFC() {
     posEl.dataset.pos  = c.pos ?? '';
   }
 
-  // 発音ボタンのテキスト更新のみ（ボタン自体はHTMLに固定）
   const pronounceBtn = $('#fc-pronounce-btn');
   if (pronounceBtn) {
     pronounceBtn.onclick = (e) => {
@@ -257,12 +367,14 @@ function initFlashcard() {
   $('#fc-reset-btn')?.addEventListener('click', () => {
     if (!confirm('学習状態をすべてリセットしますか？')) return;
     FC_STATE = {}; saveState(); fcIndex = 0; buildActive(); renderFC();
+    // ★ v2.1.0: カード状態リセット時は進捗もリセット
+    saveProgress(getDefaultProgress());
+    updateDashboard();
   });
 
   const limitSelect = $('#fc-question-limit');
   if (limitSelect) {
     limitSelect.addEventListener('change', () => {
-      fc_questionLimit = limitSelect.value;
       fcIndex = 0;
       buildActive();
       renderFC();
@@ -415,6 +527,7 @@ async function loadDataAndInit() {
 
     initFlashcard();
     initQuiz();
+    updateDashboard(); // ★ v2.1.0: 初期表示時にダッシュボードを更新
   } catch (err) {
     console.error(err);
     alert('データ読み込みに失敗しました。ページを再読み込みしてください。');
