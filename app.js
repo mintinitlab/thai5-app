@@ -26,6 +26,7 @@ let fcIndex   = 0;
 let fc_filterPos = 'all';
 let fc_filterImp = 'all';
 let fc_showKnown = false;
+let fc_questionLimit = 20;
 
 /* ---------- LocalStorage ---------- */
 function loadState()  {
@@ -60,6 +61,10 @@ function buildActive() {
   fc_active = fc_showKnown
     ? [...again, ...newCards, ...known]
     : [...again, ...newCards];
+
+  if (fc_questionLimit !== 'all') {
+    fc_active = fc_active.slice(0, parseInt(fc_questionLimit));
+  }
 
   if (fcIndex >= fc_active.length) fcIndex = 0;
 
@@ -257,8 +262,10 @@ function initFlashcard() {
   const limitSelect = $('#fc-question-limit');
   if (limitSelect) {
     limitSelect.addEventListener('change', () => {
-      state.settings.questionLimit = limitSelect.value;
-      rebuild();
+      fc_questionLimit = limitSelect.value;
+      fcIndex = 0;
+      buildActive();
+      renderFC();
     });
   }
 
