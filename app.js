@@ -1,6 +1,6 @@
 /* ============================================================
    タイ語検定5級 学習アプリ — app.js v2.2.0
-   v2.2.0: フラッシュカードにキーボード操作を追加
+   v2.2.0: フラッシュカード音声自動再生・手動再生を追加
    ============================================================ */
 
 const $ = (s) => document.querySelector(s);
@@ -65,16 +65,20 @@ function getTodayStr() {
 function recordCardAnswer(cardId, isCorrect) {
   const p = loadProgress();
   const today = getTodayStr();
+
   if (p.todayDate !== today) {
     p.todayCards = [];
     p.todayDate  = today;
   }
+
   const sid = String(cardId);
   if (!p.todayCards.includes(sid)) {
     p.todayCards.push(sid);
   }
+
   p.totalAnswered++;
   if (isCorrect) p.totalCorrect++;
+
   saveProgress(p);
   updateDashboard();
 }
@@ -121,6 +125,29 @@ function _updateRing(ringId, pctId, subId, pct, circ, subText) {
   if (subEl)  subEl.textContent = subText;
 }
 
+/* ============================================================
+   音声再生（1箇所に集約）
+   - カードに audioUrl があればそちらを優先
+   - なければ Web Speech API でタイ語読み上げ
+   ============================================================ */
+function playCardAudio() {
+  const c = fc_active[fcIndex];
+  if (!c) return;
+
+  if (c.audioUrl) {
+    const audio = new Audio(c.audioUrl);
+    audio.play().catch(() => {});
+    return;
+  }
+
+  if (!c.thai) return;
+  const utterance = new SpeechSynthesisUtterance(c.thai);
+  utterance.lang = 'th-TH';
+  speechSynthesis.cancel();
+  speechSynthesis.speak(utterance);
+}
+
+/* ---------- 既存の playPronunciation は例文再生用として残す ---------- */
 function playPronunciation(word) {
   const utterance = new SpeechSynthesisUtterance(word);
   utterance.lang = 'th-TH';
@@ -187,6 +214,7 @@ function renderFC() {
   const c  = fc_active[fcIndex];
   const st = getStatus(c.id);
 
+  /* 表面 */
   const posEl = $('#fc-pos-badge');
   if (posEl) {
     posEl.textContent  = POS_LABEL[c.pos] ?? c.pos ?? '';
@@ -220,6 +248,7 @@ function renderFC() {
   const readEl = $('#fc-reading');
   if (readEl) readEl.textContent = c.reading ?? '–';
 
+  /* 裏面 */
   const meanEl = $('#fc-meaning');
   if (meanEl) meanEl.textContent = c.meaning ?? '–';
 
@@ -246,14 +275,17 @@ function renderFC() {
     };
   }
 
+  /* 進捗 */
   const prog = $('#fc-progress');
   if (prog) prog.textContent = `${fcIndex + 1} / ${fc_active.length}`;
 
+  /* 表面に戻す */
   if (cardEl) {
     cardEl.classList.remove('flip');
     cardEl.setAttribute('aria-pressed', 'false');
   }
 
+  /* ボタンラベル */
   const okBtn = $('#fc-ok-btn');
   if (okBtn) okBtn.textContent = st === 'known' ? '習得済 ✓' : '覚えた ✓';
 }
@@ -268,7 +300,10 @@ function moveFC(dir) {
     ? (fcIndex + 1) % fc_active.length
     : (fcIndex - 1 + fc_active.length) % fc_active.length;
   renderFC();
-  requestAnimationFrame(() => { cardEl.style.visibility = 'visible'; });
+  requestAnimationFrame(() => {
+    cardEl.style.visibility = 'visible';
+    playCardAudio();
+  });
 }
 
 function shuffle(arr) {
@@ -351,52 +386,10 @@ function initFlashcard() {
     });
   }
 
-  /* ============================================================
-     ★ v2.2.0 追加: キーボード操作
-     ─────────────────────────────────────────────────────────
-     方針: 既存ボタンの .click() を呼び出すだけ。
-           ロジックはすべてボタンのイベントハンドラ側に委譲する。
-
-     ArrowRight → 「覚えた」ボタン (#fc-ok-btn) と同じ動作
-     ArrowLeft  → 「もう一度」ボタン (#fc-again-btn) と同じ動作
-     Space      → カードのフリップ（カード要素の click と同じ）
-     ============================================================ */
-  document.addEventListener('keydown', (e) => {
-    // 長押し対策
-    if (e.repeat) return;
-
-    // 入力要素にフォーカスがあるときは何もしない
-    const active = document.activeElement;
-    if (
-      active &&
-      (active.tagName === 'INPUT' ||
-       active.tagName === 'TEXTAREA' ||
-       active.tagName === 'SELECT' ||
-       active.isContentEditable)
-    ) return;
-
-    // 単語タブが表示されているときだけ有効にする
-    const fcSection = $('#section-flashcard');
-    if (!fcSection || fcSection.hidden) return;
-
-    switch (e.key) {
-      case 'ArrowRight':
-        // 「覚えた」ボタンと完全に同じ動作
-        $('#fc-ok-btn')?.click();
-        break;
-
-      case 'ArrowLeft':
-        // 「もう一度」ボタンと完全に同じ動作
-        $('#fc-again-btn')?.click();
-        break;
-
-      case ' ':
-        // スクロールを防ぐ
-        e.preventDefault();
-        // カード要素の click（フリップ）と同じ動作
-        $('#flashcard')?.click();
-        break;
-    }
+  /* 手動再生ボタン */
+  $('#play-audio-btn')?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    playCardAudio();
   });
 
   buildActive();
@@ -509,6 +502,38 @@ function initQuiz() {
 }
 
 /* ============================================================
+   キーボード操作（グローバル・1回のみ登録）
+   ============================================================ */
+function handleFlashcardKeydown(e) {
+  if (e.repeat) return;
+
+  const active = document.activeElement;
+  if (
+    active &&
+    (active.tagName === 'INPUT' ||
+     active.tagName === 'TEXTAREA' ||
+     active.tagName === 'SELECT' ||
+     active.isContentEditable)
+  ) return;
+
+  const fcSection = $('#section-flashcard');
+  if (!fcSection || fcSection.hidden) return;
+
+  switch (e.key) {
+    case 'ArrowRight':
+      $('#fc-ok-btn')?.click();
+      break;
+    case 'ArrowLeft':
+      $('#fc-again-btn')?.click();
+      break;
+    case ' ':
+      e.preventDefault();
+      $('#flashcard')?.click();
+      break;
+  }
+}
+
+/* ============================================================
    タブ
    ============================================================ */
 function switchTab(name) {
@@ -556,4 +581,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initTabs();
   switchTab('dashboard');
   loadDataAndInit();
+  document.addEventListener('keydown', handleFlashcardKeydown);
 });
