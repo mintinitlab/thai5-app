@@ -176,9 +176,17 @@ function buildActive() {
   const newCards = filtered.filter((c) => getStatus(c.id) === 'new');
   const known    = filtered.filter((c) => getStatus(c.id) === 'known');
 
-  fc_active = fc_showKnown
+  let active = fc_showKnown
     ? [...again, ...newCards, ...known]
     : [...again, ...newCards];
+
+  const limitVal = $('#fc-question-limit')?.value ?? 'all';
+  if (limitVal !== 'all') {
+    const limit = parseInt(limitVal, 10);
+    if (!isNaN(limit)) active = active.slice(0, limit);
+  }
+
+  fc_active = active;
 
   if (fcIndex >= fc_active.length) fcIndex = 0;
 
@@ -197,7 +205,63 @@ function renderFC() {
   const actionEl = $('.fc-action-row');
 
   if (fc_active.length === 0) {
-    if (emptyEl)  emptyEl.hidden  = false;
+    // セッション完了チェック：全カードが「習得済」かどうか
+    const allCards = VOCAB_DATA.filter((c) => {
+      if (fc_filterPos !== 'all' && c.pos !== fc_filterPos) return false;
+      if (fc_filterImp !== 'all' && (c.importance ?? 1) < parseInt(fc_filterImp)) return false;
+      return true;
+    });
+    const allKnown = allCards.length > 0 && allCards.every((c) => getStatus(c.id) === 'known');
+
+    if (emptyEl) {
+      if (allKnown) {
+        emptyEl.innerHTML = `
+          <div class="fc-empty__icon" aria-hidden="true">🎉</div>
+          <p class="fc-empty__title">学習完了！</p>
+          <p class="fc-empty__sub">このセットのカードをすべて習得しました</p>
+          <button
+            id="fc-restart-btn"
+            type="button"
+            style="
+              margin-top: 16px;
+              padding: 10px 28px;
+              background: var(--red);
+              color: #fff;
+              border: none;
+              border-radius: var(--r-md);
+              font-size: var(--fs-sm);
+              font-weight: 600;
+              cursor: pointer;
+            "
+          >もう一度学習</button>
+        `;
+        emptyEl.hidden = false;
+        document.getElementById('fc-restart-btn')?.addEventListener('click', () => {
+          VOCAB_DATA.filter((c) => {
+            if (fc_filterPos !== 'all' && c.pos !== fc_filterPos) return false;
+            if (fc_filterImp !== 'all' && (c.importance ?? 1) < parseInt(fc_filterImp)) return false;
+            return true;
+          }).forEach((c) => setStatus(c.id, 'again'));
+
+          fcIndex = 0;
+          buildActive();
+          renderFC();
+        });
+        document.getElementById('fc-restart-btn')?.addEventListener('click', () => {
+          fcIndex = 0;
+          buildActive();
+          renderFC();
+        });
+      } else {
+        emptyEl.innerHTML = `
+          <div class="fc-empty__icon" aria-hidden="true">📭</div>
+          <p class="fc-empty__title">対象カードがありません</p>
+          <p class="fc-empty__sub">フィルターを変更するか「習得済みも表示」をオンにしてください</p>
+        `;
+        emptyEl.hidden = false;
+      }
+    }
+
     if (cardEl)   cardEl.hidden   = true;
     if (navEl)    navEl.hidden    = true;
     if (actionEl) actionEl.hidden = true;
@@ -293,12 +357,31 @@ function renderFC() {
 /* ---------- カード移動 ---------- */
 function moveFC(dir) {
   const cardEl = $('#flashcard');
-  if (!cardEl || fc_active.length === 0) return;
+  if (!cardEl) return;
+
+  if (fc_active.length === 0) {
+    renderFC();
+    return;
+  }
+
   cardEl.style.visibility = 'hidden';
   cardEl.classList.remove('flip');
+
   fcIndex = dir === 'next'
     ? (fcIndex + 1) % fc_active.length
     : (fcIndex - 1 + fc_active.length) % fc_active.length;
+
+  buildActive();
+
+  if (fc_active.length === 0) {
+    fcIndex = 0;
+    renderFC();
+    cardEl.style.visibility = 'visible';
+    return;
+  }
+
+  if (fcIndex >= fc_active.length) fcIndex = fc_active.length - 1;
+
   renderFC();
   requestAnimationFrame(() => {
     cardEl.style.visibility = 'visible';

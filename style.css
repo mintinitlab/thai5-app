@@ -894,7 +894,6 @@ body {
 .danger-block   { border-color: var(--red); }
 .danger-desc    { font-size: var(--fs-sm); color: var(--text-2); margin-bottom: var(--sp-4); }
 
-.filter-block   {}
 .filter-row     { display: flex; align-items: center; gap: var(--sp-2); flex-wrap: wrap; margin-bottom: var(--sp-2); }
 .filter-label   { font-size: var(--fs-xs); color: var(--text-3); white-space: nowrap; }
 .filter-select  {
@@ -1092,4 +1091,25 @@ body {
   background: transparent;
   cursor: pointer;
   font-size: 20px;
+}
+
+/* ============================================================
+   14. セッション完了画面
+   ============================================================ */
+
+.fc-empty__restart-btn {
+  margin-top: var(--sp-4);
+  padding: var(--sp-3) var(--sp-6);
+  background: var(--red);
+  color: #fff;
+  border: none;
+  border-radius: var(--r-md);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.12s ease;
+}
+
+.fc-empty__restart-btn:active {
+  opacity: 0.8;
 }
