@@ -641,8 +641,8 @@ function initTabs() {
 async function loadDataAndInit() {
   try {
     const [vRes, qRes] = await Promise.all([
-      fetch('/data/vocab.json'),
-      fetch('/data/questions_vocab_all.json'),
+      fetch('./data/vocab.json'),
+      fetch('./data/questions_vocab_all.json'),
     ]);
     if (!vRes.ok) throw new Error(`vocab.json: ${vRes.status}`);
     if (!qRes.ok) throw new Error(`questions_vocab_all.json: ${qRes.status}`);
