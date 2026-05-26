@@ -1,6 +1,8 @@
 /* ============================================================
-   タイ語検定5級 学習アプリ — app.js v2.2.0
-   v2.2.0: フラッシュカード音声自動再生・手動再生を追加
+   タイ語検定5級 学習アプリ — app.js v2.2.1
+   v2.2.1: Chrome speechSynthesis 自動再生ブロック対策
+           - 初回ユーザー操作時に unlock → speechUnlocked フラグ管理
+           - Safari の既存動作は維持
    ============================================================ */
 
 const $ = (s) => document.querySelector(s);
@@ -8,6 +10,7 @@ const $$ = (s) => Array.from(document.querySelectorAll(s));
 
 const LS_KEY          = 'thai5_fc_state';
 const LS_PROGRESS_KEY = 'thai5_progress';
+const LS_SESSION_KEY  = 'thai5_fc_session';
 
 const POS_LABEL = {
   verb: '動詞', aux: '助動詞', prep: '前置詞', conj: '接続詞',
@@ -29,6 +32,21 @@ let fc_filterPos = 'all';
 let fc_filterImp = 'all';
 let fc_showKnown = false;
 
+/* ---------- 音声再生ロック管理（Chrome 対策） ---------- */
+let speechUnlocked = false;
+
+/* ---------- タイ語 voice キャッシュ（Chrome は非同期ロードのため事前取得） ---------- */
+let thaiVoice = null;
+
+function loadThaiVoice() {
+  const voices = speechSynthesis.getVoices();
+  thaiVoice = voices.find(v => v.lang === 'th-TH') ?? null;
+}
+if (typeof speechSynthesis !== 'undefined') {
+  loadThaiVoice();
+  speechSynthesis.onvoiceschanged = loadThaiVoice;
+}
+
 /* ---------- LocalStorage: カード状態 ---------- */
 function loadState()  {
   try { return JSON.parse(localStorage.getItem(LS_KEY) || '{}'); }
@@ -38,6 +56,28 @@ function saveState()  {
   try { localStorage.setItem(LS_KEY, JSON.stringify(FC_STATE)); }
   catch { console.warn('LocalStorage 書き込み失敗'); }
 }
+function saveSession() {
+  try {
+    localStorage.setItem(LS_SESSION_KEY, JSON.stringify({
+      fcIndex,
+      fc_filterPos,
+      fc_filterImp,
+      fc_showKnown,
+      limit: $('#fc-question-limit')?.value ?? 'all'
+    }));
+  } catch {
+    console.warn('session 書き込み失敗');
+  }
+}
+
+function loadSession() {
+  try {
+    return JSON.parse(localStorage.getItem(LS_SESSION_KEY) || 'null');
+  } catch {
+    return null;
+  }
+}
+
 function getStatus(id) { return FC_STATE[id] ?? 'new'; }
 
 /* ---------- 進捗データ管理 ---------- */
@@ -136,23 +176,42 @@ function playCardAudio() {
 
   if (c.audioUrl) {
     const audio = new Audio(c.audioUrl);
-    audio.play().catch(() => {});
+    audio.play().catch((err) => {
+      console.warn('[audio] play() failed:', err);
+    });
     return;
   }
 
   if (!c.thai) return;
-  const utterance = new SpeechSynthesisUtterance(c.thai);
-  utterance.lang = 'th-TH';
-  speechSynthesis.cancel();
-  speechSynthesis.speak(utterance);
+  playPronunciation(c.thai);
 }
 
-/* ---------- 既存の playPronunciation は例文再生用として残す ---------- */
+/* ---------- playPronunciation: 例文・単語の手動再生にも使い回す ---------- */
 function playPronunciation(word) {
-  const utterance = new SpeechSynthesisUtterance(word);
-  utterance.lang = 'th-TH';
+  // cancel() 直後の speak() は Chrome で競合するため 120ms 待機してから実行
   speechSynthesis.cancel();
-  speechSynthesis.speak(utterance);
+  setTimeout(() => {
+    const utterance = new SpeechSynthesisUtterance(word);
+    utterance.lang = 'th-TH';
+    if (thaiVoice) utterance.voice = thaiVoice; // th-TH voice を明示的にセット
+    utterance.onerror = (e) => {
+      console.warn('[speechSynthesis] utterance error:', e.error, word);
+    };
+    speechSynthesis.speak(utterance);
+  }, 120);
+}
+
+/* ---------- speechSynthesis を unlock する（Chrome 対策） ---------- */
+function unlockSpeech() {
+  if (speechUnlocked) return;
+  // キューをリセットしてから無音 utterance で Chrome のブロックを解除する
+  // '' だと即 end になり解除が不完全なケースがあるため ' '（スペース）を使用
+  speechSynthesis.cancel();
+  const silent = new SpeechSynthesisUtterance(' ');
+  silent.volume = 0;
+  silent.onerror = () => {};
+  speechSynthesis.speak(silent);
+  speechUnlocked = true;
 }
 
 /* ---------- setStatus ---------- */
@@ -352,6 +411,15 @@ function renderFC() {
   /* ボタンラベル */
   const okBtn = $('#fc-ok-btn');
   if (okBtn) okBtn.textContent = st === 'known' ? '習得済 ✓' : '覚えた ✓';
+
+  saveSession();
+
+  /* 自動再生（unlock済みの場合のみ・DOM更新後に実行） */
+  if (speechUnlocked) {
+    requestAnimationFrame(() => {
+      playCardAudio();
+    });
+  }
 }
 
 /* ---------- カード移動 ---------- */
@@ -385,7 +453,6 @@ function moveFC(dir) {
   renderFC();
   requestAnimationFrame(() => {
     cardEl.style.visibility = 'visible';
-    playCardAudio();
   });
 }
 
@@ -402,6 +469,14 @@ function shuffle(arr) {
 function initFlashcard() {
   const cardEl = $('#flashcard');
   if (!cardEl) return;
+
+  /* ── unlock ハンドラ（初回ユーザー操作で speechSynthesis を解除） ── */
+  const unlockHandler = () => {
+    unlockSpeech();
+    // 一度だけ実行すれば十分なので登録解除はしない（複数回呼ばれても unlockSpeech 内でガード済み）
+  };
+  cardEl.addEventListener('click', unlockHandler);
+  cardEl.addEventListener('keydown', unlockHandler);
 
   cardEl.addEventListener('click', () => {
     cardEl.classList.toggle('flip');
@@ -469,12 +544,32 @@ function initFlashcard() {
     });
   }
 
-  /* 手動再生ボタン */
+  /* 手動再生ボタン（unlock も兼ねる） */
   $('#play-audio-btn')?.addEventListener('click', (e) => {
     e.stopPropagation();
+    unlockSpeech();
     playCardAudio();
   });
 
+  /* セッション復元 */
+  const session = loadSession();
+
+  if (session) {
+    fcIndex       = session.fcIndex ?? 0;
+    fc_filterPos  = session.fc_filterPos ?? 'all';
+    fc_filterImp  = session.fc_filterImp ?? 'all';
+    fc_showKnown  = session.fc_showKnown ?? false;
+
+    $('#fc-filter-pos').value        = fc_filterPos;
+    $('#fc-filter-importance').value = fc_filterImp;
+    $('#fc-show-known').checked      = fc_showKnown;
+
+    const limitSelect = $('#fc-question-limit');
+    if (limitSelect && session.limit) {
+      limitSelect.value = session.limit;
+    }
+  }
+  
   buildActive();
   renderFC();
 }
@@ -604,13 +699,16 @@ function handleFlashcardKeydown(e) {
 
   switch (e.key) {
     case 'ArrowRight':
+      unlockSpeech(); // キーボード操作でも unlock
       $('#fc-ok-btn')?.click();
       break;
     case 'ArrowLeft':
+      unlockSpeech();
       $('#fc-again-btn')?.click();
       break;
     case ' ':
       e.preventDefault();
+      unlockSpeech();
       $('#flashcard')?.click();
       break;
   }
@@ -641,8 +739,8 @@ function initTabs() {
 async function loadDataAndInit() {
   try {
     const [vRes, qRes] = await Promise.all([
-      fetch('./data/vocab.json'),
-      fetch('./data/questions_vocab_all.json'),
+      fetch('/data/vocab.json'),
+      fetch('/data/questions_vocab_all.json'),
     ]);
     if (!vRes.ok) throw new Error(`vocab.json: ${vRes.status}`);
     if (!qRes.ok) throw new Error(`questions_vocab_all.json: ${qRes.status}`);
