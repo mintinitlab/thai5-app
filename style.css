@@ -43,7 +43,7 @@
   --fs-base: 15px;
   --fs-md:   20px;
   --fs-lg:   20px;
-  --fs-xl:   28px;
+  --fs-xl:   24px;
   --fs-2xl:  40px;
 
   /* --- スペーシング（4px基準） --- */
@@ -527,7 +527,7 @@ body {
 }
 
 .fc-example {
-  font-size: var(--fs-sm);
+  font-size: var(--fs-xl);
   color: var(--text-1);
   font-family: var(--font-thai);
   text-align: center;
