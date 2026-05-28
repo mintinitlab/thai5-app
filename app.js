@@ -785,9 +785,9 @@ function initTabs() {
 async function loadDataAndInit() {
   try {
     const [vRes, qRes, gRes] = await Promise.all([
-      fetch('/data/vocab.json'),
-      fetch('/data/questions_vocab_all.json'),
-      fetch('/data/grammar.json'),
+      fetch('./data/vocab.json'),
+      fetch('./data/questions_vocab_all.json'),
+      fetch('./data/grammar.json'),
     ]);
 
     if (!vRes.ok) throw new Error(`vocab.json: ${vRes.status}`);
