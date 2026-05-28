@@ -1,9 +1,11 @@
-/* ============================================================
-   タイ語検定5級 学習アプリ — app.js v2.2.1
-   v2.2.1: Chrome speechSynthesis 自動再生ブロック対策
-           - 初回ユーザー操作時に unlock → speechUnlocked フラグ管理
-           - Safari の既存動作は維持
-   ============================================================ */
+/* 
+============================================================
+   タイ語検定5級 学習アプリ — app.js v2.3.0
+   v2.3.0: section-grammar を grammar.json ベースの動的生成へ変更
+           - GRAMMAR_DATA 追加
+           - renderGrammar() 実装
+           - initGrammarFilter() 実装
+============================================================ */
 
 const $ = (s) => document.querySelector(s);
 const $$ = (s) => Array.from(document.querySelectorAll(s));
@@ -19,9 +21,34 @@ const POS_LABEL = {
 const IMP_LABEL    = { 3: '★★★', 2: '★★', 1: '★' };
 const STATUS_LABEL = { new: '未学習', again: '要復習', known: '習得済' };
 
+/* ---------- 文法カテゴリ定義 ---------- */
+const GRAMMAR_LABEL = {
+  question: '疑問文',
+  negative:  '否定文',
+  aux:       '助動詞',
+  compare:   '比較',
+  prep:      '前置詞・位置',
+  time:      '時間',
+  quantity:  '数量・類別詞',
+  phrase:    '会話定型文',
+};
+
+/* カテゴリ → badge クラス のマッピング */
+const GRAMMAR_BADGE_CLASS = {
+  question: 'badge-aux',    /* 青系 */
+  negative:  'badge-neg',   /* 赤系 */
+  aux:       'badge-aux',   /* 紫系（デフォルト） */
+  compare:   'badge-cmp',   /* 橙系 */
+  prep:      'badge-prep',  /* 緑系 */
+  time:      'badge-time',  /* 紫系 */
+  quantity:  'badge-cmp',   /* 橙系 */
+  phrase:    'badge-prep',  /* 緑系 */
+};
+
 /* ---------- データ ---------- */
-let VOCAB_DATA = [];
-let QUIZ_DATA  = [];
+let VOCAB_DATA   = [];
+let QUIZ_DATA    = [];
+let GRAMMAR_DATA = [];
 
 /* ---------- フラッシュカード状態 ---------- */
 let FC_STATE  = {};
@@ -35,7 +62,7 @@ let fc_showKnown = false;
 /* ---------- 音声再生ロック管理（Chrome 対策） ---------- */
 let speechUnlocked = false;
 
-/* ---------- タイ語 voice キャッシュ（Chrome は非同期ロードのため事前取得） ---------- */
+/* ---------- タイ語 voice キャッシュ ---------- */
 let thaiVoice = null;
 
 function loadThaiVoice() {
@@ -166,46 +193,33 @@ function _updateRing(ringId, pctId, subId, pct, circ, subText) {
 }
 
 /* ============================================================
-   音声再生（1箇所に集約）
-   - カードに audioUrl があればそちらを優先
-   - なければ Web Speech API でタイ語読み上げ
+   音声再生
    ============================================================ */
 function playCardAudio() {
   const c = fc_active[fcIndex];
   if (!c) return;
-
   if (c.audioUrl) {
     const audio = new Audio(c.audioUrl);
-    audio.play().catch((err) => {
-      console.warn('[audio] play() failed:', err);
-    });
+    audio.play().catch((err) => { console.warn('[audio] play() failed:', err); });
     return;
   }
-
   if (!c.thai) return;
   playPronunciation(c.thai);
 }
 
-/* ---------- playPronunciation: 例文・単語の手動再生にも使い回す ---------- */
 function playPronunciation(word) {
-  // cancel() 直後の speak() は Chrome で競合するため 120ms 待機してから実行
   speechSynthesis.cancel();
   setTimeout(() => {
     const utterance = new SpeechSynthesisUtterance(word);
     utterance.lang = 'th-TH';
-    if (thaiVoice) utterance.voice = thaiVoice; // th-TH voice を明示的にセット
-    utterance.onerror = (e) => {
-      console.warn('[speechSynthesis] utterance error:', e.error, word);
-    };
+    if (thaiVoice) utterance.voice = thaiVoice;
+    utterance.onerror = (e) => { console.warn('[speechSynthesis] utterance error:', e.error, word); };
     speechSynthesis.speak(utterance);
   }, 120);
 }
 
-/* ---------- speechSynthesis を unlock する（Chrome 対策） ---------- */
 function unlockSpeech() {
   if (speechUnlocked) return;
-  // キューをリセットしてから無音 utterance で Chrome のブロックを解除する
-  // '' だと即 end になり解除が不完全なケースがあるため ' '（スペース）を使用
   speechSynthesis.cancel();
   const silent = new SpeechSynthesisUtterance(' ');
   silent.volume = 0;
@@ -264,7 +278,6 @@ function renderFC() {
   const actionEl = $('.fc-action-row');
 
   if (fc_active.length === 0) {
-    // セッション完了チェック：全カードが「習得済」かどうか
     const allCards = VOCAB_DATA.filter((c) => {
       if (fc_filterPos !== 'all' && c.pos !== fc_filterPos) return false;
       if (fc_filterImp !== 'all' && (c.importance ?? 1) < parseInt(fc_filterImp)) return false;
@@ -278,21 +291,7 @@ function renderFC() {
           <div class="fc-empty__icon" aria-hidden="true">🎉</div>
           <p class="fc-empty__title">学習完了！</p>
           <p class="fc-empty__sub">このセットのカードをすべて習得しました</p>
-          <button
-            id="fc-restart-btn"
-            type="button"
-            style="
-              margin-top: 16px;
-              padding: 10px 28px;
-              background: var(--red);
-              color: #fff;
-              border: none;
-              border-radius: var(--r-md);
-              font-size: var(--fs-sm);
-              font-weight: 600;
-              cursor: pointer;
-            "
-          >もう一度学習</button>
+          <button id="fc-restart-btn" type="button" style="margin-top:16px;padding:10px 28px;background:var(--red);color:#fff;border:none;border-radius:var(--r-md);font-size:var(--fs-sm);font-weight:600;cursor:pointer;">もう一度学習</button>
         `;
         emptyEl.hidden = false;
         document.getElementById('fc-restart-btn')?.addEventListener('click', () => {
@@ -301,12 +300,6 @@ function renderFC() {
             if (fc_filterImp !== 'all' && (c.importance ?? 1) < parseInt(fc_filterImp)) return false;
             return true;
           }).forEach((c) => setStatus(c.id, 'again'));
-
-          fcIndex = 0;
-          buildActive();
-          renderFC();
-        });
-        document.getElementById('fc-restart-btn')?.addEventListener('click', () => {
           fcIndex = 0;
           buildActive();
           renderFC();
@@ -337,33 +330,19 @@ function renderFC() {
   const c  = fc_active[fcIndex];
   const st = getStatus(c.id);
 
-  /* 表面 */
   const posEl = $('#fc-pos-badge');
-  if (posEl) {
-    posEl.textContent  = POS_LABEL[c.pos] ?? c.pos ?? '';
-    posEl.dataset.pos  = c.pos ?? '';
-  }
+  if (posEl) { posEl.textContent = POS_LABEL[c.pos] ?? c.pos ?? ''; posEl.dataset.pos = c.pos ?? ''; }
 
   const pronounceBtn = $('#fc-pronounce-btn');
   if (pronounceBtn) {
-    pronounceBtn.onclick = (e) => {
-      e.stopPropagation();
-      playPronunciation(c.thai ?? '');
-    };
+    pronounceBtn.onclick = (e) => { e.stopPropagation(); playPronunciation(c.thai ?? ''); };
   }
 
   const impEl = $('#fc-importance');
-  if (impEl) {
-    impEl.textContent          = IMP_LABEL[c.importance] ?? '';
-    impEl.dataset.importance   = c.importance ?? 1;
-  }
+  if (impEl) { impEl.textContent = IMP_LABEL[c.importance] ?? ''; impEl.dataset.importance = c.importance ?? 1; }
 
   const stEl = $('#fc-status-badge');
-  if (stEl) {
-    stEl.textContent   = STATUS_LABEL[st];
-    stEl.dataset.status = st;
-    stEl.hidden        = st === 'new';
-  }
+  if (stEl) { stEl.textContent = STATUS_LABEL[st]; stEl.dataset.status = st; stEl.hidden = st === 'new'; }
 
   const thaiEl = $('#fc-thai');
   if (thaiEl) thaiEl.textContent = c.thai ?? '–';
@@ -371,7 +350,6 @@ function renderFC() {
   const readEl = $('#fc-reading');
   if (readEl) readEl.textContent = c.reading ?? '–';
 
-  /* 裏面 */
   const meanEl = $('#fc-meaning');
   if (meanEl) meanEl.textContent = c.meaning ?? '–';
 
@@ -385,40 +363,28 @@ function renderFC() {
   if (exREl) { exREl.textContent = c.example_reading ?? ''; exREl.hidden = !c.example_reading; }
 
   const exMEl = $('#fc-example-meaning');
-  if (exMEl) {
-    exMEl.textContent = c.example_meaning ? `（${c.example_meaning}）` : '';
-    exMEl.hidden = !c.example_meaning;
-  }
+  if (exMEl) { exMEl.textContent = c.example_meaning ? `（${c.example_meaning}）` : ''; exMEl.hidden = !c.example_meaning; }
 
   const examplePronounceBtn = $('#fc-example-pronounce-btn');
   if (examplePronounceBtn) {
-    examplePronounceBtn.onclick = (e) => {
-      e.stopPropagation();
-      playPronunciation(c.example ?? '');
-    };
+    examplePronounceBtn.onclick = (e) => { e.stopPropagation(); playPronunciation(c.example ?? ''); };
   }
 
-  /* 進捗 */
   const prog = $('#fc-progress');
   if (prog) prog.textContent = `${fcIndex + 1} / ${fc_active.length}`;
 
-  /* 表面に戻す */
   if (cardEl) {
     cardEl.classList.remove('flip');
     cardEl.setAttribute('aria-pressed', 'false');
   }
 
-  /* ボタンラベル */
   const okBtn = $('#fc-ok-btn');
   if (okBtn) okBtn.textContent = st === 'known' ? '習得済 ✓' : '覚えた ✓';
 
   saveSession();
 
-  /* 自動再生（unlock済みの場合のみ・DOM更新後に実行） */
   if (speechUnlocked) {
-    requestAnimationFrame(() => {
-      playCardAudio();
-    });
+    requestAnimationFrame(() => { playCardAudio(); });
   }
 }
 
@@ -427,10 +393,7 @@ function moveFC(dir) {
   const cardEl = $('#flashcard');
   if (!cardEl) return;
 
-  if (fc_active.length === 0) {
-    renderFC();
-    return;
-  }
+  if (fc_active.length === 0) { renderFC(); return; }
 
   cardEl.style.visibility = 'hidden';
   cardEl.classList.remove('flip');
@@ -451,9 +414,7 @@ function moveFC(dir) {
   if (fcIndex >= fc_active.length) fcIndex = fc_active.length - 1;
 
   renderFC();
-  requestAnimationFrame(() => {
-    cardEl.style.visibility = 'visible';
-  });
+  requestAnimationFrame(() => { cardEl.style.visibility = 'visible'; });
 }
 
 function shuffle(arr) {
@@ -470,11 +431,7 @@ function initFlashcard() {
   const cardEl = $('#flashcard');
   if (!cardEl) return;
 
-  /* ── unlock ハンドラ（初回ユーザー操作で speechSynthesis を解除） ── */
-  const unlockHandler = () => {
-    unlockSpeech();
-    // 一度だけ実行すれば十分なので登録解除はしない（複数回呼ばれても unlockSpeech 内でガード済み）
-  };
+  const unlockHandler = () => { unlockSpeech(); };
   cardEl.addEventListener('click', unlockHandler);
   cardEl.addEventListener('keydown', unlockHandler);
 
@@ -509,11 +466,9 @@ function initFlashcard() {
   $('#fc-filter-pos')?.addEventListener('change', (e) => {
     fc_filterPos = e.target.value; fcIndex = 0; buildActive(); renderFC();
   });
-
   $('#fc-filter-importance')?.addEventListener('change', (e) => {
     fc_filterImp = e.target.value; fcIndex = 0; buildActive(); renderFC();
   });
-
   $('#fc-show-known')?.addEventListener('change', (e) => {
     fc_showKnown = e.target.checked; fcIndex = 0; buildActive(); renderFC();
   });
@@ -537,41 +492,151 @@ function initFlashcard() {
 
   const limitSelect = $('#fc-question-limit');
   if (limitSelect) {
-    limitSelect.addEventListener('change', () => {
-      fcIndex = 0;
-      buildActive();
-      renderFC();
-    });
+    limitSelect.addEventListener('change', () => { fcIndex = 0; buildActive(); renderFC(); });
   }
 
-  /* 手動再生ボタン（unlock も兼ねる） */
   $('#play-audio-btn')?.addEventListener('click', (e) => {
-    e.stopPropagation();
-    unlockSpeech();
-    playCardAudio();
+    e.stopPropagation(); unlockSpeech(); playCardAudio();
   });
 
-  /* セッション復元 */
   const session = loadSession();
-
   if (session) {
     fcIndex       = session.fcIndex ?? 0;
     fc_filterPos  = session.fc_filterPos ?? 'all';
     fc_filterImp  = session.fc_filterImp ?? 'all';
     fc_showKnown  = session.fc_showKnown ?? false;
-
     $('#fc-filter-pos').value        = fc_filterPos;
     $('#fc-filter-importance').value = fc_filterImp;
     $('#fc-show-known').checked      = fc_showKnown;
-
     const limitSelect = $('#fc-question-limit');
-    if (limitSelect && session.limit) {
-      limitSelect.value = session.limit;
-    }
+    if (limitSelect && session.limit) limitSelect.value = session.limit;
   }
-  
+
   buildActive();
   renderFC();
+}
+
+/* ============================================================
+   文法カード 動的レンダリング
+   ============================================================ */
+
+/**
+ * 重要度に応じたスター文字列を返す
+ */
+function impToStars(imp) {
+  return IMP_LABEL[imp] ?? '';
+}
+
+/**
+ * GRAMMAR_DATA をフィルタリングして #grammar-list へカードを生成する
+ * @param {string} cat - カテゴリ文字列（'all' なら全件）
+ */
+function renderGrammar(cat = 'all') {
+  const listEl = document.getElementById('grammar-list');
+  if (!listEl) return;
+
+  // GRAMMAR_DATA が空でもエラーにしない
+  const items = (GRAMMAR_DATA.length === 0)
+    ? []
+    : (cat === 'all' ? GRAMMAR_DATA : GRAMMAR_DATA.filter(g => g.category === cat));
+
+  // リストをクリア
+  listEl.innerHTML = '';
+
+  if (items.length === 0) {
+    listEl.innerHTML = `
+      <li style="padding:2rem;text-align:center;color:var(--text-3);font-size:var(--fs-sm);">
+        ${GRAMMAR_DATA.length === 0 ? '文法データを読み込み中...' : 'このカテゴリの項目はありません'}
+      </li>`;
+    return;
+  }
+
+  const fragment = document.createDocumentFragment();
+
+  items.forEach((g) => {
+    const catLabel   = GRAMMAR_LABEL[g.category] ?? g.category ?? '';
+    const badgeClass = GRAMMAR_BADGE_CLASS[g.category] ?? 'badge-aux';
+    const stars      = impToStars(g.importance ?? 1);
+    const freq       = g.frequency ? `${g.frequency}回` : '';
+
+    // 例文系（空でも崩れないように）
+    const hasThai    = g.example_thai    && g.example_thai.trim();
+    const hasReading = g.example_reading && g.example_reading.trim();
+    const hasJp      = g.example_jp      && g.example_jp.trim();
+    const hasWarn    = g.warn            && g.warn.trim();
+
+    const exampleHTML = (hasThai || hasReading || hasJp) ? `
+      <div class="grammar-example" lang="th">
+        ${hasThai    ? `<span class="grammar-example-thai">${escHtml(g.example_thai)}</span>` : ''}
+        ${hasReading ? `<br><span style="font-size:var(--fs-xs);color:var(--text-3);">${escHtml(g.example_reading)}</span>` : ''}
+        ${hasJp      ? `<br><span style="font-size:var(--fs-xs);color:var(--text-2);">（${escHtml(g.example_jp)}）</span>` : ''}
+      </div>` : '';
+
+    const warnHTML = hasWarn
+      ? `<div class="grammar-warn">⚠ ${escHtml(g.warn)}</div>`
+      : '';
+
+    const li = document.createElement('li');
+    li.className = 'grammar-card';
+    li.dataset.cat  = g.category ?? '';
+    li.dataset.rank = g.importance ?? 1;
+
+    li.innerHTML = `
+      <div class="grammar-card-header">
+        <span class="grammar-badge ${badgeClass}">${escHtml(catLabel)}</span>
+        <span class="grammar-rank">${escHtml(stars)}</span>
+        ${freq ? `<span class="grammar-freq">${escHtml(freq)}</span>` : ''}
+      </div>
+      <div class="grammar-title">${escHtml(g.title ?? '')}</div>
+      <div class="grammar-formula">
+        <code>${escHtml(g.pattern ?? '')}</code>
+      </div>
+      <div class="grammar-desc">${escHtml(g.meaning ?? '')}</div>
+      ${exampleHTML}
+      ${warnHTML}
+    `;
+
+    fragment.appendChild(li);
+  });
+
+  listEl.appendChild(fragment);
+}
+
+/**
+ * HTML エスケープユーティリティ
+ */
+function escHtml(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+/**
+ * #grammar-cat-nav の内部タブでカテゴリフィルタを有効化する
+ */
+function initGrammarFilter() {
+  const nav = document.getElementById('grammar-cat-nav');
+  if (!nav) return;
+
+  nav.addEventListener('click', (e) => {
+    const btn = e.target.closest('.inner-tab-btn');
+    if (!btn) return;
+
+    // アクティブ切り替え
+    nav.querySelectorAll('.inner-tab-btn').forEach((b) => {
+      b.classList.remove('active');
+      b.setAttribute('aria-selected', 'false');
+    });
+    btn.classList.add('active');
+    btn.setAttribute('aria-selected', 'true');
+
+    // フィルタ適用
+    const cat = btn.dataset.cat ?? 'all';
+    renderGrammar(cat);
+  });
 }
 
 /* ============================================================
@@ -680,37 +745,18 @@ function initQuiz() {
 }
 
 /* ============================================================
-   キーボード操作（グローバル・1回のみ登録）
+   キーボード操作
    ============================================================ */
 function handleFlashcardKeydown(e) {
   if (e.repeat) return;
-
   const active = document.activeElement;
-  if (
-    active &&
-    (active.tagName === 'INPUT' ||
-     active.tagName === 'TEXTAREA' ||
-     active.tagName === 'SELECT' ||
-     active.isContentEditable)
-  ) return;
-
+  if (active && (active.tagName === 'INPUT' || active.tagName === 'TEXTAREA' || active.tagName === 'SELECT' || active.isContentEditable)) return;
   const fcSection = $('#section-flashcard');
   if (!fcSection || fcSection.hidden) return;
-
   switch (e.key) {
-    case 'ArrowRight':
-      unlockSpeech(); // キーボード操作でも unlock
-      $('#fc-ok-btn')?.click();
-      break;
-    case 'ArrowLeft':
-      unlockSpeech();
-      $('#fc-again-btn')?.click();
-      break;
-    case ' ':
-      e.preventDefault();
-      unlockSpeech();
-      $('#flashcard')?.click();
-      break;
+    case 'ArrowRight': unlockSpeech(); $('#fc-ok-btn')?.click();    break;
+    case 'ArrowLeft':  unlockSpeech(); $('#fc-again-btn')?.click(); break;
+    case ' ':          e.preventDefault(); unlockSpeech(); $('#flashcard')?.click(); break;
   }
 }
 
@@ -738,12 +784,21 @@ function initTabs() {
    ============================================================ */
 async function loadDataAndInit() {
   try {
-    const [vRes, qRes] = await Promise.all([
+    const [vRes, qRes, gRes] = await Promise.all([
       fetch('/data/vocab.json'),
       fetch('/data/questions_vocab_all.json'),
+      fetch('/data/grammar.json'),
     ]);
+
     if (!vRes.ok) throw new Error(`vocab.json: ${vRes.status}`);
     if (!qRes.ok) throw new Error(`questions_vocab_all.json: ${qRes.status}`);
+    // grammar.json は取得失敗しても致命的エラーにしない
+    if (!gRes.ok) {
+      console.warn(`grammar.json: ${gRes.status} — 文法データなしで続行`);
+      GRAMMAR_DATA = [];
+    } else {
+      GRAMMAR_DATA = await gRes.json();
+    }
 
     VOCAB_DATA = await vRes.json();
     QUIZ_DATA  = await qRes.json();
@@ -751,6 +806,8 @@ async function loadDataAndInit() {
 
     initFlashcard();
     initQuiz();
+    renderGrammar();      // 文法カード初期描画（全件）
+    initGrammarFilter();  // カテゴリフィルタ初期化
     updateDashboard();
   } catch (err) {
     console.error(err);
@@ -764,3 +821,4 @@ document.addEventListener('DOMContentLoaded', () => {
   loadDataAndInit();
   document.addEventListener('keydown', handleFlashcardKeydown);
 });
+ENDJS

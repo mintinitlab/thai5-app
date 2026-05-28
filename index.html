@@ -222,8 +222,7 @@
       </div>
     </section>
 
-        <!-- ── FLASHCARD (単語一問一答) ── -->
-    <!-- 差し替え範囲: 元の section#section-flashcard ブロック全体 -->
+    <!-- ── FLASHCARD (単語一問一答) ── -->
     <section
       id="section-flashcard"
       class="tab-section"
@@ -233,7 +232,6 @@
     >
       <!-- フィルターブロック -->
       <div class="section-block filter-block" aria-label="絞り込み">
-
         <div class="filter-row">
           <label class="filter-label" for="fc-filter-pos">品詞</label>
           <select id="fc-filter-pos" class="filter-select">
@@ -250,7 +248,6 @@
             <option value="n">名詞</option>
           </select>
         </div>
-
         <div class="filter-row">
           <label class="filter-label" for="fc-filter-importance">重要度</label>
           <select id="fc-filter-importance" class="filter-select">
@@ -260,13 +257,12 @@
           </select>
           <label class="filter-label" for="fc-question-limit">出題数</label>
           <select id="fc-question-limit" class="filter-select">
-              <option value="10">10問</option>
-              <option value="20" selected>20問</option>
-              <option value="50">50問</option>
-              <option value="all">全件</option>
-            </select>
+            <option value="10">10問</option>
+            <option value="20" selected>20問</option>
+            <option value="50">50問</option>
+            <option value="all">全件</option>
+          </select>
         </div>
-
         <div class="filter-row filter-row--actions">
           <label class="filter-toggle" for="fc-show-known">
             <input type="checkbox" id="fc-show-known" class="filter-toggle__input" />
@@ -278,7 +274,6 @@
             <button class="btn-text btn-text--danger" id="fc-reset-btn" type="button">状態リセット</button>
           </div>
         </div>
-
         <div class="filter-info-row">
           <span class="filter-info" id="fc-count-info" aria-live="polite">読み込み中…</span>
         </div>
@@ -286,7 +281,6 @@
 
       <!-- カードステージ -->
       <div class="card-stage" aria-live="polite" aria-atomic="true">
-
         <!-- 空状態 -->
         <div class="fc-empty" id="fc-empty" hidden role="status">
           <div class="fc-empty__icon" aria-hidden="true">📭</div>
@@ -304,7 +298,6 @@
           aria-label="カードをタップして答えを表示"
         >
           <div class="flashcard-inner" id="flashcard-inner">
-
             <!-- 表面 -->
             <div class="flashcard-face flashcard-front">
               <div class="fc-badge-row">
@@ -317,7 +310,6 @@
               <div class="fc-hint">タップして意味を確認</div>
               <button id="fc-pronounce-btn" type="button" onclick="event.stopPropagation()" style="margin-top:6px;background:var(--blue-bg);color:var(--blue);border:0.5px solid var(--blue);border-radius:var(--r-full);padding:4px 14px;font-size:var(--fs-xs);cursor:pointer;">🔊 発音</button>
             </div>
-
             <!-- 裏面 -->
             <div class="flashcard-face flashcard-back">
               <div class="fc-meaning" id="fc-meaning">–</div>
@@ -325,9 +317,8 @@
               <div class="fc-example-reading" id="fc-example-reading"></div>
               <div class="fc-example-meaning" id="fc-example-meaning"></div>
               <div class="fc-freq" id="fc-freq"></div>
-              <button id="fc-example-pronounce-btn" type="button" onclick="event.stopPropagation()" style="margin-top:6px;background:var(--blue-bg);color:var(--blue);border:0.5px solid var(--blue);border-radius:var(--r-full);padding:4px 14px;font-size:var(--fs-xs);cursor:pointer;"> 🔊 発音</button>
+              <button id="fc-example-pronounce-btn" type="button" onclick="event.stopPropagation()" style="margin-top:6px;background:var(--blue-bg);color:var(--blue);border:0.5px solid var(--blue);border-radius:var(--r-full);padding:4px 14px;font-size:var(--fs-xs);cursor:pointer;">🔊 発音</button>
             </div>
-
           </div>
         </div>
 
@@ -347,7 +338,6 @@
             覚えた ✓
           </button>
         </div>
-
       </div>
     </section>
 
@@ -384,55 +374,55 @@
 
       <!-- 問題エリア -->
       <div class="quiz-stage" id="quiz-stage">
-       <div id="quiz-card">
+        <div id="quiz-card">
+          <!-- 問題文 -->
+          <div class="quiz-question-block" id="quiz-question-block">
+            <p class="quiz-question-jp" id="quiz-question-jp">問題文（日本語）がここに入ります</p>
+            <p class="quiz-question-thai" id="quiz-question-thai" lang="th">
+              タイ語の問題文 ( &nbsp;&nbsp;&nbsp;&nbsp; ) がここに
+            </p>
+            <p class="quiz-question-reading" id="quiz-question-reading">
+              問題文（読み）がここに入ります
+            </p>
+          </div>
 
-        <!-- 問題文 -->
-        <div class="quiz-question-block" id="quiz-question-block">
-          <p class="quiz-question-jp" id="quiz-question-jp">問題文（日本語）がここに入ります</p>
-          <p class="quiz-question-thai" id="quiz-question-thai" lang="th">
-            タイ語の問題文 ( &nbsp;&nbsp;&nbsp;&nbsp; ) がここに
-          </p>
-          <p class="quiz-question-reading" id="quiz-question-reading">
-            問題文（読み）がここに入ります
-          </p>
+          <!-- 選択肢 -->
+          <ol class="quiz-choices" id="quiz-choices" aria-label="選択肢" role="listbox">
+            <li>
+              <button class="choice-btn" data-index="0" role="option" type="button">
+                <span class="choice-num">1</span>
+                <span class="choice-text" id="choice-0">–</span>
+              </button>
+            </li>
+            <li>
+              <button class="choice-btn" data-index="1" role="option" type="button">
+                <span class="choice-num">2</span>
+                <span class="choice-text" id="choice-1">–</span>
+              </button>
+            </li>
+            <li>
+              <button class="choice-btn" data-index="2" role="option" type="button">
+                <span class="choice-num">3</span>
+                <span class="choice-text" id="choice-2">–</span>
+              </button>
+            </li>
+            <li>
+              <button class="choice-btn" data-index="3" role="option" type="button">
+                <span class="choice-num">4</span>
+                <span class="choice-text" id="choice-3">–</span>
+              </button>
+            </li>
+          </ol>
+
+          <!-- 解説エリア（回答後に表示） -->
+          <div class="quiz-explanation" id="quiz-explanation" hidden aria-live="polite">
+            <div class="explanation-result" id="explanation-result"></div>
+            <div class="explanation-text" id="explanation-text"></div>
+            <div class="explanation-sentence" id="explanation-sentence" lang="th"></div>
+            <button class="btn-primary" id="quiz-next-btn" type="button">次の問題 ›</button>
+          </div>
         </div>
 
-        <!-- 選択肢 -->
-        <ol class="quiz-choices" id="quiz-choices" aria-label="選択肢" role="listbox">
-          <li>
-            <button class="choice-btn" data-index="0" role="option" type="button">
-              <span class="choice-num">1</span>
-              <span class="choice-text" id="choice-0">–</span>
-            </button>
-          </li>
-          <li>
-            <button class="choice-btn" data-index="1" role="option" type="button">
-              <span class="choice-num">2</span>
-              <span class="choice-text" id="choice-1">–</span>
-            </button>
-          </li>
-          <li>
-            <button class="choice-btn" data-index="2" role="option" type="button">
-              <span class="choice-num">3</span>
-              <span class="choice-text" id="choice-2">–</span>
-            </button>
-          </li>
-          <li>
-            <button class="choice-btn" data-index="3" role="option" type="button">
-              <span class="choice-num">4</span>
-              <span class="choice-text" id="choice-3">–</span>
-            </button>
-          </li>
-        </ol>
-
-        <!-- 解説エリア（回答後に表示） -->
-        <div class="quiz-explanation" id="quiz-explanation" hidden aria-live="polite">
-          <div class="explanation-result" id="explanation-result"></div>
-          <div class="explanation-text" id="explanation-text"></div>
-          <div class="explanation-sentence" id="explanation-sentence" lang="th"></div>
-          <button class="btn-primary" id="quiz-next-btn" type="button">次の問題 ›</button>
-        </div>
-       </div>
         <!-- 結果画面 -->
         <div class="quiz-result" id="quiz-result" hidden aria-live="polite">
           <div class="result-emoji" id="result-emoji">🎉</div>
@@ -459,102 +449,15 @@
         <button class="inner-tab-btn" data-cat="negative" role="tab" aria-selected="false" type="button">否定文</button>
         <button class="inner-tab-btn" data-cat="aux" role="tab" aria-selected="false" type="button">助動詞</button>
         <button class="inner-tab-btn" data-cat="compare" role="tab" aria-selected="false" type="button">比較</button>
-        <button class="inner-tab-btn" data-cat="prep" role="tab" aria-selected="false" type="button">前置詞</button>
+        <button class="inner-tab-btn" data-cat="prep" role="tab" aria-selected="false" type="button">前置詞・位置</button>
         <button class="inner-tab-btn" data-cat="time" role="tab" aria-selected="false" type="button">時間</button>
-        <button class="inner-tab-btn" data-cat="cl" role="tab" aria-selected="false" type="button">類別詞</button>
+        <button class="inner-tab-btn" data-cat="quantity" role="tab" aria-selected="false" type="button">類別詞</button>
+        <button class="inner-tab-btn" data-cat="phrase" role="tab" aria-selected="false" type="button">会話定型</button>
       </div>
 
-      <!-- 文法カードリスト -->
+      <!-- 文法カードリスト（動的生成） -->
       <ul class="grammar-list" id="grammar-list" aria-label="文法パターン一覧">
-
-        <!-- カードはapp.jsで動的生成。以下は静的プレースホルダー -->
-        <li class="grammar-card" data-cat="aux" data-rank="3">
-          <div class="grammar-card-header">
-            <span class="grammar-badge badge-aux">助動詞</span>
-            <span class="grammar-rank">★★★</span>
-            <span class="grammar-freq">12回</span>
-          </div>
-          <div class="grammar-title">進行形</div>
-          <div class="grammar-formula">
-            <code>kamlaŋ + V + yùu</code>
-          </div>
-          <div class="grammar-desc">〜しているところ。yùu は省略可。</div>
-          <div class="grammar-example" lang="th">kamlaŋ kin khâaw yùu（食べています）</div>
-          <div class="grammar-warn">⚠ yàak（したい）と yàak pen（になりたい）の区別に注意</div>
-        </li>
-
-        <li class="grammar-card" data-cat="aux" data-rank="3">
-          <div class="grammar-card-header">
-            <span class="grammar-badge badge-aux">助動詞</span>
-            <span class="grammar-rank">★★★</span>
-            <span class="grammar-freq">10回</span>
-          </div>
-          <div class="grammar-title">未来・意志</div>
-          <div class="grammar-formula">
-            <code>cà + V</code>
-          </div>
-          <div class="grammar-desc">〜するつもり・〜するだろう。動詞の直前に置く。</div>
-          <div class="grammar-example" lang="th">phǒm cà pai thîiaw（遊びに行くつもりだ）</div>
-        </li>
-
-        <li class="grammar-card" data-cat="negative" data-rank="3">
-          <div class="grammar-card-header">
-            <span class="grammar-badge badge-neg">否定文</span>
-            <span class="grammar-rank">★★★</span>
-            <span class="grammar-freq">14回</span>
-          </div>
-          <div class="grammar-title">基本否定</div>
-          <div class="grammar-formula">
-            <code>mâi + V / Adj</code>
-          </div>
-          <div class="grammar-desc">〜しない・〜でない。動詞・形容詞の前に置く最基本の否定。</div>
-          <div class="grammar-example" lang="th">phǒm mâi wâaŋ（暇じゃない）</div>
-          <div class="grammar-warn">⚠ 名詞の否定は mâi châi を使う（mâi pen ではない）</div>
-        </li>
-
-        <li class="grammar-card" data-cat="prep" data-rank="3">
-          <div class="grammar-card-header">
-            <span class="grammar-badge badge-prep">前置詞</span>
-            <span class="grammar-rank">★★★</span>
-            <span class="grammar-freq">8回</span>
-          </div>
-          <div class="grammar-title">手段（乗り物 vs 道具）</div>
-          <div class="grammar-formula">
-            <code>dooy + 乗り物</code>&nbsp;<code>dûay + 道具</code>
-          </div>
-          <div class="grammar-desc">dooy は交通手段、dûay は道具・器具に使う。</div>
-          <div class="grammar-example" lang="th">klàp bâan dooy rótyon（車で帰る）</div>
-          <div class="grammar-warn">⚠ 最多混同ミス。乗り物 → dooy、道具 → dûay</div>
-        </li>
-
-        <li class="grammar-card" data-cat="compare" data-rank="3">
-          <div class="grammar-card-header">
-            <span class="grammar-badge badge-cmp">比較</span>
-            <span class="grammar-rank">★★★</span>
-            <span class="grammar-freq">5回</span>
-          </div>
-          <div class="grammar-title">〜より…だ</div>
-          <div class="grammar-formula">
-            <code>N₁ + Adj + kwàa + N₂</code>
-          </div>
-          <div class="grammar-desc">比較対象の前に kwàa を置く。日本語と語順が逆。</div>
-          <div class="grammar-example" lang="th">phîi sǎaw sǔuŋ kwàa dichán（姉は私より背が高い）</div>
-        </li>
-
-        <li class="grammar-card" data-cat="time" data-rank="3">
-          <div class="grammar-card-header">
-            <span class="grammar-badge badge-time">時間</span>
-            <span class="grammar-rank">★★★</span>
-            <span class="grammar-freq">9回</span>
-          </div>
-          <div class="grammar-title">〜から…まで（時間範囲）</div>
-          <div class="grammar-formula">
-            <code>tâŋ tɛ̀ɛ + 開始 + thʉ̌ŋ + 終了</code>
-          </div>
-          <div class="grammar-desc">時間的起点はtâŋ tɛ̀ɛ、場所的起点はcàak。同じ「から」でも使い分けが必要。</div>
-          <div class="grammar-example" lang="th">tâŋ tɛ̀ɛ pɛ̀ɛt mooŋ thʉ̌ŋ thîiaŋ（8時から正午まで）</div>
-        </li>
-
+        <!-- app.js の renderGrammar() で動的生成 -->
       </ul>
     </section>
 
