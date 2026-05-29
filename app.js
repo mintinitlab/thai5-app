@@ -1,10 +1,11 @@
-/* ============================================================
+/* 
+============================================================
    タイ語検定5級 学習アプリ — app.js v2.3.0
-   v2.3.0: 問題カテゴリフィルタ追加
-           - filteredQuizData グローバル変数
-           - filterQuizData(category) 実装
-           - #quiz-filter-theme セレクトと連動
-   ============================================================ */
+   v2.3.0: section-grammar を grammar.json ベースの動的生成へ変更
+           - GRAMMAR_DATA 追加
+           - renderGrammar() 実装
+           - initGrammarFilter() 実装
+============================================================ */
 
 const $ = (s) => document.querySelector(s);
 const $$ = (s) => Array.from(document.querySelectorAll(s));
@@ -20,12 +21,34 @@ const POS_LABEL = {
 const IMP_LABEL    = { 3: '★★★', 2: '★★', 1: '★' };
 const STATUS_LABEL = { new: '未学習', again: '要復習', known: '習得済' };
 
-/* ---------- データ ---------- */
-let VOCAB_DATA = [];
-let QUIZ_DATA  = [];
+/* ---------- 文法カテゴリ定義 ---------- */
+const GRAMMAR_LABEL = {
+  question: '疑問文',
+  negative:  '否定文',
+  aux:       '助動詞',
+  compare:   '比較',
+  prep:      '前置詞・位置',
+  time:      '時間',
+  quantity:  '数量・類別詞',
+  phrase:    '会話定型文',
+};
 
-/* ---------- クイズ: フィルタ済みデータ ---------- */
-let filteredQuizData = [];
+/* カテゴリ → badge クラス のマッピング */
+const GRAMMAR_BADGE_CLASS = {
+  question: 'badge-aux',    /* 青系 */
+  negative:  'badge-neg',   /* 赤系 */
+  aux:       'badge-aux',   /* 紫系（デフォルト） */
+  compare:   'badge-cmp',   /* 橙系 */
+  prep:      'badge-prep',  /* 緑系 */
+  time:      'badge-time',  /* 紫系 */
+  quantity:  'badge-cmp',   /* 橙系 */
+  phrase:    'badge-prep',  /* 緑系 */
+};
+
+/* ---------- データ ---------- */
+let VOCAB_DATA   = [];
+let QUIZ_DATA    = [];
+let GRAMMAR_DATA = [];
 
 /* ---------- フラッシュカード状態 ---------- */
 let FC_STATE  = {};
@@ -73,9 +96,13 @@ function saveSession() {
     console.warn('session 書き込み失敗');
   }
 }
+
 function loadSession() {
-  try { return JSON.parse(localStorage.getItem(LS_SESSION_KEY) || 'null'); }
-  catch { return null; }
+  try {
+    return JSON.parse(localStorage.getItem(LS_SESSION_KEY) || 'null');
+  } catch {
+    return null;
+  }
 }
 
 function getStatus(id) { return FC_STATE[id] ?? 'new'; }
@@ -84,24 +111,41 @@ function getStatus(id) { return FC_STATE[id] ?? 'new'; }
 function getDefaultProgress() {
   return { totalAnswered: 0, totalCorrect: 0, todayCards: [], todayDate: '' };
 }
+
 function loadProgress() {
-  try { return JSON.parse(localStorage.getItem(LS_PROGRESS_KEY) || 'null') || getDefaultProgress(); }
-  catch { return getDefaultProgress(); }
+  try {
+    return JSON.parse(localStorage.getItem(LS_PROGRESS_KEY) || 'null') || getDefaultProgress();
+  } catch {
+    return getDefaultProgress();
+  }
 }
+
 function saveProgress(p) {
   try { localStorage.setItem(LS_PROGRESS_KEY, JSON.stringify(p)); }
   catch { console.warn('progress 書き込み失敗'); }
 }
-function getTodayStr() { return new Date().toISOString().slice(0, 10); }
+
+function getTodayStr() {
+  return new Date().toISOString().slice(0, 10);
+}
 
 function recordCardAnswer(cardId, isCorrect) {
   const p = loadProgress();
   const today = getTodayStr();
-  if (p.todayDate !== today) { p.todayCards = []; p.todayDate = today; }
+
+  if (p.todayDate !== today) {
+    p.todayCards = [];
+    p.todayDate  = today;
+  }
+
   const sid = String(cardId);
-  if (!p.todayCards.includes(sid)) p.todayCards.push(sid);
+  if (!p.todayCards.includes(sid)) {
+    p.todayCards.push(sid);
+  }
+
   p.totalAnswered++;
   if (isCorrect) p.totalCorrect++;
+
   saveProgress(p);
   updateDashboard();
 }
@@ -109,23 +153,36 @@ function recordCardAnswer(cardId, isCorrect) {
 /* ---------- ダッシュボード更新 ---------- */
 function updateDashboard() {
   if (!VOCAB_DATA.length) return;
+
   const total   = VOCAB_DATA.length;
   const known   = VOCAB_DATA.filter(c => getStatus(c.id) === 'known').length;
   const again   = VOCAB_DATA.filter(c => getStatus(c.id) === 'again').length;
   const studied = known + again;
+
   const p = loadProgress();
   const today = getTodayStr();
   const todayCount = (p.todayDate === today) ? p.todayCards.length : 0;
-  const rate = p.totalAnswered > 0 ? Math.round(p.totalCorrect / p.totalAnswered * 100) : 0;
+  const rate = p.totalAnswered > 0
+    ? Math.round(p.totalCorrect / p.totalAnswered * 100)
+    : 0;
+
   const CIRC = 2 * Math.PI * 22;
+
   const vocabPct = total > 0 ? Math.round(known / total * 100) : 0;
-  _updateRing('ring-vocab',   'pct-vocab',   'sub-vocab',   vocabPct,   CIRC, known   + ' / ' + total + ' 語');
-  _updateRing('ring-quiz',    'pct-quiz',    'sub-quiz',    rate,        CIRC, p.totalCorrect + ' / ' + p.totalAnswered + ' 回答');
+  _updateRing('ring-vocab', 'pct-vocab', 'sub-vocab',
+    vocabPct, CIRC, known + ' / ' + total + ' 語');
+
+  _updateRing('ring-quiz', 'pct-quiz', 'sub-quiz',
+    rate, CIRC, p.totalCorrect + ' / ' + p.totalAnswered + ' 回答');
+
   const studiedPct = total > 0 ? Math.round(studied / total * 100) : 0;
-  _updateRing('ring-grammar', 'pct-grammar', 'sub-grammar', studiedPct, CIRC, studied + ' / ' + total + ' 学習済');
+  _updateRing('ring-grammar', 'pct-grammar', 'sub-grammar',
+    studiedPct, CIRC, studied + ' / ' + total + ' 学習済');
+
   const todayEl = $('#header-today');
   if (todayEl) todayEl.textContent = todayCount;
 }
+
 function _updateRing(ringId, pctId, subId, pct, circ, subText) {
   const ringEl = document.getElementById(ringId);
   const pctEl  = document.getElementById(pctId);
@@ -149,6 +206,7 @@ function playCardAudio() {
   if (!c.thai) return;
   playPronunciation(c.thai);
 }
+
 function playPronunciation(word) {
   speechSynthesis.cancel();
   setTimeout(() => {
@@ -159,6 +217,7 @@ function playPronunciation(word) {
     speechSynthesis.speak(utterance);
   }, 120);
 }
+
 function unlockSpeech() {
   if (speechUnlocked) return;
   speechSynthesis.cancel();
@@ -173,7 +232,9 @@ function unlockSpeech() {
 function setStatus(id, s) {
   FC_STATE[id] = s;
   saveState();
-  if (s === 'known' || s === 'again') recordCardAnswer(id, s === 'known');
+  if (s === 'known' || s === 'again') {
+    recordCardAnswer(id, s === 'known');
+  }
 }
 
 /* ---------- 出題リスト構築 ---------- */
@@ -183,17 +244,25 @@ function buildActive() {
     if (fc_filterImp !== 'all' && (c.importance ?? 1) < parseInt(fc_filterImp)) return false;
     return true;
   });
+
   const again    = filtered.filter((c) => getStatus(c.id) === 'again');
   const newCards = filtered.filter((c) => getStatus(c.id) === 'new');
   const known    = filtered.filter((c) => getStatus(c.id) === 'known');
-  let active = fc_showKnown ? [...again, ...newCards, ...known] : [...again, ...newCards];
+
+  let active = fc_showKnown
+    ? [...again, ...newCards, ...known]
+    : [...again, ...newCards];
+
   const limitVal = $('#fc-question-limit')?.value ?? 'all';
   if (limitVal !== 'all') {
     const limit = parseInt(limitVal, 10);
     if (!isNaN(limit)) active = active.slice(0, limit);
   }
+
   fc_active = active;
+
   if (fcIndex >= fc_active.length) fcIndex = 0;
+
   const el = $('#fc-count-info');
   if (el) {
     el.textContent =
@@ -215,6 +284,7 @@ function renderFC() {
       return true;
     });
     const allKnown = allCards.length > 0 && allCards.every((c) => getStatus(c.id) === 'known');
+
     if (emptyEl) {
       if (allKnown) {
         emptyEl.innerHTML = `
@@ -230,7 +300,9 @@ function renderFC() {
             if (fc_filterImp !== 'all' && (c.importance ?? 1) < parseInt(fc_filterImp)) return false;
             return true;
           }).forEach((c) => setStatus(c.id, 'again'));
-          fcIndex = 0; buildActive(); renderFC();
+          fcIndex = 0;
+          buildActive();
+          renderFC();
         });
       } else {
         emptyEl.innerHTML = `
@@ -241,6 +313,7 @@ function renderFC() {
         emptyEl.hidden = false;
       }
     }
+
     if (cardEl)   cardEl.hidden   = true;
     if (navEl)    navEl.hidden    = true;
     if (actionEl) actionEl.hidden = true;
@@ -271,27 +344,39 @@ function renderFC() {
   const stEl = $('#fc-status-badge');
   if (stEl) { stEl.textContent = STATUS_LABEL[st]; stEl.dataset.status = st; stEl.hidden = st === 'new'; }
 
-  const thaiEl = $('#fc-thai');    if (thaiEl) thaiEl.textContent = c.thai    ?? '–';
-  const readEl = $('#fc-reading'); if (readEl) readEl.textContent = c.reading ?? '–';
-  const meanEl = $('#fc-meaning'); if (meanEl) meanEl.textContent = c.meaning ?? '–';
-  const freqEl = $('#fc-freq');    if (freqEl) freqEl.textContent = c.frequency ? `出現 ${c.frequency}回` : '';
+  const thaiEl = $('#fc-thai');
+  if (thaiEl) thaiEl.textContent = c.thai ?? '–';
+
+  const readEl = $('#fc-reading');
+  if (readEl) readEl.textContent = c.reading ?? '–';
+
+  const meanEl = $('#fc-meaning');
+  if (meanEl) meanEl.textContent = c.meaning ?? '–';
+
+  const freqEl = $('#fc-freq');
+  if (freqEl) freqEl.textContent = c.frequency ? `出現 ${c.frequency}回` : '';
 
   const exEl = $('#fc-example');
   if (exEl) { exEl.textContent = c.example ?? ''; exEl.hidden = !c.example; }
+
   const exREl = $('#fc-example-reading');
   if (exREl) { exREl.textContent = c.example_reading ?? ''; exREl.hidden = !c.example_reading; }
+
   const exMEl = $('#fc-example-meaning');
   if (exMEl) { exMEl.textContent = c.example_meaning ? `（${c.example_meaning}）` : ''; exMEl.hidden = !c.example_meaning; }
 
-  const exPronounceBtn = $('#fc-example-pronounce-btn');
-  if (exPronounceBtn) {
-    exPronounceBtn.onclick = (e) => { e.stopPropagation(); playPronunciation(c.example ?? ''); };
+  const examplePronounceBtn = $('#fc-example-pronounce-btn');
+  if (examplePronounceBtn) {
+    examplePronounceBtn.onclick = (e) => { e.stopPropagation(); playPronunciation(c.example ?? ''); };
   }
 
   const prog = $('#fc-progress');
   if (prog) prog.textContent = `${fcIndex + 1} / ${fc_active.length}`;
 
-  if (cardEl) { cardEl.classList.remove('flip'); cardEl.setAttribute('aria-pressed', 'false'); }
+  if (cardEl) {
+    cardEl.classList.remove('flip');
+    cardEl.setAttribute('aria-pressed', 'false');
+  }
 
   const okBtn = $('#fc-ok-btn');
   if (okBtn) okBtn.textContent = st === 'known' ? '習得済 ✓' : '覚えた ✓';
@@ -307,15 +392,27 @@ function renderFC() {
 function moveFC(dir) {
   const cardEl = $('#flashcard');
   if (!cardEl) return;
+
   if (fc_active.length === 0) { renderFC(); return; }
+
   cardEl.style.visibility = 'hidden';
   cardEl.classList.remove('flip');
+
   fcIndex = dir === 'next'
     ? (fcIndex + 1) % fc_active.length
     : (fcIndex - 1 + fc_active.length) % fc_active.length;
+
   buildActive();
-  if (fc_active.length === 0) { fcIndex = 0; renderFC(); cardEl.style.visibility = 'visible'; return; }
+
+  if (fc_active.length === 0) {
+    fcIndex = 0;
+    renderFC();
+    cardEl.style.visibility = 'visible';
+    return;
+  }
+
   if (fcIndex >= fc_active.length) fcIndex = fc_active.length - 1;
+
   renderFC();
   requestAnimationFrame(() => { cardEl.style.visibility = 'visible'; });
 }
@@ -334,8 +431,10 @@ function initFlashcard() {
   const cardEl = $('#flashcard');
   if (!cardEl) return;
 
-  cardEl.addEventListener('click', () => { unlockSpeech(); });
-  cardEl.addEventListener('keydown', () => { unlockSpeech(); });
+  const unlockHandler = () => { unlockSpeech(); };
+  cardEl.addEventListener('click', unlockHandler);
+  cardEl.addEventListener('keydown', unlockHandler);
+
   cardEl.addEventListener('click', () => {
     cardEl.classList.toggle('flip');
     cardEl.setAttribute('aria-pressed', String(cardEl.classList.contains('flip')));
@@ -346,16 +445,24 @@ function initFlashcard() {
 
   $('#fc-next-btn')?.addEventListener('click', () => moveFC('next'));
   $('#fc-prev-btn')?.addEventListener('click', () => moveFC('prev'));
+
   $('#fc-ok-btn')?.addEventListener('click', () => {
-    const c = fc_active[fcIndex]; if (!c) return;
-    setStatus(c.id, 'known'); buildActive();
+    const c = fc_active[fcIndex];
+    if (!c) return;
+    setStatus(c.id, 'known');
+    buildActive();
     if (fcIndex >= fc_active.length) fcIndex = Math.max(0, fc_active.length - 1);
     moveFC('next');
   });
+
   $('#fc-again-btn')?.addEventListener('click', () => {
-    const c = fc_active[fcIndex]; if (!c) return;
-    setStatus(c.id, 'again'); buildActive(); moveFC('next');
+    const c = fc_active[fcIndex];
+    if (!c) return;
+    setStatus(c.id, 'again');
+    buildActive();
+    moveFC('next');
   });
+
   $('#fc-filter-pos')?.addEventListener('change', (e) => {
     fc_filterPos = e.target.value; fcIndex = 0; buildActive(); renderFC();
   });
@@ -365,36 +472,43 @@ function initFlashcard() {
   $('#fc-show-known')?.addEventListener('change', (e) => {
     fc_showKnown = e.target.checked; fcIndex = 0; buildActive(); renderFC();
   });
+
   $('#fc-shuffle-btn')?.addEventListener('click', () => {
     fc_active = [
       ...shuffle(fc_active.filter((c) => getStatus(c.id) === 'again')),
       ...shuffle(fc_active.filter((c) => getStatus(c.id) === 'new')),
       ...shuffle(fc_active.filter((c) => getStatus(c.id) === 'known')),
     ];
-    fcIndex = 0; renderFC();
+    fcIndex = 0;
+    renderFC();
   });
+
   $('#fc-reset-btn')?.addEventListener('click', () => {
     if (!confirm('学習状態をすべてリセットしますか？')) return;
     FC_STATE = {}; saveState(); fcIndex = 0; buildActive(); renderFC();
-    saveProgress(getDefaultProgress()); updateDashboard();
+    saveProgress(getDefaultProgress());
+    updateDashboard();
   });
+
   const limitSelect = $('#fc-question-limit');
   if (limitSelect) {
     limitSelect.addEventListener('change', () => { fcIndex = 0; buildActive(); renderFC(); });
   }
+
   $('#play-audio-btn')?.addEventListener('click', (e) => {
     e.stopPropagation(); unlockSpeech(); playCardAudio();
   });
 
   const session = loadSession();
   if (session) {
-    fcIndex      = session.fcIndex      ?? 0;
-    fc_filterPos = session.fc_filterPos ?? 'all';
-    fc_filterImp = session.fc_filterImp ?? 'all';
-    fc_showKnown = session.fc_showKnown ?? false;
-    const posSelect  = $('#fc-filter-pos');        if (posSelect)  posSelect.value  = fc_filterPos;
-    const impSelect  = $('#fc-filter-importance'); if (impSelect)  impSelect.value  = fc_filterImp;
-    const knownCheck = $('#fc-show-known');        if (knownCheck) knownCheck.checked = fc_showKnown;
+    fcIndex       = session.fcIndex ?? 0;
+    fc_filterPos  = session.fc_filterPos ?? 'all';
+    fc_filterImp  = session.fc_filterImp ?? 'all';
+    fc_showKnown  = session.fc_showKnown ?? false;
+    $('#fc-filter-pos').value        = fc_filterPos;
+    $('#fc-filter-importance').value = fc_filterImp;
+    $('#fc-show-known').checked      = fc_showKnown;
+    const limitSelect = $('#fc-question-limit');
     if (limitSelect && session.limit) limitSelect.value = session.limit;
   }
 
@@ -403,51 +517,130 @@ function initFlashcard() {
 }
 
 /* ============================================================
-   クイズ: カテゴリフィルタ
+   文法カード 動的レンダリング
    ============================================================ */
 
 /**
- * QUIZ_DATA を category で絞り込んで返す。
- * - 'all' の場合は全件返す
- * - q.category が未定義の問題は 'all' 時のみ含まれる
+ * 重要度に応じたスター文字列を返す
  */
-function filterQuizData(category) {
-  if (category === 'all') return QUIZ_DATA;
-  return QUIZ_DATA.filter(q => (q.category ?? '') === category);
+function impToStars(imp) {
+  return IMP_LABEL[imp] ?? '';
 }
 
 /**
- * #quiz-filter-theme の値で filteredQuizData を更新し、
- * クイズを先頭から再スタートする。
+ * GRAMMAR_DATA をフィルタリングして #grammar-list へカードを生成する
+ * @param {string} cat - カテゴリ文字列（'all' なら全件）
  */
-function applyQuizCategoryFilter() {
-  const sel = $('#quiz-filter-theme');
-  const category = sel ? sel.value : 'all';
-  filteredQuizData = filterQuizData(category);
+function renderGrammar(cat = 'all') {
+  const listEl = document.getElementById('grammar-list');
+  if (!listEl) return;
 
-  quizIndex     = 0;
-  correctCount  = 0;
-  answeredCount = 0;
-  quizAnswered  = false;
+  // GRAMMAR_DATA が空でもエラーにしない
+  const items = (GRAMMAR_DATA.length === 0)
+    ? []
+    : (cat === 'all' ? GRAMMAR_DATA : GRAMMAR_DATA.filter(g => g.category === cat));
 
-  const res = $('#quiz-result'); if (res) res.hidden = true;
-  const qc  = $('#quiz-card');   if (qc)  qc.hidden  = false;
+  // リストをクリア
+  listEl.innerHTML = '';
 
-  if (filteredQuizData.length > 0) {
-    renderQuiz();
-  } else {
-    const jpEl = $('#quiz-question-jp');      if (jpEl) jpEl.textContent = '該当する問題がありません。';
-    const thEl = $('#quiz-question-thai');    if (thEl) thEl.textContent = '';
-    const rdEl = $('#quiz-question-reading'); if (rdEl) rdEl.textContent = '';
-    $$('.choice-btn').forEach(btn => { btn.disabled = true; btn.style.cssText = ''; });
-    const expl = $('#quiz-explanation'); if (expl) expl.hidden = true;
-    const tot  = $('#quiz-total');       if (tot)  tot.textContent  = '0';
-    const cur  = $('#quiz-current');     if (cur)  cur.textContent  = '0';
+  if (items.length === 0) {
+    listEl.innerHTML = `
+      <li style="padding:2rem;text-align:center;color:var(--text-3);font-size:var(--fs-sm);">
+        ${GRAMMAR_DATA.length === 0 ? '文法データを読み込み中...' : 'このカテゴリの項目はありません'}
+      </li>`;
+    return;
   }
+
+  const fragment = document.createDocumentFragment();
+
+  items.forEach((g) => {
+    const catLabel   = GRAMMAR_LABEL[g.category] ?? g.category ?? '';
+    const badgeClass = GRAMMAR_BADGE_CLASS[g.category] ?? 'badge-aux';
+    const stars      = impToStars(g.importance ?? 1);
+    const freq       = g.frequency ? `${g.frequency}回` : '';
+
+    // 例文系（空でも崩れないように）
+    const hasThai    = g.example_thai    && g.example_thai.trim();
+    const hasReading = g.example_reading && g.example_reading.trim();
+    const hasJp      = g.example_jp      && g.example_jp.trim();
+    const hasWarn    = g.warn            && g.warn.trim();
+
+    const exampleHTML = (hasThai || hasReading || hasJp) ? `
+      <div class="grammar-example" lang="th">
+        ${hasThai    ? `<span class="grammar-example-thai">${escHtml(g.example_thai)}</span>` : ''}
+        ${hasReading ? `<br><span style="font-size:var(--fs-xs);color:var(--text-3);">${escHtml(g.example_reading)}</span>` : ''}
+        ${hasJp      ? `<br><span style="font-size:var(--fs-xs);color:var(--text-2);">（${escHtml(g.example_jp)}）</span>` : ''}
+      </div>` : '';
+
+    const warnHTML = hasWarn
+      ? `<div class="grammar-warn">⚠ ${escHtml(g.warn)}</div>`
+      : '';
+
+    const li = document.createElement('li');
+    li.className = 'grammar-card';
+    li.dataset.cat  = g.category ?? '';
+    li.dataset.rank = g.importance ?? 1;
+
+    li.innerHTML = `
+      <div class="grammar-card-header">
+        <span class="grammar-badge ${badgeClass}">${escHtml(catLabel)}</span>
+        <span class="grammar-rank">${escHtml(stars)}</span>
+        ${freq ? `<span class="grammar-freq">${escHtml(freq)}</span>` : ''}
+      </div>
+      <div class="grammar-title">${escHtml(g.title ?? '')}</div>
+      <div class="grammar-formula">
+        <code>${escHtml(g.pattern ?? '')}</code>
+      </div>
+      <div class="grammar-desc">${escHtml(g.meaning ?? '')}</div>
+      ${exampleHTML}
+      ${warnHTML}
+    `;
+
+    fragment.appendChild(li);
+  });
+
+  listEl.appendChild(fragment);
+}
+
+/**
+ * HTML エスケープユーティリティ
+ */
+function escHtml(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+/**
+ * #grammar-cat-nav の内部タブでカテゴリフィルタを有効化する
+ */
+function initGrammarFilter() {
+  const nav = document.getElementById('grammar-cat-nav');
+  if (!nav) return;
+
+  nav.addEventListener('click', (e) => {
+    const btn = e.target.closest('.inner-tab-btn');
+    if (!btn) return;
+
+    // アクティブ切り替え
+    nav.querySelectorAll('.inner-tab-btn').forEach((b) => {
+      b.classList.remove('active');
+      b.setAttribute('aria-selected', 'false');
+    });
+    btn.classList.add('active');
+    btn.setAttribute('aria-selected', 'true');
+
+    // フィルタ適用
+    const cat = btn.dataset.cat ?? 'all';
+    renderGrammar(cat);
+  });
 }
 
 /* ============================================================
-   クイズ描画・ロジック（filteredQuizData を参照）
+   クイズ
    ============================================================ */
 let quizIndex    = 0;
 let quizAnswered = false;
@@ -455,7 +648,7 @@ let correctCount  = 0;
 let answeredCount = 0;
 
 function renderQuiz() {
-  const q = filteredQuizData[quizIndex];
+  const q = QUIZ_DATA[quizIndex];
   if (!q) return;
 
   const jpEl  = $('#quiz-question-jp');      if (jpEl)  jpEl.textContent  = q.question_jp      ?? '';
@@ -479,14 +672,13 @@ function renderQuiz() {
   quizAnswered = false;
 
   const cur = $('#quiz-current'); if (cur) cur.textContent = quizIndex + 1;
-  const tot = $('#quiz-total');   if (tot) tot.textContent = filteredQuizData.length;
+  const tot = $('#quiz-total');   if (tot) tot.textContent = QUIZ_DATA.length;
 }
 
 function judgeAnswer(id) {
   if (quizAnswered) return;
   quizAnswered = true;
-  const q = filteredQuizData[quizIndex];
-  if (!q) return;
+  const q  = QUIZ_DATA[quizIndex];
   const ok = id === q.answer;
   answeredCount++; if (ok) correctCount++;
 
@@ -498,9 +690,13 @@ function judgeAnswer(id) {
   $$('.choice-btn').forEach((btn) => {
     const bid = btn.dataset.choiceId;
     if (bid === q.answer) {
-      btn.style.background = 'var(--green-bg)'; btn.style.borderColor = 'var(--green)'; btn.style.color = 'var(--green)';
+      btn.style.background = 'var(--green-bg)';
+      btn.style.borderColor = 'var(--green)';
+      btn.style.color = 'var(--green)';
     } else if (bid === id && !ok) {
-      btn.style.background = 'var(--red-bg)';   btn.style.borderColor = 'var(--red)';   btn.style.color = 'var(--red)';
+      btn.style.background = 'var(--red-bg)';
+      btn.style.borderColor = 'var(--red)';
+      btn.style.color = 'var(--red)';
     }
     btn.disabled = true;
   });
@@ -516,21 +712,21 @@ function judgeAnswer(id) {
 }
 
 function goNextQuiz() {
-  if (quizIndex >= filteredQuizData.length - 1) { showQuizResult(); return; }
+  if (quizIndex >= QUIZ_DATA.length - 1) { showQuizResult(); return; }
   quizIndex++;
   renderQuiz();
 }
 
 function showQuizResult() {
   const rate = answeredCount ? Math.round(correctCount / answeredCount * 100) : 0;
-  const qc = $('#quiz-card');    if (qc)  qc.hidden  = true;
+  const qc = $('#quiz-card'); if (qc) qc.hidden = true;
   const res = $('#quiz-result'); if (res) res.hidden = false;
   const sc = $('#result-score');
   if (sc) sc.innerHTML = `${correctCount} / ${answeredCount}問 正解<br>正答率 ${rate}%`;
   const mg = $('#result-msg');
   if (mg) mg.textContent =
     rate === 100 ? '全問正解！' : rate >= 80 ? 'かなり理解できています' :
-    rate >= 60  ? 'あと少しです' : 'もう一度復習しましょう';
+    rate >= 60 ? 'あと少しです' : 'もう一度復習しましょう';
 }
 
 function restartQuiz() {
@@ -542,20 +738,9 @@ function restartQuiz() {
 
 function initQuiz() {
   if (!$('#quiz-next-btn')) return;
-
-  /* filteredQuizData を全件で初期化 */
-  filteredQuizData = QUIZ_DATA.slice();
-
-  /* カテゴリフィルタの変更を監視 */
-  $('#quiz-filter-theme')?.addEventListener('change', applyQuizCategoryFilter);
-
-  /* 開始ボタン */
-  $('#quiz-start-btn')?.addEventListener('click', applyQuizCategoryFilter);
-
   $$('.choice-btn').forEach((btn) => btn.addEventListener('click', () => judgeAnswer(btn.dataset.choiceId)));
   $('#quiz-next-btn')?.addEventListener('click', goNextQuiz);
   $('#quiz-retry-btn')?.addEventListener('click', restartQuiz);
-
   renderQuiz();
 }
 
@@ -586,6 +771,7 @@ function switchTab(name) {
   const sid = btn?.getAttribute('aria-controls');
   if (sid) { const sec = $(`#${sid}`); if (sec) sec.hidden = false; }
 }
+
 function initTabs() {
   $('#tab-nav')?.addEventListener('click', (e) => {
     const btn = e.target.closest('.tab-btn');
@@ -598,12 +784,21 @@ function initTabs() {
    ============================================================ */
 async function loadDataAndInit() {
   try {
-    const [vRes, qRes] = await Promise.all([
-      fetch('/data/vocab.json'),
-      fetch('/data/questions_vocab_all.json'),
+    const [vRes, qRes, gRes] = await Promise.all([
+      fetch('./data/vocab.json'),
+      fetch('./data/questions_vocab_all.json'),
+      fetch('./data/grammar.json'),
     ]);
+
     if (!vRes.ok) throw new Error(`vocab.json: ${vRes.status}`);
     if (!qRes.ok) throw new Error(`questions_vocab_all.json: ${qRes.status}`);
+    // grammar.json は取得失敗しても致命的エラーにしない
+    if (!gRes.ok) {
+      console.warn(`grammar.json: ${gRes.status} — 文法データなしで続行`);
+      GRAMMAR_DATA = [];
+    } else {
+      GRAMMAR_DATA = await gRes.json();
+    }
 
     VOCAB_DATA = await vRes.json();
     QUIZ_DATA  = await qRes.json();
@@ -611,6 +806,8 @@ async function loadDataAndInit() {
 
     initFlashcard();
     initQuiz();
+    renderGrammar();      // 文法カード初期描画（全件）
+    initGrammarFilter();  // カテゴリフィルタ初期化
     updateDashboard();
   } catch (err) {
     console.error(err);
@@ -624,3 +821,4 @@ document.addEventListener('DOMContentLoaded', () => {
   loadDataAndInit();
   document.addEventListener('keydown', handleFlashcardKeydown);
 });
+ENDJS

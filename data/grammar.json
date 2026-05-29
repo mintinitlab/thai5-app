@@ -625,16 +625,16 @@
   },
   {
     "id": 49,
-    "title": "数量：〜冊",
-    "pattern": "数 + lêm",
-    "meaning": "〜冊（本・ノート）",
+    "title": "数量：〜回",
+    "pattern": "数 + khráŋ",
+    "meaning": "〜回・〜度（回数）",
     "category": "quantity",
-    "importance": 3,
-    "frequency": 6,
-    "example_thai": "เขาถือหนังสือห้าเล่ม",
-    "example_reading": "khǎo thʉ̌ʉ nǎŋsʉ̌ʉ hâa lêm",
-    "example_jp": "彼は手に本を5冊持っています",
-    "warn": "本・ノート・辞書を数えるときの類別詞はlêm。かばんのbai、衣類・動物のtuaと混同しないこと"
+    "importance": 2,
+    "frequency": 2,
+    "example_thai": "ช่วยพูดอีกครั้งได้ไหม",
+    "example_reading": "chûay phûut ìik khráŋ dâi mǎi",
+    "example_jp": "もう一度言っていただけますか？",
+    "warn": "khráŋは回数を数える類別詞。ìik khráŋ（もう一度）・thúk khráŋ（毎回）など定型表現とセットで覚えると効率的"
   },
   {
     "id": 50,
