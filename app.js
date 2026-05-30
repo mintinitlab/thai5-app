@@ -742,22 +742,13 @@ function restartQuiz() {
 function initQuiz() {
   if (!$('#quiz-next-btn')) return;
 
-  $$('.choice-btn').forEach((btn) =>
-    btn.addEventListener('click', () =>
-      judgeAnswer(btn.dataset.choiceId)
-    )
-  );
+  filteredQuizData = QUIZ_DATA.slice();
 
+  $('#quiz-start-btn')?.addEventListener('click', applyQuizCategoryFilter);
+
+  $$('.choice-btn').forEach((btn) => btn.addEventListener('click', () => judgeAnswer(btn.dataset.choiceId)));
   $('#quiz-next-btn')?.addEventListener('click', goNextQuiz);
   $('#quiz-retry-btn')?.addEventListener('click', restartQuiz);
-
-  // ▼追加
-  $('#quiz-filter-theme')?.addEventListener(
-    'change',
-    applyQuizCategoryFilter
-  );
-
-  filteredQuizData = [...QUIZ_DATA];
 
   renderQuiz();
 }
