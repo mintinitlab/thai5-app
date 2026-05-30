@@ -3,7 +3,8 @@
     "id": "v01",
     "type": "fill_blank",
     "level": "easy",
-    "theme": "vocab-verb",
+    "pos": "vocab-verb",
+    "theme": "shopping",
     "grammarId": null,
     "vocabId": 33,
     "question_jp": "妹は週末にデパートへ服を買いに行きます。",
@@ -48,7 +49,8 @@
     "id": "v02",
     "type": "fill_blank",
     "level": "easy",
-    "theme": "vocab-verb",
+    "pos": "vocab-verb",
+    "theme": "action",
     "grammarId": null,
     "vocabId": 2,
     "question_jp": "今、友達は図書館で勉強しています。",
@@ -93,7 +95,8 @@
     "id": "v03",
     "type": "fill_blank",
     "level": "easy",
-    "theme": "vocab-verb",
+    "pos": "vocab-verb",
+    "theme": "place",
     "grammarId": null,
     "vocabId": 3,
     "question_jp": "このカフェにはいつもお客さんがたくさんいます。",
@@ -138,7 +141,8 @@
     "id": "v04",
     "type": "fill_blank",
     "level": "easy",
-    "theme": "vocab-verb",
+    "pos": "vocab-verb",
+    "theme": "movement",
     "grammarId": null,
     "vocabId": 11,
     "question_jp": "一緒に海に遊びに行きませんか？",
@@ -183,7 +187,8 @@
     "id": "v05",
     "type": "fill_blank",
     "level": "easy",
-    "theme": "vocab-verb",
+    "pos": "vocab-verb",
+    "theme": "emotion",
     "grammarId": null,
     "vocabId": null,
     "question_jp": "彼女は料理にとても興味があります。",
@@ -228,7 +233,8 @@
     "id": "v06",
     "type": "fill_blank",
     "level": "normal",
-    "theme": "vocab-verb",
+    "pos": "vocab-verb",
+    "theme": "action",
     "grammarId": null,
     "vocabId": 52,
     "question_jp": "彼は私をいつもニックネームで呼びます。",
@@ -273,7 +279,8 @@
     "id": "v07",
     "type": "fill_blank",
     "level": "normal",
-    "theme": "vocab-verb",
+    "pos": "vocab-verb",
+    "theme": "action",
     "grammarId": null,
     "vocabId": null,
     "question_jp": "雨がひどかったので、私たちは外に出かけませんでした。",
@@ -310,7 +317,7 @@
       "A"
     ],
     "trapReason": "tɛ̀ɛ（しかし）は逆接。「雨がひどかった→出かけなかった」は順接の因果関係なのでphrɔ́wâaが正しい。",
-    "explanation": "phrɔ́wâaは「〜なので・〜だから」という原因・理由を示す接続詞。原因節の後に結果節が続く。cʉŋ（従って）は結果節の冒頭に置くのに対し、phrɔ́wâaは原因節の頭に置く点が異なる。",
+    "explanation": "phrɔ́wâaは「〜なので・〜だから」という原因・理由を示す接続詞。",
     "full_sentence_thai": "ฝนตกหนักมากเพราะว่าพวกเราเลยไม่ได้ออกไปข้างนอก",
     "full_sentence_reading": "fǒn tòk nàk mâak phrɔ́wâa phûak rao ləəy mâi dâi ɔ̀ɔk pai khâaŋnɔ̂ɔk"
   },
@@ -318,7 +325,8 @@
     "id": "v08",
     "type": "fill_blank",
     "level": "normal",
-    "theme": "vocab-verb",
+    "pos": "vocab-verb",
+    "theme": "movement",
     "grammarId": null,
     "vocabId": 55,
     "question_jp": "私は郵便局から日本に荷物を送りたいです。",
@@ -356,7 +364,7 @@
       "B"
     ],
     "trapReason": "ráp（受け取る）は受信側の動作。fàak（預ける）は別の人に保管を頼む行為。「送る・届ける」はsòŋ。",
-    "explanation": "「送る・届ける」はsòŋ。sòŋ khɔ̌ɔŋ（荷物を送る）・sòŋ còtmǎay（手紙を送る）が頻出フレーズ。ráp（受け取る）とは方向が逆になる。",
+    "explanation": "「送る・届ける」はsòŋ。sòŋ khɔ̌ɔŋ（荷物を送る）・sòŋ còtmǎay（手紙を送る）が頻出フレーズ。",
     "full_sentence_thai": "ฉันอยากจะส่งพัสดุไปญี่ปุ่นจากไปรษณีย์",
     "full_sentence_reading": "chǎn yàak cà sòŋ phàtsàdù pai yîipùn càak praisànii"
   },
@@ -364,7 +372,8 @@
     "id": "v09",
     "type": "fill_blank",
     "level": "normal",
-    "theme": "vocab-verb",
+    "pos": "vocab-verb",
+    "theme": "place",
     "grammarId": null,
     "vocabId": null,
     "question_jp": "私は財布が見つかりません。",
@@ -401,8 +410,8 @@
       "A",
       "B"
     ],
-    "trapReason": "duu（見る）・mɔɔŋ（眺める・ちらっと見る）は意識的に視線を向ける動作。「見つかる・出会う」という結果にはcəəを使う。",
-    "explanation": "cəəは「会う・見つかる・出会う」。hǎa … mâi cəəで「〜を探したが見つからない」という頻出パターン。「財布が見つからない」はhǎa kràpǎo satàaŋ mâi cəə。",
+    "trapReason": "duu・mɔɔŋは視線を向ける動作。「見つかる・出会う」という結果にはcəəを使う。",
+    "explanation": "cəəは「会う・見つかる・出会う」。hǎa … mâi cəəで「〜を探したが見つからない」という頻出パターン。",
     "full_sentence_thai": "หากระเป๋าสตางค์ไม่เจอ",
     "full_sentence_reading": "hǎa kràpǎo satàaŋ mâi cəə"
   },
@@ -410,7 +419,8 @@
     "id": "v10",
     "type": "fill_blank",
     "level": "normal",
-    "theme": "vocab-verb",
+    "pos": "vocab-verb",
+    "theme": "action",
     "grammarId": null,
     "vocabId": null,
     "question_jp": "彼は来年結婚すると聞きました。",
@@ -446,8 +456,8 @@
     "trapChoices": [
       "A"
     ],
-    "trapReason": "faŋ（聞く）は意識して耳を傾ける行為（音楽を聞く・授業を聞くなど）。「耳に入ってきた・〜と聞いた」という伝聞にはdâi yinを使う。",
-    "explanation": "「〜と聞いた（伝聞）」はdâi yin wâa。dâi yinは自然に耳に入った情報・噂を聞いたときに使う。faŋは意識して聞く行為。「〜だと聞いています」という日常会話でよく使う表現。",
+    "trapReason": "faŋは意識して耳を傾ける行為。「耳に入ってきた・〜と聞いた」という伝聞にはdâi yinを使う。",
+    "explanation": "「〜と聞いた（伝聞）」はdâi yin wâa。dâi yinは自然に耳に入った情報・噂を聞いたときに使う。",
     "full_sentence_thai": "ดิฉันได้ยินว่าเขาจะแต่งงานปีหน้า",
     "full_sentence_reading": "dichán dâi yin wâa khǎw cà tɛ̀ŋŋaan pii nâa"
   },
@@ -455,7 +465,8 @@
     "id": "v11",
     "type": "fill_blank",
     "level": "easy",
-    "theme": "vocab-verb",
+    "pos": "vocab-verb",
+    "theme": "action",
     "grammarId": null,
     "vocabId": 64,
     "question_jp": "毎日ギターを練習すれば、きっと上手になります。",
@@ -491,8 +502,8 @@
     "trapChoices": [
       "B"
     ],
-    "trapReason": "riian（勉強する）は知識・技術を習得するプロセス全体を指す。fʉ̀k（練習する）は習得した技術を繰り返し磨く行為で、楽器・スポーツに自然。",
-    "explanation": "「練習する」はfʉ̀k。riian（習う・学ぶ）は教室など学習全般に使うのに対し、fʉ̀k（練習する）はスポーツ・楽器・語学の反復トレーニングに使う。fʉ̀k phûut（スピーキング練習）なども頻出。",
+    "trapReason": "riianは学習プロセス全体を指す。fʉ̀kは習得した技術を繰り返し磨く行為で楽器・スポーツに自然。",
+    "explanation": "「練習する」はfʉ̀k。riian（習う）は教室など学習全般に使うのに対し、fʉ̀kはスポーツ・楽器・語学の反復トレーニングに使う。",
     "full_sentence_thai": "ถ้าฝึกกีตาร์ทุกวันก็จะเก่งขึ้นแน่นอน",
     "full_sentence_reading": "thâa fʉ̀k kiitâa thúk wan kɔ̂ɔ cà kèŋ khʉ̂n nɛ̂ɛnɔɔn"
   },
@@ -500,7 +511,8 @@
     "id": "v12",
     "type": "fill_blank",
     "level": "easy",
-    "theme": "vocab-verb",
+    "pos": "vocab-verb",
+    "theme": "food",
     "grammarId": null,
     "vocabId": 53,
     "question_jp": "お母さんは毎朝台所で朝食を作っています。",
@@ -537,7 +549,7 @@
       "A"
     ],
     "trapReason": "kin（食べる）は食べる行為。台所で朝食を「作る」はtham aahǎan。",
-    "explanation": "tham aahǎan（料理する・食事を作る）はthamを使う。kamlaŋ + tham aahǎan + yùuで「料理しているところ」という進行形になる。hôŋkhrua（台所）と組み合わせて覚えると良い。",
+    "explanation": "tham aahǎan（料理する）はthamを使う。kamlaŋ + tham aahǎan + yùuで「料理しているところ」という進行形になる。",
     "full_sentence_thai": "แม่กำลังทำอาหารเช้าอยู่ในห้องครัวทุกเช้า",
     "full_sentence_reading": "mɛ̂ɛ kamlaŋ tham aahǎan cháaw yùu nai hôŋkhrua thúk cháaw"
   },
@@ -545,7 +557,8 @@
     "id": "v13",
     "type": "fill_blank",
     "level": "easy",
-    "theme": "vocab-verb",
+    "pos": "vocab-verb",
+    "theme": "movement",
     "grammarId": null,
     "vocabId": 28,
     "question_jp": "私は今日、映画を観に行きます。",
@@ -581,8 +594,8 @@
     "trapChoices": [
       "D"
     ],
-    "trapReason": "mɔɔŋ（眺める・ちらっと見る）はカジュアルに視線を向けるだけ。映画・テレビなどを「観る」という意図的な行為はduu。",
-    "explanation": "「見る・観る」はduu。pai duu nǎŋ（映画を観に行く）は頻出フレーズ。duu nǎŋ（映画を観る）・duu thoorathat（テレビを観る）のように意図的に見る行為に使う。",
+    "trapReason": "mɔɔŋはカジュアルに視線を向けるだけ。映画を「観る」という意図的な行為はduu。",
+    "explanation": "「見る・観る」はduu。pai duu nǎŋ（映画を観に行く）は頻出フレーズ。",
     "full_sentence_thai": "วันนี้ผมจะไปดูหนัง",
     "full_sentence_reading": "wanníi phǒm cà pai duu nǎŋ"
   },
@@ -590,7 +603,8 @@
     "id": "v14",
     "type": "fill_blank",
     "level": "normal",
-    "theme": "vocab-verb",
+    "pos": "vocab-verb",
+    "theme": "food",
     "grammarId": null,
     "vocabId": 63,
     "question_jp": "今夜のために、2名のテーブルを予約したいのですが。",
@@ -626,8 +640,8 @@
     "trapChoices": [
       "A"
     ],
-    "trapReason": "khɔ̌ɔは「〜させてください・お願いする」という許可要求で動詞ではない。「予約する」という具体的な動作にはcɔɔŋを使う。",
-    "explanation": "「予約する」はcɔɔŋ。cɔɔŋ tó（テーブルを予約する）・cɔɔŋ hɔ̂ŋ（部屋を予約する）・cɔɔŋ tǔa（チケットを予約する）が頻出フレーズ。",
+    "trapReason": "khɔ̌ɔは許可要求で動詞ではない。「予約する」という動作にはcɔɔŋを使う。",
+    "explanation": "「予約する」はcɔɔŋ。cɔɔŋ tó・cɔɔŋ hɔ̂ŋ・cɔɔŋ tǔaが頻出フレーズ。",
     "full_sentence_thai": "อยากจะจองโต๊ะสำหรับสองคนสำหรับคืนนี้",
     "full_sentence_reading": "yàak cà cɔɔŋ tó sǎmràp sɔ̌ɔŋ khon sǎmràp khʉʉnníi"
   },
@@ -635,7 +649,8 @@
     "id": "v15",
     "type": "fill_blank",
     "level": "normal",
-    "theme": "vocab-verb",
+    "pos": "vocab-verb",
+    "theme": "action",
     "grammarId": null,
     "vocabId": 31,
     "question_jp": "今日、私はピンク色の服を着ていました。",
@@ -652,7 +667,7 @@
         "id": "B",
         "thai": "เอา",
         "reading": "ao",
-        "meaning": "取る・持つ（物を扱う）"
+        "meaning": "取る・持つ"
       },
       {
         "id": "C",
@@ -672,8 +687,8 @@
       "A",
       "C"
     ],
-    "trapReason": "cháy（使う）は衣類を「着る」には使わない。thʉ̌ʉ（持つ）は手で保持する行為。衣類・靴・アクセサリーを「身につける・着る」はsài。",
-    "explanation": "sài は衣類（服・靴・帽子など）を「着る・履く・身につける」動詞。服・ズボン・靴どれにも使える万能動詞。「服を着る」はsài sʉ̂a、「靴を履く」はsài rɔɔŋtháaw。",
+    "trapReason": "cháy（使う）は衣類を「着る」には使わない。thʉ̌ʉは手で保持する行為。衣類を「身につける」はsài。",
+    "explanation": "sàiは衣類（服・靴・帽子など）を「着る・履く・身につける」動詞。",
     "full_sentence_thai": "วันนี้ดิฉันใส่เสื้อสีชมพู",
     "full_sentence_reading": "wanníi dichán sài sʉ̂a sǐi chomphuu"
   },
@@ -681,7 +696,8 @@
     "id": "v16",
     "type": "fill_blank",
     "level": "normal",
-    "theme": "vocab-verb",
+    "pos": "vocab-verb",
+    "theme": "shopping",
     "grammarId": null,
     "vocabId": 33,
     "question_jp": "週末、父は市場へ食材を買いに行きます。",
@@ -718,7 +734,7 @@
       "A"
     ],
     "trapReason": "khǎay（売る）は店側の行動。市場へ行って食材を「買う」のはsʉ́ʉ。",
-    "explanation": "sʉ́ʉはあらゆるものを「買う」動詞。pai talàat phʉ̂a sʉ́ʉ khɔ̌ɔŋ（市場へ買い物に行く）は日常的フレーズ。反対語khǎay（売る）と対で覚えると効率的。",
+    "explanation": "sʉ́ʉはあらゆるものを「買う」動詞。反対語khǎay（売る）と対で覚えると効率的。",
     "full_sentence_thai": "วันหยุดพ่อไปตลาดเพื่อซื้อวัตถุดิบ",
     "full_sentence_reading": "wan yùt phɔ̂ɔ pai talàat phʉ̂a sʉ́ʉ wáttùdìp"
   },
@@ -726,7 +742,8 @@
     "id": "v17",
     "type": "fill_blank",
     "level": "normal",
-    "theme": "vocab-verb",
+    "pos": "vocab-verb",
+    "theme": "emotion",
     "grammarId": null,
     "vocabId": 43,
     "question_jp": "マリさんの家族は猫を飼うのが好きです。",
@@ -763,8 +780,8 @@
       "A",
       "C"
     ],
-    "trapReason": "rák（愛する）は深い愛情表現で「好む」より強い。yàak（〜したい）は願望で「好き」ではない。習慣的な「好み・趣味」にはchɔ̂ɔpが自然。",
-    "explanation": "「好む・好きだ」はchɔ̂ɔp + V/名詞。「〜するのが好き」はchɔ̂ɔp + 動詞のフレーズで頻出。rákは「愛する」でより感情が強い表現。",
+    "trapReason": "rákは深い愛情表現。yàakは願望で「好き」ではない。習慣的な「好み」にはchɔ̂ɔpが自然。",
+    "explanation": "「好む・好きだ」はchɔ̂ɔp + V/名詞。「〜するのが好き」はchɔ̂ɔp + 動詞のフレーズで頻出。",
     "full_sentence_thai": "ครอบครัวของคุณมารีชอบเลี้ยงแมว",
     "full_sentence_reading": "khrɔ̂ɔpkhruua khɔ̌ɔŋ khun maarii chɔ̂ɔp líaŋ mɛɛw"
   },
@@ -772,7 +789,8 @@
     "id": "v18",
     "type": "fill_blank",
     "level": "normal",
-    "theme": "vocab-verb",
+    "pos": "vocab-verb",
+    "theme": "place",
     "grammarId": null,
     "vocabId": 45,
     "question_jp": "私はあなたを駅で探しました。",
@@ -809,8 +827,8 @@
       "A",
       "B"
     ],
-    "trapReason": "rɔɔ（待つ）は相手が来るのを受動的に待つ行為。cəə（会う・見つかる）は出会いの結果。「（相手を）探す」という能動的な行為はhǎa。",
-    "explanation": "「探す・〜のところへ行く」はhǎa。pai hǎa khun（あなたを訪ねに行く）も頻出。hǎa + 人で「（人を）探す・訪ねる」の意味になる。",
+    "trapReason": "rɔɔは受動的に待つ行為。cəəは出会いの結果。「（相手を）探す」という能動的な行為はhǎa。",
+    "explanation": "「探す・〜のところへ行く」はhǎa。pai hǎa khun（あなたを訪ねに行く）も頻出。",
     "full_sentence_thai": "ดิฉันหาคุณอยู่ที่สถานีรถไฟ",
     "full_sentence_reading": "dichán hǎa khun yùu thîi sàthǎanii rótfai"
   },
@@ -818,7 +836,8 @@
     "id": "v19",
     "type": "fill_blank",
     "level": "normal",
-    "theme": "vocab-verb",
+    "pos": "vocab-verb",
+    "theme": "movement",
     "grammarId": null,
     "vocabId": 44,
     "question_jp": "久しぶりですね。（長く会っていないね。）",
@@ -855,8 +874,8 @@
       "A",
       "D"
     ],
-    "trapReason": "duu（見る）は視覚的行為。rúucàk（知っている・知り合う）は初対面の知り合いに使う。「会う・出会う」はcəə。",
-    "explanation": "cəəは「会う・出会う・見つかる」。mâi dâi cəə kan naan（長く会っていない）は「お久しぶり」に相当する定型フレーズ。会話でよく使う。",
+    "trapReason": "duu（見る）は視覚的行為。rúucàkは初対面の知り合いに使う。「会う・出会う」はcəə。",
+    "explanation": "cəəは「会う・出会う・見つかる」。mâi dâi cəə kan naan（長く会っていない）は「お久しぶり」に相当する定型フレーズ。",
     "full_sentence_thai": "ไม่ได้เจอกันนานเลยนะ",
     "full_sentence_reading": "mâi dâi cəə kan naan ləəy ná"
   },
@@ -864,7 +883,8 @@
     "id": "v20",
     "type": "fill_blank",
     "level": "normal",
-    "theme": "vocab-verb",
+    "pos": "vocab-verb",
+    "theme": "place",
     "grammarId": null,
     "vocabId": 42,
     "question_jp": "部屋の鍵がどこにあるか分からない。なくなってしまった。",
@@ -901,8 +921,8 @@
       "A",
       "D"
     ],
-    "trapReason": "sǐa（壊れる）は物が壊れる状態。tòk（落ちる）は物理的に落下する動作。「見当たらなくなった・紛失した」はhǎay。",
-    "explanation": "hǎayは「なくなる・消える・紛失する」。man hǎay pai lɛ́ɛw（それはなくなってしまった）は日常でよく使う表現。tham hǎay（なくす・失くす）という使役形も重要。",
+    "trapReason": "sǐaは物が壊れる状態。tòkは物理的に落下する動作。「見当たらなくなった・紛失した」はhǎay。",
+    "explanation": "hǎayは「なくなる・消える・紛失する」。tham hǎay（なくす）という使役形も重要。",
     "full_sentence_thai": "ไม่รู้ว่ากุญแจห้องอยู่ที่ไหน มันหายไปแล้ว",
     "full_sentence_reading": "mâi rúu wâa kuncɛɛ hôŋ yùu thîi nǎi man hǎay pai lɛ́ɛw"
   },
@@ -910,7 +930,8 @@
     "id": "v21",
     "type": "fill_blank",
     "level": "easy",
-    "theme": "grammar-aux",
+    "pos": "grammar-aux",
+    "theme": "time",
     "grammarId": 2,
     "vocabId": null,
     "question_jp": "来月、彼の結婚式に出席するつもりです。",
@@ -947,8 +968,8 @@
       "A",
       "C"
     ],
-    "trapReason": "「来月（dʉan nâa）」という未来の時間表現があるのでkamlaŋ（進行形）・khəəy（経験）は使えない。未来・意志はcà。",
-    "explanation": "cà + Vで「〜するつもり・〜するだろう」という未来・意志を表す。dʉan nâa（来月）などの未来を示す語が文中にあるときcàを選ぶ。phêŋ（〜したばかり）は直近完了なので未来に使えない。",
+    "trapReason": "「来月」という未来の時間表現があるのでkamlaŋ・khəəyは使えない。未来・意志はcà。",
+    "explanation": "cà + Vで「〜するつもり・〜するだろう」という未来・意志を表す。",
     "full_sentence_thai": "เดือนหน้าฉันจะไปร่วมงานแต่งงานของเขา",
     "full_sentence_reading": "dʉan nâa chǎn cà pai rûam ŋaan tɛ̀ŋŋaan khɔ̌ɔŋ khǎo"
   },
@@ -956,7 +977,8 @@
     "id": "v22",
     "type": "fill_blank",
     "level": "normal",
-    "theme": "grammar-aux",
+    "pos": "grammar-aux",
+    "theme": "action",
     "grammarId": 4,
     "vocabId": null,
     "question_jp": "弟は料理がまだあまり上手にできません。",
@@ -993,7 +1015,7 @@
       "C"
     ],
     "trapReason": "dâiは状況・許可による可能で文末後置型。習得した技術（料理・運転など）の可否はpenを使う。",
-    "explanation": "tham aahǎan mâi pen（料理ができない）のように、練習・習得が必要なスキルの可否はpen/mâi pen。dâiは「許可された・状況的に可能」の意味が強い。yaŋ … mâi pen thâurài（まだあまり〜できない）も自然な口語表現。",
+    "explanation": "tham aahǎan mâi pen（料理ができない）のように、練習・習得が必要なスキルの可否はpen/mâi pen。",
     "full_sentence_thai": "น้องชายยังทำอาหารไม่เป็นเท่าไหร่",
     "full_sentence_reading": "nɔ́ɔŋchaay yaŋ tham aahǎan mâi pen thâurài"
   },
@@ -1001,7 +1023,8 @@
     "id": "v23",
     "type": "fill_blank",
     "level": "normal",
-    "theme": "grammar-aux",
+    "pos": "grammar-aux",
+    "theme": "action",
     "grammarId": 5,
     "vocabId": null,
     "question_jp": "あなたは新幹線に乗ったことがありますか？",
@@ -1038,7 +1061,7 @@
       "A"
     ],
     "trapReason": "yàak（〜したい）は願望。「経験があるか」を問う文にはkhəəy。",
-    "explanation": "khəəy + V + mǎiで「〜したことがありますか？」という経験を確認する疑問文になる。否定はmâi khəəy（〜したことがない）。rú yaŋ（〜かまだか）と組み合わせても経験確認ができる。",
+    "explanation": "khəəy + V + mǎiで「〜したことがありますか？」という経験を確認する疑問文になる。",
     "full_sentence_thai": "คุณเคยนั่งชินคันเซ็นไหม",
     "full_sentence_reading": "khun khəəy nâŋ shinkansen mǎi"
   },
@@ -1046,7 +1069,8 @@
     "id": "v24",
     "type": "fill_blank",
     "level": "normal",
-    "theme": "grammar-aux",
+    "pos": "grammar-aux",
+    "theme": "action",
     "grammarId": 8,
     "vocabId": null,
     "question_jp": "ここに名前を書いてください。",
@@ -1083,7 +1107,7 @@
       "C"
     ],
     "trapReason": "文末のdûayは「〜も・一緒に」の意味になり、依頼の補強にはならない。chûay … hâiのhâiで依頼の意味が強まる。",
-    "explanation": "chûay + V + hâi + nɔ̀yで「〜してください」という丁寧な依頼になる。hâiは受益・依頼を示す語で、文末に置くことで「（相手のために）〜してほしい」のニュアンスを加える。",
+    "explanation": "chûay + V + hâi + nɔ̀yで「〜してください」という丁寧な依頼になる。",
     "full_sentence_thai": "ช่วยเขียนชื่อตรงนี้ให้หน่อย",
     "full_sentence_reading": "chûay khǐian chʉ̂ʉ troŋ níi hâi nɔ̀y"
   },
@@ -1091,7 +1115,8 @@
     "id": "v25",
     "type": "fill_blank",
     "level": "easy",
-    "theme": "grammar-aux",
+    "pos": "grammar-aux",
+    "theme": "place",
     "grammarId": 20,
     "vocabId": null,
     "question_jp": "図書館の中で電話しないでください。",
@@ -1128,8 +1153,8 @@
       "A",
       "D"
     ],
-    "trapReason": "mâiは単純否定（〜しない）で命令ではない。hâamはより強い禁止・規則に使う。丁寧な禁止依頼にはyàaが適切。",
-    "explanation": "yàa + Vで「〜しないでください（禁止の依頼）」。karúnaa（どうぞ）と組み合わせると丁寧な禁止表現になる。hâamは掲示・規則的な禁止（「禁止」の看板など）に使われることが多い。",
+    "trapReason": "mâiは単純否定で命令ではない。hâamはより強い禁止・規則に使う。丁寧な禁止依頼にはyàaが適切。",
+    "explanation": "yàa + Vで「〜しないでください（禁止の依頼）」。karúnaaと組み合わせると丁寧な禁止表現になる。",
     "full_sentence_thai": "กรุณาอย่าโทรศัพท์ในห้องสมุด",
     "full_sentence_reading": "karúnaa yàa thoorasàp nai hôŋsamùt"
   },
@@ -1137,7 +1162,8 @@
     "id": "v26",
     "type": "fill_blank",
     "level": "normal",
-    "theme": "grammar-prep",
+    "pos": "grammar-prep",
+    "theme": "movement",
     "grammarId": 14,
     "vocabId": null,
     "question_jp": "私たちはバスで観光地まで行きました。",
@@ -1174,7 +1200,7 @@
       "A"
     ],
     "trapReason": "kàp（〜と）は同行者を示す前置詞。乗り物・交通手段を示すにはdooyを使う。",
-    "explanation": "「〜で（交通手段）」はdooy + 乗り物。dûay（道具・器具）との使い分けが最重要：バスで行く→dooy rótbàt、ペンで書く→dûay pàakkaa。乗り物が来たらdooyを選ぶ。",
+    "explanation": "「〜で（交通手段）」はdooy + 乗り物。dûay（道具）との使い分けが最重要。",
     "full_sentence_thai": "พวกเราไปถึงสถานที่ท่องเที่ยวโดยรถบัส",
     "full_sentence_reading": "phûakrao pai thʉ̌ŋ sàthǎanthîi thɔ̂ŋthîiaw dooy rótbàt"
   },
@@ -1182,7 +1208,8 @@
     "id": "v27",
     "type": "fill_blank",
     "level": "normal",
-    "theme": "grammar-prep",
+    "pos": "grammar-prep",
+    "theme": "place",
     "grammarId": 15,
     "vocabId": null,
     "question_jp": "そのホテルは繁華街からとても近いです。",
@@ -1219,7 +1246,7 @@
       "A"
     ],
     "trapReason": "klâi kàpは「〜の近くに」という別の表現。「〜から近い・遠い」という距離表現にはcàakが必要。",
-    "explanation": "「〜から（場所の起点）」はcàak。klâi / klai（近い・遠い）+ càak + 場所で「〜から近い・遠い」という距離を表す。klâi kàp（〜の近くに）とは語順が異なる点に注意。",
+    "explanation": "「〜から（場所の起点）」はcàak。klâi / klai + càak + 場所で「〜から近い・遠い」を表す。",
     "full_sentence_thai": "โรงแรมนั้นอยู่ใกล้จากย่านช้อปปิ้งมาก",
     "full_sentence_reading": "rooŋrɛɛm nán yùu klâi càak yâan chɔ́ppîŋ mâak"
   },
@@ -1227,7 +1254,8 @@
     "id": "v28",
     "type": "fill_blank",
     "level": "normal",
-    "theme": "grammar-prep",
+    "pos": "grammar-prep",
+    "theme": "place",
     "grammarId": 16,
     "vocabId": null,
     "question_jp": "彼女のアパートはデパートの近くにあります。",
@@ -1264,8 +1292,8 @@
       "C",
       "D"
     ],
-    "trapReason": "càakは「〜から（起点）」で近さを表さない。khâaŋkhâaŋは「隣・すぐそば」で少し意味が違う。「近くに」はklâi kàp。",
-    "explanation": "「〜の近くに」はklâi kàp + 場所名詞。yùu klâi kàpで「〜の近くにある」となる。場所の近さを表す定番表現。",
+    "trapReason": "càakは「〜から（起点）」で近さを表さない。「近くに」はklâi kàp。",
+    "explanation": "「〜の近くに」はklâi kàp + 場所名詞。yùu klâi kàpで「〜の近くにある」となる。",
     "full_sentence_thai": "อพาร์ตเมนต์ของเธออยู่ใกล้กับห้างสรรพสินค้า",
     "full_sentence_reading": "aphâatmen khɔ̌ɔŋ thəə yùu klâi kàp hâaŋsàpphásǐnkháa"
   },
@@ -1273,7 +1301,8 @@
     "id": "v29",
     "type": "fill_blank",
     "level": "normal",
-    "theme": "grammar-prep",
+    "pos": "grammar-prep",
+    "theme": "action",
     "grammarId": null,
     "vocabId": null,
     "question_jp": "私はペンを使って手紙を書きます。",
@@ -1309,8 +1338,8 @@
     "trapChoices": [
       "A"
     ],
-    "trapReason": "「ペン」は道具・器具なのでdûayを使う。dooyは交通手段に使う。「ペンで書く」はdûay、「電車で行く」はdooyと使い分ける。",
-    "explanation": "「ペン・箸・手」など道具・器具を使う「〜で」はdûay。乗り物などの交通手段にはdooy。日本語では同じ「で」でもタイ語では使い分けが必要。",
+    "trapReason": "「ペン」は道具・器具なのでdûayを使う。dooyは交通手段に使う。",
+    "explanation": "「ペン・箸・手」など道具・器具を使う「〜で」はdûay。乗り物などの交通手段にはdooy。",
     "full_sentence_thai": "ดิฉันเขียนจดหมายด้วยปากกา",
     "full_sentence_reading": "dichán khǐian còtmǎay dûay pàakkaa"
   },
@@ -1318,7 +1347,8 @@
     "id": "v30",
     "type": "fill_blank",
     "level": "easy",
-    "theme": "grammar-prep",
+    "pos": "grammar-prep",
+    "theme": "movement",
     "grammarId": null,
     "vocabId": null,
     "question_jp": "今夜、彼氏とコンサートに行きます。",
@@ -1354,8 +1384,8 @@
     "trapChoices": [
       "C"
     ],
-    "trapReason": "dûayは道具や器具に使う前置詞か、文末に置いて「〜も」の意味になる。人と「一緒に行く」はkàpを使う。",
-    "explanation": "「〜と一緒に」という同行はkàp + 人。dûay kanなら「一緒に（副詞的）」になるが、直接人名・代名詞が続く場合はkàp + 人が正確な形。",
+    "trapReason": "dûayは道具や器具に使う前置詞か、文末に置いて「〜も」の意味になる。人と「一緒に行く」はkàp。",
+    "explanation": "「〜と一緒に」という同行はkàp + 人。",
     "full_sentence_thai": "คืนนี้ฉันจะไปคอนเสิร์ตกับแฟน",
     "full_sentence_reading": "khʉʉnníi chǎn cà pai khɔɔnsə̂ət kàp fɛɛn"
   },
@@ -1363,7 +1393,8 @@
     "id": "v31",
     "type": "fill_blank",
     "level": "normal",
-    "theme": "grammar-time",
+    "pos": "grammar-time",
+    "theme": "time",
     "grammarId": 7,
     "vocabId": null,
     "question_jp": "今日、私は8時から仕事をします。",
@@ -1401,7 +1432,7 @@
       "D"
     ],
     "trapReason": "「8時から」は時間の起点なのでtâŋ tɛ̀ɛ。càakは場所の起点。tɔɔnは「〜の時」という時点表現で起点ではない。",
-    "explanation": "時間の「〜から」はtâŋ tɛ̀ɛ。「〜まで」のthʉ̌ŋと組み合わせてtâŋ tɛ̀ɛ … thʉ̌ŋ（〜から…まで）の形でも頻出。場所の「〜から」のcàakと混同しないこと。",
+    "explanation": "時間の「〜から」はtâŋ tɛ̀ɛ。場所の「〜から」のcàakと混同しないこと。",
     "full_sentence_thai": "วันนี้ผมทำงานตั้งแต่แปดโมง",
     "full_sentence_reading": "wanníi phǒm tham ŋaan tâŋ tɛ̀ɛ pɛ̀ɛt mooŋ"
   },
@@ -1409,7 +1440,8 @@
     "id": "v32",
     "type": "fill_blank",
     "level": "normal",
-    "theme": "grammar-time",
+    "pos": "grammar-time",
+    "theme": "time",
     "grammarId": 19,
     "vocabId": null,
     "question_jp": "今は午後4時です。",
@@ -1446,8 +1478,8 @@
       "A",
       "C"
     ],
-    "trapReason": "tii sìiは午前4時（深夜）。sìi thûmは午後10時（夜10時）。午後4時はsìi mooŋ yen（夕方4時）が正しい。",
-    "explanation": "タイ語の時刻：午前（深夜〜朝）はtii + 数、午後（13〜18時）はbàay + 数 + mooŋまたは数 + mooŋ yen、夜（19〜24時）は数 + thûm。午後4時はsìi mooŋ yen。",
+    "trapReason": "tii sìiは午前4時。sìi thûmは午後10時。午後4時はsìi mooŋ yen。",
+    "explanation": "タイ語の時刻：午後（13〜18時）はbàay + 数 + mooŋまたは数 + mooŋ yen。午後4時はsìi mooŋ yen。",
     "full_sentence_thai": "ตอนนี้เป็นสี่โมงเย็น",
     "full_sentence_reading": "tɔɔn níi pen sìi mooŋ yen"
   },
@@ -1455,7 +1487,8 @@
     "id": "v33",
     "type": "fill_blank",
     "level": "normal",
-    "theme": "grammar-time",
+    "pos": "grammar-time",
+    "theme": "time",
     "grammarId": null,
     "vocabId": null,
     "question_jp": "3週間前に髪を切りに行きました。",
@@ -1492,7 +1525,7 @@
       "B"
     ],
     "trapReason": "lɛ́ɛwは「〜した」という完了を表すが、「3週間前」という過去の起点を表すにはkɔ̀ɔnが必要。",
-    "explanation": "数 + 時間単位 + kɔ̀ɔnで「〜前」を表す。sǎam aathít kɔ̀ɔn（3週間前）・sɔ̌ɔŋ pii kɔ̀ɔn（2年前）の形で覚える。nâaは「来〜（未来）」、ìikは「あと〜（残り）」で過去には使えない。",
+    "explanation": "数 + 時間単位 + kɔ̀ɔnで「〜前」を表す。nâaは「来〜（未来）」、ìikは「あと〜（残り）」で過去には使えない。",
     "full_sentence_thai": "สามอาทิตย์ก่อนฉันไปตัดผม",
     "full_sentence_reading": "sǎam aathít kɔ̀ɔn chǎn pai tàt phǒm"
   },
@@ -1500,7 +1533,8 @@
     "id": "v34",
     "type": "fill_blank",
     "level": "normal",
-    "theme": "grammar-time",
+    "pos": "grammar-time",
+    "theme": "time",
     "grammarId": null,
     "vocabId": null,
     "question_jp": "プロジェクトが終わるまであと3ヶ月あります。",
@@ -1537,7 +1571,7 @@
       "A"
     ],
     "trapReason": "kɔ̀ɔn（〜前）は過去から現在を見る表現。「あと〜（残り）」という未来方向の残余期間にはìikを使う。",
-    "explanation": "ìik + 数 + 時間単位で「あと〜（の時間）」を表す。未来に向けた残り時間を表現するときに使う。kɔ̀ɔnは「〜前（過去起点）」なので混同しないこと。",
+    "explanation": "ìik + 数 + 時間単位で「あと〜（の時間）」を表す。kɔ̀ɔnは「〜前（過去起点）」なので混同しないこと。",
     "full_sentence_thai": "โครงการจะเสร็จอีกสามเดือน",
     "full_sentence_reading": "khrooŋkaan cà sèt ìik sǎam dʉan"
   },
@@ -1545,7 +1579,8 @@
     "id": "v35",
     "type": "fill_blank",
     "level": "easy",
-    "theme": "grammar-negative",
+    "pos": "grammar-negative",
+    "theme": "emotion",
     "grammarId": 10,
     "vocabId": null,
     "question_jp": "試験前は勉強で忙しくて、外出できません。",
@@ -1582,7 +1617,7 @@
       "A"
     ],
     "trapReason": "wâaŋ（暇・空いている）はyûŋの逆。試験前で勉強しなければならない状況は「忙しい」= yûŋ。",
-    "explanation": "yûŋは「忙しい・取り込み中」。反対語はwâaŋ（暇・空いている）。phrɔ́ tɔ̂ŋ（〜しなければならないので）という原因節が続いており、自然な状態はyûŋ。",
+    "explanation": "yûŋは「忙しい・取り込み中」。反対語はwâaŋ（暇・空いている）。",
     "full_sentence_thai": "ก่อนสอบฉันยุ่งมากเพราะต้องอ่านหนังสือ",
     "full_sentence_reading": "kɔ̀ɔn sɔ̀ɔp chǎn yûŋ mâak phrɔ́ tɔ̂ŋ àan nǎŋsʉ̌ʉ"
   },
@@ -1590,7 +1625,8 @@
     "id": "v36",
     "type": "fill_blank",
     "level": "normal",
-    "theme": "grammar-compare",
+    "pos": "grammar-compare",
+    "theme": "place",
     "grammarId": 13,
     "vocabId": null,
     "question_jp": "海は川よりも広い。",
@@ -1627,8 +1663,8 @@
       "A",
       "B"
     ],
-    "trapReason": "mâakは「とても広い」で比較にならない。thîisùtは「最も」の最上級で比較対象（川）を伴わない。「〜より」の比較にはkwàa。",
-    "explanation": "「AはBより〜」の比較はA + 形容詞 + kwàa + B。語順に注意：「海は川より広い」はthálee kwâaŋ kwàa mɛ̂ɛnám。kwàaの前に形容詞、後ろに比較対象が来る。",
+    "trapReason": "mâakは「とても広い」で比較にならない。thîisùtは最上級で比較対象を伴わない。「〜より」の比較にはkwàa。",
+    "explanation": "「AはBより〜」の比較はA + 形容詞 + kwàa + B。語順に注意：kwàaの前に形容詞、後ろに比較対象が来る。",
     "full_sentence_thai": "ทะเลกว้างกว่าแม่น้ำ",
     "full_sentence_reading": "thálee kwâaŋ kwàa mɛ̂ɛnám"
   },
@@ -1636,7 +1672,8 @@
     "id": "v37",
     "type": "fill_blank",
     "level": "normal",
-    "theme": "grammar-classifier",
+    "pos": "grammar-classifier",
+    "theme": "food",
     "grammarId": 18,
     "vocabId": null,
     "question_jp": "クイティオを2杯ください。",
@@ -1674,7 +1711,7 @@
       "D"
     ],
     "trapReason": "caanは平皿に使う類別詞。kɛ̂ɛwはグラスやコップの飲み物に使う。麺類・どんぶりにはchaanを使う。",
-    "explanation": "クイティオ（麺類）やどんぶり物を数えるときの類別詞はchaam。飲み物（ジュース・コーヒー）はkɛ̂ɛw（グラス）、皿に乗った料理はcaan（皿）と使い分ける。",
+    "explanation": "クイティオ（麺類）やどんぶり物を数えるときの類別詞はchaam。",
     "full_sentence_thai": "ขอก๋วยเตี๋ยวสองชาม",
     "full_sentence_reading": "khɔ̌ɔ kǔaytǐaw sɔ̌ɔŋ chaam"
   },
@@ -1682,7 +1719,8 @@
     "id": "v38",
     "type": "fill_blank",
     "level": "normal",
-    "theme": "grammar-classifier",
+    "pos": "grammar-classifier",
+    "theme": "place",
     "grammarId": 18,
     "vocabId": null,
     "question_jp": "部屋の中にかばんが3個あります。",
@@ -1719,8 +1757,8 @@
       "A",
       "C"
     ],
-    "trapReason": "anは小物全般に使えるが、かばんにはbaiが正しい。tuaは衣類や動物に使う。かばん・果物・容器にはbaiを使う。",
-    "explanation": "かばん（กระเป๋า）の類別詞はbai。baiはかばん・果物・容器など幅広く使う。本・ノートはlêm、衣類・動物はtua、人はkhon。",
+    "trapReason": "anは小物全般に使えるが、かばんにはbaiが正しい。tuaは衣類や動物に使う。",
+    "explanation": "かばん（กระเป๋า）の類別詞はbai。baiはかばん・果物・容器など幅広く使う。",
     "full_sentence_thai": "ในห้องมีกระเป๋าอยู่สามใบ",
     "full_sentence_reading": "nai hôŋ mii kràpǎo yùu sǎam bai"
   },
@@ -1728,7 +1766,8 @@
     "id": "v39",
     "type": "fill_blank",
     "level": "normal",
-    "theme": "grammar-condition",
+    "pos": "grammar-condition",
+    "theme": "movement",
     "grammarId": 12,
     "vocabId": null,
     "question_jp": "もし明日天気が良ければ、公園へ散歩に行きます。",
@@ -1766,7 +1805,7 @@
       "D"
     ],
     "trapReason": "tɔɔnは確定した時点、mʉ̂aは過去の時点を指す。「もし〜ならば」という仮定・条件には文頭にthâaを置く。",
-    "explanation": "thâa + 条件節 + (kɔ̂ɔ) + 帰結節で「もし〜ならば〜だ」という条件文を作る。文頭に置くのが基本。phrɔ́（〜なので）は原因を示す接続詞で仮定ではない。",
+    "explanation": "thâa + 条件節 + 帰結節で「もし〜ならば〜だ」という条件文を作る。",
     "full_sentence_thai": "ถ้าพรุ่งนี้อากาศดีฉันจะไปเดินเล่นที่สวนสาธารณะ",
     "full_sentence_reading": "thâa phrûŋníi aakàat dii chǎn cà pai dəən lên thîi sǔansǎatharáná"
   },
@@ -1774,7 +1813,8 @@
     "id": "v40",
     "type": "fill_blank",
     "level": "normal",
-    "theme": "vocab-verb",
+    "pos": "vocab-verb",
+    "theme": "place",
     "grammarId": null,
     "vocabId": null,
     "question_jp": "皆さんは駅であなたを待っています。",
@@ -1812,7 +1852,7 @@
       "C"
     ],
     "trapReason": "yuunは「立っている」でただ立っているだけ。hǎaは「探す・訪ねる」で待つとは異なる。「待つ」はrɔɔ。",
-    "explanation": "「待つ」はrɔɔ。rɔɔ + 人（〜を待つ）の語順。駅や待ち合わせ場面でよく使う動詞。kamlaŋ rɔɔで「待っているところ」という進行形になる。",
+    "explanation": "「待つ」はrɔɔ。kamlaŋ rɔɔで「待っているところ」という進行形になる。",
     "full_sentence_thai": "ทุกคนกำลังรอคุณอยู่ที่สถานีรถไฟ",
     "full_sentence_reading": "thúk khon kamlaŋ rɔɔ khun yùu thîi sàthǎanii rótfai"
   },
@@ -1820,7 +1860,8 @@
     "id": "v41",
     "type": "fill_blank",
     "level": "easy",
-    "theme": "vocab-verb",
+    "pos": "vocab-verb",
+    "theme": "movement",
     "grammarId": null,
     "vocabId": 32,
     "question_jp": "父は毎朝犬を公園へ連れて行きます。",
@@ -1857,7 +1898,7 @@
       "B"
     ],
     "trapReason": "sòŋ（送る）は荷物・人を目的地へ届ける行為。動物を一緒に連れて歩くにはphaaを使う。",
-    "explanation": "「連れて行く（人・動物と一緒に行く）」はphaa。sòŋは「送り届ける」で自分は行かないニュアンスが強い。phaa mǎa pai（犬を連れて行く）は日常の頻出フレーズ。",
+    "explanation": "「連れて行く（人・動物と一緒に行く）」はphaa。sòŋは「送り届ける」で自分は行かないニュアンスが強い。",
     "full_sentence_thai": "พ่อพาหมาไปสวนสาธารณะทุกเช้า",
     "full_sentence_reading": "phɔ̂ɔ phaa mǎa pai sǔansǎatharáná thúk cháaw"
   },
@@ -1865,7 +1906,8 @@
     "id": "v42",
     "type": "fill_blank",
     "level": "normal",
-    "theme": "vocab-verb",
+    "pos": "vocab-verb",
+    "theme": "movement",
     "grammarId": null,
     "vocabId": 34,
     "question_jp": "空港まで友達を迎えに行きます。",
@@ -1902,7 +1944,7 @@
       "A"
     ],
     "trapReason": "hǎa（探す）は対象が不明な場合に使う。空港で「迎える」という決まった行為にはráp。",
-    "explanation": "「迎える・受け取る」はráp。pai ráp + 人 + thîi + 場所で「〜に〜を迎えに行く」の定型フレーズ。sòŋ（送る）はrápの逆で「見送る・送り届ける」。",
+    "explanation": "「迎える・受け取る」はráp。pai ráp + 人 + thîi + 場所で「〜に〜を迎えに行く」の定型フレーズ。",
     "full_sentence_thai": "ฉันจะไปรับเพื่อนที่สนามบิน",
     "full_sentence_reading": "chǎn cà pai ráp phʉ̂an thîi sanǎambin"
   },
@@ -1910,7 +1952,8 @@
     "id": "v43",
     "type": "fill_blank",
     "level": "normal",
-    "theme": "vocab-verb",
+    "pos": "vocab-verb",
+    "theme": "movement",
     "grammarId": null,
     "vocabId": 59,
     "question_jp": "地下鉄に乗って会社へ行きます。",
@@ -1946,8 +1989,8 @@
     "trapChoices": [
       "B"
     ],
-    "trapReason": "khʉ̂n（乗る・上がる）は乗り込む動作そのものを指す。nâŋは「（乗り物に）乗って移動する」という継続状態に使う。",
-    "explanation": "nâŋは「座る」が基本義だが、乗り物の場合は「〜に乗って（移動する）」という意味になる。nâŋ rótfai（電車で行く）・nâŋ khree（タクシーで行く）が頻出フレーズ。",
+    "trapReason": "khʉ̂n（乗る・上がる）は乗り込む動作そのもの。nâŋは「（乗り物に）乗って移動する」という継続状態に使う。",
+    "explanation": "nâŋは「座る」が基本義だが、乗り物の場合は「〜に乗って（移動する）」という意味になる。",
     "full_sentence_thai": "ฉันนั่งรถไฟใต้ดินไปทำงาน",
     "full_sentence_reading": "chǎn nâŋ rótfai tâidin pai thamŋaan"
   },
@@ -1955,7 +1998,8 @@
     "id": "v44",
     "type": "fill_blank",
     "level": "easy",
-    "theme": "vocab-verb",
+    "pos": "vocab-verb",
+    "theme": "movement",
     "grammarId": null,
     "vocabId": 62,
     "question_jp": "バスが来るまでここで待ちましょう。",
@@ -1992,7 +2036,7 @@
       "A"
     ],
     "trapReason": "yuun（立つ）は体の姿勢を表すだけで「待つ」意味はない。「待つ」はrɔɔ。",
-    "explanation": "「待つ」はrɔɔ。rɔɔ + 人/物で「〜を待つ」になる。contkwàa（〜するまで）と組み合わせた rɔɔ contkwàa …（〜するまで待つ）も自然な表現。",
+    "explanation": "「待つ」はrɔɔ。rɔɔ + 人/物で「〜を待つ」になる。",
     "full_sentence_thai": "เราจะรอที่นี่จนกว่ารถเมล์จะมา",
     "full_sentence_reading": "raw cà rɔɔ thîinîi contkwàa rótmee cà maa"
   },
@@ -2000,7 +2044,8 @@
     "id": "v45",
     "type": "fill_blank",
     "level": "normal",
-    "theme": "grammar-time",
+    "pos": "grammar-time",
+    "theme": "time",
     "grammarId": null,
     "vocabId": null,
     "question_jp": "仕事は朝8時から夕方6時まであります。",
@@ -2037,7 +2082,7 @@
       "A"
     ],
     "trapReason": "càak（〜から）は場所の起点に使う。時間の起点「〜から」はtâŋ tɛ̀ɛ。",
-    "explanation": "時間の「〜から」はtâŋ tɛ̀ɛ、「〜まで」はthʉ̌ŋ。tâŋ tɛ̀ɛ … thʉ̌ŋ …（〜から…まで）はセットで覚える。場所の「〜から」のcàakと混同しないこと。",
+    "explanation": "時間の「〜から」はtâŋ tɛ̀ɛ、「〜まで」はthʉ̌ŋ。セットで覚える。",
     "full_sentence_thai": "งานมีตั้งแต่แปดโมงเช้าถึงหกโมงเย็น",
     "full_sentence_reading": "ŋaan mii tâŋ tɛ̀ɛ pɛ̀ɛt mooŋ cháaw thʉ̌ŋ hòk mooŋ yen"
   },
@@ -2045,7 +2090,8 @@
     "id": "v46",
     "type": "fill_blank",
     "level": "normal",
-    "theme": "grammar-time",
+    "pos": "grammar-time",
+    "theme": "time",
     "grammarId": null,
     "vocabId": 38,
     "question_jp": "子供の頃、私はよく祖父母の家へ遊びに行きました。",
@@ -2082,7 +2128,7 @@
       "A"
     ],
     "trapReason": "mʉ̂aは特定の過去の一時点を指す。「子供の頃」のような期間・段階にはtɔɔnが自然。",
-    "explanation": "tɔɔn + 時期・状態で「〜の頃・〜の時」を表す。tɔɔn dèk（子供の頃）はほぼ毎回出題される定型表現。mʉ̂aは「〜したとき（特定の過去の瞬間）」でやや限定的。",
+    "explanation": "tɔɔn + 時期・状態で「〜の頃・〜の時」を表す。tɔɔn dèk（子供の頃）はほぼ毎回出題される定型表現。",
     "full_sentence_thai": "ตอนเด็กฉันมักไปเที่ยวบ้านปู่ย่า",
     "full_sentence_reading": "tɔɔn dèk chǎn mák pai thîiaw bâan pùuyâa"
   },
@@ -2090,7 +2136,8 @@
     "id": "v47",
     "type": "fill_blank",
     "level": "normal",
-    "theme": "grammar-time",
+    "pos": "grammar-time",
+    "theme": "time",
     "grammarId": null,
     "vocabId": null,
     "question_jp": "今は午前10時です。",
@@ -2127,7 +2174,7 @@
       "D"
     ],
     "trapReason": "tii（ตี）は深夜0時〜6時の時刻表現。tii sìpは存在しない表現。午前10時はsìp mooŋ cháaw。",
-    "explanation": "タイ語の時刻：朝7〜12時はN mooŋ cháaw（N時）。午前10時はsìp mooŋ cháaw。深夜はtii N（tii nʉŋ=1時〜tii hòk=6時）、午後はbàay N mooŋ（13〜18時）、夜はN thûm（19〜24時）。",
+    "explanation": "朝7〜12時はN mooŋ cháaw（N時）。午前10時はsìp mooŋ cháaw。",
     "full_sentence_thai": "ตอนนี้เป็นสิบโมงเช้า",
     "full_sentence_reading": "tɔɔn níi pen sìp mooŋ cháaw"
   },
@@ -2135,7 +2182,8 @@
     "id": "v48",
     "type": "fill_blank",
     "level": "easy",
-    "theme": "vocab-verb",
+    "pos": "vocab-verb",
+    "theme": "time",
     "grammarId": null,
     "vocabId": 65,
     "question_jp": "今朝、あなたは何時に起きましたか？",
@@ -2172,7 +2220,7 @@
       "A"
     ],
     "trapReason": "nɔɔn（寝る）はtʉ̀ʉn（起きる）の逆。「何時に起きた」という文脈にはtʉ̀ʉnが必要。",
-    "explanation": "「起きる・目覚める」はtʉ̀ʉn。tʉ̀ʉn + kìi mooŋ（何時に起きる）は時刻を問う典型的な組み合わせ。nɔɔn（寝る）とtʉ̀ʉn（起きる）はセットで覚えておくと良い。",
+    "explanation": "「起きる・目覚める」はtʉ̀ʉn。tʉ̀ʉn + kìi mooŋ（何時に起きる）は時刻を問う典型的な組み合わせ。",
     "full_sentence_thai": "เช้านี้คุณตื่นกี่โมง",
     "full_sentence_reading": "cháaw níi khun tʉ̀ʉn kìi mooŋ"
   },
@@ -2180,7 +2228,8 @@
     "id": "v49",
     "type": "fill_blank",
     "level": "normal",
-    "theme": "vocab-verb",
+    "pos": "vocab-verb",
+    "theme": "action",
     "grammarId": null,
     "vocabId": 217,
     "question_jp": "家に帰ったら私に電話してください。",
@@ -2217,7 +2266,7 @@
       "B"
     ],
     "trapReason": "bòok（告げる）は情報を伝える動詞で電話をかける動作ではない。「電話する」はthoo。",
-    "explanation": "「電話をかける」はthoo。thoo hǎa + 人で「〜に電話する」。thoo maa（電話してくる）・thoo pai（電話していく）の方向表現も覚えておくと便利。",
+    "explanation": "「電話をかける」はthoo。thoo hǎa + 人で「〜に電話する」。",
     "full_sentence_thai": "ถ้ากลับบ้านแล้วช่วยโทรหาฉันด้วยนะ",
     "full_sentence_reading": "thâa klàp bâan lɛ́ɛw chûay thoo hǎa chǎn dûay ná"
   },
@@ -2225,7 +2274,8 @@
     "id": "v50",
     "type": "fill_blank",
     "level": "easy",
-    "theme": "vocab-verb",
+    "pos": "vocab-verb",
+    "theme": "action",
     "grammarId": null,
     "vocabId": 203,
     "question_jp": "食事の前に必ず手を洗ってください。",
@@ -2261,8 +2311,8 @@
     "trapChoices": [
       "B"
     ],
-    "trapReason": "thuu（こする）は表面をこする動作。手を「洗う」という水を使う清潔行為にはláaŋを使う。",
-    "explanation": "「洗う」はláaŋ。láaŋ mʉʉ（手を洗う）・láaŋ caan（皿を洗う）が頻出フレーズ。kɔ̀ɔn（〜の前に）と組み合わせた「食事の前に手を洗う」は衛生・習慣を表す典型表現。",
+    "trapReason": "thuu（こする）は表面をこする動作。手を「洗う」はláaŋを使う。",
+    "explanation": "「洗う」はláaŋ。láaŋ mʉʉ（手を洗う）・láaŋ caan（皿を洗う）が頻出フレーズ。",
     "full_sentence_thai": "กรุณาล้างมือก่อนกินข้าวทุกครั้ง",
     "full_sentence_reading": "karúnaa láaŋ mʉʉ kɔ̀ɔn kin khâaw thúk khráŋ"
   },
@@ -2270,7 +2320,8 @@
     "id": "v51",
     "type": "fill_blank",
     "level": "easy",
-    "theme": "grammar-prep",
+    "pos": "grammar-prep",
+    "theme": "place",
     "grammarId": 16,
     "vocabId": null,
     "question_jp": "猫はソファーの上で寝ています。",
@@ -2307,7 +2358,7 @@
       "A"
     ],
     "trapReason": "tâi（〜の下）はbonの反対。ソファーの上で寝ているという文脈にはbon（〜の上）が適切。",
-    "explanation": "位置を表す前置詞：bon（上）・tâi（下）・nai（中）・nɔ̂ɔk（外）・khâaŋ（横）・lǎŋ（後ろ）。yùu bon（〜の上にいる/ある）は場所の特定に使う基本表現。",
+    "explanation": "位置前置詞：bon（上）・tâi（下）・nai（中）・nɔ̂ɔk（外）・khâaŋ（横）・lǎŋ（後ろ）。",
     "full_sentence_thai": "แมวกำลังนอนอยู่บนโซฟา",
     "full_sentence_reading": "mɛɛw kamlaŋ nɔɔn yùu bon soofaa"
   },
@@ -2315,7 +2366,8 @@
     "id": "v52",
     "type": "fill_blank",
     "level": "normal",
-    "theme": "grammar-prep",
+    "pos": "grammar-prep",
+    "theme": "place",
     "grammarId": 16,
     "vocabId": null,
     "question_jp": "ATMはコンビニの中にあります。",
@@ -2352,7 +2404,7 @@
       "A"
     ],
     "trapReason": "nâa（〜の前）は外側の正面位置を指す。「〜の中にある」という内部存在にはnaiを使う。",
-    "explanation": "「〜の中」はnai。N + yùu + nai + 場所で「〜は…の中にある・いる」という場所存在文になる。nai hông（部屋の中）・nai bâan（家の中）など頻出の組み合わせを覚えておく。",
+    "explanation": "「〜の中」はnai。N + yùu + nai + 場所で「〜は…の中にある・いる」という場所存在文になる。",
     "full_sentence_thai": "ตู้เอทีเอ็มอยู่ในร้านสะดวกซื้อ",
     "full_sentence_reading": "tûu eethiieem yùu nai ráan sàduakcʉ́ʉ"
   },
@@ -2360,7 +2412,8 @@
     "id": "v53",
     "type": "fill_blank",
     "level": "easy",
-    "theme": "vocab-verb",
+    "pos": "vocab-verb",
+    "theme": "emotion",
     "grammarId": null,
     "vocabId": 69,
     "question_jp": "プレゼントをもらってとても嬉しかったです。",
@@ -2397,7 +2450,7 @@
       "C"
     ],
     "trapReason": "tòkcai（驚く）はサプライズへの反応だが「嬉しい」ではない。プレゼントをもらって「嬉しい」はdiicai。",
-    "explanation": "「嬉しい・喜ぶ」はdiicai。rúusʉ̀k（〜と感じる）+ 感情語で「〜を感じる」。diicai（嬉しい）・sǐacai（悲しい）・tòkcai（驚く）・sǒncai（興味がある）はcaiを含む感情語グループ。",
+    "explanation": "「嬉しい・喜ぶ」はdiicai。rúusʉ̀k + 感情語で「〜を感じる」。",
     "full_sentence_thai": "ได้รับของขวัญแล้วรู้สึกดีใจมาก",
     "full_sentence_reading": "dâi ráp khɔ̌ɔŋkhwǎn lɛ́ɛw rúusʉ̀k diicai mâak"
   },
@@ -2405,7 +2458,8 @@
     "id": "v54",
     "type": "fill_blank",
     "level": "normal",
-    "theme": "vocab-verb",
+    "pos": "vocab-verb",
+    "theme": "emotion",
     "grammarId": null,
     "vocabId": 80,
     "question_jp": "今週末、予定はありますか？暇ですか？",
@@ -2442,7 +2496,7 @@
       "A"
     ],
     "trapReason": "yûŋ（忙しい）はwâaŋ（暇）の逆。「予定があるか・暇か」を聞く質問にはwâaŋが正しい。",
-    "explanation": "wâaŋは「暇な・空いている・予定がない」。khun wâaŋ mǎi（暇ですか？）は誘いや約束の前に使う定番フレーズ。反対語のyûŋ（忙しい）とセットで覚えておくと良い。",
+    "explanation": "wâaŋは「暇な・空いている・予定がない」。khun wâaŋ mǎi（暇ですか？）は誘いや約束の前に使う定番フレーズ。",
     "full_sentence_thai": "สุดสัปดาห์นี้คุณว่างไหม",
     "full_sentence_reading": "sùtsàpdaa níi khun wâaŋ mǎi"
   },
@@ -2450,7 +2504,8 @@
     "id": "v55",
     "type": "fill_blank",
     "level": "easy",
-    "theme": "vocab-verb",
+    "pos": "vocab-verb",
+    "theme": "shopping",
     "grammarId": null,
     "vocabId": 72,
     "question_jp": "このカバンはとても値段が高いです。",
@@ -2487,7 +2542,7 @@
       "A"
     ],
     "trapReason": "thùuk（安い）はphɛɛŋ（高い）の反対。値段が「高い」はphɛɛŋ。",
-    "explanation": "「値段が高い」はphɛɛŋ。raakhaa（値段）+ phɛɛŋ（高い）で「値段が高い」を表す。反対はraakhaa thùuk（値段が安い）。tɔ̀ɔ raakhaa（値段交渉する）も関連フレーズ。",
+    "explanation": "「値段が高い」はphɛɛŋ。反対はraakhaa thùuk（値段が安い）。",
     "full_sentence_thai": "กระเป๋าใบนี้ราคาแพงมาก",
     "full_sentence_reading": "kràpǎo bai níi raakhaa phɛɛŋ mâak"
   },
@@ -2495,7 +2550,8 @@
     "id": "v56",
     "type": "fill_blank",
     "level": "normal",
-    "theme": "vocab-verb",
+    "pos": "vocab-verb",
+    "theme": "shopping",
     "grammarId": null,
     "vocabId": 60,
     "question_jp": "このTシャツを試着してもいいですか？",
@@ -2532,7 +2588,7 @@
       "A"
     ],
     "trapReason": "sài（着る）は実際に着る動作。「試しに着てみる・試着」という試験的行為にはlooŋを使う。",
-    "explanation": "「試みる・試着する」はlooŋ。looŋ sài duu（試着する）は「試しに着て見てみる」という意味のセットフレーズ。khɔ̌ɔ looŋ …（〜させてください）の形で丁寧な許可要求になる。",
+    "explanation": "「試みる・試着する」はlooŋ。looŋ sài duu（試着する）はセットフレーズ。",
     "full_sentence_thai": "ขอลองเสื้อยืดตัวนี้ดูได้ไหม",
     "full_sentence_reading": "khɔ̌ɔ looŋ sʉ̂ayʉ̂ʉt tua níi duu dâi mǎi"
   },
@@ -2540,7 +2596,8 @@
     "id": "v57",
     "type": "fill_blank",
     "level": "easy",
-    "theme": "vocab-verb",
+    "pos": "vocab-verb",
+    "theme": "food",
     "grammarId": null,
     "vocabId": 57,
     "question_jp": "彼はコーヒーにいつも砂糖を入れません。",
@@ -2577,7 +2634,7 @@
       "B"
     ],
     "trapReason": "dʉ̀ʉm（飲む）はコーヒーを飲む動作。砂糖を「入れる・加える」にはsài（入れる）を使う。",
-    "explanation": "sàiは「着る」の他に「入れる・加える」という意味もある。sài nám taan（砂糖を入れる）・mâi sài nám taan（砂糖なし）は飲食店で頻繁に使う表現。",
+    "explanation": "sàiは「着る」の他に「入れる・加える」という意味もある。sài nám taan（砂糖を入れる）は飲食店で頻繁に使う表現。",
     "full_sentence_thai": "เขาไม่ใส่น้ำตาลในกาแฟเสมอ",
     "full_sentence_reading": "khǎo mâi sài námtaan nai kaafɛɛ samə̌ə"
   },
@@ -2585,7 +2642,8 @@
     "id": "v58",
     "type": "fill_blank",
     "level": "normal",
-    "theme": "vocab-verb",
+    "pos": "vocab-verb",
+    "theme": "food",
     "grammarId": null,
     "vocabId": 166,
     "question_jp": "お腹が痛いので、薬を飲みました。",
@@ -2622,7 +2680,7 @@
       "A"
     ],
     "trapReason": "dʉ̀ʉm（飲む）は飲み物専用。薬を「飲む」はkin yaaというタイ語の慣用表現。",
-    "explanation": "薬を「飲む」はkin yaa（直訳：薬を食べる）。タイ語では薬・錠剤・カプセルを「飲む」にdʉ̀ʉmでなくkinを使う。dʉ̀ʉmは液体の飲み物限定なのでkin yaaを丸ごと覚えておく。",
+    "explanation": "薬を「飲む」はkin yaa（直訳：薬を食べる）。タイ語では薬・錠剤・カプセルを「飲む」にdʉ̀ʉmでなくkinを使う。",
     "full_sentence_thai": "ปวดท้องเลยกินยา",
     "full_sentence_reading": "pùat thɔ́ɔŋ ləəy kin yaa"
   },
@@ -2630,7 +2688,8 @@
     "id": "v59",
     "type": "fill_blank",
     "level": "normal",
-    "theme": "grammar-aux",
+    "pos": "grammar-aux",
+    "theme": "time",
     "grammarId": 6,
     "vocabId": null,
     "question_jp": "明日は朝8時までに空港に着かなければなりません。",
@@ -2667,7 +2726,7 @@
       "A"
     ],
     "trapReason": "yàak（〜したい）は願望で義務ではない。「〜しなければならない」という義務・必要にはtɔ̂ŋを使う。",
-    "explanation": "tɔ̂ŋ + Vで「〜しなければならない・〜する必要がある」。時間的な制約（kɔ̀ɔn + 時刻＝〜の前に）と組み合わせて使うことが多い。tɔ̂ŋ kaanは名詞として「必要とする」の意味になるので区別が重要。",
+    "explanation": "tɔ̂ŋ + Vで「〜しなければならない・〜する必要がある」。",
     "full_sentence_thai": "พรุ่งนี้ต้องถึงสนามบินก่อนแปดโมงเช้า",
     "full_sentence_reading": "phrûŋníi tɔ̂ŋ thʉ̌ŋ sanǎambin kɔ̀ɔn pɛ̀ɛt mooŋ cháaw"
   },
@@ -2675,7 +2734,8 @@
     "id": "v60",
     "type": "fill_blank",
     "level": "normal",
-    "theme": "grammar-prep",
+    "pos": "grammar-prep",
+    "theme": "action",
     "grammarId": null,
     "vocabId": null,
     "question_jp": "この手紙は日本語でではなく、タイ語で書かれています。",
@@ -2712,7 +2772,7 @@
       "A"
     ],
     "trapReason": "dooy（〜によって）は行為者・交通手段に使う。言語・道具・手段には dûay が正しい。",
-    "explanation": "「〜で（道具・手段）」はdûay。khǐian dûay phaasǎa thai（タイ語で書く）のように言語・筆記用具などの手段にdûayを使う。交通手段（電車・バスなど）にはdooyを使い区別する。",
+    "explanation": "「〜で（道具・手段）」はdûay。khǐian dûay phaasǎa thai（タイ語で書く）のように言語・筆記用具などの手段にdûayを使う。",
     "full_sentence_thai": "จดหมายนี้เขียนด้วยภาษาไทย ไม่ใช่ภาษาญี่ปุ่น",
     "full_sentence_reading": "còtmǎay níi khǐian dûay phaasǎa thai mâi châi phaasǎa yîipùn"
   },
@@ -2720,7 +2780,8 @@
     "id": "v61",
     "type": "fill_blank",
     "level": "easy",
-    "theme": "vocab-verb",
+    "pos": "vocab-verb",
+    "theme": "movement",
     "grammarId": null,
     "vocabId": 23,
     "question_jp": "授業が終わったら、まっすぐ家に帰ります。",
@@ -2757,7 +2818,7 @@
       "B"
     ],
     "trapReason": "maa（来る）は話し手の方向へ移動する動作。「自分の家へ帰る」はklàp bâan。",
-    "explanation": "「帰る・戻る」はklàp。klàp bâan（家に帰る）は最頻出フレーズ。pai（行く）・maa（来る）・klàp（帰る）の3方向動詞をセットで覚える。",
+    "explanation": "「帰る・戻る」はklàp。klàp bâan（家に帰る）は最頻出フレーズ。pai・maa・klàpの3方向動詞をセットで覚える。",
     "full_sentence_thai": "เลิกเรียนแล้วฉันจะกลับบ้านเลย",
     "full_sentence_reading": "lêek riian lɛ́ɛw chǎn cà klàp bâan ləəy"
   },
@@ -2765,7 +2826,8 @@
     "id": "v62",
     "type": "fill_blank",
     "level": "normal",
-    "theme": "vocab-verb",
+    "pos": "vocab-verb",
+    "theme": "movement",
     "grammarId": null,
     "vocabId": 61,
     "question_jp": "バスに乗るときは前のドアから乗ってください。",
@@ -2802,7 +2864,7 @@
       "A"
     ],
     "trapReason": "loŋ（降りる）はkhʉ̂nの逆。「乗り込む」という動作にはkhʉ̂nを使う。",
-    "explanation": "「乗り込む・乗る（動作）」はkhʉ̂n。loŋ（降りる）と対で覚える。nâŋ rótmee（バスで移動する）は乗っている状態、khʉ̂n rótmee（バスに乗り込む）は乗り込む動作と区別する。",
+    "explanation": "「乗り込む・乗る（動作）」はkhʉ̂n。loŋ（降りる）と対で覚える。",
     "full_sentence_thai": "กรุณาขึ้นรถเมล์ทางประตูหน้า",
     "full_sentence_reading": "karúnaa khʉ̂n rótmee thaaŋ prà-tuu nâa"
   },
@@ -2810,7 +2872,8 @@
     "id": "v63",
     "type": "fill_blank",
     "level": "easy",
-    "theme": "vocab-verb",
+    "pos": "vocab-verb",
+    "theme": "action",
     "grammarId": null,
     "vocabId": 55,
     "question_jp": "先生が教室に教科書を送ってくれました。",
@@ -2847,7 +2910,7 @@
       "A"
     ],
     "trapReason": "ráp（受け取る）は受信側の動作。教科書を届ける側の動作はsòŋ（送る・届ける）。",
-    "explanation": "「送る・届ける」はsòŋ。sòŋ maa hâi（〜を送ってくれる）はhâi（〜のために/〜にあげる）と組み合わせた受益表現。sòŋの反対はráp（受け取る）。",
+    "explanation": "「送る・届ける」はsòŋ。sòŋ maa hâi（〜を送ってくれる）はhâiと組み合わせた受益表現。",
     "full_sentence_thai": "อาจารย์ส่งหนังสือเรียนมาให้ที่ห้องเรียน",
     "full_sentence_reading": "aacaan sòŋ nǎŋsʉ̌ʉriian maa hâi thîi hôŋriian"
   },
@@ -2855,7 +2918,8 @@
     "id": "v64",
     "type": "fill_blank",
     "level": "normal",
-    "theme": "grammar-time",
+    "pos": "grammar-time",
+    "theme": "time",
     "grammarId": null,
     "vocabId": 47,
     "question_jp": "まだ宿題が終わっていません。",
@@ -2892,7 +2956,7 @@
       "A"
     ],
     "trapReason": "lɛ́ɛwは完了・変化を表す。「まだ〜していない」という継続する未完了状態にはyaŋが必要。",
-    "explanation": "yaŋ + mâi dâi / mâi + Vで「まだ〜していない」を表す。yaŋ mâi sèt（まだ終わっていない）・yaŋ mâi dâi kin（まだ食べていない）などが頻出。lɛ́ɛw（もう〜した）とは意味が逆。",
+    "explanation": "yaŋ + mâi dâi / mâi + Vで「まだ〜していない」を表す。lɛ́ɛw（もう〜した）とは意味が逆。",
     "full_sentence_thai": "การบ้านยังไม่เสร็จเลย",
     "full_sentence_reading": "kaanbâan yaŋ mâi sèt ləəy"
   },
@@ -2900,7 +2964,8 @@
     "id": "v65",
     "type": "fill_blank",
     "level": "normal",
-    "theme": "grammar-time",
+    "pos": "grammar-time",
+    "theme": "time",
     "grammarId": null,
     "vocabId": null,
     "question_jp": "彼女はちょうど30分前に出発しました。",
@@ -2937,7 +3002,7 @@
       "C"
     ],
     "trapReason": "thîi lɛ́ɛwは「先〜・前回の〜」という意味で時間数と直接組み合わせない。数 + 時間単位 + kɔ̀ɔnで「〜前」を表す。",
-    "explanation": "数 + 時間単位 + kɔ̀ɔnで「〜前」という過去の時点を表す。sǎamsìp naathii kɔ̀ɔn（30分前）。ìikは未来方向の残り時間に使うので過去には使えない。",
+    "explanation": "数 + 時間単位 + kɔ̀ɔnで「〜前」という過去の時点を表す。ìikは未来方向の残り時間に使うので過去には使えない。",
     "full_sentence_thai": "เธอเพิ่งออกเดินทางสามสิบนาทีก่อน",
     "full_sentence_reading": "thəə phêŋ ɔ̀ɔk dəənthaaŋ sǎamsìp naathii kɔ̀ɔn"
   },
@@ -2945,7 +3010,8 @@
     "id": "v66",
     "type": "fill_blank",
     "level": "easy",
-    "theme": "grammar-time",
+    "pos": "grammar-time",
+    "theme": "time",
     "grammarId": null,
     "vocabId": 129,
     "question_jp": "新しいスマホが届くまであと5日です。",
@@ -2982,7 +3048,7 @@
       "A"
     ],
     "trapReason": "kɔ̀ɔnは「〜前（過去の起点）」。「あと〜（未来の残り時間）」にはìikを使う。",
-    "explanation": "ìik + 数 + 時間単位で「あと〜（残り〇〇）」という未来方向の残余期間を表す。ìik hâa wan（あと5日）。過去の「〜前」はkɔ̀ɔnなので混同しないこと。",
+    "explanation": "ìik + 数 + 時間単位で「あと〜（残り〇〇）」という未来方向の残余期間を表す。",
     "full_sentence_thai": "สมาร์ทโฟนเครื่องใหม่จะมาถึงอีกห้าวัน",
     "full_sentence_reading": "samaatfoon khrʉ̂aŋ mài cà maa thʉ̌ŋ ìik hâa wan"
   },
@@ -2990,7 +3056,8 @@
     "id": "v67",
     "type": "fill_blank",
     "level": "easy",
-    "theme": "vocab-verb",
+    "pos": "vocab-verb",
+    "theme": "action",
     "grammarId": null,
     "vocabId": 54,
     "question_jp": "私は週に3回タイ語を習っています。",
@@ -3027,7 +3094,7 @@
       "A"
     ],
     "trapReason": "sɔ̌ɔn（教える）は教師側の動作。生徒が「習う・勉強する」はriian。",
-    "explanation": "「習う・勉強する」はriian。riian phaasǎa（言語を習う）は頻出フレーズ。aathít lá（週に〜）と組み合わせた頻度表現も確認しておくと良い。sɔ̌ɔn（教える）はriianの逆。",
+    "explanation": "「習う・勉強する」はriian。riian phaasǎa（言語を習う）は頻出フレーズ。sɔ̌ɔn（教える）はriianの逆。",
     "full_sentence_thai": "ฉันเรียนภาษาไทยอาทิตย์ละสามครั้ง",
     "full_sentence_reading": "chǎn riian phaasǎa thai aathít lá sǎam khráŋ"
   },
@@ -3035,7 +3102,8 @@
     "id": "v68",
     "type": "fill_blank",
     "level": "normal",
-    "theme": "vocab-verb",
+    "pos": "vocab-verb",
+    "theme": "action",
     "grammarId": null,
     "vocabId": 214,
     "question_jp": "先生は私たちにタイ語の発音を教えてくれます。",
@@ -3072,7 +3140,7 @@
       "A"
     ],
     "trapReason": "bòok（告げる）は情報を伝えるだけで、技術・知識を教える行為ではない。「教える」はsɔ̌ɔn。",
-    "explanation": "「教える」はsɔ̌ɔn。sɔ̌ɔn + 内容 + hâi + 人で「人に〜を教えてあげる」という受益構文になる。riian（習う）とsɔ̌ɔn（教える）は主語の立場が逆になるペアとして覚える。",
+    "explanation": "「教える」はsɔ̌ɔn。sɔ̌ɔn + 内容 + hâi + 人で「人に〜を教えてあげる」という受益構文になる。",
     "full_sentence_thai": "อาจารย์สอนการออกเสียงภาษาไทยให้พวกเรา",
     "full_sentence_reading": "aacaan sɔ̌ɔn kaan ɔ̀ɔk sǐaŋ phaasǎa thai hâi phûakrao"
   },
@@ -3080,7 +3148,8 @@
     "id": "v69",
     "type": "fill_blank",
     "level": "easy",
-    "theme": "vocab-verb",
+    "pos": "vocab-verb",
+    "theme": "action",
     "grammarId": null,
     "vocabId": 215,
     "question_jp": "毎晩寝る前に本を読む習慣があります。",
@@ -3117,7 +3186,7 @@
       "C"
     ],
     "trapReason": "duu（見る）はテレビや映画など視覚的なメディアに使う。「本を読む」はàan nǎŋsʉ̌ʉ。",
-    "explanation": "「読む」はàan。àan nǎŋsʉ̌ʉ（本を読む）・àan càotmǎay（手紙を読む）が頻出フレーズ。言語4技能：phûut（話す）・faŋ（聴く）・àan（読む）・khǐian（書く）をセットで覚えると効率的。",
+    "explanation": "「読む」はàan。àan nǎŋsʉ̌ʉ（本を読む）が頻出フレーズ。phûut・faŋ・àan・khǐianの言語4技能をセットで覚えると効率的。",
     "full_sentence_thai": "ฉันมีนิสัยชอบอ่านหนังสือก่อนนอนทุกคืน",
     "full_sentence_reading": "chǎn mii nísǎi chɔ̂ɔp àan nǎŋsʉ̌ʉ kɔ̀ɔn nɔɔn thúk khʉʉn"
   },
@@ -3125,7 +3194,8 @@
     "id": "v70",
     "type": "fill_blank",
     "level": "easy",
-    "theme": "grammar-prep",
+    "pos": "grammar-prep",
+    "theme": "place",
     "grammarId": 16,
     "vocabId": null,
     "question_jp": "財布はバッグの中に入っています。",
@@ -3162,7 +3232,7 @@
       "A"
     ],
     "trapReason": "bon（上）は表面の上方。バッグに「入っている」という内部存在にはnaiを使う。",
-    "explanation": "「〜の中に」はnai。yùu nai（〜の中にある・いる）は位置を表す最基本の表現。nai（中）・bon（上）・tâi（下）・nɔ̂ɔk（外）の4方向前置詞を整理して覚えておくと良い。",
+    "explanation": "「〜の中に」はnai。yùu nai（〜の中にある・いる）は位置を表す最基本の表現。",
     "full_sentence_thai": "กระเป๋าสตางค์อยู่ในกระเป๋า",
     "full_sentence_reading": "kràpǎo satàaŋ yùu nai kràpǎo"
   },
@@ -3170,7 +3240,8 @@
     "id": "v71",
     "type": "fill_blank",
     "level": "normal",
-    "theme": "grammar-prep",
+    "pos": "grammar-prep",
+    "theme": "place",
     "grammarId": 15,
     "vocabId": null,
     "question_jp": "私の会社はここから歩いて10分です。",
@@ -3207,7 +3278,7 @@
       "B"
     ],
     "trapReason": "thʉ̌ŋ（〜まで）は終点を示す。「ここから〜」という出発点を示すにはcàakを使う。",
-    "explanation": "「〜から（場所の起点）」はcàak。hàaŋ càak（〜から離れている）・yùu klai càak（〜から遠い）など距離表現と組み合わせて使う。時間の「〜から」のtâŋ tɛ̀ɛとは区別する。",
+    "explanation": "「〜から（場所の起点）」はcàak。時間の「〜から」のtâŋ tɛ̀ɛとは区別する。",
     "full_sentence_thai": "บริษัทของฉันอยู่ห่างออกไปจากที่นี่สิบนาทีเดิน",
     "full_sentence_reading": "bɔ̀rísàt khɔ̌ɔŋ chǎn yùu hàaŋ ɔ̀ɔk pai càak thîinîi sìp naathii dəən"
   },
@@ -3215,7 +3286,8 @@
     "id": "v72",
     "type": "fill_blank",
     "level": "normal",
-    "theme": "vocab-verb",
+    "pos": "vocab-verb",
+    "theme": "emotion",
     "grammarId": null,
     "vocabId": 70,
     "question_jp": "大切なものを失くして、とても悲しいです。",
@@ -3252,7 +3324,7 @@
       "B"
     ],
     "trapReason": "tòkcai（驚く）は突然の出来事への反応。大切なものを失くして「悲しい・残念」はsǐacai。",
-    "explanation": "「悲しい・残念に思う」はsǐacai。diicai（嬉しい）の反対。rúusʉ̀k sǐacai（悲しく感じる）で感情表現になる。tham hǎay（失くす・なくしてしまう）もセットで覚えておくと良い。",
+    "explanation": "「悲しい・残念に思う」はsǐacai。diicai（嬉しい）の反対。",
     "full_sentence_thai": "ทำของมีค่าหายแล้วรู้สึกเสียใจมาก",
     "full_sentence_reading": "tham khɔ̌ɔŋ miikâa hǎay lɛ́ɛw rúusʉ̀k sǐacai mâak"
   },
@@ -3260,7 +3332,8 @@
     "id": "v73",
     "type": "fill_blank",
     "level": "easy",
-    "theme": "vocab-verb",
+    "pos": "vocab-verb",
+    "theme": "emotion",
     "grammarId": null,
     "vocabId": 71,
     "question_jp": "最近、体の調子はいかがですか？",
@@ -3296,8 +3369,8 @@
     "trapChoices": [
       "C"
     ],
-    "trapReason": "nʉ̀ay（疲れた）は体調不良の状態。「元気・体調が良い」を問うにはsabaay dii（元気ですか）が定番。",
-    "explanation": "「元気な・快調な」はsabaay。sabaay dii（元気です）・mâi sabaay（具合が悪い）はあいさつ表現として必須。chûaŋ níi（最近・この頃）と組み合わせた近況確認フレーズ。",
+    "trapReason": "nʉ̀ay（疲れた）は体調不良の状態。「元気・体調が良い」を問うにはsabaay diiが定番。",
+    "explanation": "「元気な・快調な」はsabaay。sabaay dii（元気です）・mâi sabaay（具合が悪い）はあいさつ表現として必須。",
     "full_sentence_thai": "ช่วงนี้คุณสบายดีไหม",
     "full_sentence_reading": "chûaŋ níi khun sabaay dii mǎi"
   },
@@ -3305,7 +3378,8 @@
     "id": "v74",
     "type": "fill_blank",
     "level": "normal",
-    "theme": "vocab-verb",
+    "pos": "vocab-verb",
+    "theme": "action",
     "grammarId": null,
     "vocabId": 63,
     "question_jp": "来月の旅行のためにホテルを予約しました。",
@@ -3342,7 +3416,7 @@
       "D"
     ],
     "trapReason": "châw（借りる）はレンタルや賃貸に使う。ホテルの「予約をする」はcɔɔŋ。",
-    "explanation": "「予約する」はcɔɔŋ。cɔɔŋ rooŋrɛɛm（ホテルを予約する）・cɔɔŋ tǔa（チケットを予約する）・cɔɔŋ tó（テーブルを予約する）が頻出フレーズ。",
+    "explanation": "「予約する」はcɔɔŋ。cɔɔŋ rooŋrɛɛm・cɔɔŋ tǔa・cɔɔŋ tóが頻出フレーズ。",
     "full_sentence_thai": "ฉันจองโรงแรมสำหรับการเดินทางเดือนหน้าแล้ว",
     "full_sentence_reading": "chǎn cɔɔŋ rooŋrɛɛm sǎmràp kaan dəənthaaŋ dʉan nâa lɛ́ɛw"
   },
@@ -3350,7 +3424,8 @@
     "id": "v75",
     "type": "fill_blank",
     "level": "easy",
-    "theme": "vocab-verb",
+    "pos": "vocab-verb",
+    "theme": "shopping",
     "grammarId": null,
     "vocabId": 73,
     "question_jp": "チャトチャック市場は安くて品物がたくさんあります。",
@@ -3387,7 +3462,7 @@
       "A"
     ],
     "trapReason": "phɛɛŋ（高い）はthùukの反対。安くて品物が多いという肯定的な文脈にはthùukが適切。",
-    "explanation": "「値段が安い」はthùuk（または raakhaa thùuk）。thùukはもともと「正しい」という意味もある多義語。phɛɛŋ（高い）・thùuk（安い）の対を覚えておくと価格表現に役立つ。",
+    "explanation": "「値段が安い」はthùuk。phɛɛŋ（高い）・thùuk（安い）の対を覚えておくと価格表現に役立つ。",
     "full_sentence_thai": "ตลาดจตุจักรราคาถูกและมีของเยอะ",
     "full_sentence_reading": "talàat càtùcàk raakhaa thùuk lɛ́ mii khɔ̌ɔŋ yə́"
   },
@@ -3395,7 +3470,8 @@
     "id": "v76",
     "type": "fill_blank",
     "level": "easy",
-    "theme": "vocab-verb",
+    "pos": "vocab-verb",
+    "theme": "food",
     "grammarId": null,
     "vocabId": 251,
     "question_jp": "このソムタムはとても美味しいです。",
@@ -3432,7 +3508,7 @@
       "A"
     ],
     "trapReason": "phèt（辛い）はソムタムの特徴ではあるが「美味しい」ではない。「美味しい」はaròy。",
-    "explanation": "「美味しい」はaròy。aròy mâak（とても美味しい）・mâi khôy aròy（あまり美味しくない）は食事の評価に頻出。phèt（辛い）・wǎan（甘い）・prîaw（酸っぱい）・khom（苦い）などの味覚語とは別物。",
+    "explanation": "「美味しい」はaròy。phèt（辛い）・wǎan（甘い）・prîaw（酸っぱい）などの味覚語とは別物。",
     "full_sentence_thai": "ส้มตำจานนี้อร่อยมาก",
     "full_sentence_reading": "sômtam caan níi aròy mâak"
   },
@@ -3440,7 +3516,8 @@
     "id": "v77",
     "type": "fill_blank",
     "level": "normal",
-    "theme": "vocab-verb",
+    "pos": "vocab-verb",
+    "theme": "food",
     "grammarId": null,
     "vocabId": 57,
     "question_jp": "お茶とコーヒーのどちらを飲みますか？",
@@ -3476,8 +3553,8 @@
     "trapChoices": [
       "A"
     ],
-    "trapReason": "kinは食べ物・飲み物両方に使えるが、飲み物（お茶・コーヒーなど液体）にはdʉ̀ʉmがより自然。ただしkin yaa（薬を飲む）のようにkinを使う例外もある。",
-    "explanation": "飲み物を「飲む」はdʉ̀ʉm。お茶・コーヒー・水・ジュースなど液体飲料に使う。rʉ̌ʉ（または）と組み合わせた選択疑問文はどちらの飲み物が好きか問う典型パターン。",
+    "trapReason": "kinは食べ物・飲み物両方に使えるが、飲み物（お茶・コーヒーなど液体）にはdʉ̀ʉmがより自然。",
+    "explanation": "飲み物を「飲む」はdʉ̀ʉm。お茶・コーヒー・水・ジュースなど液体飲料に使う。",
     "full_sentence_thai": "คุณจะดื่มชาหรือกาแฟ",
     "full_sentence_reading": "khun cà dʉ̀ʉm chaa rʉ̌ʉ kaafɛɛ"
   },
@@ -3485,7 +3562,8 @@
     "id": "v78",
     "type": "fill_blank",
     "level": "normal",
-    "theme": "grammar-aux",
+    "pos": "grammar-aux",
+    "theme": "emotion",
     "grammarId": 3,
     "vocabId": null,
     "question_jp": "将来、タイで仕事がしたいです。",
@@ -3522,7 +3600,7 @@
       "C"
     ],
     "trapReason": "khəəy（〜したことがある）は過去の経験。「将来〜したい」という未来への願望にはyàakを使う。",
-    "explanation": "「〜したい」はyàak（cà）+ V。nai anáakòt（将来）という未来の文脈と組み合わせて使う。yàak pen（〜になりたい）と混同しないこと：職業・状態はyàak pen、行動・動作はyàakを使う。",
+    "explanation": "「〜したい」はyàak（cà）+ V。yàak pen（〜になりたい）と混同しないこと。",
     "full_sentence_thai": "ในอนาคตฉันอยากทำงานที่เมืองไทย",
     "full_sentence_reading": "nai anáakòt chǎn yàak thamŋaan thîi mʉaŋthai"
   },
@@ -3530,7 +3608,8 @@
     "id": "v79",
     "type": "fill_blank",
     "level": "normal",
-    "theme": "grammar-aux",
+    "pos": "grammar-aux",
+    "theme": "action",
     "grammarId": 4,
     "vocabId": null,
     "question_jp": "英語で話すことができますが、書くのは難しいです。",
@@ -3566,8 +3645,8 @@
     "trapChoices": [
       "A"
     ],
-    "trapReason": "pen（できる）は習得した技術に使うが、phûut + dâiで「話すことができる」というdâiの後置型が語学能力には最もよく使われる。",
-    "explanation": "phûut + phaasǎa + dâiで「〜語を話せる」。語学力の可否にはV + dâi（後置型）が自然。pen（習得技術）は「車の運転・料理」など体で覚えるスキルに多く使う。dâi mǎiで可能疑問形になる。",
+    "trapReason": "pen（できる）は習得した技術に使うが、語学能力にはV + dâi（後置型）が最もよく使われる。",
+    "explanation": "phûut + phaasǎa + dâiで「〜語を話せる」。語学力の可否にはV + dâi（後置型）が自然。",
     "full_sentence_thai": "ฉันพูดภาษาอังกฤษได้แต่เขียนยาก",
     "full_sentence_reading": "chǎn phûut phaasǎa aŋkrìt dâi tɛ̀ɛ khǐian yâak"
   },
@@ -3575,7 +3654,8 @@
     "id": "v80",
     "type": "fill_blank",
     "level": "normal",
-    "theme": "grammar-prep",
+    "pos": "grammar-prep",
+    "theme": "action",
     "grammarId": 13,
     "vocabId": null,
     "question_jp": "姉は私より3歳年上です。",
@@ -3612,7 +3692,7 @@
       "A"
     ],
     "trapReason": "thʉ̌ŋ（〜まで）は到達点を示す前置詞。差の数量を表すにはdûayを使う（〜だけ多い）。",
-    "explanation": "比較文で差の数量を表すときはdûay + 数 + 単位を末尾に添える。aayú mâak kwàa chǎn dûay sǎam pii（3歳年上）のように使う。thâo（同じくらい）は同等比較、kwàa（〜より）は差の方向を示す。",
+    "explanation": "比較文で差の数量を表すときはdûay + 数 + 単位を末尾に添える。",
     "full_sentence_thai": "พี่สาวอายุมากกว่าฉันด้วยสามปี",
     "full_sentence_reading": "phîisǎaw aayú mâak kwàa chǎn dûay sǎam pii"
   },
@@ -3620,7 +3700,8 @@
     "id": "v81",
     "type": "fill_blank",
     "level": "easy",
-    "theme": "vocab-verb",
+    "pos": "vocab-verb",
+    "theme": "action",
     "grammarId": null,
     "vocabId": 41,
     "question_jp": "彼女はスーパーで財布を探しました。",
@@ -3657,7 +3738,7 @@
       "D"
     ],
     "trapReason": "cəə（見つかる）は結果として出会う動詞。「探す」という能動的な行為はhǎa。",
-    "explanation": "「探す・〜のところへ行く」はhǎa。hǎa khɔ̌ɔŋ（物を探す）・pai hǎa（訪ねに行く）が頻出フレーズ。見つかった結果はcəə（見つかる）で表す。hǎa … mâi cəə（探したが見つからない）もよく使う。",
+    "explanation": "「探す・〜のところへ行く」はhǎa。hǎa … mâi cəə（探したが見つからない）もよく使う。",
     "full_sentence_thai": "เธอหากระเป๋าสตางค์อยู่ในซูเปอร์มาร์เก็ต",
     "full_sentence_reading": "thəə hǎa kràpǎo satàaŋ yùu nai suupəəmaakèt"
   },
@@ -3665,7 +3746,8 @@
     "id": "v82",
     "type": "fill_blank",
     "level": "normal",
-    "theme": "grammar-prep",
+    "pos": "grammar-prep",
+    "theme": "food",
     "grammarId": 14,
     "vocabId": null,
     "question_jp": "箸を使ってタイ料理を食べるのが好きです。",
@@ -3702,7 +3784,7 @@
       "A"
     ],
     "trapReason": "dooyは交通手段や行為者を示す。箸などの「道具で」はdûay。",
-    "explanation": "「道具・器具で」はdûay。kin dûay tàkìap（箸で食べる）・khǐian dûay pàakkaa（ペンで書く）のように具体的な道具が来るときはdûay。乗り物にはdooyを使い区別する。",
+    "explanation": "「道具・器具で」はdûay。kin dûay tàkìap（箸で食べる）。乗り物にはdooyを使い区別する。",
     "full_sentence_thai": "ฉันชอบกินอาหารไทยด้วยตะเกียบ",
     "full_sentence_reading": "chǎn chɔ̂ɔp kin aahǎan thai dûay tàkìap"
   },
@@ -3710,7 +3792,8 @@
     "id": "v83",
     "type": "fill_blank",
     "level": "normal",
-    "theme": "grammar-time",
+    "pos": "grammar-time",
+    "theme": "time",
     "grammarId": 7,
     "vocabId": null,
     "question_jp": "私は毎朝7時から9時まで運動します。",
@@ -3747,7 +3830,7 @@
       "D"
     ],
     "trapReason": "càakは場所の起点に使う。時刻の「〜から」はtâŋ tɛ̀ɛ。",
-    "explanation": "時間の「〜から〜まで」はtâŋ tɛ̀ɛ … thʉ̌ŋ …。tâŋ tɛ̀ɛ + 時刻 + thʉ̌ŋ + 時刻 のセット表現で覚える。場所の起点càakと混同しないこと。",
+    "explanation": "時間の「〜から〜まで」はtâŋ tɛ̀ɛ … thʉ̌ŋ …。場所の起点càakと混同しないこと。",
     "full_sentence_thai": "ฉันออกกำลังกายตั้งแต่เจ็ดโมงเช้าถึงเก้าโมงทุกวัน",
     "full_sentence_reading": "chǎn ɔ̀ɔkkamlǎŋkaay tâŋ tɛ̀ɛ cèt mooŋ cháaw thʉ̌ŋ kâaw mooŋ thúk wan"
   },
@@ -3755,7 +3838,8 @@
     "id": "v84",
     "type": "fill_blank",
     "level": "normal",
-    "theme": "grammar-aux",
+    "pos": "grammar-aux",
+    "theme": "action",
     "grammarId": 1,
     "vocabId": null,
     "question_jp": "今、お母さんは台所で料理をしているところです。",
@@ -3792,7 +3876,7 @@
       "A"
     ],
     "trapReason": "cà（〜するつもり）は未来・意志を示す。「今〜しているところ」という現在進行にはkamlaŋを使う。",
-    "explanation": "kamlaŋ + V + yùuで現在進行形「〜しているところ」を表す。tɔɔn níi（今）という現在を示す語と一緒に使われることが多い。yùuは省略可能だが文末に置くとより自然。",
+    "explanation": "kamlaŋ + V + yùuで現在進行形「〜しているところ」を表す。",
     "full_sentence_thai": "ตอนนี้แม่กำลังทำอาหารอยู่ในห้องครัว",
     "full_sentence_reading": "tɔɔn níi mɛ̂ɛ kamlaŋ tham aahǎan yùu nai hôŋkhrua"
   },
@@ -3800,7 +3884,8 @@
     "id": "v85",
     "type": "fill_blank",
     "level": "easy",
-    "theme": "grammar-prep",
+    "pos": "grammar-prep",
+    "theme": "place",
     "grammarId": 16,
     "vocabId": 144,
     "question_jp": "学校は駅の近くにあります。",
@@ -3837,7 +3922,7 @@
       "B"
     ],
     "trapReason": "miiは「所有・存在量」を表す。場所的に「どこにある」という位置存在にはyùuを使う。",
-    "explanation": "「〜にある・いる（場所）」はyùu。N + yùu + 場所が基本語順。yùu klâi kàp（〜の近くにある）は位置表現の頻出フレーズ。miiは「数・量・所有」を表すときに使う。",
+    "explanation": "「〜にある・いる（場所）」はyùu。N + yùu + 場所が基本語順。",
     "full_sentence_thai": "โรงเรียนอยู่ใกล้กับสถานีรถไฟ",
     "full_sentence_reading": "rooŋriian yùu klâi kàp sàthǎanii rótfai"
   },
@@ -3845,7 +3930,8 @@
     "id": "v86",
     "type": "fill_blank",
     "level": "normal",
-    "theme": "vocab-verb",
+    "pos": "vocab-verb",
+    "theme": "emotion",
     "grammarId": null,
     "vocabId": 51,
     "question_jp": "彼はタイの音楽にとても興味があります。",
@@ -3882,7 +3968,7 @@
       "A"
     ],
     "trapReason": "chɔ̂ɔp（好む）は好みを示すが「興味がある・関心を持つ」のニュアンスはsǒncai。",
-    "explanation": "「興味がある」はsǒncai。chɔ̂ɔpは単なる好みで、sǒncaiは知的・探究的な関心を示す。sǒncai phleeng thai（タイ音楽に興味がある）のようにsǒncai + 対象で使う。",
+    "explanation": "「興味がある」はsǒncai。chɔ̂ɔpは単なる好みで、sǒncaiは知的・探究的な関心を示す。",
     "full_sentence_thai": "เขาสนใจเพลงไทยมาก",
     "full_sentence_reading": "khǎo sǒncai phleeng thai mâak"
   },
@@ -3890,7 +3976,8 @@
     "id": "v87",
     "type": "fill_blank",
     "level": "easy",
-    "theme": "vocab-verb",
+    "pos": "vocab-verb",
+    "theme": "shopping",
     "grammarId": null,
     "vocabId": 196,
     "question_jp": "買い物のとき、いつも値段交渉をしますか？",
@@ -3927,7 +4014,7 @@
       "B"
     ],
     "trapReason": "thǎam（尋ねる）は値段を聞く行為で交渉ではない。「値段交渉する」はtɔ̀ɔ raakhaa。",
-    "explanation": "「値段交渉する」はtɔ̀ɔ raakhaa。tɔ̀ɔは「続ける・つなぐ・交渉する」という多義語。買い物文脈ではtɔ̀ɔ raakhaaがセット表現として定着している。",
+    "explanation": "「値段交渉する」はtɔ̀ɔ raakhaa。買い物文脈ではtɔ̀ɔ raakhaaがセット表現として定着している。",
     "full_sentence_thai": "ตอนซื้อของคุณต่อราคาเสมอไหม",
     "full_sentence_reading": "tɔɔn sʉ́ʉ khɔ̌ɔŋ khun tɔ̀ɔ raakhaa samə̌ə mǎi"
   },
@@ -3935,7 +4022,8 @@
     "id": "v88",
     "type": "fill_blank",
     "level": "easy",
-    "theme": "vocab-verb",
+    "pos": "vocab-verb",
+    "theme": "food",
     "grammarId": null,
     "vocabId": 252,
     "question_jp": "このカレーはとても辛いです。",
@@ -3972,7 +4060,7 @@
       "A"
     ],
     "trapReason": "aròy（美味しい）は全般的な評価。カレーが「辛い」という具体的な味の表現にはphèt。",
-    "explanation": "「辛い（スパイシー）」はphèt。Thai料理の味覚語：phèt（辛い）・wǎan（甘い）・prîaw（酸っぱい）・khom（苦い）・khem（塩辛い）を覚えておくと便利。phèt mâak（とても辛い）は日常会話の頻出表現。",
+    "explanation": "「辛い（スパイシー）」はphèt。phèt（辛い）・wǎan（甘い）・prîaw（酸っぱい）・khom（苦い）・khem（塩辛い）を覚えておくと便利。",
     "full_sentence_thai": "แกงนี้เผ็ดมาก",
     "full_sentence_reading": "kɛɛŋ níi phèt mâak"
   },
@@ -3980,7 +4068,8 @@
     "id": "v89",
     "type": "fill_blank",
     "level": "normal",
-    "theme": "grammar-aux",
+    "pos": "grammar-aux",
+    "theme": "shopping",
     "grammarId": 11,
     "vocabId": null,
     "question_jp": "この財布は私のではありません。",
@@ -4017,7 +4106,7 @@
       "C"
     ],
     "trapReason": "mâiは動詞・形容詞の否定。名詞・身分・所有物の否定にはmâi châiを使う。",
-    "explanation": "「〜ではない（名詞の否定）」はmâi châi。mâi châi khɔ̌ɔŋ chǎn（私のではない）のように所有・身分・国籍を否定するときに使う。動詞を否定するmâiとは別物。",
+    "explanation": "「〜ではない（名詞の否定）」はmâi châi。所有・身分・国籍を否定するときに使う。",
     "full_sentence_thai": "กระเป๋าสตางค์ใบนี้ไม่ใช่ของฉัน",
     "full_sentence_reading": "kràpǎo satàaŋ bai níi mâi châi khɔ̌ɔŋ chǎn"
   },
@@ -4025,7 +4114,8 @@
     "id": "v90",
     "type": "fill_blank",
     "level": "easy",
-    "theme": "vocab-verb",
+    "pos": "vocab-verb",
+    "theme": "action",
     "grammarId": null,
     "vocabId": 199,
     "question_jp": "兄は弟のペットを世話してあげています。",
@@ -4062,7 +4152,7 @@
       "A"
     ],
     "trapReason": "duu（見る）は視覚的行為。「世話をする・面倒をみる」はduu lɛɛ（2語で1つの動詞）。",
-    "explanation": "「世話をする・面倒をみる」はduu lɛɛ。duu（見る）とlɛɛ（〜も・そして）が合わさった複合動詞で、ペット・子供・病人などの世話に使う。duu lɛɛ tua eeŋ（自分の体に気をつける）も慣用表現。",
+    "explanation": "「世話をする・面倒をみる」はduu lɛɛ。ペット・子供・病人などの世話に使う。",
     "full_sentence_thai": "พี่ชายดูแลสัตว์เลี้ยงของน้องชาย",
     "full_sentence_reading": "phîichaay duu lɛɛ sàtlíaŋ khɔ̌ɔŋ nɔ́ɔŋchaay"
   },
@@ -4070,7 +4160,8 @@
     "id": "v91",
     "type": "fill_blank",
     "level": "normal",
-    "theme": "vocab-verb",
+    "pos": "vocab-verb",
+    "theme": "action",
     "grammarId": null,
     "vocabId": 218,
     "question_jp": "銀行口座にお金を預けに行きます。",
@@ -4107,7 +4198,7 @@
       "B"
     ],
     "trapReason": "thɔ̌ɔn（引き出す）はfàakの逆。お金を銀行口座に「預ける」はfàak。",
-    "explanation": "「預ける」はfàak。fàak ŋən（お金を預ける）・thɔ̌ɔn ŋən（お金を引き出す）は銀行関連の対になる動詞ペア。khâo bancii（口座に入れる）と組み合わせて使うことも多い。",
+    "explanation": "「預ける」はfàak。fàak ŋən（お金を預ける）・thɔ̌ɔn ŋən（お金を引き出す）は対になる動詞ペア。",
     "full_sentence_thai": "ไปธนาคารเพื่อฝากเงินเข้าบัญชี",
     "full_sentence_reading": "pai thanaakhaan phʉ̂a fàak ŋən khâo bancii"
   },
@@ -4115,7 +4206,8 @@
     "id": "v92",
     "type": "fill_blank",
     "level": "easy",
-    "theme": "grammar-time",
+    "pos": "grammar-time",
+    "theme": "time",
     "grammarId": null,
     "vocabId": 50,
     "question_jp": "彼女はさっき到着したばかりです。",
@@ -4151,8 +4243,8 @@
     "trapChoices": [
       "A"
     ],
-    "trapReason": "kamlaŋは現在進行形。mʉ̂akîi（さっき）という過去を示す語と、到着「したばかり」という直近完了にはphêŋが適切。",
-    "explanation": "「〜したばかり」はphêŋ。直近で完了した動作を示す。phêŋ + V + maa（〜してきたばかり）の形も頻出。mʉ̂akîi（さっき）やmʉ̂asàkkhruú（たった今）と組み合わせて使う。",
+    "trapReason": "kamlaŋは現在進行形。mʉ̂akîi（さっき）という過去を示す語と、「したばかり」という直近完了にはphêŋが適切。",
+    "explanation": "「〜したばかり」はphêŋ。直近で完了した動作を示す。mʉ̂akîi（さっき）と組み合わせて使う。",
     "full_sentence_thai": "เธอเพิ่งมาถึงเมื่อกี้",
     "full_sentence_reading": "thəə phêŋ maa thʉ̌ŋ mʉ̂akîi"
   },
@@ -4160,7 +4252,8 @@
     "id": "v93",
     "type": "fill_blank",
     "level": "normal",
-    "theme": "grammar-prep",
+    "pos": "grammar-prep",
+    "theme": "place",
     "grammarId": null,
     "vocabId": 109,
     "question_jp": "ワット・アルンはチャオプラヤー川沿いにあります。",
@@ -4197,7 +4290,7 @@
       "B"
     ],
     "trapReason": "bon（〜の上）は表面の上方を示す。川の「沿いに」という位置にはrimを使う。",
-    "explanation": "「〜の縁・〜沿い」はrim。yùu rim mɛ̂ɛnám（川沿いにある）は地理的位置を表す表現。rimは川・道路・海岸など線状のものの縁に使う。",
+    "explanation": "「〜の縁・〜沿い」はrim。rimは川・道路・海岸など線状のものの縁に使う。",
     "full_sentence_thai": "วัดอรุณอยู่ริมแม่น้ำเจ้าพระยา",
     "full_sentence_reading": "wát arun yùu rim mɛ̂ɛnám câophrá yaa"
   },
@@ -4205,7 +4298,8 @@
     "id": "v94",
     "type": "fill_blank",
     "level": "normal",
-    "theme": "grammar-aux",
+    "pos": "grammar-aux",
+    "theme": "place",
     "grammarId": 13,
     "vocabId": null,
     "question_jp": "バンコクはチェンマイより大きいです。",
@@ -4242,7 +4336,7 @@
       "C"
     ],
     "trapReason": "thîisùt（最も〜）は最上級で比較対象を後に続けない。「〜より」という比較にはkwàaを使う。",
-    "explanation": "「AはBより〜だ」はA + 形容詞 + kwàa + B。語順に注意：日本語と逆でkwàaの前に形容詞が来る。thîisùt（最上級）はkwàa（比較）とは別用法。",
+    "explanation": "「AはBより〜だ」はA + 形容詞 + kwàa + B。thîisùt（最上級）はkwàa（比較）とは別用法。",
     "full_sentence_thai": "กรุงเทพใหญ่กว่าเชียงใหม่",
     "full_sentence_reading": "kruŋthêep yài kwàa chiiaŋmài"
   },
@@ -4250,7 +4344,8 @@
     "id": "v95",
     "type": "fill_blank",
     "level": "easy",
-    "theme": "vocab-verb",
+    "pos": "vocab-verb",
+    "theme": "action",
     "grammarId": null,
     "vocabId": 200,
     "question_jp": "健康のために規則正しい生活をしましょう。",
@@ -4287,7 +4382,7 @@
       "B"
     ],
     "trapReason": "duu lɛɛ（世話する）は対象の面倒をみる行為。健康を「維持する・守る」はráksǎa。",
-    "explanation": "「維持する・守る」はráksǎa。ráksǎa sùkkaphâap（健康を維持する）・ráksǎa khwaam phlɔ̀ɔtphai（安全を守る）が頻出表現。duu lɛɛ tua eeŋ（自分の体の世話をする）はduu lɛɛを使う点で区別。",
+    "explanation": "「維持する・守る」はráksǎa。ráksǎa sùkkaphâap（健康を維持する）が頻出表現。",
     "full_sentence_thai": "เพื่อสุขภาพที่ดีควรรักษาสุขภาพให้ดี",
     "full_sentence_reading": "phʉ̂a sùkkaphâap thîi dii khuan ráksǎa sùkkaphâap hâi dii"
   },
@@ -4295,7 +4390,8 @@
     "id": "v96",
     "type": "fill_blank",
     "level": "normal",
-    "theme": "vocab-verb",
+    "pos": "vocab-verb",
+    "theme": "action",
     "grammarId": null,
     "vocabId": 198,
     "question_jp": "彼は友達の名前を全員覚えています。",
@@ -4332,7 +4428,7 @@
       "A"
     ],
     "trapReason": "lʉʉm（忘れる）はrúucàkの逆。名前を「覚えている・知っている」状態はrúucàk。",
-    "explanation": "「知っている・知り合いである」はrúucàk。rúucàk + 人/名前で「〜を知っている」。lʉʉm（忘れる）とはペアで覚える。cam dâi（記憶できている）も「覚えている」の意味だが、rúucàkは「知識として知っている」ニュアンス。",
+    "explanation": "「知っている・知り合いである」はrúucàk。lʉʉm（忘れる）とはペアで覚える。",
     "full_sentence_thai": "เขารู้จักชื่อของเพื่อนทุกคน",
     "full_sentence_reading": "khǎo rúucàk chʉ̂ʉ khɔ̌ɔŋ phʉ̂an thúk khon"
   },
@@ -4340,7 +4436,8 @@
     "id": "v97",
     "type": "fill_blank",
     "level": "normal",
-    "theme": "vocab-verb",
+    "pos": "vocab-verb",
+    "theme": "action",
     "grammarId": null,
     "vocabId": 35,
     "question_jp": "この辞書を図書館に2冊返しました。",
@@ -4377,7 +4474,7 @@
       "B"
     ],
     "trapReason": "bai（個）はかばん・果物・容器に使う。本・辞書・ノートを数える類別詞はlêm。",
-    "explanation": "本・辞書・ノートの類別詞はlêm（冊）。sɔ̌ɔŋ lêm（2冊）のように使う。bai（個）はかばん・果物、tua（着/匹）は衣類・動物、khon（人）は人数に使い分ける。",
+    "explanation": "本・辞書・ノートの類別詞はlêm（冊）。bai（個）はかばん・果物、tua（着/匹）は衣類・動物、khon（人）は人数に使い分ける。",
     "full_sentence_thai": "คืนพจนานุกรมสองเล่มให้ห้องสมุด",
     "full_sentence_reading": "khuun phótcanaanúkrom sɔ̌ɔŋ lêm hâi hôŋsamùt"
   },
@@ -4385,7 +4482,8 @@
     "id": "v98",
     "type": "fill_blank",
     "level": "normal",
-    "theme": "vocab-verb",
+    "pos": "vocab-verb",
+    "theme": "action",
     "grammarId": null,
     "vocabId": 197,
     "question_jp": "この言葉はタイ語でどういう意味ですか？",
@@ -4422,7 +4520,7 @@
       "C"
     ],
     "trapReason": "rîak（〜と呼ぶ）は名称・呼称に使う。「〜という意味を持つ・訳す」はplɛɛ。",
-    "explanation": "「〜という意味がある・訳す」はplɛɛ。kham níi plɛɛ wâa …（この言葉は〜という意味だ）は語彙の意味を問う頻出フレーズ。plɛɛ phaasǎa（言語を訳す）も関連表現。",
+    "explanation": "「〜という意味がある・訳す」はplɛɛ。kham níi plɛɛ wâa …（この言葉は〜という意味だ）は語彙の意味を問う頻出フレーズ。",
     "full_sentence_thai": "คำนี้แปลว่าอะไรเป็นภาษาไทย",
     "full_sentence_reading": "kham níi plɛɛ wâa arai pen phaasǎa thai"
   },
@@ -4430,7 +4528,8 @@
     "id": "v99",
     "type": "fill_blank",
     "level": "normal",
-    "theme": "grammar-aux",
+    "pos": "grammar-aux",
+    "theme": "action",
     "grammarId": 5,
     "vocabId": null,
     "question_jp": "私は富士山に登ったことがありません。",
@@ -4466,8 +4565,8 @@
     "trapChoices": [
       "B"
     ],
-    "trapReason": "mâi dâi（〜できない・していない）は能力や過去の未実行の否定。経験の否定「〜したことがない」はmâi khəəy。",
-    "explanation": "「〜したことがない」はmâi khəəy + V。khəəy（経験あり）の否定形。rú yaŋ（〜しましたか）と組み合わせて経験確認の疑問文mâi khəəy … rú yaŋ（〜したことあるか）も使える。",
+    "trapReason": "mâi dâiは能力や過去の未実行の否定。経験の否定「〜したことがない」はmâi khəəy。",
+    "explanation": "「〜したことがない」はmâi khəəy + V。khəəy（経験あり）の否定形。",
     "full_sentence_thai": "ฉันไม่เคยขึ้นภูเขาฟูจิ",
     "full_sentence_reading": "chǎn mâi khəəy khʉ̂n phuukhǎo fuuci"
   },
@@ -4475,7 +4574,8 @@
     "id": "v100",
     "type": "fill_blank",
     "level": "normal",
-    "theme": "grammar-condition",
+    "pos": "grammar-condition",
+    "theme": "action",
     "grammarId": 12,
     "vocabId": null,
     "question_jp": "もしお金があれば、新しいパソコンを買いたいです。",
@@ -4512,7 +4612,7 @@
       "C"
     ],
     "trapReason": "mʉ̂aは特定の過去時点を指す。「もし〜ならば」という仮定・条件を表すには文頭にthâaを置く。",
-    "explanation": "「もし〜ならば」の仮定・条件はthâa + 条件節。文頭に置くのが基本。phrɔ́wâa（〜なので）は確定した原因、tɔɔn（〜の時）は確定した時点を示すので仮定には使えない。",
+    "explanation": "「もし〜ならば」の仮定・条件はthâa + 条件節。文頭に置くのが基本。",
     "full_sentence_thai": "ถ้ามีเงินฉันอยากซื้อคอมพิวเตอร์เครื่องใหม่",
     "full_sentence_reading": "thâa mii ŋən chǎn yàak sʉ́ʉ khɔɔmphîwthəə khrʉ̂aŋ mài"
   }

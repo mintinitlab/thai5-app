@@ -50,6 +50,9 @@ let VOCAB_DATA   = [];
 let QUIZ_DATA    = [];
 let GRAMMAR_DATA = [];
 
+/* ---------- クイズフィルタ ---------- */
+let filteredQuizData = [];
+
 /* ---------- フラッシュカード状態 ---------- */
 let FC_STATE  = {};
 let fc_active = [];
@@ -648,7 +651,7 @@ let correctCount  = 0;
 let answeredCount = 0;
 
 function renderQuiz() {
-  const q = QUIZ_DATA[quizIndex];
+  const q = filteredQuizData[quizIndex];
   if (!q) return;
 
   const jpEl  = $('#quiz-question-jp');      if (jpEl)  jpEl.textContent  = q.question_jp      ?? '';
@@ -672,13 +675,13 @@ function renderQuiz() {
   quizAnswered = false;
 
   const cur = $('#quiz-current'); if (cur) cur.textContent = quizIndex + 1;
-  const tot = $('#quiz-total');   if (tot) tot.textContent = QUIZ_DATA.length;
+  const tot = $('#quiz-total');   if (tot) tot.textContent = filteredQuizData.length;
 }
 
 function judgeAnswer(id) {
   if (quizAnswered) return;
   quizAnswered = true;
-  const q  = QUIZ_DATA[quizIndex];
+  const q  = filteredQuizData[quizIndex];
   const ok = id === q.answer;
   answeredCount++; if (ok) correctCount++;
 
@@ -712,7 +715,7 @@ function judgeAnswer(id) {
 }
 
 function goNextQuiz() {
-  if (quizIndex >= QUIZ_DATA.length - 1) { showQuizResult(); return; }
+  if (quizIndex >= filteredQuizData.length - 1) { showQuizResult(); return; }
   quizIndex++;
   renderQuiz();
 }
@@ -738,9 +741,24 @@ function restartQuiz() {
 
 function initQuiz() {
   if (!$('#quiz-next-btn')) return;
-  $$('.choice-btn').forEach((btn) => btn.addEventListener('click', () => judgeAnswer(btn.dataset.choiceId)));
+
+  $$('.choice-btn').forEach((btn) =>
+    btn.addEventListener('click', () =>
+      judgeAnswer(btn.dataset.choiceId)
+    )
+  );
+
   $('#quiz-next-btn')?.addEventListener('click', goNextQuiz);
   $('#quiz-retry-btn')?.addEventListener('click', restartQuiz);
+
+  // ▼追加
+  $('#quiz-filter-theme')?.addEventListener(
+    'change',
+    applyQuizCategoryFilter
+  );
+
+  filteredQuizData = [...QUIZ_DATA];
+
   renderQuiz();
 }
 
@@ -802,6 +820,9 @@ async function loadDataAndInit() {
 
     VOCAB_DATA = await vRes.json();
     QUIZ_DATA  = await qRes.json();
+
+    filteredQuizData = [...QUIZ_DATA];
+    
     FC_STATE   = loadState();
 
     initFlashcard();
@@ -813,6 +834,60 @@ async function loadDataAndInit() {
     console.error(err);
     alert('データ読み込みに失敗しました。ページを再読み込みしてください。');
   }
+}
+
+/* ============================================================
+   クイズカテゴリフィルタ
+   ============================================================ */
+
+function filterQuizData(category) {
+  if (category === 'all') return QUIZ_DATA;
+
+  return QUIZ_DATA.filter(
+    q => (q.theme ?? q.category ?? '') === category
+  );
+}
+
+function applyQuizCategoryFilter() {
+  const sel = $('#quiz-filter-theme');
+  const category = sel ? sel.value : 'all';
+
+  filteredQuizData = filterQuizData(category);
+
+  quizIndex = 0;
+  correctCount = 0;
+  answeredCount = 0;
+  quizAnswered = false;
+
+  const resultEl = $('#quiz-result');
+  const cardEl = $('#quiz-card');
+
+  if (resultEl) resultEl.hidden = true;
+  if (cardEl) cardEl.hidden = false;
+
+  if (filteredQuizData.length === 0) {
+    const jp = $('#quiz-question-jp');
+    const th = $('#quiz-question-thai');
+    const rd = $('#quiz-question-reading');
+
+    if (jp) jp.textContent = '該当する問題がありません';
+    if (th) th.textContent = '';
+    if (rd) rd.textContent = '';
+
+    const cur = $('#quiz-current');
+    const tot = $('#quiz-total');
+
+    if (cur) cur.textContent = '0';
+    if (tot) tot.textContent = '0';
+
+    $$('.choice-btn').forEach(btn => {
+      btn.disabled = true;
+    });
+
+    return;
+  }
+
+  renderQuiz();
 }
 
 document.addEventListener('DOMContentLoaded', () => {
