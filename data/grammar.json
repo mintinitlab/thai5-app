@@ -20,9 +20,9 @@
     "category": "aux",
     "importance": 3,
     "frequency": 10,
-    "example_thai": "พรุ่งนี้คุณจะไปออกกำลังกายไหม",
-    "example_reading": "phrûŋníi khun cà pai ɔ̀ɔkkamlǎŋkaay rʉ́plàaw",
-    "example_jp": "明日、あなたは運動に行くつもりですか？",
+    "example_thai": "วันหน้าเขาจะเดินทางไปต่างประเทศ",
+    "example_reading": "wan nâa khǎo cà dəənthaaŋ pai tàaŋpràthêet",
+    "example_jp": "来週、彼は海外へ出発するつもりです",
     "warn": "cà は動詞の直前に置く。文頭には置けない。yàak cà（〜しようと思っている）との違いに注意"
   },
   {
@@ -85,9 +85,9 @@
     "category": "time",
     "importance": 3,
     "frequency": 9,
-    "example_thai": "แม่ไม่ชอบกินอาหารเผ็ด",
-    "example_reading": "mɛ̂ɛ mâi chɔ̂ɔp kin aahǎan phèt",
-    "example_jp": "母は辛い料理が好きではありません",
+    "example_thai": "ร้านอาหารนั้นเปิดตั้งแต่เช้าถึงค่ำ",
+    "example_reading": "ráan aahǎan nán pèet tâŋ tɛ̀ɛ cháaw thʉ̌ŋ khâm",
+    "example_jp": "あのレストランは朝から夜まで営業しています",
     "warn": "時間の「から」はtâŋ tɛ̀ɛ、場所の「から」はcàakと使い分ける。同じ日本語「から」でも文脈で使い分けが必須"
   },
   {
@@ -98,9 +98,9 @@
     "category": "aux",
     "importance": 3,
     "frequency": 9,
-    "example_thai": "อาจารย์สอนภาษาจีนให้ผม",
-    "example_reading": "aacaan sɔ̌ɔn phaasǎa ciin hâi phǒm",
-    "example_jp": "先生は私に中国語を教えてくれます",
+    "example_thai": "พี่สาวซื้อของขวัญให้น้องชาย",
+    "example_reading": "phîisǎaw sʉ́ʉ khɔ̌ɔŋkhwǎn hâi nɔ́ɔŋchaay",
+    "example_jp": "姉は弟にプレゼントを買ってあげました",
     "warn": "hâiは文末に来ることも多く、dûayとの混同に注意。chûay … hâiで「〜してください」の丁寧な依頼になる"
   },
   {
@@ -124,9 +124,9 @@
     "category": "negative",
     "importance": 3,
     "frequency": 9,
-    "example_thai": "ตั้งแต่เมื่อวานยังไม่ได้พักเลย",
-    "example_reading": "tâŋtɛ̀ɛ mʉ̂awaan yaŋ mâi dâi phák ləəy",
-    "example_jp": "昨日からまだまったく休んでいない",
+    "example_thai": "เขาป่วยจึงไม่ได้ไปทำงานเลย",
+    "example_reading": "khǎo pùay cʉŋ mâi dâi pai thamŋaan ləəy",
+    "example_jp": "彼は病気で仕事に行けませんでした",
     "warn": "mâi dâiは過去の未実行または能力否定。文末のV + mâi dâi（後置否定）とは語順が異なる別パターン"
   },
   {
@@ -137,9 +137,9 @@
     "category": "negative",
     "importance": 3,
     "frequency": 5,
-    "example_thai": "แก้วใบนี้ไม่ใช่ของดิฉัน",
-    "example_reading": "kɛ̂ɛw bai níi mâi châi khɔ̌ɔŋ dichán",
-    "example_jp": "このグラスは私のグラスではありません",
+    "example_thai": "กระเป๋าใบนั้นไม่ใช่ของผม",
+    "example_reading": "kràpǎo bai nán mâi châi khɔ̌ɔŋ phǒm",
+    "example_jp": "あのかばんは私のではありません",
     "warn": "身分・国籍・所有物など名詞カテゴリを否定するときはmâi châi。動詞のpenの否定にもmâi châiを使う場面があり、mâi penと混同しやすい"
   },
   {
@@ -150,9 +150,9 @@
     "category": "phrase",
     "importance": 3,
     "frequency": 8,
-    "example_thai": "ถ้ามีเวลาดิฉันจะไปหาคุณ",
-    "example_reading": "thâa mii weelaa dichán cà pai hǎa khun",
-    "example_jp": "もし時間があれば、あなたのところへ行くつもりです",
+    "example_thai": "ถ้าฝนไม่ตกเราจะไปปิกนิกที่สวนสาธารณะ",
+    "example_reading": "thâa fǒn mâi tòk raw cà pai píknîk thîi sǔansǎatharáná",
+    "example_jp": "雨が降らなければ公園にピクニックに行きます",
     "warn": "thâaは文頭に置く。帰結節にkɔ̂ɔを入れることもあるが省略可能。tɔɔn（〜の時）との混同に注意"
   },
   {
@@ -176,9 +176,9 @@
     "category": "prep",
     "importance": 3,
     "frequency": 8,
-    "example_thai": "ดิฉันกลับบ้านโดยรถยนต์เป็นประจำ",
-    "example_reading": "dichán klàp bâan dooy rótyon pen pràcam",
-    "example_jp": "私はいつも車で家に帰ります",
+    "example_thai": "เขานั่งรถไฟฟ้าไปทำงานทุกวัน",
+    "example_reading": "khǎo nâŋ rótfaifáa pai thamŋaan thúk wan",
+    "example_jp": "彼は毎日電車で仕事に行きます",
     "warn": "乗り物・交通手段にはdooy、道具・器具にはdûayを使う。この使い分けが最多ミス。「車で」はdooy rótyon、「ペンで」はdûay pàakkaa"
   },
   {
@@ -189,9 +189,9 @@
     "category": "prep",
     "importance": 3,
     "frequency": 13,
-    "example_thai": "บ้านของผมอยู่ไม่ไกลจากที่นี่",
-    "example_reading": "bâan khɔ̌ɔŋ phǒm yùu mâi klai càak thîinîi",
-    "example_jp": "私の家はここから遠くない",
+    "example_thai": "สถานีรถไฟอยู่ห่างจากบ้านมาก",
+    "example_reading": "sàthǎanii rótfai yùu hàaŋ càak bâan mâak",
+    "example_jp": "電車の駅は家からとても離れています",
     "warn": "時間の「から」はtâŋ tɛ̀ɛを使い、càakは使えない。maa càak（〜から来た）は定型フレーズとして頻出"
   },
   {
@@ -228,9 +228,9 @@
     "category": "quantity",
     "importance": 2,
     "frequency": 6,
-    "example_thai": "เขาถือหนังสือห้าเล่ม",
-    "example_reading": "khǎw thʉ̌ʉ nǎŋsʉ̌ʉ hâa lêm",
-    "example_jp": "彼は手に本を5冊持っています",
+    "example_thai": "เธอซื้อพจนานุกรมสองเล่มที่ร้านหนังสือ",
+    "example_reading": "thəə sʉ́ʉ phótcanaanúkrom sɔ̌ɔŋ lêm thîi ráan nǎŋsʉ̌ʉ",
+    "example_jp": "彼女は本屋で辞書を2冊買いました",
     "warn": "lêm（本・ノートの冊）、tua（衣類・動物）、bai（カバン・果物・容器）、khon（人）、chaam（麺類・丼）の対象を丸暗記する。baiの対象が広く混乱しやすい"
   },
   {
@@ -241,9 +241,9 @@
     "category": "time",
     "importance": 2,
     "frequency": 6,
-    "example_thai": "ตอนเด็กดิฉันอยากเป็นพยาบาล",
-    "example_reading": "tɔɔn dèk dichán yàak pen phayaabaan",
-    "example_jp": "子供の頃、私は看護師になりたかった",
+    "example_thai": "ตอนเด็กเขาชอบวิ่งเล่นในสวนสาธารณะ",
+    "example_reading": "tɔɔn dèk khǎo chɔ̂ɔp wîŋ lên nai sǔansǎatharáná",
+    "example_jp": "子供の頃、彼は公園で走り回るのが好きでした",
     "warn": "tɔɔn dèk（子供の頃）はほぼ毎回出題される定型表現。chûaŋ（〜の期間）やweelaa（〜の時間）との使い分けも問われる"
   },
   {
@@ -319,9 +319,9 @@
     "category": "question",
     "importance": 3,
     "frequency": 5,
-    "example_thai": "เมื่อวานนี้คุณกลับบ้านกี่โมง",
-    "example_reading": "mʉ̂awaan níi khun klàp bâan kìi mooŋ",
-    "example_jp": "昨日あなたは何時に家に帰りましたか？",
+    "example_thai": "เช้านี้คุณตื่นนอนกี่โมง",
+    "example_reading": "cháaw níi khun tʉ̀ʉn nɔɔn kìi mooŋ",
+    "example_jp": "今朝あなたは何時に起きましたか？",
     "warn": "kìi mooŋ（何時）とkìi chûamooŋ（何時間）を混同しやすい。時刻はmooŋ、時間の長さはchûamooŋ"
   },
   {
@@ -332,9 +332,9 @@
     "category": "question",
     "importance": 3,
     "frequency": 5,
-    "example_thai": "ค่าห้องเดือนละเท่าไหร่",
-    "example_reading": "khâa hôŋ dʉan lá thâurài",
-    "example_jp": "家賃はひと月いくらですか？",
+    "example_thai": "ตั๋วรถไฟไปเชียงใหม่ราคาเท่าไหร่",
+    "example_reading": "tǔa rótfai pai chiiaŋmài raakhaa thâurài",
+    "example_jp": "チェンマイ行きの電車の切符はいくらですか？",
     "warn": "lá（〜につき）と組み合わせてdʉan lá thâurài（ひと月いくら）の形が頻出"
   },
   {
@@ -345,9 +345,9 @@
     "category": "question",
     "importance": 2,
     "frequency": 3,
-    "example_thai": "คุณเคยนั่งรถเมล์หรือยัง",
-    "example_reading": "khun khəəy nâŋ rótmee rú yaŋ",
-    "example_jp": "あなたはバスに乗ったことがありますか？",
+    "example_thai": "คุณเคยไปเที่ยวภูเก็ตหรือยัง",
+    "example_reading": "khun khəəy pai thîiaw phuukèt rú yaŋ",
+    "example_jp": "あなたはプーケットに行ったことがありますか？",
     "warn": "rú yaŋは経験・完了を確認する疑問。答えは khəəy lɛ́ɛw（したことある）またはyaŋ mâi dâi（まだない）"
   },
   {
@@ -358,9 +358,9 @@
     "category": "question",
     "importance": 2,
     "frequency": 3,
-    "example_thai": "นั่นคือจักรยานใช่ไหมครับ",
-    "example_reading": "nân khʉʉ càkràyaan châi mǎi khráp",
-    "example_jp": "あれは自転車ですよね？",
+    "example_thai": "นั่นคือรถไฟใต้ดินใช่ไหมครับ",
+    "example_reading": "nân khʉʉ rótfai tâidin châi mǎi khráp",
+    "example_jp": "あれは地下鉄ですよね？",
     "warn": "châi mǎiは確認・同意を求める付加疑問。答えはchâi（そうです）またはmâi châi（違います）"
   },
   {
@@ -384,9 +384,9 @@
     "category": "negative",
     "importance": 3,
     "frequency": 5,
-    "example_thai": "เขาไม่ใช่คนญี่ปุ่น",
-    "example_reading": "khǎo mâi châi khon yîipùn",
-    "example_jp": "彼は日本人ではありません",
+    "example_thai": "เขาไม่ใช่นักเรียนของโรงเรียนนี้",
+    "example_reading": "khǎo mâi châi nákrian khɔ̌ɔŋ rooŋriian níi",
+    "example_jp": "彼はこの学校の生徒ではありません",
     "warn": "名詞・国籍・身分の否定にはmâi châi。動詞penの否定にmâi penは使わずmâi châiが正しい場合が多い"
   },
   {
@@ -397,9 +397,9 @@
     "category": "negative",
     "importance": 3,
     "frequency": 4,
-    "example_thai": "ดิฉันไม่เคยไปเที่ยวต่างประเทศ",
-    "example_reading": "dichán mâi khəəy pai thîiaw tàaŋpràthêet",
-    "example_jp": "私は外国に旅行したことがありません",
+    "example_thai": "เขาไม่เคยกินส้มตำเลย",
+    "example_reading": "khǎo mâi khəəy kin sômtam ləəy",
+    "example_jp": "彼はソムタムを食べたことがありません",
     "warn": "khəəy（経験あり）の否定形がmâi khəəy。過去の「していない」はmâi dâiと区別する"
   },
   {
@@ -410,9 +410,9 @@
     "category": "negative",
     "importance": 2,
     "frequency": 4,
-    "example_thai": "วันนี้อากาศดีไม่ค่อยร้อน",
-    "example_reading": "wanníi aakàat dii mâi khôy rɔ́ɔn",
-    "example_jp": "今日は天気が良く、あまり暑くない",
+    "example_thai": "อาหารร้านนี้ไม่ค่อยเผ็ด",
+    "example_reading": "aahǎan ráan níi mâi khôy phèt",
+    "example_jp": "このお店の料理はあまり辛くありません",
     "warn": "mâi khôyは程度が弱い否定。完全否定のmâiより柔らかい表現で、形容詞の前に置く"
   },
   {
@@ -423,9 +423,9 @@
     "category": "negative",
     "importance": 3,
     "frequency": 5,
-    "example_thai": "ผมไปญี่ปุ่นไม่ได้",
-    "example_reading": "phǒm pai yîipùn mâi dâi",
-    "example_jp": "私は日本に行くことができません",
+    "example_thai": "วันนี้ฉันเหนื่อยมากออกไปไม่ได้",
+    "example_reading": "wanníi chǎn nʉ̀ay mâak ɔ̀ɔk pai mâi dâi",
+    "example_jp": "今日はとても疲れていて出かけられません",
     "warn": "前置型mâi dâi + V（〜しなかった）と語順が逆。後置V + mâi dâiは能力・状況的不可能を表す"
   },
   {
@@ -436,9 +436,9 @@
     "category": "compare",
     "importance": 3,
     "frequency": 5,
-    "example_thai": "ทะเลกว้างกว่าแม่น้ำ",
-    "example_reading": "thálee kwâaŋ kwàa mɛ̂ɛnám",
-    "example_jp": "海は川よりも広い",
+    "example_thai": "ภูเขาสูงกว่าอาคารในเมือง",
+    "example_reading": "phuukhǎo sǔuŋ kwàa aakhaan nai mʉaŋ",
+    "example_jp": "山は街のビルより高いです",
     "warn": "語順が日本語と逆。「AはBより〜」→「A + 形容詞 + kwàa + B」の順。kwàaの前後を入れ替えるミスが最多"
   },
   {
@@ -449,9 +449,9 @@
     "category": "compare",
     "importance": 2,
     "frequency": 3,
-    "example_thai": "วันนี้เป็นวันหยุดอยู่บ้านดีกว่า",
-    "example_reading": "wanníi pen wan yùt yùu bâan dii kwàa",
-    "example_jp": "今日は休日なので家にいた方がよい",
+    "example_thai": "อากาศเย็นใส่เสื้อกันหนาวดีกว่า",
+    "example_reading": "aakàat yen sài sʉ̂a kan nǎaw dii kwàa",
+    "example_jp": "寒いので上着を着た方がよいですよ",
     "warn": "dii kwàaは提案・勧め。文末または動詞の後に置く。比較対象がない場合でも使える"
   },
   {
@@ -475,9 +475,9 @@
     "category": "compare",
     "importance": 2,
     "frequency": 2,
-    "example_thai": "เขาหน้าตาเหมือนกับดารา",
-    "example_reading": "khǎo nâataa mʉ̌an kàp daaraa",
-    "example_jp": "彼は顔立ちが俳優のようです",
+    "example_thai": "น้องสาวผมหน้าตาเหมือนกับนักร้องคนนั้น",
+    "example_reading": "nɔ́ɔŋsǎaw phǒm nâataa mʉ̌an kàp nákrɔ́ɔŋ khon nán",
+    "example_jp": "私の妹はあの歌手に顔が似ています",
     "warn": "mʉ̌an kàpは類似・比喩に使う。penとの違いに注意：penは「本当に〜である」、mʉ̌anは「〜のようだ（外見や特徴が似ている）」"
   },
   {
@@ -488,9 +488,9 @@
     "category": "prep",
     "importance": 3,
     "frequency": 5,
-    "example_thai": "อพาร์ตเมนต์ของเธออยู่ใกล้กับห้างสรรพสินค้า",
-    "example_reading": "aphâatmen khɔ̌ɔŋ thəə yùu klâi kàp hâaŋ",
-    "example_jp": "彼女のアパートはデパートの近くにあります",
+    "example_thai": "โรงแรมของเราอยู่ใกล้กับสวนสาธารณะ",
+    "example_reading": "rooŋrɛɛm khɔ̌ɔŋ rao yùu klâi kàp sǔansǎatharáná",
+    "example_jp": "私たちのホテルは公園の近くにあります",
     "warn": "klâi kàp（近くに）とklai càak（〜から遠い）を混同しやすい。近い・遠いの後ろに来る前置詞が異なる"
   },
   {
@@ -501,9 +501,9 @@
     "category": "prep",
     "importance": 2,
     "frequency": 3,
-    "example_thai": "โรงเรียนของผมอยู่ข้างๆ ห้าง",
-    "example_reading": "rooŋriian khɔ̌ɔŋ phǒm yùu khâaŋkhâaŋ hâaŋ",
-    "example_jp": "私の学校はデパートの隣にあります",
+    "example_thai": "ร้านกาแฟอยู่ข้างๆ ธนาคาร",
+    "example_reading": "ráan kaafɛɛ yùu khâaŋkhâaŋ thanaakhaan",
+    "example_jp": "カフェは銀行の隣にあります",
     "warn": "khâaŋ（横・側）は方向全般に使える。khâaŋkhâaŋで「すぐそば・隣接」の意味が強まる"
   },
   {
@@ -514,9 +514,9 @@
     "category": "prep",
     "importance": 3,
     "frequency": 7,
-    "example_thai": "เขากำลังทำงานอยู่ในห้อง",
-    "example_reading": "khǎo kamlaŋ tham ŋaan yùu nai hôŋ",
-    "example_jp": "彼は部屋の中で仕事をしています",
+    "example_thai": "แมวนอนอยู่บนโซฟาในห้องนั่งเล่น",
+    "example_reading": "mɛɛw nɔɔn yùu bon soofaa nai hôŋ nâŋlên",
+    "example_jp": "猫はリビングのソファーの上で寝ています",
     "warn": "bon（上）・tâi（下）・nai（中）・nɔ̂ɔk（外）の4方向を整理する。試験ではnaiとbonの選択が最頻出"
   },
   {
@@ -527,9 +527,9 @@
     "category": "time",
     "importance": 3,
     "frequency": 9,
-    "example_thai": "ดิฉันทำงานตั้งแต่แปดโมงถึงเที่ยง",
-    "example_reading": "dichán tham ŋaan tâŋ tɛ̀ɛ pɛ̀ɛt mooŋ thʉ̌ŋ thîiaŋ",
-    "example_jp": "私は8時から正午まで仕事をします",
+    "example_thai": "ร้านอาหารเปิดตั้งแต่สิบเอ็ดโมงถึงสองทุ่ม",
+    "example_reading": "ráan aahǎan pèet tâŋ tɛ̀ɛ sìpèt mooŋ thʉ̌ŋ sɔ̌ɔŋ thûm",
+    "example_jp": "そのレストランは11時から夜8時まで営業しています",
     "warn": "時間の「から」はtâŋ tɛ̀ɛ、場所の「から」はcàak。同じ「から」でも使い分けが必須。tâŋ tɛ̀ɛ…thʉ̌ŋのセットで覚える"
   },
   {
@@ -540,9 +540,9 @@
     "category": "time",
     "importance": 3,
     "frequency": 4,
-    "example_thai": "ทำงานตั้งแต่เก้าโมงถึงหกโมงเย็น",
-    "example_reading": "tham ŋaan tâŋ tɛ̀ɛ kâaw mooŋ thʉ̌ŋ hòk mooŋ yen",
-    "example_jp": "9時から夕方6時まで仕事をします",
+    "example_thai": "เขาเรียนภาษาญี่ปุ่นตั้งแต่เช้าถึงบ่าย",
+    "example_reading": "khǎo riian phaasǎa yîipùn tâŋ tɛ̀ɛ cháaw thʉ̌ŋ bàay",
+    "example_jp": "彼は朝から午後まで日本語を勉強します",
     "warn": "thʉ̌ŋはtâŋ tɛ̀ɛとセットで使うことが多い。単独でも「到着する」の意味で使える"
   },
   {
@@ -566,9 +566,9 @@
     "category": "time",
     "importance": 2,
     "frequency": 5,
-    "example_thai": "ทุกคนควรแปรงฟันก่อนนอนทุกวัน",
-    "example_reading": "thúk khon khuan prɛɛŋ fan kɔ̀ɔn nɔɔn thúk wan",
-    "example_jp": "みんな毎日寝る前に歯を磨くべきです",
+    "example_thai": "ล้างมือก่อนกินข้าวทุกครั้ง",
+    "example_reading": "láaŋ mʉʉ kɔ̀ɔn kin khâaw thúk khráŋ",
+    "example_jp": "毎回食事の前に手を洗いましょう",
     "warn": "数 + 時間単位 + kɔ̀ɔnで「〜前」（sɔ̌ɔŋ dʉan kɔ̀ɔn＝2ヶ月前）。「あと〜」のìikと混同しないこと"
   },
   {
@@ -592,9 +592,9 @@
     "category": "time",
     "importance": 2,
     "frequency": 3,
-    "example_thai": "คุณทาเคชิจะอยู่เมืองไทยอีกสองปี",
-    "example_reading": "khun thaakeshi cà yùu mʉaŋthai ìik sɔ̌ɔŋ pii",
-    "example_jp": "タケシさんはあと2年タイにいるつもりです",
+    "example_thai": "อีกสามวันก็จะถึงวันหยุด",
+    "example_reading": "ìik sǎam wan kɔ̂ɔ cà thʉ̌ŋ wan yùt",
+    "example_jp": "あと3日で休日です",
     "warn": "ìikは未来方向の残余期間。過去の「〜前」はkɔ̀ɔnを使う。混同が最頻出ミス"
   },
   {
@@ -605,9 +605,9 @@
     "category": "time",
     "importance": 3,
     "frequency": 5,
-    "example_thai": "มูเอียวานตอนสิบเอ็ดโมงผมอยู่ที่สนามบิน",
-    "example_reading": "mʉ̂awaan tɔɔn sìpèt mooŋ phǒm yùu thîi sanǎambin",
-    "example_jp": "昨日の11時、僕は空港にいました",
+    "example_thai": "เขาตื่นนอนตั้งแต่หกโมงเช้าเสมอ",
+    "example_reading": "khǎo tʉ̀ʉn nɔɔn tâŋ tɛ̀ɛ hòk mooŋ cháaw samə̌ə",
+    "example_jp": "彼はいつも朝6時に起きます",
     "warn": "午前7〜12時はN mooŋ cháaw。深夜0〜6時はtii N（tii nʉŋ〜tii hòk）。午後はbàay N mooŋまたはN mooŋ yen"
   },
   {
@@ -618,23 +618,23 @@
     "category": "time",
     "importance": 3,
     "frequency": 5,
-    "example_thai": "ตอนนี้เป็นสี่โมงเย็น",
-    "example_reading": "tɔɔn níi pen sìi mooŋ yen",
-    "example_jp": "今は午後4時です",
+    "example_thai": "นัดพบอยู่ที่บ่ายสองโมงที่คาเฟ่",
+    "example_reading": "nát phóp yùu thîi bàay sɔ̌ɔŋ mooŋ thîi kaaféê",
+    "example_jp": "待ち合わせは午後2時にカフェです",
     "warn": "午後1〜6時はbàay N mooŋまたはN mooŋ yen。夜19〜24時はN thûm。tii sìi（午前4時）と混同しないこと"
   },
   {
     "id": 49,
-    "title": "数量：〜回",
-    "pattern": "数 + khráŋ",
-    "meaning": "〜回・〜度（回数）",
+    "title": "数量：〜冊",
+    "pattern": "数 + lêm",
+    "meaning": "〜冊（本・ノート）",
     "category": "quantity",
-    "importance": 2,
-    "frequency": 2,
-    "example_thai": "เขาไปเที่ยวญี่ปุ่นหลายครั้งแล้ว",
-    "example_reading": "khǎo pai thîiaw yîipùn lǎay khráŋ lɛ́ɛw",
-    "example_jp": "彼は日本へ何度も旅行したことがあります",
-    "warn": "khráŋは回数を数える類別詞。ìik khráŋ（もう一度）・thúk khráŋ（毎回）など定型表現とセットで覚えると効率的"
+    "importance": 3,
+    "frequency": 6,
+    "example_thai": "ฉันซื้อสมุดสองเล่มที่ร้านหนังสือ",
+    "example_reading": "chǎn sʉ́ʉ sàmùt sɔ̌ɔŋ lêm thîi ráan nǎŋsʉ̌ʉ",
+    "example_jp": "私は本屋でノートを2冊買いました",
+    "warn": "本・ノート・辞書を数えるときの類別詞はlêm。かばんのbai、衣類・動物のtuaと混同しないこと"
   },
   {
     "id": 50,
@@ -657,9 +657,9 @@
     "category": "quantity",
     "importance": 2,
     "frequency": 4,
-    "example_thai": "ในห้องมีกระเป๋าอยู่สามใบ",
-    "example_reading": "nai hôŋ mii kràpǎo yùu sǎam bai",
-    "example_jp": "部屋の中にかばんが3個あります",
+    "example_thai": "แม่ซื้อผลไม้มาสิบใบ",
+    "example_reading": "mɛ̂ɛ sʉ́ʉ phonlamáai maa sìp bai",
+    "example_jp": "母は果物を10個買ってきました",
     "warn": "baiの対象が広く混乱しやすい。かばん・果物・容器・帽子などに使う。anは小物一般により汎用"
   },
   {
@@ -670,9 +670,9 @@
     "category": "quantity",
     "importance": 3,
     "frequency": 4,
-    "example_thai": "นักเรียนในห้องนี้มีทั้งหมดสามสิบคน",
-    "example_reading": "nákrian nai hôŋ níi mii tháŋmòt sǎamsìp khon",
-    "example_jp": "この部屋には全部で30人の生徒がいます",
+    "example_thai": "ในทัวร์นี้มีนักท่องเที่ยวยี่สิบคน",
+    "example_reading": "nai thuua níi mii nákthoŋthîiaw yîisìp khon",
+    "example_jp": "このツアーには観光客が20人います",
     "warn": "人を数えるときは必ずkhonを使う。kìi khon（何人）も頻出疑問表現"
   },
   {
@@ -709,9 +709,9 @@
     "category": "quantity",
     "importance": 2,
     "frequency": 3,
-    "example_thai": "ค่าห้องเดือนละเท่าไหร่",
-    "example_reading": "khâa hôŋ dʉan lá thâurài",
-    "example_jp": "家賃はひと月いくらですか？",
+    "example_thai": "เขาทำงานอาทิตย์ละห้าวัน",
+    "example_reading": "khǎo thamŋaan aathít lá hâa wan",
+    "example_jp": "彼は週5日働いています",
     "warn": "lá（〜につき）は時間単位・数量単位の後に置く。wan lá（1日あたり）・aathít lá（週あたり）も頻出"
   },
   {
@@ -722,9 +722,9 @@
     "category": "quantity",
     "importance": 2,
     "frequency": 2,
-    "example_thai": "มีทั้งหมดห้าสิบหกหน้า",
-    "example_reading": "mii tháŋmòt hâasìphòk nâa",
-    "example_jp": "全部で56ページあります",
+    "example_thai": "ในกล่องมีขนมทั้งหมดสิบสองชิ้น",
+    "example_reading": "nai klɔ̀ŋ mii khànǒm tháŋmòt sìpsɔ̌ɔŋ chín",
+    "example_jp": "箱の中にお菓子が全部で12個あります",
     "warn": "tháŋmòtはmiiと組み合わせてmii tháŋmòt（全部で〜ある）の形で使う。tháŋ wan（一日中）とは別語"
   },
   {
@@ -735,9 +735,9 @@
     "category": "quantity",
     "importance": 1,
     "frequency": 2,
-    "example_thai": "หนังสือเล่มนี้มีทั้งหมดห้าสิบหกหน้า",
-    "example_reading": "nǎŋsʉ̌ʉ lêm níi mii tháŋmòt hâasìphòk nâa",
-    "example_jp": "この本は全部で56ページあります",
+    "example_thai": "คู่มือเล่มนี้มีทั้งหมดแปดสิบหน้า",
+    "example_reading": "khûumʉʉ lêm níi mii tháŋmòt pɛ̀ɛtsìp nâa",
+    "example_jp": "このガイドブックは全部で80ページあります",
     "warn": "nâaは「前・次の」という前置詞とは別に、本のページ数を数える類別詞としても使う"
   },
   {
@@ -748,9 +748,9 @@
     "category": "phrase",
     "importance": 3,
     "frequency": 8,
-    "example_thai": "ช่วยเปิดประตูให้หน่อยได้ไหม",
-    "example_reading": "chûay pèet pratuu hâi nɔ̀y dâi mǎi",
-    "example_jp": "ドアを開けていただけますか？",
+    "example_thai": "ช่วยยกกระเป๋าให้หน่อยได้ไหม",
+    "example_reading": "chûay yók kràpǎo hâi nɔ̀y dâi mǎi",
+    "example_jp": "かばんを持っていただけますか？",
     "warn": "chûayの後にhâiを入れると受益の意味が強まる。karúnaaも同様の丁寧依頼。禁止はyàa + V"
   },
   {
@@ -761,9 +761,9 @@
     "category": "phrase",
     "importance": 2,
     "frequency": 3,
-    "example_thai": "กรุณารอสักครู่",
-    "example_reading": "karúnaa rɔɔ sàk khrûu",
-    "example_jp": "少々お待ちください",
+    "example_thai": "กรุณาถอดรองเท้าก่อนเข้าบ้าน",
+    "example_reading": "karúnaa thɔ̀ɔt rɔɔŋtháaw kɔ̀ɔn khâo bâan",
+    "example_jp": "家に入る前に靴を脱いでください",
     "warn": "karúnaaはchûayよりフォーマル。案内・掲示・サービス業でよく使う。karúnaa yàa（〜しないでください）も頻出"
   },
   {
@@ -774,9 +774,9 @@
     "category": "phrase",
     "importance": 2,
     "frequency": 4,
-    "example_thai": "ขอถามหน่อยได้ไหม",
-    "example_reading": "khɔ̌ɔ thǎam nɔ̀y dâi mǎi",
-    "example_jp": "ちょっと質問してもいいですか？",
+    "example_thai": "ขอดูเมนูหน่อยได้ไหมครับ",
+    "example_reading": "khɔ̌ɔ duu meenuu nɔ̀y dâi mǎi khráp",
+    "example_jp": "メニューを見せていただけますか？",
     "warn": "khɔ̌ɔは許可要求・丁寧な申し出に使う。khɔ̌ɔ + 名詞（〜をください）の用法も頻出"
   },
   {
@@ -787,9 +787,9 @@
     "category": "phrase",
     "importance": 3,
     "frequency": 4,
-    "example_thai": "ผมมาจากประเทศญี่ปุ่น",
-    "example_reading": "phǒm maa càak pràthêet yîipùn",
-    "example_jp": "私は日本から来ました",
+    "example_thai": "เธอมาจากเกาหลีใต้",
+    "example_reading": "thəə maa càak kaolǐi tâi",
+    "example_jp": "彼女は韓国から来ました",
     "warn": "maa càakは出身・起点の定型フレーズ。càak単独（〜から離れている）と区別してセットで覚える"
   },
   {
@@ -800,9 +800,9 @@
     "category": "phrase",
     "importance": 3,
     "frequency": 4,
-    "example_thai": "ไปดูหนังด้วยกันไหม",
-    "example_reading": "pai duu nǎŋ dûay kan mǎi",
-    "example_jp": "一緒に映画を見に行きませんか？",
+    "example_thai": "ไปเดินเล่นในสวนด้วยกันไหม",
+    "example_reading": "pai dəən lên nai sǔan dûay kan mǎi",
+    "example_jp": "一緒に公園を散歩しませんか？",
     "warn": "dûay kan（一緒に）+ mǎi（〜ませんか）の組み合わせが誘いの定型。文末のmǎiを忘れないこと"
   },
   {
@@ -813,9 +813,9 @@
     "category": "phrase",
     "importance": 2,
     "frequency": 2,
-    "example_thai": "ไม่ได้เจอกันนานเลยนะ",
-    "example_reading": "mâi dâi cəə kan naan ləəy ná",
-    "example_jp": "お久しぶりですね（長く会っていないね）",
+    "example_thai": "ไม่เจอกันนานแล้วสบายดีไหม",
+    "example_reading": "mâi cəə kan naan lɛ́ɛw sabaay dii mǎi",
+    "example_jp": "しばらくぶりですね、お元気ですか？",
     "warn": "直訳は「長く会っていない」。cəə（会う・見つかる）はこの定型表現でよく出題される"
   },
   {
@@ -826,9 +826,9 @@
     "category": "phrase",
     "importance": 2,
     "frequency": 2,
-    "example_thai": "ฮัลโหล ขอสายคุณติ๊กหน่อย",
-    "example_reading": "halǒo khɔ̌ɔ sǎay khun tík nɔ̀y",
-    "example_jp": "もしもし、ティックさんをお願いします",
+    "example_thai": "ฮัลโหล ขอสายคุณมาลีหน่อยครับ",
+    "example_reading": "halǒo khɔ̌ɔ sǎay khun maarii nɔ̀y khráp",
+    "example_jp": "もしもし、マリーさんをお願いします",
     "warn": "sǎay（回線・内線）は電話専用の類別詞的な語。khɔ̌ɔ sǎayで「〜をお願いします」という電話の定型表現"
   },
   {
@@ -839,9 +839,9 @@
     "category": "phrase",
     "importance": 2,
     "frequency": 2,
-    "example_thai": "ลองใส่ดูได้ไหม",
-    "example_reading": "looŋ sài duu dâi mǎi",
-    "example_jp": "試着してもいいですか？",
+    "example_thai": "ลองชิมอาหารจานนี้ดูได้ไหม",
+    "example_reading": "looŋ chim aahǎan caan níi duu dâi mǎi",
+    "example_jp": "この料理を試食してもいいですか？",
     "warn": "looŋ（試みる）+ sài（着る）+ duu（見る）+ dâi mǎi（できますか）の組み合わせ。ショッピング場面の定型フレーズ"
   },
   {
@@ -852,9 +852,9 @@
     "category": "phrase",
     "importance": 1,
     "frequency": 2,
-    "example_thai": "ผมขอแสดงความยินดีกับคุณด้วยนะครับ",
-    "example_reading": "phǒm khɔ̌ɔ sàdɛɛŋ khwaam yindii kàp khun dûay ná khráp",
-    "example_jp": "あなたに祝辞を述べさせていただきます",
+    "example_thai": "ขอแสดงความยินดีกับการสำเร็จการศึกษาของคุณ",
+    "example_reading": "khɔ̌ɔ sàdɛɛŋ khwaam yindii kàp kaan sǎmrèt kaansʉ̀ksǎa khɔ̌ɔŋ khun",
+    "example_jp": "ご卒業おめでとうございます",
     "warn": "sàdɛɛŋ khwaam（〜を表明する）+ yindii（喜ぶ・おめでとう）の組み合わせ。フォーマルなお祝いの定型表現"
   },
   {
@@ -865,9 +865,9 @@
     "category": "phrase",
     "importance": 1,
     "frequency": 2,
-    "example_thai": "ดูแลตัวเองและรักษาสุขภาพด้วยนะครับ",
-    "example_reading": "duu lɛɛ tua eeŋ lɛ́ ráksǎa sùkkaphâap dûay ná khráp",
-    "example_jp": "健康に気をつけてご自愛ください",
+    "example_thai": "ดูแลสุขภาพด้วยนะอย่าทำงานหนักเกินไป",
+    "example_reading": "duu lɛɛ sùkkaphâap dûay ná yàa thamŋaan nàk kəənpai",
+    "example_jp": "健康に気をつけて、働きすぎないようにしてください",
     "warn": "duu lɛɛ（世話をする）+ tua eeŋ（自分自身）の組み合わせ。別れ際・手紙の結びで使う定型表現"
   },
   {
@@ -878,9 +878,9 @@
     "category": "phrase",
     "importance": 2,
     "frequency": 3,
-    "example_thai": "ดิฉันได้ยินว่าเขาจะแต่งงานปีหน้า",
-    "example_reading": "dichán dâi yin wâa khǎo cà tɛ̀ŋŋaan pii nâa",
-    "example_jp": "彼が来年結婚すると聞きました",
+    "example_thai": "ได้ยินว่าร้านอาหารใหม่นั้นอร่อยมาก",
+    "example_reading": "dâi yin wâa ráan aahǎan mài nán aròy mâak",
+    "example_jp": "あの新しいレストランはとても美味しいと聞きました",
     "warn": "dâi yin wâaは自然に耳に入った情報・噂を伝える。意識して聴くfaŋとは異なる。wâa（〜ということ）が接続詞の役割"
   },
   {
@@ -891,9 +891,9 @@
     "category": "phrase",
     "importance": 1,
     "frequency": 2,
-    "example_thai": "เวลาซื้อของเขาชอบต่อราคา",
-    "example_reading": "weelaa sʉ́ʉ khɔ̌ɔŋ khǎo chɔ̂ɔp tɔ̀ɔ raakhaa",
-    "example_jp": "買い物のとき、彼はよく値段交渉をします",
+    "example_thai": "ที่ตลาดนัดนักช้อปชอบต่อราคากับพ่อค้า",
+    "example_reading": "thîi talàatnát nákcɔ́ɔp chɔ̂ɔp tɔ̀ɔ raakhaa kàp phɔ̂ɔkháa",
+    "example_jp": "フリーマーケットでは買い物客がよく売り手と値段交渉をします",
     "warn": "tɔ̀ɔ単独は「続ける・つなぐ」など多義語。raakhaaと組み合わせてtɔ̀ɔ raakhaaで「値段交渉する」の定型句"
   },
   {
@@ -904,9 +904,9 @@
     "category": "phrase",
     "importance": 2,
     "frequency": 2,
-    "example_thai": "คำนี้แปลว่าอะไรเป็นภาษาไทย",
-    "example_reading": "kham níi plɛɛ wâa arai pen phaasǎa thai",
-    "example_jp": "この言葉はタイ語でどういう意味ですか？",
+    "example_thai": "คำว่า สวัสดี แปลว่าสวัสดีในภาษาอังกฤษ",
+    "example_reading": "kham wâa sawàtdii plɛɛ wâa hello nai phaasǎa aŋkrìt",
+    "example_jp": "「สวัสดี」という言葉は英語で「hello」という意味です",
     "warn": "plɛɛ wâa（〜という意味だ）の形で頻出。rîak wâa（〜と呼ぶ）と混同しないこと"
   },
   {
@@ -917,9 +917,9 @@
     "category": "phrase",
     "importance": 2,
     "frequency": 3,
-    "example_thai": "คุณจะรับอะไรดีครับ",
-    "example_reading": "khun cà ráp arai dii khráp",
-    "example_jp": "何になさいますか？",
+    "example_thai": "คุณจะรับกาแฟหรือชาดีครับ",
+    "example_reading": "khun cà ráp kaafɛɛ rʉ̌ʉ chaa dii khráp",
+    "example_jp": "コーヒーとお茶どちらになさいますか？",
     "warn": "rápは「受け取る・迎える」の他、飲食の注文・提供場面で「〜をいただく」の丁寧語としても使う。kinより改まった表現"
   },
   {
@@ -930,9 +930,9 @@
     "category": "prep",
     "importance": 1,
     "frequency": 2,
-    "example_thai": "วัดพระแก้วอยู่ริมแม่น้ำเจ้าพระยา",
-    "example_reading": "wát phrátkɛ̂ɛw yùu rim mɛ̂ɛnám câophrá yaa",
-    "example_jp": "エメラルド寺院はチャオプラヤー川沿いにあります",
+    "example_thai": "ร้านอาหารอยู่ริมแม่น้ำสายเล็กๆ",
+    "example_reading": "ráan aahǎan yùu rim mɛ̂ɛnám sǎay lék lék",
+    "example_jp": "そのレストランは小さな川沿いにあります",
     "warn": "rimは川・道路・海岸など線状のものの縁に使う。bonやkhâaŋとは位置のニュアンスが異なる"
   },
   {
@@ -943,9 +943,9 @@
     "category": "prep",
     "importance": 1,
     "frequency": 2,
-    "example_thai": "กรุณาส่งรายงานภายในวันพรุ่งนี้",
-    "example_reading": "karúnaa sòŋ raayŋaan phaay nay wan phrûŋníi",
-    "example_jp": "明日までにレポートを送ってください",
+    "example_thai": "กรุณาส่งใบสมัครภายในสัปดาห์นี้",
+    "example_reading": "karúnaa sòŋ baisàmàk phaay nay sàpdaa níi",
+    "example_jp": "今週中に申込書を送ってください",
     "warn": "phaay nayは期限・範囲の内側を示す。tɔɔn（〜の時）やkɔ̀ɔn（〜の前）とは意味が異なる"
   },
   {
@@ -956,9 +956,9 @@
     "category": "prep",
     "importance": 2,
     "frequency": 3,
-    "example_thai": "น้องสาวไปห้างเพื่อซื้อเสื้อผ้า",
-    "example_reading": "nɔ́ɔŋsǎaw pai hâaŋ phʉ̂a sʉ́ʉ sʉ̂aphâa",
-    "example_jp": "妹はデパートへ服を買いに行きます",
+    "example_thai": "เขาประหยัดเงินเพื่อซื้อรถใหม่",
+    "example_reading": "khǎo pràyàt ŋən phʉ̂a sʉ́ʉ rót mài",
+    "example_jp": "彼は新しい車を買うためにお金を節約しています",
     "warn": "phʉ̂aは目的を示す前置詞。sǎmràp（〜のために・〜向け）との使い分けに注意。phʉ̂aは動詞句、sǎmràpは名詞句を伴うことが多い"
   },
   {
@@ -969,9 +969,9 @@
     "category": "prep",
     "importance": 3,
     "frequency": 15,
-    "example_thai": "เมื่อวานผมไปกินข้าวกับคุณสมศรี",
-    "example_reading": "mʉ̂awaan phǒm pai kin khâaw kàp khun sǒmsǐi",
-    "example_jp": "昨日、私はソムシーさんと食事に行きました",
+    "example_thai": "ผมออกไปกินข้าวกับเพื่อนร่วมงาน",
+    "example_reading": "phǒm ɔ̀ɔk pai kin khâaw kàp phʉ̂an rûam ŋaan",
+    "example_jp": "私は同僚と一緒に食事に出かけました",
     "warn": "kàpは同行（〜と一緒に）・比較（〜と同じくらい）・近接（〜の近く）など多義語。文脈で意味を判断する"
   },
   {
@@ -982,9 +982,9 @@
     "category": "aux",
     "importance": 2,
     "frequency": 3,
-    "example_thai": "ทุกคนควรแปรงฟันก่อนนอนทุกวัน",
-    "example_reading": "thúk khon khuan prɛɛŋ fan kɔ̀ɔn nɔɔn thúk wan",
-    "example_jp": "みんな毎日寝る前に歯を磨くべきです",
+    "example_thai": "ถ้าไม่สบายควรพักผ่อนให้เพียงพอ",
+    "example_reading": "thâa mâi sabaay khuan phák phɔ̀ɔn hâi phiaŋphɔɔ",
+    "example_jp": "体調が悪いときは十分に休息するべきです",
     "warn": "khuanはtɔ̂ŋよりも義務が弱く「〜した方がよい・当然〜すべき」のニュアンス。dii kwàa（〜の方がよい）との使い分けも確認"
   },
   {
@@ -995,9 +995,9 @@
     "category": "aux",
     "importance": 2,
     "frequency": 2,
-    "example_thai": "ฉันสามารถพูดภาษาไทยได้",
-    "example_reading": "chǎn sǎamâat phûut phaasǎa thai dâi",
-    "example_jp": "私はタイ語を話すことができます",
+    "example_thai": "เขาสามารถอ่านหนังสือภาษาจีนได้",
+    "example_reading": "khǎo sǎamâat àan nǎŋsʉ̌ʉ phaasǎa ciin dâi",
+    "example_jp": "彼は中国語の本を読むことができます",
     "warn": "sǎamâatはやや書き言葉的・フォーマル。会話ではV + dâiの方が自然。sǎamâatとdâiをセットで使うことに注意"
   },
   {
@@ -1008,9 +1008,9 @@
     "category": "aux",
     "importance": 2,
     "frequency": 2,
-    "example_thai": "เขาเพิ่งแต่งงาน",
-    "example_reading": "khǎo phêŋ tɛ̀ŋŋaan",
-    "example_jp": "彼は結婚したばかりです",
+    "example_thai": "ฉันเพิ่งกลับมาจากต่างจังหวัด",
+    "example_reading": "chǎn phêŋ klàp maa càak tàaŋcaŋwàt",
+    "example_jp": "私はついさっき地方から帰ってきたところです",
     "warn": "phêŋは直近で完了した動作を示す。lɛ́ɛw（〜した・もう）と意味が近いが、phêŋは「たった今」の直近性が強い"
   },
   {
@@ -1021,9 +1021,9 @@
     "category": "aux",
     "importance": 2,
     "frequency": 2,
-    "example_thai": "พรุ่งนี้อาจจะฝนตก",
-    "example_reading": "phrûŋníi àat cà fǒn tòk",
-    "example_jp": "明日は雨が降るかもしれない",
+    "example_thai": "อาหารอาจจะหมดก่อนเที่ยง",
+    "example_reading": "aahǎan àat cà mòt kɔ̀ɔn thîiaŋ",
+    "example_jp": "料理は正午前になくなるかもしれません",
     "warn": "àat càはcàより確実性が低い推量。khoŋ（〜だろう・おそらく）より不確かなニュアンスを持つ"
   },
   {
@@ -1034,9 +1034,9 @@
     "category": "aux",
     "importance": 2,
     "frequency": 2,
-    "example_thai": "ฉันคิดว่าเขาคงนอนหลับสนิท",
-    "example_reading": "chǎn khít wâa khǎo khoŋ nɔɔn làp sanìt",
-    "example_jp": "彼はぐっすり眠っていたのでしょう",
+    "example_thai": "เขาคงเหนื่อยมากหลังจากทำงานทั้งวัน",
+    "example_reading": "khǎo khoŋ nʉ̀ay mâak lǎŋ càak thamŋaan tháŋwan",
+    "example_jp": "一日中働いた後、彼はきっとかなり疲れているでしょう",
     "warn": "khoŋは話者の推測・判断を示す。àat cà（かもしれない）より確信度が高い。khít wâaとセットで使うことも多い"
   },
   {
