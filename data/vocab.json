@@ -2343,7 +2343,7 @@
     "id": 196,
     "thai": "ต่อ",
     "reading": "tɔ̀ɔ",
-    "meaning": "〜につき（単位）・値段交渉する・繋げる",
+    "meaning": "〜につき（単位）・値段交渉する",
     "pos": "verb",
     "importance": 2,
     "frequency": 2,
@@ -2515,9 +2515,9 @@
     "pos": "verb",
     "importance": 2,
     "frequency": 2,
-    "example": "คุณยามาดาทำความสะอาดห้องนอนในวันเสาร์",
-    "example_reading": "khun yaamaada tham khwaam sàaat hôŋnɔɔn nai wansǎo",
-    "example_meaning": "山田さんは土曜日に寝室を掃除します"
+    "example": "คุณยามาดาทำความสะอาดห้องนอน",
+    "example_reading": "khun yaamaada tham khwaam sàaat hôŋnɔɔn",
+    "example_meaning": "山田さんは寝室を掃除します"
   },
   {
     "id": 211,

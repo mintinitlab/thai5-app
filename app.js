@@ -13,6 +13,7 @@ const $$ = (s) => Array.from(document.querySelectorAll(s));
 const LS_KEY          = 'thai5_fc_state';
 const LS_PROGRESS_KEY = 'thai5_progress';
 const LS_SESSION_KEY  = 'thai5_fc_session';
+const LS_QUIZ_SESSION_KEY = 'thai5_quiz_session';
 
 const POS_LABEL = {
   verb: '動詞', aux: '助動詞', prep: '前置詞', conj: '接続詞',
@@ -106,6 +107,35 @@ function loadSession() {
   } catch {
     return null;
   }
+}
+
+function saveQuizSession() {
+  const q = filteredQuizData[quizIndex];
+  try {
+    localStorage.setItem(LS_QUIZ_SESSION_KEY, JSON.stringify({
+      theme:            $('#quiz-filter-theme')?.value ?? 'all',
+      quizIndex,
+      currentQuestionId: q?.id ?? null,
+      correctCount,
+      answeredCount,
+      quizAnswered,
+      showResult:       !($('#quiz-result')?.hidden ?? true),
+    }));
+  } catch {
+    console.warn('quiz session 書き込み失敗');
+  }
+}
+
+function loadQuizSession() {
+  try {
+    return JSON.parse(localStorage.getItem(LS_QUIZ_SESSION_KEY) || 'null');
+  } catch {
+    return null;
+  }
+}
+
+function clearQuizSession() {
+  try { localStorage.removeItem(LS_QUIZ_SESSION_KEY); } catch { /* noop */ }
 }
 
 function getStatus(id) { return FC_STATE[id] ?? 'new'; }
@@ -676,6 +706,9 @@ function renderQuiz() {
 
   const cur = $('#quiz-current'); if (cur) cur.textContent = quizIndex + 1;
   const tot = $('#quiz-total');   if (tot) tot.textContent = filteredQuizData.length;
+  
+  saveQuizSession();
+
 }
 
 function judgeAnswer(id) {
@@ -688,6 +721,8 @@ function judgeAnswer(id) {
   q.choices.forEach((ch, i) => {
     const tEl = $(`#choice-${i}`);
     if (tEl) tEl.textContent = `${ch.thai ?? ''}　${ch.reading ?? ''}　${ch.meaning ?? ''}`;
+    
+    saveQuizSession();
   });
 
   $$('.choice-btn').forEach((btn) => {
@@ -736,6 +771,7 @@ function restartQuiz() {
   quizIndex = 0; correctCount = 0; answeredCount = 0; quizAnswered = false;
   const res = $('#quiz-result'); if (res) res.hidden = true;
   const qc  = $('#quiz-card');   if (qc)  qc.hidden  = false;
+  clearQuizSession();
   renderQuiz();
 }
 
@@ -750,6 +786,76 @@ function initQuiz() {
   $('#quiz-next-btn')?.addEventListener('click', goNextQuiz);
   $('#quiz-retry-btn')?.addEventListener('click', restartQuiz);
 
+  // ── セッション復元 ──────────────────────────────────
+  const qs = loadQuizSession();
+  if (qs) {
+    // テーマ復元
+    const themeSelect = $('#quiz-filter-theme');
+    if (themeSelect && qs.theme) {
+      themeSelect.value = qs.theme;
+      filteredQuizData = filterQuizData(qs.theme);
+    }
+
+    if (filteredQuizData.length > 0) {
+      correctCount  = qs.correctCount  ?? 0;
+      answeredCount = qs.answeredCount ?? 0;
+      quizAnswered  = qs.quizAnswered  ?? false;
+
+      // currentQuestionId で正確な位置を復元、なければ quizIndex でフォールバック
+      if (qs.currentQuestionId != null) {
+        const idx = filteredQuizData.findIndex(q => q.id === qs.currentQuestionId);
+        quizIndex = idx >= 0 ? idx : Math.min(qs.quizIndex ?? 0, filteredQuizData.length - 1);
+      } else {
+        quizIndex = Math.min(qs.quizIndex ?? 0, filteredQuizData.length - 1);
+      }
+
+      // 結果画面を復元
+      if (qs.showResult) {
+        const qc  = $('#quiz-card');   if (qc)  qc.hidden  = true;
+        const res = $('#quiz-result'); if (res) res.hidden  = false;
+        showQuizResult();
+        return;
+      }
+
+      // 問題画面を復元
+      renderQuiz();
+
+      // 回答済み状態を復元（選択肢を無効化・正解をハイライト）
+      if (quizAnswered) {
+        const q = filteredQuizData[quizIndex];
+        if (q) {
+          // 選択肢テキストを解説付きに展開
+          q.choices.forEach((ch, i) => {
+            const tEl = $(`#choice-${i}`);
+            if (tEl) tEl.textContent = `${ch.thai ?? ''}　${ch.reading ?? ''}　${ch.meaning ?? ''}`;
+          });
+          $$('.choice-btn').forEach((btn) => {
+            const bid = btn.dataset.choiceId;
+            if (bid === q.answer) {
+              btn.style.background   = 'var(--green-bg)';
+              btn.style.borderColor  = 'var(--green)';
+              btn.style.color        = 'var(--green)';
+            }
+            btn.disabled = true;
+          });
+          // 解説を表示
+          const expl = $('#quiz-explanation');
+          if (expl) {
+            expl.hidden = false;
+            const rEl = $('#explanation-result');
+            if (rEl) {
+              rEl.textContent = '（前回の回答を復元しました）';
+              rEl.style.color = 'var(--text-3)';
+            }
+            const tEl = $('#explanation-text');
+            if (tEl) tEl.textContent = q.explanation ?? '';
+          }
+        }
+      }
+      return;
+    }
+  }
+  // ── セッションなし：通常初期化 ──────────────────────
   renderQuiz();
 }
 
@@ -846,6 +952,7 @@ function applyQuizCategoryFilter() {
   filteredQuizData = filterQuizData(category);
 
   quizIndex = 0;
+  clearQuizSession();
   correctCount = 0;
   answeredCount = 0;
   quizAnswered = false;
