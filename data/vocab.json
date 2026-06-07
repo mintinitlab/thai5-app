@@ -103,9 +103,9 @@
     "pos": "verb",
     "importance": 3,
     "frequency": 13,
-    "example": "เมื่อวานผมไปกินข้าวกับคุณสมศรี",
-    "example_reading": "mʉ̂awaan phǒm pai kin khâaw kàp khun sǒmsǐi",
-    "example_meaning": "昨日、私はソムシーさんとご飯を食べに行った"
+    "example": "เขาชอบกินส้มตำทุกวัน",
+    "example_reading": "khǎo chɔ̂ɔp kin sômtam thúk wan",
+    "example_meaning": "彼は毎日ソムタムを食べるのが好きです"
   },
   {
     "id": 10,
@@ -115,9 +115,9 @@
     "pos": "aux",
     "importance": 3,
     "frequency": 12,
-    "example": "ดิฉันกำลังกินข้าวอยู่",
-    "example_reading": "dichán kamlaŋ kin khâaw yùu",
-    "example_meaning": "私は今ご飯を食べているところです"
+    "example": "น้องสาวกำลังกินข้าวเย็นอยู่",
+    "example_reading": "nɔ́ɔŋsǎaw kamlaŋ kin khâaw yen yùu",
+    "example_meaning": "妹は夕食を食べているところです"
   },
   {
     "id": 11,
@@ -139,9 +139,9 @@
     "pos": "conj",
     "importance": 3,
     "frequency": 11,
-    "example": "ผมกินขนมปัง ผักและผลไม้",
-    "example_reading": "phǒm kin khanǒmpaŋ phàk lɛ́ phonlamáai",
-    "example_meaning": "私はパンと野菜と果物を食べる"
+    "example": "แม่ซื้อผักและผลไม้จากตลาด",
+    "example_reading": "mɛ̂ɛ sʉ́ʉ phàk lɛ́ phonlamáai càak talàat",
+    "example_meaning": "母は市場で野菜と果物を買いました"
   },
   {
     "id": 13,
@@ -163,9 +163,9 @@
     "pos": "aux",
     "importance": 3,
     "frequency": 10,
-    "example": "พรุ่งนี้คุณจะไปออกกำลังกายไหม",
-    "example_reading": "phrûŋníi khun cà pai ɔ̀ɔkkamlǎŋkaay mǎi",
-    "example_meaning": "明日、あなたは運動に行くつもりですか？"
+    "example": "เย็นนี้เธอจะกลับบ้านกี่โมง",
+    "example_reading": "yen níi thəə cà klàp bâan kìi mooŋ",
+    "example_meaning": "今晩、彼女は何時に家に帰るつもりですか？"
   },
   {
     "id": 15,
@@ -199,9 +199,9 @@
     "pos": "aux",
     "importance": 3,
     "frequency": 9,
-    "example": "คุณเคยไปเชียงใหม่ไหม",
-    "example_reading": "khun khəəy pai chiiaŋmài mǎi",
-    "example_meaning": "あなたはチェンマイへ行ったことがありますか？"
+    "example": "คุณเคยกินอาหารอีสานไหม",
+    "example_reading": "khun khəəy kin aahǎan iisǎan mǎi",
+    "example_meaning": "あなたはイサーン料理を食べたことがありますか？"
   },
   {
     "id": 18,
@@ -211,9 +211,9 @@
     "pos": "prep",
     "importance": 3,
     "frequency": 9,
-    "example": "ดิฉันทำงานตั้งแต่แปดโมงถึงเที่ยง",
-    "example_reading": "dichán tham ŋaan tâŋ tɛ̀ɛ pɛ̀ɛt mooŋ thʉ̌ŋ thîiaŋ",
-    "example_meaning": "私は8時から正午まで仕事をする"
+    "example": "ร้านนี้เปิดตั้งแต่เช้าถึงค่ำทุกวัน",
+    "example_reading": "ráan níi pèet tâŋ tɛ̀ɛ cháaw thʉ̌ŋ khâm thúk wan",
+    "example_meaning": "この店は毎日朝から夜まで営業しています"
   },
   {
     "id": 19,
@@ -223,9 +223,9 @@
     "pos": "aux",
     "importance": 3,
     "frequency": 9,
-    "example": "อาจารย์สอนภาษาจีนให้ผม",
-    "example_reading": "aacaan sɔ̌ɔn phaasǎa ciin hâi phǒm",
-    "example_meaning": "先生は私に中国語を教えてくれる"
+    "example": "พ่อแม่สอนภาษาไทยให้ลูก",
+    "example_reading": "phɔ̂ɔmɛ̂ɛ sɔ̌ɔn phaasǎa thai hâi lûuk",
+    "example_meaning": "両親は子供にタイ語を教えてあげます"
   },
   {
     "id": 20,
@@ -235,9 +235,9 @@
     "pos": "conj",
     "importance": 3,
     "frequency": 8,
-    "example": "ถ้ามีเวลาดิฉันจะไปหาคุณ",
-    "example_reading": "thâa mii weelaa dichán cà pai hǎa khun",
-    "example_meaning": "もし時間があれば、あなたのところへ行くつもりです"
+    "example": "ถ้ามีเวลาว่างเราไปชมพิพิธภัณฑ์ด้วยกันนะ",
+    "example_reading": "thâa mii weelaa wâaŋ raw pai chom phíphítthaphan dûay kan ná",
+    "example_meaning": "もし暇があれば一緒に博物館を見に行きましょう"
   },
   {
     "id": 21,
@@ -247,9 +247,9 @@
     "pos": "prep",
     "importance": 3,
     "frequency": 8,
-    "example": "ดิฉันกลับบ้านโดยรถยนต์เป็นประจำ",
-    "example_reading": "dichán klàp bâan dooy rótyon pen pràcam",
-    "example_meaning": "私はいつも車で家に帰ります"
+    "example": "พี่ชายกลับบ้านโดยรถไฟฟ้าทุกวัน",
+    "example_reading": "phîichaay klàp bâan dooy rótfaifáa thúk wan",
+    "example_meaning": "兄は毎日電車で家に帰ります"
   },
   {
     "id": 22,
@@ -295,9 +295,9 @@
     "pos": "verb",
     "importance": 3,
     "frequency": 8,
-    "example": "ช่วยพูดอีกครั้งได้ไหม",
-    "example_reading": "chûay phûut ìik khráŋ dâi mǎi",
-    "example_meaning": "もう一度、言っていただけますか？"
+    "example": "ช่วยบอกชื่อร้านนั้นอีกครั้งได้ไหม",
+    "example_reading": "chûay bòok chʉ̂ʉ ráan nán ìik khráŋ dâi mǎi",
+    "example_meaning": "あの店の名前をもう一度教えていただけますか？"
   },
   {
     "id": 26,
@@ -307,9 +307,9 @@
     "pos": "q",
     "importance": 3,
     "frequency": 8,
-    "example": "คุณจะดื่มอะไรครับ",
-    "example_reading": "khun cà dʉ̀ʉm arai khráp",
-    "example_meaning": "あなたは何を飲みますか？"
+    "example": "คุณต้องการอะไรครับ",
+    "example_reading": "khun tɔ̂ŋkaan arai khráp",
+    "example_meaning": "何が必要ですか？"
   },
   {
     "id": 27,
@@ -331,9 +331,9 @@
     "pos": "conj",
     "importance": 3,
     "frequency": 7,
-    "example": "คนไทยเรียกรถไฟฟ้าว่า BTS",
-    "example_reading": "khon thai rîak rótfaifáa wâa BTS",
-    "example_meaning": "タイ人は電車をBTSと呼びます"
+    "example": "เขาบอกว่าพรุ่งนี้จะไม่มา",
+    "example_reading": "khǎo bòok wâa phrûŋníi cà mâi maa",
+    "example_meaning": "彼は明日来ないと言いました"
   },
   {
     "id": 29,
@@ -343,9 +343,9 @@
     "pos": "q",
     "importance": 3,
     "frequency": 7,
-    "example": "ห้องน้ำอยู่ที่ไหน",
-    "example_reading": "hɔ̂ŋnáam yùu thîinǎi",
-    "example_meaning": "トイレはどこですか？"
+    "example": "ที่จอดรถอยู่ที่ไหนครับ",
+    "example_reading": "thîi cɔ̀ɔt rót yùu thîi nǎi khráp",
+    "example_meaning": "駐車場はどこですか？"
   },
   {
     "id": 30,
@@ -379,9 +379,9 @@
     "pos": "verb",
     "importance": 2,
     "frequency": 7,
-    "example": "น้องชายจะพาหมาไปที่สวนสาธารณะ",
-    "example_reading": "nɔ́ɔŋchaay cà phaa mǎa pai thîi sǔansǎatharáná",
-    "example_meaning": "弟は犬を公園へ連れて行きます"
+    "example": "แม่พาลูกไปโรงพยาบาลเมื่อเช้า",
+    "example_reading": "mɛ̂ɛ phaa lûuk pai rooŋphayaabaan mʉ̂a cháaw",
+    "example_meaning": "お母さんは今朝子供を病院に連れて行きました"
   },
   {
     "id": 33,
@@ -391,9 +391,9 @@
     "pos": "verb",
     "importance": 2,
     "frequency": 7,
-    "example": "อาทิตย์หน้าดิฉันจะซื้อรองเท้าที่ห้าง",
-    "example_reading": "aathít nâa dichán cà sʉ́ʉ rɔɔŋtháaw thîi hâaŋ",
-    "example_meaning": "来週、私はデパートで靴を買うつもりです"
+    "example": "เขาไปซื้อของที่ตลาดทุกเช้า",
+    "example_reading": "khǎo pai sʉ́ʉ khɔ̌ɔŋ thîi talàat thúk cháaw",
+    "example_meaning": "彼は毎朝市場へ買い物に行きます"
   },
   {
     "id": 34,
@@ -415,9 +415,9 @@
     "pos": "cl",
     "importance": 2,
     "frequency": 6,
-    "example": "เขาถือหนังสือห้าเล่ม",
-    "example_reading": "khǎo thʉ̌ʉ nǎŋsʉ̌ʉ hâa lêm",
-    "example_meaning": "彼は本を5冊手に持っています"
+    "example": "ห้องสมุดมีหนังสือหลายเล่ม",
+    "example_reading": "hôŋsamùt mii nǎŋsʉ̌ʉ lǎay lêm",
+    "example_meaning": "図書館には本がたくさんあります"
   },
   {
     "id": 36,
@@ -427,9 +427,9 @@
     "pos": "cl",
     "importance": 2,
     "frequency": 6,
-    "example": "ที่บ้านคุณเลี้ยงแมวกี่ตัว",
-    "example_reading": "thîi bâan khun líaŋ mɛɛw kìi tua",
-    "example_meaning": "家で猫を何匹飼っていますか？"
+    "example": "ร้านขายสัตว์มีแมวสามตัว",
+    "example_reading": "ráan khǎay sàt mii mɛɛw sǎam tua",
+    "example_meaning": "ペットショップに猫が3匹います"
   },
   {
     "id": 37,
@@ -439,9 +439,9 @@
     "pos": "adv",
     "importance": 3,
     "frequency": 6,
-    "example": "วันนี้อากาศร้อนมาก",
-    "example_reading": "wanníi aakàat rɔ́ɔn mâak",
-    "example_meaning": "今日はとても暑いです"
+    "example": "วันนี้เขาเหนื่อยมากเลย",
+    "example_reading": "wanníi khǎo nʉ̀ay mâak ləəy",
+    "example_meaning": "今日、彼はとても疲れています"
   },
   {
     "id": 38,
@@ -451,9 +451,9 @@
     "pos": "prep",
     "importance": 2,
     "frequency": 6,
-    "example": "ตอนเด็กดิฉันอยากเป็นพยาบาล",
-    "example_reading": "tɔɔn dèk dichán yàak pen phayaabaan",
-    "example_meaning": "子供の頃、私は看護師になりたかった"
+    "example": "ตอนเด็กเขาชอบวิ่งเล่นในสวน",
+    "example_reading": "tɔɔn dèk khǎo chɔ̂ɔp wîŋ lên nai sǔan",
+    "example_meaning": "子供の頃、彼は公園で走り回るのが好きでした"
   },
   {
     "id": 39,
@@ -475,9 +475,9 @@
     "pos": "verb",
     "importance": 2,
     "frequency": 6,
-    "example": "ไม่ได้เจอกันนานเลยนะ",
-    "example_reading": "mâi dâi cəə kan naan ləəy ná",
-    "example_meaning": "お久しぶりですね（長く会っていないね）"
+    "example": "เขาหาแว่นตาอยู่นานแต่ก็ไม่เจอ",
+    "example_reading": "khǎo hǎa wɛ̂ɛntaa yùu naan tɛ̀ɛ kɔ̂ɔ mâi cəə",
+    "example_meaning": "彼はずっとメガネを探していたが見つからなかった"
   },
   {
     "id": 41,
@@ -487,9 +487,9 @@
     "pos": "verb",
     "importance": 2,
     "frequency": 6,
-    "example": "ถ้ามีเวลาดิฉันจะไปหาคุณ",
-    "example_reading": "thâa mii weelaa dichán cà pai hǎa khun",
-    "example_meaning": "もし時間があれば、あなたのところへ行くつもりです"
+    "example": "ถ้าว่างเชิญมาเที่ยวบ้านผมได้เลย",
+    "example_reading": "thâa wâaŋ chəən maa thîiaw bâan phǒm dâi ləəy",
+    "example_meaning": "もし暇があればぜひ私の家に遊びに来てください"
   },
   {
     "id": 42,
@@ -511,9 +511,9 @@
     "pos": "adv",
     "importance": 3,
     "frequency": 5,
-    "example": "พี่สาวสูงกว่าดิฉัน",
-    "example_reading": "phîisǎaw sǔuŋ kwàa dichán",
-    "example_meaning": "姉は私より背が高い"
+    "example": "กรุงเทพใหญ่กว่าเชียงใหม่มาก",
+    "example_reading": "kruŋthêep yài kwàa chiiaŋmài mâak",
+    "example_meaning": "バンコクはチェンマイよりずっと大きいです"
   },
   {
     "id": 44,
@@ -523,9 +523,9 @@
     "pos": "neg",
     "importance": 3,
     "frequency": 5,
-    "example": "แก้วใบนี้ไม่ใช่ของดิฉัน",
-    "example_reading": "kɛ̂ɛw bai níi mâi châi khɔ̌ɔŋ dichán",
-    "example_meaning": "このグラスは私のグラスではありません"
+    "example": "โทรศัพท์เครื่องนี้ไม่ใช่ของผม",
+    "example_reading": "thoorasàp khrʉ̂aŋ níi mâi châi khɔ̌ɔŋ phǒm",
+    "example_meaning": "この電話は私のではありません"
   },
   {
     "id": 45,
@@ -547,9 +547,9 @@
     "pos": "aux",
     "importance": 2,
     "frequency": 5,
-    "example": "ตอนเด็กอยากเป็นตำรวจ",
-    "example_reading": "tɔɔn dèk yàak pen tamrùat",
-    "example_meaning": "子供の頃、警察官になりたかった"
+    "example": "ตอนเด็กเธออยากเป็นนักร้อง",
+    "example_reading": "tɔɔn dèk thəə yàak pen nákrɔ́ɔŋ",
+    "example_meaning": "子供の頃、彼女は歌手になりたかった"
   },
   {
     "id": 47,
@@ -559,9 +559,9 @@
     "pos": "adv",
     "importance": 2,
     "frequency": 4,
-    "example": "ตั้งแต่เมื่อวานยังไม่ได้พักเลย",
-    "example_reading": "tâŋtɛ̀ɛ mʉ̂awaan yaŋ mâi dâi phák ləəy",
-    "example_meaning": "昨日からまだまったく休んでいない"
+    "example": "ตั้งแต่เช้ายังไม่ได้กินข้าวเลย",
+    "example_reading": "tâŋ tɛ̀ɛ cháaw yaŋ mâi dâi kin khâaw ləəy",
+    "example_meaning": "朝からまだご飯を食べていません"
   },
   {
     "id": 48,
@@ -583,9 +583,9 @@
     "pos": "aux",
     "importance": 2,
     "frequency": 3,
-    "example": "กรุณาอย่าสูบบุหรี่ที่นี่",
-    "example_reading": "karúnaa yàa sùup bùrìi thîinîi",
-    "example_meaning": "ここでタバコを吸わないでください"
+    "example": "กรุณาอย่าวิ่งในห้องสมุด",
+    "example_reading": "karúnaa yàa wîŋ nai hôŋsamùt",
+    "example_meaning": "図書館の中では走らないでください"
   },
   {
     "id": 50,
@@ -607,9 +607,9 @@
     "pos": "verb",
     "importance": 2,
     "frequency": 3,
-    "example": "คุณสนใจอะไรในประเทศไทย",
-    "example_reading": "khun sǒncai arai nai pràthêet thai",
-    "example_meaning": "あなたはタイの何に興味がありますか？"
+    "example": "เขาสนใจเรื่องประวัติศาสตร์ญี่ปุ่น",
+    "example_reading": "khǎo sǒncai rʉ̂aŋ pràwàtisàat yîipùn",
+    "example_meaning": "彼は日本の歴史に興味があります"
   },
   {
     "id": 52,
@@ -619,9 +619,9 @@
     "pos": "verb",
     "importance": 2,
     "frequency": 4,
-    "example": "คนไทยเรียกรถไฟฟ้าว่า BTS",
-    "example_reading": "khon thai rîak rótfaifáa wâa BTS",
-    "example_meaning": "タイ人は電車をBTSと呼びます"
+    "example": "คนญี่ปุ่นเรียกรถไฟว่าเดนฉะ",
+    "example_reading": "khon yîipùn rîak rótfai wâa densha",
+    "example_meaning": "日本人は電車を「でんしゃ」と呼びます"
   },
   {
     "id": 53,
@@ -667,9 +667,9 @@
     "pos": "verb",
     "importance": 2,
     "frequency": 4,
-    "example": "ช่วยบอกที่อยู่ของคุณหน่อย",
-    "example_reading": "chûay bòok thîiyùu khɔ̌ɔŋ khun nɔ̀y",
-    "example_meaning": "あなたの住所を教えてください"
+    "example": "ช่วยบอกเบอร์โทรศัพท์ของคุณหน่อยได้ไหม",
+    "example_reading": "chûay bòok bəə thoorasàp khɔ̌ɔŋ khun nɔ̀y dâi mǎi",
+    "example_meaning": "あなたの電話番号を教えていただけますか？"
   },
   {
     "id": 57,
@@ -691,9 +691,9 @@
     "pos": "verb",
     "importance": 2,
     "frequency": 3,
-    "example": "ช่วยเขียนชื่อตรงนี้ให้หน่อย",
-    "example_reading": "chûay khǐian chʉ̂ʉ troŋ níi hâi nɔ̀y",
-    "example_meaning": "ここに名前を書いてください"
+    "example": "ช่วยเขียนวันเดือนปีเกิดตรงนี้ด้วยนะ",
+    "example_reading": "chûay khǐian wan dʉan pii kəət troŋ níi dûay ná",
+    "example_meaning": "ここに生年月日を書いてくださいね"
   },
   {
     "id": 59,
@@ -715,9 +715,9 @@
     "pos": "verb",
     "importance": 2,
     "frequency": 3,
-    "example": "ลองใส่ดูได้ไหม",
-    "example_reading": "looŋ sài duu dâi mǎi",
-    "example_meaning": "試着してもいいですか？"
+    "example": "ขอลองชิมเมนูนี้ได้ไหมครับ",
+    "example_reading": "khɔ̌ɔ looŋ chim meenuu níi dâi mǎi khráp",
+    "example_meaning": "このメニューを試食してもいいですか？"
   },
   {
     "id": 61,
@@ -751,9 +751,9 @@
     "pos": "verb",
     "importance": 2,
     "frequency": 3,
-    "example": "ต้องการจองโต๊ะอาหารครับ",
-    "example_reading": "tɔ̂ŋkaan cɔɔŋ tó aahǎan khráp",
-    "example_meaning": "席の予約をしたいです"
+    "example": "อยากจะจองห้องพักสำหรับคืนนี้",
+    "example_reading": "yàak cà cɔɔŋ hôŋphák sǎmràp khʉʉnníi",
+    "example_meaning": "今夜の部屋を予約したいのですが"
   },
   {
     "id": 64,
@@ -775,9 +775,9 @@
     "pos": "verb",
     "importance": 2,
     "frequency": 3,
-    "example": "เมื่อวานนี้คุณตื่นกี่โมง",
-    "example_reading": "mʉ̂awaan níi khun tʉ̀ʉn kìi mooŋ",
-    "example_meaning": "昨日あなたは何時に起きましたか？"
+    "example": "เช้าวันนี้คุณตื่นกี่โมง",
+    "example_reading": "cháaw wanníi khun tʉ̀ʉn kìi mooŋ",
+    "example_meaning": "今朝あなたは何時に起きましたか？"
   },
   {
     "id": 66,
@@ -799,9 +799,9 @@
     "pos": "verb",
     "importance": 2,
     "frequency": 2,
-    "example": "ดิฉันอยากจะถอนเงินจากธนาคาร",
-    "example_reading": "dichán yàak cà thɔ̌ɔn ŋən càak thanaakhaan",
-    "example_meaning": "私は銀行でお金を引き出したい"
+    "example": "เขาอยากจะฝากเงินเข้าบัญชี",
+    "example_reading": "khǎo yàak cà fàak ŋən khâo bancii",
+    "example_meaning": "彼は口座にお金を預けたいです"
   },
   {
     "id": 68,
@@ -859,9 +859,9 @@
     "pos": "adj",
     "importance": 2,
     "frequency": 4,
-    "example": "มือถือเครื่องนั้นราคาแพง",
-    "example_reading": "mʉʉthʉ̌ʉ khrʉ̂aŋ nán raakhaa phɛɛŋ",
-    "example_meaning": "あの携帯電話は値段が高いです"
+    "example": "กระเป๋าใบนั้นราคาแพงมากเลย",
+    "example_reading": "kràpǎo bai nán raakhaa phɛɛŋ mâak ləəy",
+    "example_meaning": "あのかばんはとても値段が高いです"
   },
   {
     "id": 73,
@@ -871,9 +871,9 @@
     "pos": "adj",
     "importance": 2,
     "frequency": 3,
-    "example": "ที่จตุจักรมีของเยอะและราคาถูก",
-    "example_reading": "thîi càtùcàk mii khɔ̌ɔŋ yə́ lɛ́ raakhaa thùuk",
-    "example_meaning": "チャトチャックは物が多くて値段が安い"
+    "example": "ที่ตลาดนัดมีของเยอะและราคาถูก",
+    "example_reading": "thîi talàatnát mii khɔ̌ɔŋ yə́ lɛ́ raakhaa thùuk",
+    "example_meaning": "フリーマーケットは品物が多くて値段が安いです"
   },
   {
     "id": 74,
@@ -883,9 +883,9 @@
     "pos": "adj",
     "importance": 2,
     "frequency": 4,
-    "example": "วันนี้อากาศร้อนมาก",
-    "example_reading": "wanníi aakàat rɔ́ɔn mâak",
-    "example_meaning": "今日はとても暑いです"
+    "example": "ช่วงหน้าร้อนที่เมืองไทยร้อนมาก",
+    "example_reading": "chûaŋ nâarɔ́ɔn thîi mʉaŋthai rɔ́ɔn mâak",
+    "example_meaning": "タイの夏の時期はとても暑いです"
   },
   {
     "id": 75,
@@ -907,9 +907,9 @@
     "pos": "adj",
     "importance": 2,
     "frequency": 3,
-    "example": "ผมสูงกว่าพี่สาว",
-    "example_reading": "phǒm sǔuŋ kwàa phîisǎaw",
-    "example_meaning": "私は姉より背が高い"
+    "example": "น้องชายสูงกว่าพ่อแล้ว",
+    "example_reading": "nɔ́ɔŋchaay sǔuŋ kwàa phɔ̂ɔ lɛ́ɛw",
+    "example_meaning": "弟はもう父より背が高くなりました"
   },
   {
     "id": 77,
@@ -943,9 +943,9 @@
     "pos": "adj",
     "importance": 2,
     "frequency": 3,
-    "example": "ภาษาไทยยากแต่สนุก",
-    "example_reading": "phaasǎa thai yâak tɛ̀ɛ sanùk",
-    "example_meaning": "タイ語は難しいが楽しい"
+    "example": "อาหารร้านนี้เผ็ดแต่อร่อยมาก",
+    "example_reading": "aahǎan ráan níi phèt tɛ̀ɛ aròy mâak",
+    "example_meaning": "この店の料理は辛いが、とても美味しいです"
   },
   {
     "id": 80,
@@ -955,9 +955,9 @@
     "pos": "adj",
     "importance": 2,
     "frequency": 3,
-    "example": "วันนี้ผมไม่ว่าง",
-    "example_reading": "wanníi phǒm mâi wâaŋ",
-    "example_meaning": "今日、僕は空いていません"
+    "example": "สัปดาห์หน้าผมไม่ว่างเลย",
+    "example_reading": "sàpdaa nâa phǒm mâi wâaŋ ləəy",
+    "example_meaning": "来週は全く空いていません"
   },
   {
     "id": 81,
@@ -979,9 +979,9 @@
     "pos": "adj",
     "importance": 2,
     "frequency": 3,
-    "example": "บ้านอยู่ไกลจากสถานีรถไฟ",
-    "example_reading": "bâan yùu klai càak sàthǎanii rótfai",
-    "example_meaning": "家は駅から遠くにあります"
+    "example": "บ้านของเขาอยู่ไกลจากสถานีมาก",
+    "example_reading": "bâan khɔ̌ɔŋ khǎo yùu klai càak sàthǎanii mâak",
+    "example_meaning": "彼の家は駅からとても遠いです"
   },
   {
     "id": 83,
@@ -991,9 +991,9 @@
     "pos": "q",
     "importance": 3,
     "frequency": 5,
-    "example": "เมื่อวานนี้คุณกลับบ้านกี่โมง",
-    "example_reading": "mʉ̂awaan níi khun klàp bâan kìi mooŋ",
-    "example_meaning": "昨日あなたは何時に家に帰りましたか？"
+    "example": "เมื่อวานคุณเลิกงานกี่โมง",
+    "example_reading": "mʉ̂awaan khun lêek ŋaan kìi mooŋ",
+    "example_meaning": "昨日あなたは何時に仕事が終わりましたか？"
   },
   {
     "id": 84,
@@ -1003,9 +1003,9 @@
     "pos": "q",
     "importance": 3,
     "frequency": 5,
-    "example": "ค่าห้องเดือนละเท่าไหร่",
-    "example_reading": "khâa hôŋ dʉan lá thâurài",
-    "example_meaning": "家賃はひと月いくらですか？"
+    "example": "ค่าตั๋วเครื่องบินไปเชียงใหม่เท่าไหร่",
+    "example_reading": "khâa tǔa khrʉ̂aŋbin pai chiiaŋmài thâurài",
+    "example_meaning": "チェンマイ行きの航空券はいくらですか？"
   },
   {
     "id": 85,
@@ -1015,9 +1015,9 @@
     "pos": "q",
     "importance": 3,
     "frequency": 4,
-    "example": "มีใครยังไม่ได้กินขนมปัง",
-    "example_reading": "mii khrai yaŋ mâi dâi kin khanǒmpaŋ",
-    "example_meaning": "パンをまだ食べていない人はいますか？"
+    "example": "มีใครยังไม่ได้รับของขวัญบ้าง",
+    "example_reading": "mii khrai yaŋ mâi dâi ráp khɔ̌ɔŋkhwǎn bâaŋ",
+    "example_meaning": "プレゼントをまだもらっていない人はいますか？"
   },
   {
     "id": 86,
@@ -1051,9 +1051,9 @@
     "pos": "q",
     "importance": 2,
     "frequency": 2,
-    "example": "คุณเคยนั่งรถเมล์หรือยัง",
-    "example_reading": "khun khəəy nâŋ rótmee rʉ́ yaŋ",
-    "example_meaning": "あなたはバスに乗ったことがありますか？"
+    "example": "คุณเคยกินต้มยำกุ้งหรือยัง",
+    "example_reading": "khun khəəy kin tôm yam kûŋ rʉ́ yaŋ",
+    "example_meaning": "あなたはトムヤムクンを食べたことがありますか？"
   },
   {
     "id": 89,
@@ -1063,9 +1063,9 @@
     "pos": "cl",
     "importance": 2,
     "frequency": 4,
-    "example": "ในห้องมีกระเป๋าอยู่สามใบ",
-    "example_reading": "nai hôŋ mii kràpǎo yùu sǎam bai",
-    "example_meaning": "部屋の中にかばんが3個あります"
+    "example": "บนโต๊ะมีแก้วอยู่สามใบ",
+    "example_reading": "bon tó mii kɛ̂ɛw yùu sǎam bai",
+    "example_meaning": "テーブルの上にグラスが3個あります"
   },
   {
     "id": 90,
@@ -1075,9 +1075,9 @@
     "pos": "cl",
     "importance": 3,
     "frequency": 4,
-    "example": "นักเรียนในห้องนี้มีทั้งหมดสามสิบคน",
-    "example_reading": "nákrian nai hôŋ níi mii tháŋmòt sǎamsìp khon",
-    "example_meaning": "この部屋には全部で30人の生徒がいます"
+    "example": "ในทัวร์นี้มีนักท่องเที่ยวทั้งหมดยี่สิบคน",
+    "example_reading": "nai thuua níi mii nákthoŋthîiaw tháŋmòt yîisìp khon",
+    "example_meaning": "このツアーには観光客が全部で20人います"
   },
   {
     "id": 91,
@@ -1087,9 +1087,9 @@
     "pos": "cl",
     "importance": 2,
     "frequency": 3,
-    "example": "ดิฉันเรียนภาษาไทยวันละสี่ชั่วโมง",
-    "example_reading": "dichán riian phaasǎa thai wan lá sìi chûamooŋ",
-    "example_meaning": "私はタイ語を1日4時間勉強します"
+    "example": "เขาออกกำลังกายวันละสองชั่วโมง",
+    "example_reading": "khǎo ɔ̀ɔkkamlǎŋkaay wan lá sɔ̌ɔŋ chûamooŋ",
+    "example_meaning": "彼は1日2時間運動します"
   },
   {
     "id": 92,
@@ -1099,9 +1099,9 @@
     "pos": "cl",
     "importance": 2,
     "frequency": 2,
-    "example": "ขอก๋วยเตี๋ยวสองชาม",
-    "example_reading": "khɔ̌ɔ kǔaytǐaw sɔ̌ɔŋ chaam",
-    "example_meaning": "クイティオを2杯ください"
+    "example": "ขอข้าวผัดหนึ่งจานครับ",
+    "example_reading": "khɔ̌ɔ khâaw phàt nʉŋ caan khráp",
+    "example_meaning": "チャーハンを1皿ください"
   },
   {
     "id": 93,
@@ -1111,9 +1111,9 @@
     "pos": "adv",
     "importance": 3,
     "frequency": 8,
-    "example": "วันนี้อากาศดีไม่ค่อยร้อน",
-    "example_reading": "wanníi aakàat dii mâi khôy rɔ́ɔn",
-    "example_meaning": "今日は天気が良く、あまり暑くない"
+    "example": "วันนี้อากาศดีไม่ค่อยหนาว",
+    "example_reading": "wanníi aakàat dii mâi khôy nǎaw",
+    "example_meaning": "今日は天気が良く、あまり寒くない"
   },
   {
     "id": 94,
@@ -1123,9 +1123,9 @@
     "pos": "adv",
     "importance": 3,
     "frequency": 5,
-    "example": "เมื่อวานผมไปกินข้าวกับคุณสมศรี",
-    "example_reading": "mʉ̂awaan phǒm pai kin khâaw kàp khun sǒmsǐi",
-    "example_meaning": "昨日、私はソムシーさんと食事に行きました"
+    "example": "เมื่อวานเธอไปช้อปปิ้งกับเพื่อน",
+    "example_reading": "mʉ̂awaan thəə pai chɔ́ppîŋ kàp phʉ̂an",
+    "example_meaning": "昨日、彼女は友達と買い物に行きました"
   },
   {
     "id": 95,
@@ -1135,9 +1135,9 @@
     "pos": "adv",
     "importance": 3,
     "frequency": 4,
-    "example": "พรุ่งนี้คุณจะไปออกกำลังกายไหม",
-    "example_reading": "phrûŋníi khun cà pai ɔ̀ɔkkamlǎŋkaay mǎi",
-    "example_meaning": "明日、あなたは運動に行くつもりですか？"
+    "example": "พรุ่งนี้คุณจะว่างไหม",
+    "example_reading": "phrûŋníi khun cà wâaŋ mǎi",
+    "example_meaning": "明日、あなたは空いていますか？"
   },
   {
     "id": 96,
@@ -1171,9 +1171,9 @@
     "pos": "adv",
     "importance": 2,
     "frequency": 2,
-    "example": "ปกติดิฉันไปนวดบ่อยๆ",
-    "example_reading": "pàkàtì dichán pai nûat bɔ̀ibɔ̀i",
-    "example_meaning": "普段、私は頻繁にマッサージに行きます"
+    "example": "ปกติเขาตื่นนอนเช้ามากเลย",
+    "example_reading": "pàkàtì khǎo tʉ̀ʉn nɔɔn cháaw mâak ləəy",
+    "example_meaning": "普段、彼はとても早起きします"
   },
   {
     "id": 99,
@@ -1183,9 +1183,9 @@
     "pos": "prep",
     "importance": 1,
     "frequency": 2,
-    "example": "กรุณาส่งรายงานภายในวันพรุ่งนี้",
-    "example_reading": "karúnaa sòŋ raayŋaan phaay nay wan phrûŋníi",
-    "example_meaning": "明日までにレポートを送ってください"
+    "example": "กรุณาส่งเอกสารภายในวันศุกร์นี้",
+    "example_reading": "karúnaa sòŋ eekkasǎan phaay nay wan sùk níi",
+    "example_meaning": "今週金曜日までに書類を送ってください"
   },
   {
     "id": 100,
@@ -1195,9 +1195,9 @@
     "pos": "conj",
     "importance": 2,
     "frequency": 5,
-    "example": "ผมไปญี่ปุ่นไม่ได้เพราะว่าต้องไปประชุมที่ภูเก็ต",
-    "example_reading": "phǒm pai yîipùn mâi dâi phrɔ́wâa tɔ̂ŋ pai pràchum thîi phuukèt",
-    "example_meaning": "プーケットで会議があるので、日本に行くことができません"
+    "example": "เขาไปงานไม่ได้เพราะว่าป่วยอยู่",
+    "example_reading": "khǎo pai ŋaan mâi dâi phrɔ́wâa pùay yùu",
+    "example_meaning": "彼は体調が悪いので行事に行けません"
   },
   {
     "id": 101,
@@ -1207,9 +1207,9 @@
     "pos": "conj",
     "importance": 3,
     "frequency": 5,
-    "example": "ภาษาไทยยากแต่สนุก",
-    "example_reading": "phaasǎa thai yâak tɛ̀ɛ sanùk",
-    "example_meaning": "タイ語は難しいが楽しい"
+    "example": "การบ้านเยอะแต่เขาก็ทำเสร็จได้",
+    "example_reading": "kaanbâan yə́ tɛ̀ɛ khǎo kɔ̂ɔ tham sèt dâi",
+    "example_meaning": "宿題が多いが、彼はそれでも終わらせることができました"
   },
   {
     "id": 102,
@@ -1219,9 +1219,9 @@
     "pos": "conj",
     "importance": 2,
     "frequency": 3,
-    "example": "เขาไม่สบายจึงไม่ไปสอบ",
-    "example_reading": "khǎo mâi sabaay cʉŋ mâi pai sɔ̀ɔp",
-    "example_meaning": "彼は体調が悪かったので、試験を受けに行きませんでした"
+    "example": "ฝนตกหนักจึงไม่ได้ออกไปข้างนอก",
+    "example_reading": "fǒn tòk nàk cʉŋ mâi dâi ɔ̀ɔk pai khâaŋnɔ̂ɔk",
+    "example_meaning": "雨が激しく降ったので外に出られませんでした"
   },
   {
     "id": 103,
@@ -1231,9 +1231,9 @@
     "pos": "prep",
     "importance": 3,
     "frequency": 4,
-    "example": "ดิฉันทำงานตั้งแต่แปดโมงถึงเที่ยง",
-    "example_reading": "dichán tham ŋaan tâŋtɛ̀ɛ pɛ̀ɛt mooŋ thʉ̌ŋ thîiaŋ",
-    "example_meaning": "私は8時から正午まで仕事をします"
+    "example": "เขาทำงานตั้งแต่เช้าถึงเย็นทุกวัน",
+    "example_reading": "khǎo thamŋaan tâŋ tɛ̀ɛ cháaw thʉ̌ŋ yen thúk wan",
+    "example_meaning": "彼は毎日朝から夕方まで仕事をします"
   },
   {
     "id": 104,
@@ -1243,9 +1243,9 @@
     "pos": "conj",
     "importance": 2,
     "frequency": 4,
-    "example": "หลังจากประชุมเสร็จดิฉันก็กลับบ้าน",
-    "example_reading": "lǎŋ càak pràchum sèt dichán kɔ̂ɔ klàp bâan",
-    "example_meaning": "会議を終えた後、私も家に帰ります"
+    "example": "หลังจากเลิกเรียนเขาก็กลับบ้านทันที",
+    "example_reading": "lǎŋ càak lêek riian khǎo kɔ̂ɔ klàp bâan thantii",
+    "example_meaning": "授業が終わった後、彼はすぐに家に帰りました"
   },
   {
     "id": 105,
@@ -1255,9 +1255,9 @@
     "pos": "conj",
     "importance": 3,
     "frequency": 9,
-    "example": "วันนี้คุณทำงานตั้งแต่กี่โมงถึงกี่โมง",
-    "example_reading": "wanníi khun tham ŋaan tâŋtɛ̀ɛ kìi mooŋ thʉ̌ŋ kìi mooŋ",
-    "example_meaning": "今日、あなたは何時から何時まで仕事をしますか？"
+    "example": "คุณเรียนภาษาไทยตั้งแต่กี่โมงถึงกี่โมง",
+    "example_reading": "khun riian phaasǎa thai tâŋ tɛ̀ɛ kìi mooŋ thʉ̌ŋ kìi mooŋ",
+    "example_meaning": "あなたは何時から何時までタイ語を勉強しますか？"
   },
   {
     "id": 106,
@@ -1291,9 +1291,9 @@
     "pos": "prep",
     "importance": 2,
     "frequency": 2,
-    "example": "ฝากข้อความหลังจากดังสัญญาณ",
-    "example_reading": "fàak khôɔkhwaam lǎŋ dâaŋ sǎnyaan",
-    "example_meaning": "発信音の後にメッセージを残してください"
+    "example": "ช่วงนี้เขายุ่งมากระหว่างงานสองโครงการ",
+    "example_reading": "chûaŋ níi khǎo yûŋ mâak ráwàaŋ ŋaan sɔ̌ɔŋ khrooŋkaan",
+    "example_meaning": "この頃、彼は2つのプロジェクトの間でとても忙しいです"
   },
   {
     "id": 109,
@@ -1315,9 +1315,9 @@
     "pos": "prep",
     "importance": 2,
     "frequency": 3,
-    "example": "โรงเรียนของผมอยู่ข้างๆ ห้าง",
-    "example_reading": "rooŋrian khɔ̌ɔŋ phǒm yùu khâaŋkhâaŋ hâaŋ",
-    "example_meaning": "私の学校はデパートの隣にあります"
+    "example": "ร้านกาแฟอยู่ข้างๆ ห้องสมุด",
+    "example_reading": "ráan kaafɛɛ yùu khâaŋkhâaŋ hôŋsamùt",
+    "example_meaning": "カフェは図書館の隣にあります"
   },
   {
     "id": 111,
@@ -1363,9 +1363,9 @@
     "pos": "prep",
     "importance": 2,
     "frequency": 3,
-    "example": "กรุณาฝากข้อความหลังจากดังสัญญาณ",
-    "example_reading": "karúnaa fàak khôɔkhwaam lǎŋ càak daŋ sǎnyaan",
-    "example_meaning": "発信音の後にメッセージを残してください"
+    "example": "กรุณาวางสัมภาระหลังจากขึ้นเครื่องบิน",
+    "example_reading": "karúnaa waaŋ sǎmpháará lǎŋ càak khʉ̂n khrʉ̂aŋbin",
+    "example_meaning": "飛行機に搭乗した後、荷物を置いてください"
   },
   {
     "id": 115,
@@ -1435,9 +1435,9 @@
     "pos": "aux",
     "importance": 2,
     "frequency": 4,
-    "example": "วันนี้อากาศดีไม่ค่อยร้อน",
-    "example_reading": "wanníi aakàat dii mâi khôy rɔ́ɔn",
-    "example_meaning": "今日は天気が良く、あまり暑くない"
+    "example": "วันนี้ฝนไม่ค่อยตก",
+    "example_reading": "wanníi fǒn mâi khôy tòk",
+    "example_meaning": "今日はあまり雨が降っていません"
   },
   {
     "id": 121,
@@ -1447,9 +1447,9 @@
     "pos": "neg",
     "importance": 3,
     "frequency": 9,
-    "example": "ตั้งแต่เมื่อวานยังไม่ได้พักเลย",
-    "example_reading": "tâŋtɛ̀ɛ mʉ̂awaan yaŋ mâi dâi phák ləəy",
-    "example_meaning": "昨日からまだまったく休んでいない"
+    "example": "ตั้งแต่เช้าเขายังไม่ได้พักเลย",
+    "example_reading": "tâŋ tɛ̀ɛ cháaw khǎo yaŋ mâi dâi phák ləəy",
+    "example_meaning": "朝からずっと彼はまったく休んでいません"
   },
   {
     "id": 122,
@@ -1471,9 +1471,9 @@
     "pos": "aux",
     "importance": 2,
     "frequency": 4,
-    "example": "ขอถามหน่อยได้ไหม",
-    "example_reading": "khɔ̌ɔ thǎam nɔ̀y dâi mǎi",
-    "example_meaning": "ちょっと質問してもいいですか？"
+    "example": "ขอดูเมนูหน่อยได้ไหมครับ",
+    "example_reading": "khɔ̌ɔ duu meenuu nɔ̀y dâi mǎi khráp",
+    "example_meaning": "メニューを見せていただけますか？"
   },
   {
     "id": 124,
@@ -1543,9 +1543,9 @@
     "pos": "adv",
     "importance": 2,
     "frequency": 3,
-    "example": "คุณทาเคชิจะอยู่เมืองไทยอีกสองปี",
-    "example_reading": "khun thaakeshi cà yùu mʉaŋthai ìik sɔ̌ɔŋ pii",
-    "example_meaning": "タケシさんはあと2年タイにいるつもりです"
+    "example": "เธอจะอยู่กรุงเทพอีกสามเดือน",
+    "example_reading": "thəə cà yùu kruŋthêep ìik sǎam dʉan",
+    "example_meaning": "彼女はあと3ヶ月バンコクにいるつもりです"
   },
   {
     "id": 130,
@@ -1555,9 +1555,9 @@
     "pos": "adv",
     "importance": 2,
     "frequency": 2,
-    "example": "นักเรียนในห้องนี้มีทั้งหมดสามสิบคน",
-    "example_reading": "nákrian nai hôŋ níi mii tháŋmòt sǎamsìp khon",
-    "example_meaning": "この部屋には全部で30人の生徒がいます"
+    "example": "ในกลุ่มนี้มีสมาชิกทั้งหมดสิบห้าคน",
+    "example_reading": "nai klùm níi mii samáachík tháŋmòt sìphâa khon",
+    "example_meaning": "このグループには全部で15人のメンバーがいます"
   },
   {
     "id": 131,
@@ -1591,8 +1591,8 @@
     "pos": "adv",
     "importance": 2,
     "frequency": 2,
-    "example": "กรุณารอสักครู่",
-    "example_reading": "karúnaa rɔɔ sàk khrûu",
+    "example": "กรุณารอสักครู่นะครับ",
+    "example_reading": "karúnaa rɔɔ sàk khrûu ná khráp",
     "example_meaning": "少々お待ちください"
   },
   {
@@ -1603,9 +1603,9 @@
     "pos": "cl",
     "importance": 2,
     "frequency": 2,
-    "example": "ช่วยพูดอีกครั้งได้ไหม",
-    "example_reading": "chûay phûut ìik khráŋ dâi mǎi",
-    "example_meaning": "もう一度言っていただけますか？"
+    "example": "ขอพูดอีกครั้งได้ไหมครับ",
+    "example_reading": "khɔ̌ɔ phûut ìik khráŋ dâi mǎi khráp",
+    "example_meaning": "もう一度おっしゃっていただけますか？"
   },
   {
     "id": 135,
@@ -1627,9 +1627,9 @@
     "pos": "cl",
     "importance": 1,
     "frequency": 2,
-    "example": "ฮัลโหล ขอสายคุณติ๊กหน่อย",
-    "example_reading": "halǒo khɔ̌ɔ sǎay khun tík nɔ̀y",
-    "example_meaning": "もしもし、ティックさんをお願いします"
+    "example": "ฮัลโหล ขอสายคุณมาลีหน่อยค่ะ",
+    "example_reading": "halǒo khɔ̌ɔ sǎay khun maarii nɔ̀y khâ",
+    "example_meaning": "もしもし、マリーさんをお願いします"
   },
   {
     "id": 137,
@@ -1675,9 +1675,9 @@
     "pos": "n",
     "importance": 2,
     "frequency": 2,
-    "example": "วันนี้คุณแดงใส่เสื้อสีม่วง",
-    "example_reading": "wanníi khun dɛɛŋ sài sʉ̂a sǐi mûaŋ",
-    "example_meaning": "今日、デーンさんは紫色の服を着ています"
+    "example": "วันนี้เธอใส่เสื้อสีฟ้ามาทำงาน",
+    "example_reading": "wanníi thəə sài sʉ̂a sǐi fáa maa thamŋaan",
+    "example_meaning": "今日、彼女は水色の服を着て仕事に来ました"
   },
   {
     "id": 141,
@@ -1699,9 +1699,9 @@
     "pos": "n",
     "importance": 2,
     "frequency": 2,
-    "example": "เมื่อวานนี้ดิฉันใส่เสื้อสีชมพู",
-    "example_reading": "mʉ̂awaanníi dichán sài sʉ̂a sǐi chomphuu",
-    "example_meaning": "昨日、私はピンク色の服を着ていました"
+    "example": "เมื่อวานเขาใส่เสื้อสีเหลืองไปงาน",
+    "example_reading": "mʉ̂awaan khǎo sài sʉ̂a sǐi lʉaŋ pai ŋaan",
+    "example_meaning": "昨日、彼は黄色い服を着てパーティーに行きました"
   },
   {
     "id": 143,
@@ -1723,9 +1723,9 @@
     "pos": "n",
     "importance": 3,
     "frequency": 3,
-    "example": "โรงเรียนของผมอยู่ข้างๆ ห้าง",
-    "example_reading": "rooŋrian khɔ̌ɔŋ phǒm yùu khâaŋkhâaŋ hâaŋ",
-    "example_meaning": "私の学校はデパートの隣にあります"
+    "example": "ธนาคารอยู่ข้างๆ ร้านสะดวกซื้อ",
+    "example_reading": "thanaakhaan yùu khâaŋkhâaŋ ráan sàduakcʉ́ʉ",
+    "example_meaning": "銀行はコンビニの隣にあります"
   },
   {
     "id": 145,
@@ -1747,9 +1747,9 @@
     "pos": "n",
     "importance": 3,
     "frequency": 3,
-    "example": "เมื่อวานตอนสิบเอ็ดโมงผมอยู่ที่สนามบิน",
-    "example_reading": "mʉ̂awaan tɔɔn sìpèt mooŋ phǒm yùu thîi sanǎambin",
-    "example_meaning": "昨日の11時、僕は空港にいました"
+    "example": "ตอนเย็นผมรออยู่ที่สนามบินสองชั่วโมง",
+    "example_reading": "tɔɔn yen phǒm rɔɔ yùu thîi sanǎambin sɔ̌ɔŋ chûamooŋ",
+    "example_meaning": "夕方、私は空港で2時間待ちました"
   },
   {
     "id": 147,
@@ -1759,9 +1759,9 @@
     "pos": "n",
     "importance": 2,
     "frequency": 3,
-    "example": "บ้านอยู่ไกลจากสถานีรถไฟ",
-    "example_reading": "bâan yùu klai càak sàthǎanii rótfai",
-    "example_meaning": "家は駅から遠くにあります"
+    "example": "โรงเรียนอยู่ไกลจากบ้านมากไหม",
+    "example_reading": "rooŋrian yùu klai càak bâan mâak mǎi",
+    "example_meaning": "学校は家からとても遠いですか？"
   },
   {
     "id": 148,
@@ -1771,9 +1771,9 @@
     "pos": "n",
     "importance": 2,
     "frequency": 2,
-    "example": "ดิฉันอยากจะถอนเงินจากธนาคาร",
-    "example_reading": "dichán yàak cà thɔ̌ɔn ŋən càak thanaakhaan",
-    "example_meaning": "私は銀行でお金を引き出したい"
+    "example": "เธออยากจะส่งเงินกลับบ้าน",
+    "example_reading": "thəə yàak cà sòŋ ŋən klàp bâan",
+    "example_meaning": "彼女は実家へお金を送りたいです"
   },
   {
     "id": 149,
@@ -1783,9 +1783,9 @@
     "pos": "n",
     "importance": 2,
     "frequency": 3,
-    "example": "อาทิตย์หน้าดิฉันจะซื้อรองเท้าที่ห้าง",
-    "example_reading": "aathít nâa dichán cà sʉ́ʉ rɔɔŋtháaw thîi hâaŋ",
-    "example_meaning": "来週、私はデパートで靴を買うつもりです"
+    "example": "เดือนหน้าเขาจะซื้อรถใหม่",
+    "example_reading": "dʉan nâa khǎo cà sʉ́ʉ rót mài",
+    "example_meaning": "来月、彼は新車を買うつもりです"
   },
   {
     "id": 150,
@@ -1795,9 +1795,9 @@
     "pos": "n",
     "importance": 2,
     "frequency": 3,
-    "example": "ร้านของคุณสมศรีอยู่แถวไหน",
-    "example_reading": "ráan khɔ̌ɔŋ khun sǒmsǐi yùu thɛ̌wnǎi",
-    "example_meaning": "ソムシーさんのお店はどの辺りにありますか？"
+    "example": "ร้านอาหารของเพื่อนอยู่แถวสีลม",
+    "example_reading": "ráan aahǎan khɔ̌ɔŋ phʉ̂an yùu thɛ̌w sǐilom",
+    "example_meaning": "友達のレストランはシーロム周辺にあります"
   },
   {
     "id": 151,
@@ -1855,9 +1855,9 @@
     "pos": "n",
     "importance": 2,
     "frequency": 3,
-    "example": "ดิฉันกลับบ้านโดยรถยนต์เป็นประจำ",
-    "example_reading": "dichán klàp bâan dooy rótyon pen pràcam",
-    "example_meaning": "私はいつも車で家に帰ります"
+    "example": "เขากลับบ้านโดยรถเมล์ทุกวัน",
+    "example_reading": "khǎo klàp bâan dooy rótmee thúk wan",
+    "example_meaning": "彼は毎日バスで家に帰ります"
   },
   {
     "id": 156,
@@ -1867,9 +1867,9 @@
     "pos": "n",
     "importance": 2,
     "frequency": 3,
-    "example": "คนไทยเรียกรถไฟฟ้าว่า BTS",
-    "example_reading": "khon thai rîak rótfaifáa wâa BTS",
-    "example_meaning": "タイ人は電車をBTSと呼びます"
+    "example": "คนญี่ปุ่นเรียกแม่ว่าโอกาซัง",
+    "example_reading": "khon yîipùn rîak mɛ̂ɛ wâa okasan",
+    "example_meaning": "日本人はお母さんを「おかあさん」と呼びます"
   },
   {
     "id": 157,
@@ -1915,9 +1915,9 @@
     "pos": "n",
     "importance": 2,
     "frequency": 3,
-    "example": "มือถือเครื่องนั้นราคาแพง",
-    "example_reading": "mʉʉthʉ̌ʉ khrʉ̂aŋ nán raakhaa phɛɛŋ",
-    "example_meaning": "あの携帯電話は値段が高いです"
+    "example": "กระเป๋าใบนั้นราคาถูกมาก",
+    "example_reading": "kràpǎo bai nán raakhaa thùuk mâak",
+    "example_meaning": "あのかばんはとても値段が安いです"
   },
   {
     "id": 161,
@@ -1951,9 +1951,9 @@
     "pos": "n",
     "importance": 3,
     "frequency": 3,
-    "example": "วันนี้ดิฉันกินอาหารเช้าเยอะ",
-    "example_reading": "wanníi dichán kin aahǎan cháaw yə́",
-    "example_meaning": "今日、私は朝食をたくさん食べた"
+    "example": "เช้านี้เขากินอาหารเช้าที่โรงแรม",
+    "example_reading": "cháaw níi khǎo kin aahǎan cháaw thîi rooŋrɛɛm",
+    "example_meaning": "今朝、彼はホテルで朝食を食べました"
   },
   {
     "id": 164,
@@ -1963,9 +1963,9 @@
     "pos": "n",
     "importance": 3,
     "frequency": 4,
-    "example": "ดิฉันกำลังกินข้าวอยู่",
-    "example_reading": "dichán kamlaŋ kin khâaw yùu",
-    "example_meaning": "私はご飯を食べています"
+    "example": "พี่สาวกำลังกินข้าวเย็นอยู่ที่บ้าน",
+    "example_reading": "phîisǎaw kamlaŋ kin khâaw yen yùu thîi bâan",
+    "example_meaning": "姉は家で夕食を食べているところです"
   },
   {
     "id": 165,
@@ -1975,9 +1975,9 @@
     "pos": "n",
     "importance": 3,
     "frequency": 3,
-    "example": "ที่นี่ขายน้ำเปล่าไหม",
-    "example_reading": "thîinîi khǎay nám plàao mǎi",
-    "example_meaning": "ここで水を売っていますか？"
+    "example": "ร้านนี้ขายกาแฟและชาหลายชนิด",
+    "example_reading": "ráan níi khǎay kaafɛɛ lɛ́ chaa lǎay chanít",
+    "example_meaning": "この店はコーヒーとお茶をたくさんの種類販売しています"
   },
   {
     "id": 166,
@@ -1999,9 +1999,9 @@
     "pos": "n",
     "importance": 2,
     "frequency": 2,
-    "example": "น้องชายจะพาหมาไปที่สวนสาธารณะ",
-    "example_reading": "nɔ́ɔŋchaay cà phaa mǎa pai thîi sǔansǎatharáná",
-    "example_meaning": "弟は犬を公園へ連れて行きます"
+    "example": "ทุกเช้าเธอพาแมวไปเดินเล่น",
+    "example_reading": "thúk cháaw thəə phaa mɛɛw pai dəən lên",
+    "example_meaning": "毎朝、彼女は猫を連れて散歩に行きます"
   },
   {
     "id": 168,
@@ -2011,9 +2011,9 @@
     "pos": "n",
     "importance": 2,
     "frequency": 2,
-    "example": "ที่บ้านคุณเลี้ยงแมวกี่ตัว",
-    "example_reading": "thîi bâan khun líaŋ mɛɛw kìi tua",
-    "example_meaning": "家で猫を何匹飼っていますか？"
+    "example": "ที่บ้านของเขาเลี้ยงหมาสองตัว",
+    "example_reading": "thîi bâan khɔ̌ɔŋ khǎo líaŋ mǎa sɔ̌ɔŋ tua",
+    "example_meaning": "彼の家では犬を2匹飼っています"
   },
   {
     "id": 169,
@@ -2023,9 +2023,9 @@
     "pos": "n",
     "importance": 2,
     "frequency": 3,
-    "example": "เขาถือหนังสือห้าเล่ม",
-    "example_reading": "khǎo thʉ̌ʉ nǎŋsʉ̌ʉ hâa lêm",
-    "example_meaning": "彼は本を5冊持っています"
+    "example": "นักเรียนคนนั้นถือสมุดสามเล่ม",
+    "example_reading": "nákrian khon nán thʉ̌ʉ sàmùt sǎam lêm",
+    "example_meaning": "あの生徒はノートを3冊持っています"
   },
   {
     "id": 170,
@@ -2059,9 +2059,9 @@
     "pos": "n",
     "importance": 2,
     "frequency": 2,
-    "example": "ผมอยากได้รองเท้ากับกระเป๋า",
-    "example_reading": "phǒm yàak dâi rɔɔŋtháaw kàp kràpǎo",
-    "example_meaning": "私は靴とかばんが欲しい"
+    "example": "เธออยากได้กระเป๋าใบใหม่",
+    "example_reading": "thəə yàak dâi kràpǎo bai mài",
+    "example_meaning": "彼女は新しいかばんが欲しいです"
   },
   {
     "id": 173,
@@ -2071,9 +2071,9 @@
     "pos": "n",
     "importance": 2,
     "frequency": 3,
-    "example": "คุณแม่ต้องการเสื้อกับกางเกงอย่างละสองตัว",
-    "example_reading": "khun mɛ̂ɛ tɔ̂ŋkaan sʉ̂a kàp kaaŋkeeŋ yàaŋlá sɔ̌ɔŋ tua",
-    "example_meaning": "お母さんはシャツとズボンが2着ずつ必要です"
+    "example": "พ่อต้องการเสื้อและกางเกงสำหรับงานเลี้ยง",
+    "example_reading": "phɔ̂ɔ tɔ̂ŋkaan sʉ̂a lɛ́ kaaŋkeeŋ sǎmràp ŋaanlíaŋ",
+    "example_meaning": "父はパーティー用のシャツとズボンが必要です"
   },
   {
     "id": 174,
@@ -2083,9 +2083,9 @@
     "pos": "n",
     "importance": 2,
     "frequency": 2,
-    "example": "ผมจะใส่กางเกงตัวนี้ครับ",
-    "example_reading": "phǒm cà sài kaaŋkeeŋ tua níi khráp",
-    "example_meaning": "私はこのズボンを履きます"
+    "example": "วันนี้เธอจะใส่กระโปรงสีแดง",
+    "example_reading": "wanníi thəə cà sài kràprooŋ sǐi dɛɛŋ",
+    "example_meaning": "今日、彼女は赤いスカートを履くつもりです"
   },
   {
     "id": 175,
@@ -2095,9 +2095,9 @@
     "pos": "n",
     "importance": 2,
     "frequency": 3,
-    "example": "เมื่อวานดิฉันทำมือถือหาย",
-    "example_reading": "mʉ̂awaan dichán tham mʉʉthʉ̌ʉ hǎay",
-    "example_meaning": "昨日、私は携帯電話を失くしました"
+    "example": "เมื่อวานเขาทำกุญแจบ้านหาย",
+    "example_reading": "mʉ̂awaan khǎo tham kuncɛɛ bâan hǎay",
+    "example_meaning": "昨日、彼は家の鍵をなくしてしまいました"
   },
   {
     "id": 176,
@@ -2119,9 +2119,9 @@
     "pos": "n",
     "importance": 2,
     "frequency": 3,
-    "example": "แม่ของฉันขับรถไม่เป็น",
-    "example_reading": "mɛ̂ɛ khɔ̌ɔŋ chán khàp rót mâi pen",
-    "example_meaning": "私の母は車の運転ができません"
+    "example": "พ่อของเขาขับรถไม่เป็นเลย",
+    "example_reading": "phɔ̂ɔ khɔ̌ɔŋ khǎo khàp rót mâi pen ləəy",
+    "example_meaning": "彼のお父さんは車の運転が全くできません"
   },
   {
     "id": 178,
@@ -2131,9 +2131,9 @@
     "pos": "n",
     "importance": 2,
     "frequency": 2,
-    "example": "พี่สาวสูงกว่าดิฉัน",
-    "example_reading": "phîisǎaw sǔuŋ kwàa dichán",
-    "example_meaning": "姉は私より背が高い"
+    "example": "น้องสาวสูงกว่าพี่ชายแล้ว",
+    "example_reading": "nɔ́ɔŋsǎaw sǔuŋ kwàa phîichaay lɛ́ɛw",
+    "example_meaning": "妹はもう兄より背が高くなりました"
   },
   {
     "id": 179,
@@ -2143,9 +2143,9 @@
     "pos": "n",
     "importance": 2,
     "frequency": 2,
-    "example": "น้องชายจะพาหมาไปสวนสาธารณะ",
-    "example_reading": "nɔ́ɔŋchaay cà phaa mǎa pai sǔansǎatharáná",
-    "example_meaning": "弟は犬を公園へ連れて行きます"
+    "example": "แม่พาลูกไปสวนสัตว์เมื่อวาน",
+    "example_reading": "mɛ̂ɛ phaa lûuk pai sǔansàt mʉ̂awaan",
+    "example_meaning": "お母さんは昨日子供を動物園に連れて行きました"
   },
   {
     "id": 180,
@@ -2167,9 +2167,9 @@
     "pos": "n",
     "importance": 3,
     "frequency": 3,
-    "example": "เมื่อวานดิฉันไปดูหนังกับเพื่อน",
-    "example_reading": "mʉ̂awaan dichán pai duu nǎŋ kàp phʉ̂an",
-    "example_meaning": "昨日、私は友達と映画を見に行きました"
+    "example": "เมื่อวานเขาไปคอนเสิร์ตกับเพื่อน",
+    "example_reading": "mʉ̂awaan khǎo pai khɔɔnsə̂ət kàp phʉ̂an",
+    "example_meaning": "昨日、彼は友達とコンサートに行きました"
   },
   {
     "id": 182,
@@ -2179,9 +2179,9 @@
     "pos": "n",
     "importance": 2,
     "frequency": 2,
-    "example": "ตอนบ่ายผมมีนัดกับลูกค้า",
-    "example_reading": "tɔɔn bàay phǒm mii nát kàp lûukkháa",
-    "example_meaning": "午後、私は顧客と約束があります"
+    "example": "ตอนเช้าเธอมีนัดกับหมอ",
+    "example_reading": "tɔɔn cháaw thəə mii nát kàp mɔ̌ɔ",
+    "example_meaning": "午前中、彼女は医者との約束があります"
   },
   {
     "id": 183,
@@ -2191,9 +2191,9 @@
     "pos": "n",
     "importance": 2,
     "frequency": 2,
-    "example": "ขณะนี้ที่โรงพยาบาลมีคนไข้เยอะมาก",
-    "example_reading": "khànàníi thîi rooŋphayaabaan mii khonkhâi yə́ mâak",
-    "example_meaning": "今、病院に患者がたくさんいます"
+    "example": "วันนี้ที่คลินิกมีคนไข้เยอะมาก",
+    "example_reading": "wanníi thîi khliiník mii khonkhâi yə́ mâak",
+    "example_meaning": "今日、クリニックに患者がたくさんいます"
   },
   {
     "id": 184,
@@ -2203,9 +2203,9 @@
     "pos": "n",
     "importance": 2,
     "frequency": 2,
-    "example": "อาจารย์สอนภาษาจีนให้ผม",
-    "example_reading": "aacaan sɔ̌ɔn phaasǎa ciin hâi phǒm",
-    "example_meaning": "先生は私に中国語を教えてくれます"
+    "example": "ครูสอนคณิตศาสตร์ให้นักเรียน",
+    "example_reading": "khruu sɔ̌ɔn khanìtsàat hâi nákrian",
+    "example_meaning": "先生は生徒に数学を教えています"
   },
   {
     "id": 185,
@@ -2227,9 +2227,9 @@
     "pos": "n",
     "importance": 2,
     "frequency": 2,
-    "example": "ตอนเด็กอยากเป็นตำรวจ",
-    "example_reading": "tɔɔn dèk yàak pen tamrùat",
-    "example_meaning": "子供の頃、警察官になりたかった"
+    "example": "ตอนเด็กเขาอยากเป็นนักบิน",
+    "example_reading": "tɔɔn dèk khǎo yàak pen nákbin",
+    "example_meaning": "子供の頃、彼はパイロットになりたかった"
   },
   {
     "id": 187,
@@ -2239,9 +2239,9 @@
     "pos": "n",
     "importance": 2,
     "frequency": 2,
-    "example": "ตอนเด็กดิฉันอยากเป็นพยาบาล",
-    "example_reading": "tɔɔn dèk dichán yàak pen phayaabaan",
-    "example_meaning": "子供の頃、私は看護師になりたかった"
+    "example": "ตอนเด็กเธออยากเป็นครู",
+    "example_reading": "tɔɔn dèk thəə yàak pen khruu",
+    "example_meaning": "子供の頃、彼女は先生になりたかった"
   },
   {
     "id": 188,
@@ -2251,9 +2251,9 @@
     "pos": "n",
     "importance": 2,
     "frequency": 2,
-    "example": "ตอนบ่ายผมมีนัดกับลูกค้า",
-    "example_reading": "tɔɔn bàay phǒm mii nát kàp lûukkháa",
-    "example_meaning": "午後、僕は顧客と約束があります"
+    "example": "พรุ่งนี้เธอมีนัดกับเพื่อนที่คาเฟ่",
+    "example_reading": "phrûŋníi thəə mii nát kàp phʉ̂an thîi kaaféê",
+    "example_meaning": "明日、彼女はカフェで友達と約束があります"
   },
   {
     "id": 189,
@@ -2275,9 +2275,9 @@
     "pos": "n",
     "importance": 3,
     "frequency": 4,
-    "example": "ถ้ามีเวลาดิฉันจะไปหาคุณ",
-    "example_reading": "thâa mii weelaa dichán cà pai hǎa khun",
-    "example_meaning": "もし時間があれば、あなたのところへ行くつもりです"
+    "example": "ถ้ามีโอกาสอยากไปเที่ยวยุโรป",
+    "example_reading": "thâa mii òokàat yàak pai thîiaw yúurôop",
+    "example_meaning": "もし機会があればヨーロッパへ旅行したいです"
   },
   {
     "id": 191,
@@ -2287,9 +2287,9 @@
     "pos": "n",
     "importance": 2,
     "frequency": 3,
-    "example": "คุณทาเคชิจะอยู่เมืองไทยอีกสองปี",
-    "example_reading": "khun thaakeshi cà yùu mʉaŋthai ìik sɔ̌ɔŋ pii",
-    "example_meaning": "タケシさんはあと2年タイにいるつもりです"
+    "example": "เขาจะอยู่เชียงใหม่อีกหนึ่งปี",
+    "example_reading": "khǎo cà yùu chiiaŋmài ìik nʉŋ pii",
+    "example_meaning": "彼はあと1年チェンマイにいるつもりです"
   },
   {
     "id": 192,
@@ -2299,9 +2299,9 @@
     "pos": "n",
     "importance": 2,
     "frequency": 3,
-    "example": "สองเดือนก่อนดิฉันไปเขาใหญ่มา",
-    "example_reading": "sɔ̌ɔŋ dʉan kɔ̀ɔn dichán pai khǎoyài maa",
-    "example_meaning": "2ヶ月前、私はカオヤイに行ってきました"
+    "example": "สามเดือนก่อนเขาไปเที่ยวภูเก็ต",
+    "example_reading": "sǎam dʉan kɔ̀ɔn khǎo pai thîiaw phuukèt",
+    "example_meaning": "3ヶ月前、彼はプーケットへ旅行に行きました"
   },
   {
     "id": 193,
@@ -2311,9 +2311,9 @@
     "pos": "n",
     "importance": 2,
     "frequency": 3,
-    "example": "ผมทำงานอาทิตย์ละห้าวัน",
-    "example_reading": "phǒm tham ŋaan aathít lá hâa wan",
-    "example_meaning": "私は週に5日、仕事をします"
+    "example": "เธอทำงานอาทิตย์ละหกวัน",
+    "example_reading": "thəə thamŋaan aathít lá hòk wan",
+    "example_meaning": "彼女は週に6日働いています"
   },
   {
     "id": 194,
@@ -2335,9 +2335,9 @@
     "pos": "n",
     "importance": 2,
     "frequency": 2,
-    "example": "เดือนกันยายนดิฉันจะกลับญี่ปุ่น",
-    "example_reading": "dʉan kanyayon dichán cà klàp yîipùn",
-    "example_meaning": "私は9月に日本に帰る予定です"
+    "example": "เดือนตุลาคมเขาจะกลับเกาหลี",
+    "example_reading": "dʉan tulaakhom khǎo cà klàp kaolǐi",
+    "example_meaning": "10月、彼は韓国に帰る予定です"
   },
   {
     "id": 196,
@@ -2395,9 +2395,9 @@
     "pos": "verb",
     "importance": 2,
     "frequency": 2,
-    "example": "ดูแลตัวเองและรักษาสุขภาพด้วยนะครับ",
-    "example_reading": "duu lɛɛ tua eeŋ lɛ́ ráksǎa sùkkaphâap dûay ná khráp",
-    "example_meaning": "健康に気を付けてご自愛ください"
+    "example": "ดูแลสุขภาพด้วยนะ อย่าทำงานหนักเกินไป",
+    "example_reading": "duu lɛɛ sùkkaphâap dûay ná yàa thamŋaan nàk kəənpai",
+    "example_meaning": "健康に気をつけてね、働きすぎないように"
   },
   {
     "id": 201,
@@ -2479,9 +2479,9 @@
     "pos": "verb",
     "importance": 2,
     "frequency": 2,
-    "example": "แม่ของฉันขับรถไม่เป็น",
-    "example_reading": "mɛ̂ɛ khɔ̌ɔŋ chán khàp rót mâi pen",
-    "example_meaning": "私の母は車の運転ができません"
+    "example": "น้องสาวของเขาขับรถไม่เป็นเลย",
+    "example_reading": "nɔ́ɔŋsǎaw khɔ̌ɔŋ khǎo khàp rót mâi pen ləəy",
+    "example_meaning": "彼の妹は車の運転が全くできません"
   },
   {
     "id": 208,
@@ -2491,9 +2491,9 @@
     "pos": "verb",
     "importance": 2,
     "frequency": 2,
-    "example": "พรุ่งนี้คุณจะไปออกกำลังกายไหม",
-    "example_reading": "phrûŋníi khun cà pai ɔ̀ɔkkamlǎŋkaay mǎi",
-    "example_meaning": "明日、あなたは運動に行くつもりですか？"
+    "example": "เสาร์นี้คุณจะไปว่ายน้ำไหม",
+    "example_reading": "sǎo níi khun cà pai wâay nám mǎi",
+    "example_meaning": "今週土曜日、あなたは泳ぎに行くつもりですか？"
   },
   {
     "id": 209,
@@ -2503,9 +2503,9 @@
     "pos": "verb",
     "importance": 3,
     "frequency": 4,
-    "example": "ดิฉันทำงานตั้งแต่แปดโมงถึงเที่ยง",
-    "example_reading": "dichán tham ŋaan tâŋtɛ̀ɛ pɛ̀ɛt mooŋ thʉ̌ŋ thîiaŋ",
-    "example_meaning": "私は8時から正午まで仕事をします"
+    "example": "เขาทำงานตั้งแต่เก้าโมงถึงหกโมงเย็น",
+    "example_reading": "khǎo thamŋaan tâŋ tɛ̀ɛ kâaw mooŋ thʉ̌ŋ hòk mooŋ yen",
+    "example_meaning": "彼は9時から夕方6時まで仕事をします"
   },
   {
     "id": 210,
@@ -2527,9 +2527,9 @@
     "pos": "verb",
     "importance": 2,
     "frequency": 2,
-    "example": "หลังจากประชุมเสร็จดิฉันก็กลับบ้าน",
-    "example_reading": "lǎŋ càak pràchum sèt dichán kɔ̂ɔ klàp bâan",
-    "example_meaning": "会議を終えた後、私は家に帰ります"
+    "example": "หลังจากกินข้าวเสร็จเขาก็ล้างจาน",
+    "example_reading": "lǎŋ càak kin khâaw sèt khǎo kɔ̂ɔ láaŋ caan",
+    "example_meaning": "ご飯を食べ終えた後、彼は皿を洗いました"
   },
   {
     "id": 212,
@@ -2551,9 +2551,9 @@
     "pos": "verb",
     "importance": 2,
     "frequency": 2,
-    "example": "เขาไม่สบายจึงไม่ไปสอบ",
-    "example_reading": "khǎo mâi sabaay cʉŋ mâi pai sɔ̀ɔp",
-    "example_meaning": "彼は体調が悪かったので試験を受けに行きませんでした"
+    "example": "รถติดมากจึงไปถึงสายกว่าที่คิด",
+    "example_reading": "rót tìt mâak cʉŋ pai thʉ̌ŋ sǎay kwàa thîi khít",
+    "example_meaning": "渋滞がひどかったので、思ったより遅く着きました"
   },
   {
     "id": 214,
@@ -2563,9 +2563,9 @@
     "pos": "verb",
     "importance": 2,
     "frequency": 2,
-    "example": "อาจารย์สอนภาษาจีนให้ผม",
-    "example_reading": "aacaan sɔ̌ɔn phaasǎa ciin hâi phǒm",
-    "example_meaning": "先生は私に中国語を教えてくれます"
+    "example": "เขาสอนภาษาอังกฤษให้นักเรียนทุกวัน",
+    "example_reading": "khǎo sɔ̌ɔn phaasǎa aŋkrìt hâi nákrian thúk wan",
+    "example_meaning": "彼は毎日生徒に英語を教えています"
   },
   {
     "id": 215,
@@ -2599,9 +2599,9 @@
     "pos": "verb",
     "importance": 2,
     "frequency": 2,
-    "example": "ถ้ากลับบ้านแล้วโทรหาดิฉันด้วยนะ",
-    "example_reading": "thâa klàp bâan lɛ́ɛw thoo hǎa dichán dûay ná",
-    "example_meaning": "家に帰ったら私に電話してね"
+    "example": "ถ้าเสร็จงานแล้วโทรหาผมด้วยนะ",
+    "example_reading": "thâa sèt ŋaan lɛ́ɛw thoo hǎa phǒm dûay ná",
+    "example_meaning": "仕事が終わったら私に電話してね"
   },
   {
     "id": 218,
@@ -2611,9 +2611,9 @@
     "pos": "verb",
     "importance": 2,
     "frequency": 2,
-    "example": "กรุณาฝากข้อความหลังจากดังสัญญาณ",
-    "example_reading": "karúnaa fàak khôɔkhwaam lǎŋ càak daŋ sǎnyaan",
-    "example_meaning": "発信音の後にメッセージを残してください"
+    "example": "ช่วยฝากของไว้ที่เคาน์เตอร์หน่อยได้ไหม",
+    "example_reading": "chûay fàak khɔ̌ɔŋ wái thîi khaontəə nɔ̀y dâi mǎi",
+    "example_meaning": "カウンターに荷物を預けていただけますか？"
   },
   {
     "id": 219,
@@ -2659,9 +2659,9 @@
     "pos": "verb",
     "importance": 2,
     "frequency": 2,
-    "example": "ไปตีเทนนิสด้วยกันไหม",
-    "example_reading": "pai tii thennít dûay kan mǎi",
-    "example_meaning": "一緒にテニスをしに行きませんか？"
+    "example": "ไปเตะฟุตบอลด้วยกันไหมวันเสาร์นี้",
+    "example_reading": "pai tè fútbɔɔn dûay kan mǎi wan sǎo níi",
+    "example_meaning": "今週土曜日、一緒にサッカーをしに行きませんか？"
   },
   {
     "id": 223,
@@ -2671,9 +2671,9 @@
     "pos": "verb",
     "importance": 2,
     "frequency": 2,
-    "example": "ไปตีเทนนิสด้วยกันไหม",
-    "example_reading": "pai tii thennít dûay kan mǎi",
-    "example_meaning": "一緒にテニスをしに行きませんか？"
+    "example": "เขาชอบตีแบดมินตันกับเพื่อนทุกอาทิตย์",
+    "example_reading": "khǎo chɔ̂ɔp tii bɛ̂ɛtminton kàp phʉ̂an thúk aathít",
+    "example_meaning": "彼は毎週友達とバドミントンをするのが好きです"
   },
   {
     "id": 224,
@@ -2707,9 +2707,9 @@
     "pos": "verb",
     "importance": 2,
     "frequency": 2,
-    "example": "ผมขอแสดงความยินดีกับคุณด้วยนะครับ",
-    "example_reading": "phǒm khɔ̌ɔ sàdɛɛŋ khwaam yindii kàp khun dûay ná khráp",
-    "example_meaning": "あなたに祝辞を述べさせていただきます"
+    "example": "ขอแสดงความยินดีกับการสำเร็จการศึกษาของคุณ",
+    "example_reading": "khɔ̌ɔ sàdɛɛŋ khwaam yindii kàp kaan sǎmrèt kaansʉ̀ksǎa khɔ̌ɔŋ khun",
+    "example_meaning": "ご卒業おめでとうございます"
   },
   {
     "id": 227,
@@ -2743,9 +2743,9 @@
     "pos": "adj",
     "importance": 2,
     "frequency": 3,
-    "example": "ไม่เจอกันนานคุณดูสวยขึ้นนะ",
-    "example_reading": "mâi cəə kan naan khun duu sǔay khʉ̂n ná",
-    "example_meaning": "久しく見ないうちにきれいになったね"
+    "example": "เธอดูสวยขึ้นมากหลังจากตัดผมใหม่",
+    "example_reading": "thəə duu sǔay khʉ̂n mâak lǎŋ càak tàt phǒm mài",
+    "example_meaning": "髪を切ってからとてもきれいになりましたね"
   },
   {
     "id": 230,
@@ -2827,9 +2827,9 @@
     "pos": "adj",
     "importance": 2,
     "frequency": 2,
-    "example": "ประเทศญี่ปุ่นเล็กกว่าประเทศจีน",
-    "example_reading": "pràthêet yîipùn lék kwàa pràthêet ciin",
-    "example_meaning": "日本は中国より小さいです"
+    "example": "ห้องนี้เล็กกว่าห้องนั้นมาก",
+    "example_reading": "hôŋ níi lék kwàa hôŋ nán mâak",
+    "example_meaning": "この部屋はあの部屋よりずっと小さいです"
   },
   {
     "id": 237,
@@ -2839,9 +2839,9 @@
     "pos": "adj",
     "importance": 2,
     "frequency": 2,
-    "example": "ทะเลกว้างกว่าแม่น้ำ",
-    "example_reading": "thálee kwâaŋ kwàa mɛ̂ɛnám",
-    "example_meaning": "海は川よりも広い"
+    "example": "แม่น้ำสายนี้กว้างกว่าสายนั้น",
+    "example_reading": "mɛ̂ɛnám sǎay níi kwâaŋ kwàa sǎay nán",
+    "example_meaning": "この川はあの川より広いです"
   },
   {
     "id": 238,
@@ -2863,9 +2863,9 @@
     "pos": "adj",
     "importance": 2,
     "frequency": 2,
-    "example": "ไม่ได้เจอกันนานเลยนะ",
-    "example_reading": "mâi dâi cəə kan naan ləəy ná",
-    "example_meaning": "お久しぶりですね（長く会っていないね）"
+    "example": "สองปีแล้วที่ไม่ได้เจอกัน",
+    "example_reading": "sɔ̌ɔŋ pii lɛ́ɛw thîi mâi dâi cəə kan",
+    "example_meaning": "もう2年間会っていません"
   },
   {
     "id": 240,
@@ -2935,9 +2935,9 @@
     "pos": "adj",
     "importance": 2,
     "frequency": 2,
-    "example": "เมื่อคืนกินส้มตำวันนี้ก็เลยปวดท้อง",
-    "example_reading": "mʉ̂akhʉʉnníi kin sômtam wanníi kɔ̂ɔ ləəy pùat thɔ́ɔŋ",
-    "example_meaning": "昨晩ソムタムを食べたので今日はお腹が痛い"
+    "example": "เดินมาไกลมากตอนนี้ปวดขาเลย",
+    "example_reading": "dəən maa klai mâak tɔɔn níi pùat khǎa ləəy",
+    "example_meaning": "長い距離を歩いたので今足が痛いです"
   },
   {
     "id": 246,
@@ -3199,9 +3199,9 @@
     "pos": "adv",
     "importance": 2,
     "frequency": 2,
-    "example": "ปกติดิฉันไปนวดบ่อยๆ",
-    "example_reading": "pàkàtì dichán pai nûat bɔ̀ibɔ̀i",
-    "example_meaning": "普段、私は頻繁にマッサージに行きます"
+    "example": "ปกติเขาออกกำลังกายทุกเช้า",
+    "example_reading": "pàkàtì khǎo ɔ̀ɔkkamlǎŋkaay thúk cháaw",
+    "example_meaning": "普段、彼は毎朝運動しています"
   },
   {
     "id": 268,
@@ -3211,9 +3211,9 @@
     "pos": "adv",
     "importance": 2,
     "frequency": 2,
-    "example": "ดิฉันกลับบ้านโดยรถยนต์เป็นประจำ",
-    "example_reading": "dichán klàp bâan dooy rótyon pen pràcam",
-    "example_meaning": "私はいつも車で家に帰ります"
+    "example": "เขากลับบ้านโดยรถไฟเป็นประจำ",
+    "example_reading": "khǎo klàp bâan dooy rótfai pen pràcam",
+    "example_meaning": "彼はいつも電車で家に帰ります"
   },
   {
     "id": 269,
@@ -3235,9 +3235,9 @@
     "pos": "adv",
     "importance": 2,
     "frequency": 2,
-    "example": "เมื่อวานซืนคุณกลับบ้านกี่โมง",
-    "example_reading": "mʉ̂awaan sʉʉn khun klàp bâan kìi mooŋ",
-    "example_meaning": "一昨日、あなたは何時に家に帰りましたか？"
+    "example": "เมื่อวานซืนเธอนอนกี่โมง",
+    "example_reading": "mʉ̂awaan sʉʉn thəə nɔɔn kìi mooŋ",
+    "example_meaning": "一昨日、あなたは何時に寝ましたか？"
   },
   {
     "id": 271,
@@ -3307,9 +3307,9 @@
     "pos": "adv",
     "importance": 2,
     "frequency": 3,
-    "example": "ตอนบ่ายผมมีนัดกับลูกค้า",
-    "example_reading": "tɔɔn bàay phǒm mii nát kàp lûukkháa",
-    "example_meaning": "午後、僕は顧客と約束があります"
+    "example": "ตอนบ่ายเธอมีนัดกับอาจารย์",
+    "example_reading": "tɔɔn bàay thəə mii nát kàp aacaan",
+    "example_meaning": "午後、彼女は先生との約束があります"
   },
   {
     "id": 277,
@@ -3331,9 +3331,9 @@
     "pos": "n",
     "importance": 3,
     "frequency": 3,
-    "example": "คุณสนใจอะไรในประเทศไทย",
-    "example_reading": "khun sǒncai arai nai pràthêet thai",
-    "example_meaning": "あなたはタイの何に興味がありますか？"
+    "example": "เขาสนใจเรื่องวัฒนธรรมไทยมาก",
+    "example_reading": "khǎo sǒncai rʉ̂aŋ wátthanatham thai mâak",
+    "example_meaning": "彼はタイの文化にとても興味があります"
   },
   {
     "id": 279,
@@ -3379,9 +3379,9 @@
     "pos": "n",
     "importance": 3,
     "frequency": 4,
-    "example": "ภาษาไทยยากแต่สนุก",
-    "example_reading": "phaasǎa thai yâak tɛ̀ɛ sanùk",
-    "example_meaning": "タイ語は難しいが楽しい"
+    "example": "ภาษาญี่ปุ่นยากแต่สนุกมาก",
+    "example_reading": "phaasǎa yîipùn yâak tɛ̀ɛ sanùk mâak",
+    "example_meaning": "日本語は難しいがとても楽しいです"
   },
   {
     "id": 283,
@@ -3403,9 +3403,9 @@
     "pos": "n",
     "importance": 2,
     "frequency": 2,
-    "example": "ดูแลตัวเองและรักษาสุขภาพด้วยนะครับ",
-    "example_reading": "duu lɛɛ tua eeŋ lɛ́ ráksǎa sùkkaphâap dûay ná khráp",
-    "example_meaning": "健康に気を付けてご自愛ください"
+    "example": "รักษาสุขภาพด้วยนะ อย่าเครียดมากเกินไป",
+    "example_reading": "ráksǎa sùkkaphâap dûay ná yàa khrîat mâak kəənpai",
+    "example_meaning": "健康に気をつけてね、ストレスをためすぎないように"
   },
   {
     "id": 285,
@@ -3415,9 +3415,9 @@
     "pos": "n",
     "importance": 2,
     "frequency": 3,
-    "example": "วันนี้อากาศดีไม่ค่อยร้อน",
-    "example_reading": "wanníi aakàat dii mâi khôy rɔ́ɔn",
-    "example_meaning": "今日は天気が良く、あまり暑くない"
+    "example": "วันนี้อากาศดีไม่ค่อยหนาวเลย",
+    "example_reading": "wanníi aakàat dii mâi khôy nǎaw ləəy",
+    "example_meaning": "今日は天気が良くてあまり寒くないです"
   },
   {
     "id": 286,
@@ -3463,9 +3463,9 @@
     "pos": "n",
     "importance": 2,
     "frequency": 2,
-    "example": "ทะเลกว้างกว่าแม่น้ำ",
-    "example_reading": "thálee kwâaŋ kwàa mɛ̂ɛnám",
-    "example_meaning": "海は川よりも広い"
+    "example": "สระว่ายน้ำที่นั่นกว้างกว่าที่นี่",
+    "example_reading": "sàwâaynám thîi nân kwâaŋ kwàa thîinîi",
+    "example_meaning": "あそこのプールはここより広いです"
   },
   {
     "id": 290,
@@ -3475,9 +3475,9 @@
     "pos": "n",
     "importance": 2,
     "frequency": 2,
-    "example": "น้องชายจะพาหมาไปที่สวนสาธารณะ",
-    "example_reading": "nɔ́ɔŋchaay cà phaa mǎa pai thîi sǔansǎatharáná",
-    "example_meaning": "弟は犬を公園へ連れて行きます"
+    "example": "ครูพาเด็กๆ ไปทัศนศึกษาที่พิพิธภัณฑ์",
+    "example_reading": "khruu phaa dèkdèk pai thátsànasʉ̀ksǎa thîi phíphítthaphan",
+    "example_meaning": "先生は子どもたちを博物館へ遠足に連れて行きました"
   },
   {
     "id": 291,
@@ -3499,9 +3499,9 @@
     "pos": "n",
     "importance": 2,
     "frequency": 2,
-    "example": "ที่จตุจักรมีของเยอะและราคาถูก",
-    "example_reading": "thîi càtùcàk mii khɔ̌ɔŋ yə́ lɛ́ raakhaa thùuk",
-    "example_meaning": "チャトチャックマーケットは物が多くて値段が安い"
+    "example": "ที่ตลาดนัดสวนจตุจักรมีของเยอะและราคาไม่แพง",
+    "example_reading": "thîi talàatnát sǔan càtùcàk mii khɔ̌ɔŋ yə́ lɛ́ raakhaa mâi phɛɛŋ",
+    "example_meaning": "チャトチャック公園のフリーマーケットは品物が多くて値段も高くないです"
   },
   {
     "id": 293,
@@ -3523,9 +3523,9 @@
     "pos": "n",
     "importance": 2,
     "frequency": 2,
-    "example": "อพาร์ตเมนต์ของเธออยู่ใกล้กับห้างสรรพสินค้า",
-    "example_reading": "aphâatmen khɔ̌ɔŋ thəə yùu klâi kàp hâaŋ",
-    "example_meaning": "彼女のアパートはデパートの近くにあります"
+    "example": "คอนโดของเขาอยู่ใกล้กับสถานีรถไฟฟ้า",
+    "example_reading": "khɔɔndoo khɔ̌ɔŋ khǎo yùu klâi kàp sàthǎanii rótfaifáa",
+    "example_meaning": "彼のマンションは電車の駅の近くにあります"
   },
   {
     "id": 295,
@@ -3535,9 +3535,9 @@
     "pos": "n",
     "importance": 2,
     "frequency": 2,
-    "example": "สถานทูตญี่ปุ่นอยู่ที่ไหน",
-    "example_reading": "sàthǎanthûut yîipùn yùu thîi nǎi",
-    "example_meaning": "日本大使館はどこですか？"
+    "example": "สถานทูตเกาหลีอยู่แถวไหนครับ",
+    "example_reading": "sàthǎanthûut kaolǐi yùu thɛ̌w nǎi khráp",
+    "example_meaning": "韓国大使館はどの辺りにありますか？"
   },
   {
     "id": 296,
@@ -3547,9 +3547,9 @@
     "pos": "n",
     "importance": 2,
     "frequency": 2,
-    "example": "อาทิตย์หน้าผมจะไปหาคุณปู่ที่จังหวัดภูเก็ต",
-    "example_reading": "aathít nâa phǒm cà pai hǎa khun pùu thîi caŋwàt phuukèt",
-    "example_meaning": "来週、私はプーケット県へおじいさんを訪ねに行くつもりです"
+    "example": "อาทิตย์หน้าเธอจะไปเยี่ยมย่าที่จังหวัดเชียงราย",
+    "example_reading": "aathít nâa thəə cà pai yîiam yâa thîi caŋwàt chiiaŋraay",
+    "example_meaning": "来週、彼女はチェンライ県のおばあさんを訪ねに行くつもりです"
   },
   {
     "id": 297,
@@ -3559,9 +3559,9 @@
     "pos": "n",
     "importance": 2,
     "frequency": 2,
-    "example": "ช่วยบอกที่อยู่ของคุณหน่อย",
-    "example_reading": "chûay bòok thîiyùu khɔ̌ɔŋ khun nɔ̀y",
-    "example_meaning": "あなたの住所を教えてください"
+    "example": "ช่วยบอกหมายเลขห้องของคุณหน่อยได้ไหม",
+    "example_reading": "chûay bòok mǎaylêek hôŋ khɔ̌ɔŋ khun nɔ̀y dâi mǎi",
+    "example_meaning": "あなたの部屋番号を教えていただけますか？"
   },
   {
     "id": 298,
@@ -3583,9 +3583,9 @@
     "pos": "n",
     "importance": 2,
     "frequency": 2,
-    "example": "กรุณาส่งรายงานภายในวันพรุ่งนี้",
-    "example_reading": "karúnaa sòŋ raayŋaan phaay nay wan phrûŋníi",
-    "example_meaning": "明日までにレポートを送ってください"
+    "example": "กรุณาส่งใบสมัครภายในวันศุกร์",
+    "example_reading": "karúnaa sòŋ baisàmàk phaay nay wan sùk",
+    "example_meaning": "金曜日までに申込書を送ってください"
   },
   {
     "id": 300,
