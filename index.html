@@ -269,6 +269,11 @@
             <span class="filter-toggle__track"></span>
             <span class="filter-toggle__label">習得済みも表示</span>
           </label>
+          <label class="filter-toggle" for="fc-filter-favorite">
+            <input type="checkbox" id="fc-filter-favorite" class="filter-toggle__input" />
+            <span class="filter-toggle__track"></span>
+            <span class="filter-toggle__label">お気に入りのみ</span>
+          </label>
           <div class="filter-actions">
             <button class="btn-text" id="fc-shuffle-btn" type="button">シャッフル</button>
             <button class="btn-text btn-text--danger" id="fc-reset-btn" type="button">状態リセット</button>
@@ -300,6 +305,7 @@
           <div class="flashcard-inner" id="flashcard-inner">
             <!-- 表面 -->
             <div class="flashcard-face flashcard-front">
+              <button id="fc-favorite-btn-front" type="button" class="fc-star-btn" aria-label="お気に入り">☆</button>
               <div class="fc-badge-row">
                 <span class="fc-pos-badge" id="fc-pos-badge" data-pos=""></span>
                 <span class="fc-importance" id="fc-importance" data-importance="2"></span>
@@ -312,6 +318,7 @@
             </div>
             <!-- 裏面 -->
             <div class="flashcard-face flashcard-back">
+              <button id="fc-favorite-btn-back" type="button" class="fc-star-btn" aria-label="お気に入り">☆</button>
               <div class="fc-meaning" id="fc-meaning">–</div>
               <div class="fc-example" id="fc-example" lang="th"></div>
               <div class="fc-example-reading" id="fc-example-reading"></div>

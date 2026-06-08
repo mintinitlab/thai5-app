@@ -14,6 +14,40 @@ const LS_KEY          = 'thai5_fc_state';
 const LS_PROGRESS_KEY = 'thai5_progress';
 const LS_SESSION_KEY  = 'thai5_fc_session';
 const LS_QUIZ_SESSION_KEY = 'thai5_quiz_session';
+const LS_FAVORITES_KEY = 'thai5_fc_favorites';
+
+let FC_FAVORITES = new Set();
+
+function loadFavorites() {
+  try {
+    const arr = JSON.parse(localStorage.getItem(LS_FAVORITES_KEY) || '[]');
+    FC_FAVORITES = new Set(arr.map(String));
+  } catch {
+    FC_FAVORITES = new Set();
+  }
+}
+
+function saveFavorites() {
+  try {
+    localStorage.setItem(LS_FAVORITES_KEY, JSON.stringify([...FC_FAVORITES]));
+  } catch {
+    console.warn('favorites 書き込み失敗');
+  }
+}
+
+function toggleFavorite(id) {
+  const sid = String(id);
+  if (FC_FAVORITES.has(sid)) {
+    FC_FAVORITES.delete(sid);
+  } else {
+    FC_FAVORITES.add(sid);
+  }
+  saveFavorites();
+}
+
+function isFavorite(id) {
+  return FC_FAVORITES.has(String(id));
+}
 
 const POS_LABEL = {
   verb: '動詞', aux: '助動詞', prep: '前置詞', conj: '接続詞',
@@ -62,6 +96,7 @@ let fcIndex   = 0;
 let fc_filterPos = 'all';
 let fc_filterImp = 'all';
 let fc_showKnown = false;
+let fc_filterFavorite = false;
 
 /* ---------- 音声再生ロック管理（Chrome 対策） ---------- */
 let speechUnlocked = false;
@@ -94,6 +129,7 @@ function saveSession() {
       fc_filterPos,
       fc_filterImp,
       fc_showKnown,
+      fc_filterFavorite,
       limit: $('#fc-question-limit')?.value ?? 'all'
     }));
   } catch {
@@ -275,6 +311,7 @@ function buildActive() {
   const filtered = VOCAB_DATA.filter((c) => {
     if (fc_filterPos !== 'all' && c.pos !== fc_filterPos) return false;
     if (fc_filterImp !== 'all' && (c.importance ?? 1) < parseInt(fc_filterImp)) return false;
+    if (fc_filterFavorite && !isFavorite(c.id)) return false;
     return true;
   });
 
@@ -413,6 +450,19 @@ function renderFC() {
 
   const okBtn = $('#fc-ok-btn');
   if (okBtn) okBtn.textContent = st === 'known' ? '習得済 ✓' : '覚えた ✓';
+  const isFav = isFavorite(c.id);
+  const star  = isFav ? '⭐' : '☆';
+
+  ['#fc-favorite-btn-front', '#fc-favorite-btn-back'].forEach((sel) => {
+    const btn = $(sel);
+    if (!btn) return;
+    btn.textContent = star;
+    btn.onclick = (e) => {
+      e.stopPropagation();
+      toggleFavorite(c.id);
+      renderFC();
+    };
+  });
 
   saveSession();
 
@@ -505,6 +555,13 @@ function initFlashcard() {
   $('#fc-show-known')?.addEventListener('change', (e) => {
     fc_showKnown = e.target.checked; fcIndex = 0; buildActive(); renderFC();
   });
+  $('#fc-filter-favorite')?.addEventListener('change', (e) => {
+    fc_filterFavorite = e.target.checked;
+    fcIndex = 0;
+    buildActive();
+    renderFC();
+  });
+
 
   $('#fc-shuffle-btn')?.addEventListener('click', () => {
     fc_active = [
@@ -538,6 +595,8 @@ function initFlashcard() {
     fc_filterPos  = session.fc_filterPos ?? 'all';
     fc_filterImp  = session.fc_filterImp ?? 'all';
     fc_showKnown  = session.fc_showKnown ?? false;
+    fc_filterFavorite  = session.fc_filterFavorite  ?? false;
+    $('#fc-filter-favorite').checked = fc_filterFavorite;    
     $('#fc-filter-pos').value        = fc_filterPos;
     $('#fc-filter-importance').value = fc_filterImp;
     $('#fc-show-known').checked      = fc_showKnown;
@@ -921,6 +980,7 @@ async function loadDataAndInit() {
     filteredQuizData = [...QUIZ_DATA];
     
     FC_STATE   = loadState();
+    loadFavorites();
 
     initFlashcard();
     initQuiz();
@@ -994,4 +1054,3 @@ document.addEventListener('DOMContentLoaded', () => {
   loadDataAndInit();
   document.addEventListener('keydown', handleFlashcardKeydown);
 });
-ENDJS
