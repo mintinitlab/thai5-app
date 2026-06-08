@@ -903,7 +903,7 @@
     "id": 76,
     "thai": "สูง",
     "reading": "sǔuŋ",
-    "meaning": "高い（背・高さ）・高い（位置）",
+    "meaning": "高い（背・高さ・位置）",
     "pos": "adj",
     "importance": 2,
     "frequency": 3,
@@ -967,9 +967,9 @@
     "pos": "adj",
     "importance": 2,
     "frequency": 5,
-    "example": "บ้านของผมอยู่ไม่ไกลจากที่นี่",
+    "example": "บ้านของผมอยู่ใกล้จากที่นี่",
     "example_reading": "bâan khɔ̌ɔŋ phǒm yùu mâi klai càak thîinîi",
-    "example_meaning": "私の家はここから遠くない"
+    "example_meaning": "私の家はここから近いです"
   },
   {
     "id": 82,
@@ -2402,13 +2402,13 @@
   {
     "id": 201,
     "thai": "เปิด",
-    "reading": "pèet",
+    "reading": "pə̀ət",
     "meaning": "開ける・つける（電気・機器）",
     "pos": "verb",
     "importance": 2,
     "frequency": 2,
     "example": "อากาศร้อนมากช่วยเปิดแอร์หน่อย",
-    "example_reading": "aakàat rɔ́ɔn mâak chûay pèet ɛɛ nɔ̀y",
+    "example_reading": "aakàat rɔ́ɔn mâak chûay pə̀ət ɛɛ nɔ̀y",
     "example_meaning": "とても暑いのでエアコンをつけてください"
   },
   {
