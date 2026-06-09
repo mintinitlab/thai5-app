@@ -599,7 +599,7 @@
   },
   {
     "id": 47,
-    "title": "時間：午前の時刻",
+    "title": "時間：午前の時刻(6時〜11時)",
     "pattern": "数 + mooŋ cháaw",
     "meaning": "午前〜時",
     "category": "time",
@@ -608,11 +608,11 @@
     "example_thai": "เขาตื่นนอนตั้งแต่หกโมงเช้าเสมอ",
     "example_reading": "khǎo tʉ̀ʉn nɔɔn tâŋ tɛ̀ɛ hòk mooŋ cháaw samə̌ə",
     "example_jp": "彼はいつも朝6時に起きます",
-    "warn": "午前7〜12時はN mooŋ cháaw。深夜0〜6時はtii N（tii nʉŋ〜tii hòk）。午後はbàay N mooŋまたはN mooŋ yen"
+    "warn": "午前6〜11時は数 + mooŋ cháawで表す。mooŋはドラの音、cháawは朝の意味。"
   },
   {
     "id": 48,
-    "title": "時間：午後の時刻",
+    "title": "時間：午後の時刻(1時〜6時)",
     "pattern": "bàay + 数 + mooŋ / 数 + mooŋ yen",
     "meaning": "午後〜時",
     "category": "time",
@@ -621,7 +621,7 @@
     "example_thai": "นัดพบอยู่ที่บ่ายสองโมงที่คาเฟ่",
     "example_reading": "nát phóp yùu thîi bàay sɔ̌ɔŋ mooŋ thîi kaaféê",
     "example_jp": "待ち合わせは午後2時にカフェです",
-    "warn": "午後1〜6時はbàay N mooŋまたはN mooŋ yen。夜19〜24時はN thûm。tii sìi（午前4時）と混同しないこと"
+    "warn": "午後1〜3時はbàay + 数 + mooŋ、午後4〜6時は数 + mooŋ yen。bàayは午後、yenは夕方の意味。"
   },
   {
     "id": 49,
@@ -1051,5 +1051,45 @@
     "example_reading": "khǎo pai thîiaw yîipùn lǎay khráŋ lɛ́ɛw",
     "example_jp": "彼は日本へ何度も旅行したことがあります",
     "warn": "khráŋは回数を数える類別詞。ìik khráŋ（もう一度）・thúk khráŋ（毎回）など定型表現とセットで覚えると効率的"
+  },
+  {
+    "id": 82,
+    "title": "時間：夜の時刻(午後7時〜11時)",
+    "pattern": "数 + thûm",
+    "meaning": "夜〜時（午後7時〜11時）",
+    "category": "time",
+    "importance": 3,
+    "frequency": 4,
+    "example_thai": "เขากลับบ้านสี่ทุ่มเสมอ",
+    "example_reading": "khǎo klàp bâan sìi thûm samə̌ə",
+    "example_meaning": "彼はいつも夜10時に家に帰ります",
+    "example_jp": "彼はいつも夜10時に家に帰ります",
+    "warn": "nʉŋ thûm（19時）・sɔ̌ɔŋ thûm（20時）・sǎam thûm（21時）・sìi thûm（22時）・hâa thûm（23時）。thûmは太鼓の音の意味。"
+  },
+  {
+    "id": 83,
+    "title": "時間：深夜の時刻(午前1時〜5時)",
+    "pattern": "tii + 数",
+    "meaning": "午前〜時（深夜・早朝）",
+    "category": "time",
+    "importance": 2,
+    "frequency": 3,
+    "example_thai": "เขานอนดึกมากตื่นตีสี่",
+    "example_reading": "khǎo nɔɔn dʉ̀k mâak tʉ̀ʉn tii sìi",
+    "example_jp": "彼はとても夜更かしをして、午前4時に起きました",
+    "warn": "tii 1〜5でそれぞれ午前1〜5時。tiiは叩くの意味、昔は夜中に太鼓を叩いて時間を知らせていたことに由来する。"
+  },
+  {
+    "id": 84,
+    "title": "時間：正午・深夜０時",
+    "pattern": "thîiaŋ / thîiaŋ khʉʉn",
+    "meaning": "正午・午前0時（真夜中）",
+    "category": "time",
+    "importance": 2,
+    "frequency": 3,
+    "example_thai": "ร้านอาหารเปิดตั้งแต่เที่ยงถึงสี่โมงเย็น",
+    "example_reading": "ráan aahǎan pèet tâŋ tɛ̀ɛ thîiaŋ thʉ̌ŋ sìi mooŋ yen",
+    "example_jp": "そのレストランは正午から午後4時まで営業しています",
+    "warn": "thîiaŋ（正午・12時）とthîiaŋ khʉʉn（真夜中・0時）を区別する。khʉʉnは夜の意味。"
   }
 ]
