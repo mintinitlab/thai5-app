@@ -79,7 +79,7 @@
   },
   {
     "id": 7,
-    "title": "時間範囲",
+    "title": "時点：〜から…まで",
     "pattern": "tâŋ tɛ̀ɛ + 開始 + thʉ̌ŋ + 終了",
     "meaning": "〜から…まで",
     "category": "time",
@@ -88,7 +88,7 @@
     "example_thai": "ร้านอาหารนั้นเปิดตั้งแต่เช้าถึงค่ำ",
     "example_reading": "ráan aahǎan nán pèet tâŋ tɛ̀ɛ cháaw thʉ̌ŋ khâm",
     "example_jp": "あのレストランは朝から夜まで営業しています",
-    "warn": "時間の「から」はtâŋ tɛ̀ɛ、場所の「から」はcàakと使い分ける。同じ日本語「から」でも文脈で使い分けが必須"
+    "warn": " 時間の「から」はtâŋ tɛ̀ɛ、場所の「から」はcàak。同じ「から」でも使い分けが必須。tâŋ tɛ̀ɛ…thʉ̌ŋのセットで覚える"
   },
   {
     "id": 8,
@@ -235,7 +235,7 @@
   },
   {
     "id": 19,
-    "title": "時点表現",
+    "title": "時点：〜の時・〜頃",
     "pattern": "tɔɔn + 時間帯 / 状況",
     "meaning": "〜の時・〜頃",
     "category": "time",
@@ -521,42 +521,42 @@
   },
   {
     "id": 41,
-    "title": "時間：〜から（時間）",
-    "pattern": "tâŋ tɛ̀ɛ + 時間",
-    "meaning": "〜から（時間の起点）",
-    "category": "time",
-    "importance": 3,
-    "frequency": 9,
-    "example_thai": "ร้านอาหารเปิดตั้งแต่สิบเอ็ดโมงถึงสองทุ่ม",
-    "example_reading": "ráan aahǎan pèet tâŋ tɛ̀ɛ sìpèt mooŋ thʉ̌ŋ sɔ̌ɔŋ thûm",
-    "example_jp": "そのレストランは11時から夜8時まで営業しています",
-    "warn": "時間の「から」はtâŋ tɛ̀ɛ、場所の「から」はcàak。同じ「から」でも使い分けが必須。tâŋ tɛ̀ɛ…thʉ̌ŋのセットで覚える"
-  },
-  {
-    "id": 42,
     "title": "時間：〜まで",
     "pattern": "thʉ̌ŋ + 時間・場所",
     "meaning": "〜まで・〜に至る",
     "category": "time",
     "importance": 3,
     "frequency": 4,
-    "example_thai": "เขาเรียนภาษาญี่ปุ่นตั้งแต่เช้าถึงบ่าย",
-    "example_reading": "khǎo riian phaasǎa yîipùn tâŋ tɛ̀ɛ cháaw thʉ̌ŋ bàay",
-    "example_jp": "彼は朝から午後まで日本語を勉強します",
+    "example_thai": "ฉันจะรอถึงเที่ยง",
+    "example_reading": "chán cà rɔɔ thʉ̌ŋ thîiaŋ",
+    "example_jp": "私は正午まで待つつもりです",
     "warn": "thʉ̌ŋはtâŋ tɛ̀ɛとセットで使うことが多い。単独でも「到着する」の意味で使える"
   },
   {
-    "id": 43,
-    "title": "時間：〜の時・〜頃",
-    "pattern": "tɔɔn + 時間帯・状況",
-    "meaning": "〜の時・〜頃",
+    "id": 42,
+    "title": "時間：来週",
+    "pattern": "aathít + nâa",
+    "meaning": "来週",
     "category": "time",
-    "importance": 3,
-    "frequency": 6,
-    "example_thai": "ตอนเด็กเขาอยากเป็นหมอ",
-    "example_reading": "tɔɔn dèk khǎo yàak pen mɔ̌ɔ",
-    "example_jp": "子供の頃、彼は医者になりたかった",
-    "warn": "tɔɔn dèk（子供の頃）はほぼ毎回出題される定型表現。chûaŋ（〜の期間）やweelaa（〜の時間）との使い分けも問われる"
+    "importance": 2,
+    "frequency": 3,
+    "example_thai": "อาทิตย์หน้าเราไปเที่ยวทะเลกันไหมคะ",
+    "example_reading": "aathít nâa rau pai thîiaw thálee kan mái khá",
+    "example_jp": "来週、私たち一緒に海に遊びに行きませんか？",
+    "warn": "nâa(次の）を組み合わせることで未来を表す。「今週」はaathít + níi(この〜)、「先週」はaathít + thîi lɛ́ɛw(〜前の)。"
+  },
+  {
+    "id": 43,
+    "title": "時間：来年",
+    "pattern": "pii + nâa",
+    "meaning": "来年",
+    "category": "time",
+    "importance": 2,
+    "frequency": 2,
+    "example_thai": "ปีหน้าพี่สาวจะไปทำงานที่ญี่ปุ่น",
+    "example_reading": "pii nâa phîisǎaw cà pai tham ŋaan thîi yîipùn",
+    "example_jp": "来年、姉は日本へ働きに行くつもりです",
+    "warn": "pii(年)とnâa(次の）を組み合わせることで未来を表す。「今年」はpii + níi(この〜)、「昨年」はpii + thîi lɛ́ɛw(〜前の)。"
   },
   {
     "id": 44,

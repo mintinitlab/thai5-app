@@ -16,6 +16,31 @@ const LS_SESSION_KEY  = 'thai5_fc_session';
 const LS_QUIZ_SESSION_KEY = 'thai5_quiz_session';
 const LS_FAVORITES_KEY = 'thai5_fc_favorites';
 
+/* ---------- クイズお気に入り ---------- */
+const LS_QUIZ_FAV_KEY = 'thai5_quiz_favorites';
+
+let QUIZ_FAVORITES = new Set();
+
+function loadQuizFavorites() {
+  try {
+    const arr = JSON.parse(localStorage.getItem(LS_QUIZ_FAV_KEY) || '[]');
+    QUIZ_FAVORITES = new Set(arr);
+  } catch { QUIZ_FAVORITES = new Set(); }
+}
+
+function saveQuizFavorites() {
+  try { localStorage.setItem(LS_QUIZ_FAV_KEY, JSON.stringify([...QUIZ_FAVORITES])); }
+  catch { console.warn('quiz favorites 書き込み失敗'); }
+}
+
+function toggleQuizFavorite(id) {
+  if (QUIZ_FAVORITES.has(id)) { QUIZ_FAVORITES.delete(id); }
+  else { QUIZ_FAVORITES.add(id); }
+  saveQuizFavorites();
+}
+
+function isQuizFavorite(id) { return QUIZ_FAVORITES.has(id); }
+
 let FC_FAVORITES = new Set();
 
 function loadFavorites() {
@@ -739,6 +764,8 @@ let quizAnswered = false;
 let correctCount  = 0;
 let answeredCount = 0;
 
+let quizFilterFavorite = false;
+
 function renderQuiz() {
   const q = filteredQuizData[quizIndex];
   if (!q) return;
@@ -765,7 +792,10 @@ function renderQuiz() {
 
   const cur = $('#quiz-current'); if (cur) cur.textContent = quizIndex + 1;
   const tot = $('#quiz-total');   if (tot) tot.textContent = filteredQuizData.length;
-  
+  const favBtn = $('#quiz-favorite-btn');
+  if (favBtn) {
+    favBtn.textContent = isQuizFavorite(q.id) ? '⭐' : '☆';
+  }
   saveQuizSession();
 
 }
@@ -840,6 +870,20 @@ function initQuiz() {
   filteredQuizData = QUIZ_DATA.slice();
 
   $('#quiz-start-btn')?.addEventListener('click', applyQuizCategoryFilter);
+  $('#quiz-filter-favorite')?.addEventListener('change', (e) => {
+    quizFilterFavorite = e.target.checked;
+    applyQuizCategoryFilter();
+  });
+  
+  $('#quiz-favorite-btn')?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const q = filteredQuizData[quizIndex];
+    if (!q) return;
+    toggleQuizFavorite(q.id);
+    const btn = $('#quiz-favorite-btn');
+    if (btn) btn.textContent = isQuizFavorite(q.id) ? '⭐' : '☆';
+  });
+  
 
   $$('.choice-btn').forEach((btn) => btn.addEventListener('click', () => judgeAnswer(btn.dataset.choiceId)));
   $('#quiz-next-btn')?.addEventListener('click', goNextQuiz);
@@ -981,6 +1025,7 @@ async function loadDataAndInit() {
     
     FC_STATE   = loadState();
     loadFavorites();
+    loadQuizFavorites();
 
     initFlashcard();
     initQuiz();
@@ -998,11 +1043,11 @@ async function loadDataAndInit() {
    ============================================================ */
 
 function filterQuizData(category) {
-  if (category === 'all') return QUIZ_DATA;
-
-  return QUIZ_DATA.filter(
-    q => (q.theme ?? q.category ?? '') === category
-  );
+  return QUIZ_DATA.filter(q => {
+    if (category !== 'all' && (q.theme ?? q.category ?? '') !== category) return false;
+    if (quizFilterFavorite && !isQuizFavorite(q.id)) return false;
+    return true;
+  });
 }
 
 function applyQuizCategoryFilter() {

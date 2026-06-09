@@ -370,6 +370,11 @@
             <option value="shopping">買い物</option>
             <option value="food">食事</option>
           </select>
+          <label class="filter-toggle" for="quiz-filter-favorite">
+            <input type="checkbox" id="quiz-filter-favorite" class="filter-toggle__input" />
+            <span class="filter-toggle__track"></span>
+            <span class="filter-toggle__label">⭐ のみ</span>
+          </label>
           <button class="btn-primary" id="quiz-start-btn" type="button">開始</button>
         </div>
         <div class="quiz-meta" id="quiz-meta" aria-live="polite">
@@ -381,7 +386,11 @@
       <div class="quiz-stage" id="quiz-stage">
         <div id="quiz-card">
           <!-- 問題文 -->
-          <div class="quiz-question-block" id="quiz-question-block">
+          <div class="quiz-question-block" id="quiz-question-block" style="position:relative;">
+            <button id="quiz-favorite-btn"
+                    type="button"
+                    style="position:absolute;top:10px;right:10px;background:none;border:none;font-size:20px;cursor:pointer;line-height:1;"
+                    aria-label="お気に入り">☆</button>
             <p class="quiz-question-jp" id="quiz-question-jp">問題文（日本語）がここに入ります</p>
             <p class="quiz-question-thai" id="quiz-question-thai" lang="th">
               タイ語の問題文 ( &nbsp;&nbsp;&nbsp;&nbsp; ) がここに
