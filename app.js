@@ -1053,8 +1053,15 @@ function filterQuizData(category) {
 function applyQuizCategoryFilter() {
   const sel = $('#quiz-filter-theme');
   const category = sel ? sel.value : 'all';
+  const limit = $('#quiz-question-limit')?.value ?? 'all';
 
   filteredQuizData = filterQuizData(category);
+
+  // 出題数制限
+  if (limit !== 'all') {
+    filteredQuizData =
+      filteredQuizData.slice(0, Number(limit));
+  }
 
   quizIndex = 0;
   clearQuizSession();

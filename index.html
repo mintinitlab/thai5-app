@@ -272,7 +272,7 @@
           <label class="filter-toggle" for="fc-filter-favorite">
             <input type="checkbox" id="fc-filter-favorite" class="filter-toggle__input" />
             <span class="filter-toggle__track"></span>
-            <span class="filter-toggle__label">お気に入りのみ</span>
+            <span class="filter-toggle__label">⭐️お気に入り のみ</span>
           </label>
           <div class="filter-actions">
             <button class="btn-text" id="fc-shuffle-btn" type="button">シャッフル</button>
@@ -370,10 +370,17 @@
             <option value="shopping">買い物</option>
             <option value="food">食事</option>
           </select>
+          <label class="filter-label" for="quiz-question-limit">出題数</label>
+          <select id="quiz-question-limit" class="filter-select">
+            <option value="10">10問</option>
+            <option value="20" selected>20問</option>
+            <option value="50">50問</option>
+            <option value="all">全件</option>
+          </select>
           <label class="filter-toggle" for="quiz-filter-favorite">
             <input type="checkbox" id="quiz-filter-favorite" class="filter-toggle__input" />
             <span class="filter-toggle__track"></span>
-            <span class="filter-toggle__label">⭐ のみ</span>
+            <span class="filter-toggle__label">⭐のみ</span>
           </label>
           <button class="btn-primary" id="quiz-start-btn" type="button">開始</button>
         </div>
